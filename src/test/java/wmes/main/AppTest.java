@@ -1,4 +1,4 @@
-package wmes.wmes1;
+package wmes.main;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
