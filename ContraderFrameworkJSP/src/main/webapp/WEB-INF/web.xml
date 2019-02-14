@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>HelloWorldServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.HelloWorldServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>DisplayAllBooksServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.DisplayAllBooksServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>FindBooksByAuthorServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.FindBooksByAuthorServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AddNewBookServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.AddNewBookServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AddToCartServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.AddToCartServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ViewCartServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.ViewCartServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.LoginServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.LogoutServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GestoreServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.GestoreServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>CandidatoServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.CandidatoServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RecruiterServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.RecruiterServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>CancellaAnnuncioServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.CancellaAnnuncioServlet</servlet-class>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>IscrizioneAnnuncioServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.IscrizioneAnnuncioServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>VisualizzaCandidatiAnnuncioServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.VisualizzaCandidatiAnnuncioServlet</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>HelloWorldServlet</servlet-name>
+		<url-pattern>/hello-everyone.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DisplayAllBooksServlet</servlet-name>
+		<url-pattern>/all-books.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>FindBooksByAuthorServlet</servlet-name>
+		<url-pattern>/FindBooksByAuthor.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AddNewBookServlet</servlet-name>
+		<url-pattern>/AddNewBook.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AddToCartServlet</servlet-name>
+		<url-pattern>/addToCart.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ViewCartServlet</servlet-name>
+		<url-pattern>/viewCart.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>GestoreServlet</servlet-name>
+		<url-pattern>/GestoreServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>CandidatoServlet</servlet-name>
+		<url-pattern>/CandidatoServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>RecruiterServlet</servlet-name>
+		<url-pattern>/RecruiterServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>CancellaAnnuncioServlet</servlet-name>
+		<url-pattern>/CancellaAnnuncioServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>IscrizioneAnnuncioServlet</servlet-name>
+		<url-pattern>/IscrizioneAnnuncioServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>VisualizzaCandidatiAnnuncioServlet</servlet-name>
+		<url-pattern>/VisualizzaCandidatiAnnuncioServlet</url-pattern>
+	</servlet-mapping>
+
+
+
+	<session-config>
+		<session-timeout>4000</session-timeout>
+	</session-config>
+
+</web-app>
