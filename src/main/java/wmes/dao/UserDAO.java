@@ -46,8 +46,7 @@ public class UserDAO {
 			preparedStatement.setString(1, user.getUsername());
 			preparedStatement.setString(2, user.getPassword());
 			preparedStatement.setString(3, user.getUsertype());
-			preparedStatement.execute(); 
-			System.out.print("ciccio");
+			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
 			GestoreEccezioni.getInstance().gestisciEccezione(e);
