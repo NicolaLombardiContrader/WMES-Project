@@ -15,6 +15,7 @@ public class UserView implements View {
   public UserView () {
       this.userService = new UserService();
       this.mode = "all";
+      
   }
 
     @Override
