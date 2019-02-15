@@ -18,7 +18,7 @@ public class UserDAO {
 	private final String QUERY_DELETE = "delete from user where user_id=?";
 
 	public UserDAO() {
-
+ 
 	}
 
 	public List<User> getAllUser() {
