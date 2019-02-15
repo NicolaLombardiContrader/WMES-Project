@@ -1,4 +1,6 @@
-*target*
+#*target*
+
+*/target/*
 
 # eclipse specific git ignore
 *.pydevproject
