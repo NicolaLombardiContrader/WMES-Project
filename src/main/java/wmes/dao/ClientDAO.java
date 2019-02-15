@@ -11,7 +11,6 @@ import java.util.List;
 import wmes.controller.GestoreEccezioni;
 import wmes.main.ConnectionSingleton;
 import wmes.model.Client;
-import wmes.model.User;
 
 public class ClientDAO {
 
