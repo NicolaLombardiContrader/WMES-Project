@@ -16,13 +16,13 @@ public class HomeView implements View {
 
 
     public void showOptions() {
-        System.out.println("Benvenuto in ContraderFramework");
+        System.out.println("Benvenuto in WMES");
         System.out.println("");
         System.out.println("");
         System.out.println("-------MENU-------");
         System.out.println("");
-        System.out.println("1) Inserisci gomma");
-        System.out.println("2) Visualizza gomme disponibili");
+        System.out.println("1) Inserisci utente");
+        System.out.println("2) Visualizza utenti disponibili");
         System.out.println("3) Logout");
         this.choice = Integer.parseInt(getInput());
     }
