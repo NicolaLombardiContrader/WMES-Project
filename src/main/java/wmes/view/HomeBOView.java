@@ -34,7 +34,7 @@ public class HomeBOView implements View {
         else {
             Request request = new Request();
             request.put("choice", choice);
-            MainDispatcher.getInstance().callAction("Home", "doControl", request);
+            MainDispatcher.getInstance().callAction("Login", "doControl", request);
         }
     }
 

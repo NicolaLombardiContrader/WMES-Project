@@ -26,10 +26,10 @@ public class UserView implements View {
     public void showOptions() {
         switch (mode) {
             case "all":
-                List<User> gomme = userService.getAllUser();
+                List<User> users = userService.getAllUser();
                 System.out.println("----- Utenti disponibili -----");
                 System.out.println();
-                gomme.forEach(user -> System.out.println(user));
+                users.forEach(user -> System.out.println(user));
                 break;
             case "insert":
                 //Scanner scanner = new Scanner(System.in);
