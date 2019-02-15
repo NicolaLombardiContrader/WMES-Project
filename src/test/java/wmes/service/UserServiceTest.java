@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
+import wmes.main.TestUtils;
 import wmes.model.User;
 import wmes.service.UserService;
 
@@ -13,46 +14,51 @@ public class UserServiceTest {
 
 	private User userTest;
 	private UserService userService;
-	private int USERIDTEST = 100000;
-
+	private int userIdTest;
+	
 	@Before
 	public void setUp() throws Exception {
 		userTest = new User("AdminTest", "PasswordTest", "admin");
-		userTest.setUserId(USERIDTEST);
 		userService = new UserService();
-
+		userService.insertUser(userTest);
+		userIdTest = TestUtils.getLastInsertedID("user");
+		userTest.setUserId(userIdTest);
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		userService.deleteUser(USERIDTEST);
+		userService.deleteUser(userIdTest);
 	}
 
 	@Test
 	public void testInsertUser() {
-		userService.insertUser(userTest);
-		Assert.assertTrue(userService.insertUser(userTest));
+		User userInsertTest = new User("insertTest","insertTest","admin");
+		
+		//userService.insertUser(userInsertTest);
+		Assert.assertTrue(userService.insertUser(userInsertTest));
+		
+		int userInsertTestId = TestUtils.getLastInsertedID("user");
+		userService.deleteUser(userInsertTestId);
+		
 	}
 
 	@Test
 	public void testReadtUser() {
-		userService.insertUser(userTest);
-		User DBuser=userService.readUser(USERIDTEST);
+		User DBuser=userService.readUser(userIdTest);
 		Assert.assertTrue(DBuser.equals(userTest));
 	}
 
 	@Test
 	public void testUpdateUser() {
-		userService.insertUser(userTest);
 		userTest.setUser("Usernamemodificata");
 		userService.updateUser(userTest);
-		User DBUser = userService.readUser(USERIDTEST);
-		Assert.assertTrue(DBUser.getUsername()=="Usernamemodificata");
+		User DBUser = userService.readUser(userIdTest);
+		Assert.assertTrue(DBUser.getUsername().equals("Usernamemodificata"));
 	}
 
 	@Test
 	public void testDeleteUser() {
-		userService.deleteUser(USERIDTEST);
+		userService.deleteUser(userIdTest);
 	}
 
 }
