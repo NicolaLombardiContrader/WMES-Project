@@ -35,11 +35,12 @@ public class UserServiceTest {
 		User userInsertTest = new User("insertTest","insertTest","admin");
 		
 		//userService.insertUser(userInsertTest);
-		Assert.assertTrue(userService.insertUser(userInsertTest));
+		boolean userInsertedCheck = userService.insertUser(userInsertTest);
 		
 		int userInsertTestId = TestUtils.getLastInsertedID("user");
 		userService.deleteUser(userInsertTestId);
 		
+		Assert.assertTrue(userInsertedCheck);
 	}
 
 	@Test
