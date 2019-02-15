@@ -6,8 +6,8 @@ public class Client {
 	private User user;
 	private String clientName;
 
-	public Client(String clientName) {
-	//	this.user=user; 
+	public Client(User user, String clientName) {
+		this.user=user; 
 		this.clientName=clientName;
 	}
 

@@ -11,6 +11,7 @@ import java.util.List;
 import wmes.controller.GestoreEccezioni;
 import wmes.main.ConnectionSingleton;
 import wmes.model.Client;
+import wmes.model.User;
 
 public class ClientDAO {
 
@@ -31,8 +32,12 @@ public class ClientDAO {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			while (resultSet.next()) {
+				int userId = resultSet.getInt("user_id");
+				User userClient=new User(null,null,null);
+				userClient.setUserId(userId);
+				
 				String clientName = resultSet.getString("client_name");
-				clientList.add(new Client(clientName));
+				clientList.add(new Client(userClient,clientName));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -61,11 +66,15 @@ public class ClientDAO {
 			preparedStatement.setInt(1, clientId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String clientName;
-
+			String user, clientName;
+			
 			clientName = resultSet.getString("client_name");
+			int userId = resultSet.getInt("user_id");
+			User userClient=new User(null,null,null);
+			userClient.setUserId(userId);
+			
+			Client client = new Client(userClient, clientName);
 
-			Client client = new Client(clientName);
 			client.setClientId(resultSet.getInt("client_id"));
 
 			return client;
@@ -83,6 +92,7 @@ public class ClientDAO {
 		if (client.getClientId() == 0)
 			return false;
 
+		
 		try {
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 			preparedStatement.setString(1, client.getClientName());
@@ -96,7 +106,7 @@ public class ClientDAO {
 			return false;
 		}
 
-		
+	
 	}
 
 	public boolean deleteClient(Integer id) {
