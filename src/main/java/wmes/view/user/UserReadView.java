@@ -41,7 +41,7 @@ public class UserReadView implements View {
 	public void submit() {
 		request = new Request();
 		request.put("mode", "menu");
-		request.put("choice", 0);
+		request.put("choice", "");
 	    MainDispatcher.getInstance().callAction("User", "doControl", request);
 	}
 
