@@ -27,9 +27,11 @@ public class HomeAdminView implements View {
     }
 
     public void submit() {
-        if (choice.equals("U"))
-            MainDispatcher.getInstance().callView("User", null);
-        if (choice.equals("L"))
+        if (choice.equalsIgnoreCase("U")) {
+        	MainDispatcher.getInstance().callView("User", null);
+        }
+        
+        if (choice.equalsIgnoreCase("L"))
             MainDispatcher.getInstance().callAction("Login", "doControl", null);
         else {
             Request request = new Request();

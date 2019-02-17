@@ -1,20 +1,20 @@
-package wmes.view;
+package wmes.view.user;
 
 import wmes.main.MainDispatcher;
 import wmes.controller.Request;
 import wmes.model.User;
+import wmes.view.View;
 import wmes.controller.UserController;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class UserView implements View {
+public class UserReadView implements View {
 
 	private UserController usersController;
 	private Request request;
-	private String choice;
 	
-	public UserView() {
+	public UserReadView() {
 		this.usersController = new UserController();
 	}
 
@@ -24,26 +24,11 @@ public class UserView implements View {
 
 	@Override
 	public void showOptions() {
-		
-		System.out.println("\n------ Gestione utenti -------\n");
-		
-		System.out.println("ID\tUsername\tPassword\tTipoUtente");
-		System.out.print("------------------------------------------------------");
 		List<User> users = usersController.getAllUser();
 		System.out.println();
 		users.forEach(user -> System.out.println(user.toString()));
 		System.out.println();
 		
-		System.out.println("Scegli l'operazione da effettuare:");
-		System.out.println("[I]nserisci [M]odifica [C]ancella [L]ogout");
-		try {
-			this.choice = getInput();
-		} catch(Exception e) {
-			this.choice = "";
-		}
-		request = new Request();
-		request.put("choice", choice);
-		request.put("mode", "");
 	}
 
 	@Override
@@ -54,7 +39,10 @@ public class UserView implements View {
 
 	@Override
 	public void submit() {
-		    MainDispatcher.getInstance().callAction("User", "doControl", this.request);
+		request = new Request();
+		request.put("mode", "menu");
+		request.put("choice", 0);
+	    MainDispatcher.getInstance().callAction("User", "doControl", request);
 	}
 
 }

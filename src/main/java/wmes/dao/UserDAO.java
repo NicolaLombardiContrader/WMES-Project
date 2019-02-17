@@ -27,11 +27,15 @@ public class UserDAO {
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			User user;
 			while (resultSet.next()) {
+				int userId= resultSet.getInt("user_id");
 				String username = resultSet.getString("user_user");
 				String password = resultSet.getString("user_pass");
 				String usertype = resultSet.getString("user_type");
-				usersList.add(new User(username, password, usertype));
+				user = new User(username, password, usertype);
+				user.setUserId(userId);
+				usersList.add(user);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
