@@ -31,13 +31,17 @@ public class ClientDAO {
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			Client client;
 			while (resultSet.next()) {
 				int userId = resultSet.getInt("user_id");
 				User userClient=new User(null,null,null);
 				userClient.setUserId(userId);
 				
 				String clientName = resultSet.getString("client_name");
-				clientList.add(new Client(userClient,clientName));
+				
+				client = new Client(userClient,clientName);
+				client.setClientId(resultSet.getInt("client_id"));
+				clientList.add(client);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
