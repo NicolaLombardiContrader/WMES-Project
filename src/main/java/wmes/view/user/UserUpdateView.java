@@ -51,7 +51,7 @@ public class UserUpdateView implements View {
 				System.out.println("Digita la nuova password:");
 				password = getInput();
 				if (!password.equals(""))
-					user.setUser(password);
+					user.setPassword(password);
 
 				usersController.updateUser(user);
 
