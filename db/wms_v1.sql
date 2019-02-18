@@ -34,7 +34,6 @@ CREATE TABLE `client` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-insert into user (user_user, user_pass, user_type) values ('admin', 'admin', 'admin');
 
 --
 -- Dumping data for table `client`
@@ -94,6 +93,9 @@ CREATE TABLE `user` (
 --
 -- Dumping data for table `user`
 --
+
+insert into user (user_user, user_pass, user_type) values ('admin', 'admin', 'admin');
+
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
