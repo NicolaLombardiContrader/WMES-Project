@@ -9,7 +9,7 @@ import wmes.main.MainDispatcher;
 import wmes.model.Client;
 
 public class ClientView implements View {
-	 
+	  
 	private ClientController clientController;
 	private Request request;
 	private String choice;
