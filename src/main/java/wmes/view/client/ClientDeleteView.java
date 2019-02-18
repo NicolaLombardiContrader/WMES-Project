@@ -2,22 +2,20 @@ package wmes.view.client;
 
 import wmes.main.MainDispatcher;
 import wmes.controller.Request;
-import wmes.model.User;
 import wmes.view.View;
-import wmes.controller.UserController;
+import wmes.controller.ClientController;
 
-import java.util.List;
 import java.util.Scanner;
 
 import com.mysql.cj.util.StringUtils;
 
 public class ClientDeleteView implements View {
 
-	private UserController userController;
+	private ClientController clientController;
 	private Request request;
 
 	public ClientDeleteView() {
-		this.userController = new UserController();
+		this.clientController = new ClientController();
 	}
 
 	@Override
@@ -30,15 +28,15 @@ public class ClientDeleteView implements View {
 		//String usersId;
 
 		//users = userController.getAllUser();
-		System.out.println("Seleziona l'utente da cancellare: ");
+		System.out.println("Inserisci l'ID dell'utente da cancellare: ");
 		//System.out.println();
 		//user.forEach(user -> System.out.println(user));
 		//System.out.println();
 		//System.out.println("Digita l'ID:");
-		String usersId = getInput();
+		String clientId = getInput();
 
-		if (usersId != null && StringUtils.isStrictlyNumeric(usersId)) {
-			userController.deleteUser(Integer.parseInt(usersId));
+		if (clientId != null && StringUtils.isStrictlyNumeric(clientId)) {
+			clientController.deleteClient(Integer.parseInt(clientId));
 			
 		} else {
 			System.out.println("Valore inserito errato");
@@ -48,7 +46,7 @@ public class ClientDeleteView implements View {
 	@Override
 	public String getInput() {
 		Scanner scanner = new Scanner(System.in);
-		return scanner.nextLine();
+		return scanner.nextLine().trim();
 	}
 
 	@Override
@@ -56,7 +54,7 @@ public class ClientDeleteView implements View {
 		request = new Request();
 		request.put("mode", "menu");
 		request.put("choice", "");
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Client", "doControl", request);
 	}
 
 }

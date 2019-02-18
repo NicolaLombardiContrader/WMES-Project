@@ -2,9 +2,9 @@ package wmes.view.client;
 
 import wmes.main.MainDispatcher;
 import wmes.controller.Request;
-import wmes.model.User;
+import wmes.model.Client;
 import wmes.view.View;
-import wmes.controller.UserController;
+import wmes.controller.ClientController;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,11 +12,11 @@ import java.util.Scanner;
 
 public class ClientReadView implements View {
 
-	private UserController usersController;
+	private ClientController clientController;
 	private Request request;
 
 	public ClientReadView() {
-		this.usersController = new UserController();
+		this.clientController = new ClientController();
 	}
 
 	@Override
@@ -25,18 +25,16 @@ public class ClientReadView implements View {
 
 	@Override
 	public void showOptions() {
-		int userIdToRead;
+		int clientIdToRead;
 
-		System.out.println("Inserisci l'ID dell'utente:");
+		System.out.println("Inserisci l'ID del cliente:");
 
 		try {
-			userIdToRead = Integer.parseInt(getInput());
-			User userDB = usersController.readUser(userIdToRead);
-
-			System.out.println("Id: " + userDB.getUserId());
-			System.out.println("Username: " + userDB.getUsername());
-			System.out.println("Password: " + userDB.getPassword());
-			System.out.println("User type: " + userDB.getUsertype());
+			clientIdToRead = Integer.parseInt(getInput());
+			Client clientDB = clientController.readClient(clientIdToRead);
+			System.out.println("Id: " + clientDB.getClientId());
+			System.out.println("UserId: " + String.valueOf(clientDB.getUser().getUserId()));
+			System.out.println("Client name: " + clientDB.getClientName());
 			
 			//Wait user to show
 			System.out.println("Premi un tasto per continuare");
@@ -63,7 +61,7 @@ public class ClientReadView implements View {
 		request = new Request();
 		request.put("mode", "menu");
 		request.put("choice", "");
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Client", "doControl", request);
 	}
 
 }
