@@ -28,10 +28,7 @@ public class OrderDAO {
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
-			
-			if(resultSet.getFetchSize()==0)
-				return ordersList;
-			
+				
 			Order order;
 			while (resultSet.next()) {
 				int orderId = resultSet.getInt("order_id");
