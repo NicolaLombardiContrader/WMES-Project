@@ -17,7 +17,7 @@ public class HomeBOView implements View {
     public void showResults(Request request) {
     	System.out.println("Benvenuto in WMES "+request.get("nomeUtente").toString());
     }
-
+//mod
 
     public void showOptions() {
         System.out.println("-------MENU-------\n");
