@@ -28,9 +28,11 @@ public class HomeBOView implements View {
 
     public void submit() {
         if (choice.equalsIgnoreCase("C"))
-            MainDispatcher.getInstance().callAction("Client", "doControl", null);
+        	MainDispatcher.getInstance().callView("Client", null);
+            //MainDispatcher.getInstance().callAction("Client", "doControl", null);
         else if (choice.equalsIgnoreCase("O"))
-            MainDispatcher.getInstance().callAction("Order", "doControl", null);
+        	MainDispatcher.getInstance().callView("Order", null);
+            //MainDispatcher.getInstance().callAction("Order", "doControl", null);
         else {
             Request request = new Request();
             request.put("choice", choice);
