@@ -49,8 +49,8 @@ public class Order {
 	
 	@Override
 	public String toString() {
-		return this.getOrderId()+" "+this.getUserId()+" "+
-				this.getClientId()+" "+this.getDescription();
+		return this.getOrderId()+"\t"+this.getUserId()+"\t"+
+				this.getClientId()+"\t"+this.getDescription();
 	}
 	
 	public boolean equals(Order orderCompare)  {

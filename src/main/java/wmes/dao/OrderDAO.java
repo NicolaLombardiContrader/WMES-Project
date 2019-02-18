@@ -3,6 +3,7 @@ package wmes.dao;
 import wmes.main.ConnectionSingleton;
 import wmes.controller.GestoreEccezioni;
 import wmes.model.Order;
+import wmes.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,11 +28,21 @@ public class OrderDAO {
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			
+			if(resultSet.getFetchSize()==0)
+				return ordersList;
+			
+			Order order;
 			while (resultSet.next()) {
-				int userId = resultSet.getInt("order_userId");
-				int clientId = resultSet.getInt("order_clientId");
+				int orderId = resultSet.getInt("order_id");
+				int userId = resultSet.getInt("user_id");
+				int clientId = resultSet.getInt("client_id");
 				String description = resultSet.getString("order_description");
-				ordersList.add(new Order(userId, clientId, description));
+				order = new Order(userId, clientId, description);
+				order.setOrderId(orderId);
+					
+				
+				ordersList.add(order);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
