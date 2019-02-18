@@ -17,12 +17,12 @@ public class HomeBOView implements View {
     public void showResults(Request request) {
     	System.out.println("Benvenuto in WMES "+request.get("nomeUtente").toString());
     }
-
+//mod
 
     public void showOptions() {
         System.out.println("-------MENU-------\n");
         System.out.println("Seleziona cosa vuoi gestire:");
-        System.out.println("[C]lienti [O]rdini oppure [L]ogout ");
+        System.out.println("[C]lienti [O]rdini [E]sci ");
         this.choice = this.getInput();
     }
 
@@ -36,12 +36,13 @@ public class HomeBOView implements View {
             request.put("choice", choice);
             MainDispatcher.getInstance().callAction("Login", "doControl", request);
         }
+        
     }
 
 
     public String getInput() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 
 

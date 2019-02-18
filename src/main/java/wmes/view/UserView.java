@@ -35,7 +35,7 @@ public class UserView implements View {
 		System.out.println();
 		
 		System.out.println("Scegli l'operazione da effettuare:");
-		System.out.println("[I]nserisci [M]odifica [C]ancella [L]ogout");
+		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [E]sci");
 		try {
 			this.choice = getInput();
 		} catch(Exception e) {

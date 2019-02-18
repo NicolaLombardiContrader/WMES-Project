@@ -21,7 +21,7 @@ public class OrderDAO {
 
 	}
 
-	public List<Order> getAllUser() {
+	public List<Order> getAllOrder() {
 		List<Order> ordersList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {

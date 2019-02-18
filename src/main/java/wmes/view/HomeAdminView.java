@@ -22,7 +22,7 @@ public class HomeAdminView implements View {
     public void showOptions() {
         System.out.println("-------MENU-------\n");
         System.out.println("Seleziona cosa vuoi gestire:");
-        System.out.println("[U]tenti [L]ogout");
+        System.out.println("[U]tenti [E]sci");
         this.choice = this.getInput();
     }
 
