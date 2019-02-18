@@ -5,7 +5,7 @@ import java.util.List;
 import wmes.main.MainDispatcher;
 import wmes.model.Client;
 import wmes.service.ClientService;
-
+ 
 public class ClientController implements Controller {
 	
 	private static String sub_package = "client.";
