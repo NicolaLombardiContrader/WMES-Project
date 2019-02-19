@@ -3,6 +3,7 @@
 <title>Benvenuti in WMES</title>
 </head>
 <body>
-	<h2>Hello World!</h2>
+	<h1>Benvenuti in WMES</h1>
+	<a href="./insertUser.jsp"> Inserici nuovo user</a>
 </body>
 </html>

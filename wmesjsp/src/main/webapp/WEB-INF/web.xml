@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Benvenuti in WMES</display-name>
+  <servlet>
+  	<servlet-name>insertUser</servlet-name>
+  	<display-name>insertUser</display-name>
+  	<description>Inserimento nuovo user</description>
+  	<servlet-class>servlet.insertUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>insertUser</servlet-name>
+  	<url-pattern>/insertUser.do</url-pattern>
+  </servlet-mapping>
 </web-app>
