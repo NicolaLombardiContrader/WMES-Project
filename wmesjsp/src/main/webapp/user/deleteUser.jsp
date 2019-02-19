@@ -7,6 +7,6 @@
 <title>Cancella Utente</title>
 </head>
 <body>
-<h1>Cancella</h1>
+<h1>Utente eliminato con successo</h1>
 </body>
 </html>

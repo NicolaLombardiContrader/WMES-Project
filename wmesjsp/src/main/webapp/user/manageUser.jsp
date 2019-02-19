@@ -7,7 +7,10 @@
 <head>
 <title>Gestione Utenti</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+	crossorigin="anonymous">
 </head>
 <%
 	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUser");
@@ -16,13 +19,14 @@
 <body>
 	<h1>
 		Benvenuto
-		<%=request.getSession().getAttribute("utente")%></h1>
-<br>
+		<%=((UserDTO) request.getSession().getAttribute("utente")).getUsername()%></h1>
+	<br>
 
-<a href="UserServlet?richiesta=insert">Inserisci nuovo Utente</a>
+	<a href="UserServlet?richiesta=insertRedirect">Inserisci nuovo
+		Utente</a>
 
-<br>
-	<form action="Servlet" method="post">
+	<br />
+	
 		<table border="2">
 			<tr>
 				<th>ID</th>
@@ -39,13 +43,12 @@
 				<td><%=user.getPassword()%></td>
 				<td><%=user.getUsertype()%></td>
 
-				<td>
-					<form action="../UpdateRedirectServlet" method="post">
-						<input type="submit" value="modifica" name="richiesta">
-					</form>
+				<td><a href="UserServlet?richiesta=updateRedirect">Modifica</a>
 				</td>
-				<td><a
-					href="../UsersServlet?richiesta=delete&id=<%=user.getId()%>">Elimina</a>
+				<td>
+			
+				<a	href="UsersServlet?richiesta=delete"=<%=user.getId()%>">Elimina</a>
+				
 				</td>
 			</tr>
 			<%
@@ -53,8 +56,7 @@
 			%>
 		</table>
 
-		<input type="submit" value="Indietro" name="richiesta">
-	</form>
+		<a href="UserServlet?richiesta=indietro">Indietro</a>
 
 </body>
 </html>
