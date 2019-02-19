@@ -21,7 +21,6 @@ public class UserConverter {
 			if (userDTO.getId() != null)
 				user.setUserId(userDTO.getId());
 		}
-
 		
 		return user;
 	}
