@@ -26,6 +26,7 @@ public class UserServlet extends HttpServlet {
 	private final UserServiceDTO userServiceDTO = new UserServiceDTO();
 	private List<UserDTO> allUsers= new ArrayList<>();
 
+	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

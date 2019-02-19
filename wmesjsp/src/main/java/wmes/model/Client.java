@@ -6,13 +6,13 @@ public class Client {
 	private User user;
 	private String clientName;
 
+	public Client() {}
+	
 	public Client(User user, String clientName) {
 		this.user=user; 
 		this.clientName=clientName;
 	}
 
-
-	
 
 	public int getClientId() {
 		return clientId;

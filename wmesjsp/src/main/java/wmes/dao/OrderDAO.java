@@ -4,7 +4,7 @@ import wmes.main.ConnectionSingleton;
 import wmes.main.GestoreEccezioni;
 import wmes.model.Order;
 import wmes.model.User;
-
+import wmes.model.Client;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +12,11 @@ import java.util.List;
 public class OrderDAO {
 
 	private final String QUERY_ALL = "select * from order";
-	private final String QUERY_CREATE = "insert into order (user_user, user_pass, user_type) values (?,?,?)";
-	private final String QUERY_READ = "select * from order where order_orderId=?";
+	private final String QUERY_CREATE = "insert into order (user_id, client_id, order_description) values (?,?,?)";
+	private final String QUERY_READ = "select * from order where order_id=?";
 
-	private final String QUERY_UPDATE = "UPDATE order SET order_userId=?, order_clientId=?, order_description=? WHERE order_orderId=?";
-	private final String QUERY_DELETE = "delete from order where order_orderId=?";
+	private final String QUERY_UPDATE = "UPDATE order SET user_id=?, client_id=?, order_description=? WHERE order_id=?";
+	private final String QUERY_DELETE = "delete from order where order_id=?";
 
 	public OrderDAO() {
 
@@ -32,10 +32,12 @@ public class OrderDAO {
 			Order order;
 			while (resultSet.next()) {
 				int orderId = resultSet.getInt("order_id");
-				int userId = resultSet.getInt("user_id");
-				int clientId = resultSet.getInt("client_id");
+				User userOrder= new User();
+				userOrder.setUserId(resultSet.getInt("user_id"));
+				Client clientOrder = new Client();
+				clientOrder.setClientId(resultSet.getInt("client_id"));		
 				String description = resultSet.getString("order_description");
-				order = new Order(userId, clientId, description);
+				order = new Order(userOrder, clientOrder, description);
 				order.setOrderId(orderId);
 					
 				
@@ -51,8 +53,8 @@ public class OrderDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setInt(1, order.getUserId());
-			preparedStatement.setInt(2, order.getClientId());
+			preparedStatement.setInt(1, order.getUser().getUserId());
+			preparedStatement.setInt(2, order.getClient().getClientId());
 			preparedStatement.setString(3, order.getDescription());
 			return preparedStatement.execute();
 		} catch (SQLException e) {
@@ -72,11 +74,16 @@ public class OrderDAO {
 			int userId, clientId;
 			String description;
 
-			userId = resultSet.getInt("order_userId");
-			clientId = resultSet.getInt("order_clientId");
+			userId = resultSet.getInt("user_id");
+			User userOrder = new User();
+			userOrder.setUserId(userId);
+			
+			clientId = resultSet.getInt("client_id");
+			Client clientOrder = new Client();
+			clientOrder.setClientId(clientId);
 			description = resultSet.getString("order_description");
-			Order order = new Order(userId, clientId, description);
-			order.setOrderId(resultSet.getInt("order_orderId"));
+			Order order = new Order(userOrder, clientOrder, description);
+			order.setOrderId(resultSet.getInt("order_id"));
 
 			return order;
 		} catch (SQLException e) {
@@ -96,8 +103,8 @@ public class OrderDAO {
 		
 		try {
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-			preparedStatement.setInt(1, order.getUserId());
-			preparedStatement.setInt(2, order.getClientId());
+			preparedStatement.setInt(1, order.getUser().getUserId());
+			preparedStatement.setInt(2, order.getClient().getClientId());
 			preparedStatement.setString(3, order.getDescription());
 			preparedStatement.setInt(4, order.getOrderId());
 			int a = preparedStatement.executeUpdate();
