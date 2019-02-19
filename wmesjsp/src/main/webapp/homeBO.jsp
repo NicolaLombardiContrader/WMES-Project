@@ -15,7 +15,7 @@
 	<a href="order/manageOrder.jsp"> Gestione Ordini</a>
 	
 <br/>
-	<p><a href="login.jsp" target="self">Logout</a></p>
+	<p><a href="LogoutServlet" target="self">Logout</a></p>
 	
 </body>
 </html>

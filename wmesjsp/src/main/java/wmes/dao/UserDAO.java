@@ -17,7 +17,8 @@ public class UserDAO {
 
 	private final String QUERY_UPDATE = "UPDATE user SET user_user=?, user_pass=?, user_type=? WHERE user_id=?";
 	private final String QUERY_DELETE = "delete from user where user_id=?";
-
+	private final String QUERY_LOGIN = "select * from user where user_user=? and user_pass=?";
+	
 	public UserDAO() {
 
 	}
@@ -153,7 +154,8 @@ public class UserDAO {
 
 	}
 
-	public boolean deleteUser(Integer id) {
+	public boolean deleteUser(User user) {
+		int id = user.getUserId();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
@@ -164,5 +166,32 @@ public class UserDAO {
 		} catch (SQLException e) {
 		}
 		return false;
+	}
+	
+	
+	public User login(String username, String password) {
+
+		Connection connection = ConnectionSingleton.getInstance();
+		User utente = null;
+		try {
+			PreparedStatement statement = connection.prepareStatement(QUERY_LOGIN);
+			statement.setString(1, username);
+			statement.setString(2, password);
+			statement.execute();
+			ResultSet resultSet = statement.getResultSet();
+
+			while (resultSet.next()) {
+				String name = resultSet.getString("user_user");
+				String pass = resultSet.getString("user_pass");
+				Integer userId = resultSet.getInt("user_id");
+				String usertype = resultSet.getString("user_type");
+				utente = new User(name, pass, usertype);
+				utente.setUserId(userId);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return utente;
 	}
 }

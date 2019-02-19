@@ -1,8 +1,5 @@
 package wmes.converter;
 
-
-
-
 import wmes.dto.UserDTO;
 import wmes.model.User;
 
@@ -12,7 +9,6 @@ import wmes.model.User;
  */
 public class UserConverter {
 
-
 	/**
 	 * Converte un NodesDTO in Nodes
 	 */
@@ -21,7 +17,9 @@ public class UserConverter {
 		User user = null;
 		if (userDTO != null) {
 			user = new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getUsertype());
-			user.setUserId(userDTO.getId());
+
+			if (userDTO.getId() != null)
+				user.setUserId(userDTO.getId());
 		}
 
 		return user;
@@ -33,14 +31,14 @@ public class UserConverter {
 
 	public static UserDTO toDTO(User user) {
 
-		UserDTO userDTO  = null;
+		UserDTO userDTO = null;
 		if (user != null) {
-			userDTO = new UserDTO(user.getUserId(), user.getUsername(), user.getPassword(), user.getUsertype());
-			//userDTO.setId(user.getUserId());
+			userDTO = new UserDTO(user.getUsername(), user.getPassword(), user.getUsertype());
+			userDTO.setId(user.getUserId());
+			// userDTO.setId(user.getUserId());
 		}
 
 		return userDTO;
 	}
-	
 
 }

@@ -5,13 +5,16 @@
 <body>
 <h1>Benvenuti in WMES</h1>
 
-<form method="POST" action="login.do">
-
-    
-    User: <input type="text" size="40" maxlength="40" name="user"  /><br> 
-    Password: <input type="text" size="40" maxlength="40" name="password"  /><br> 
-    
-	<input type="SUBMIT" value="Login">
+<form action="LoginServlet" method="post">
+<h3>
+				username: <input type="text" id="user" name="username"
+					placeholder="inserisci username">
+			</h3>
+			<h3>
+				password: <input type="password" id="pass" name="password"
+					placeholder="inserisci password">
+			</h3>
+			<button type="submit" value="Login" name="pulsante">Login</button>
 	
 </form>  
 </body>
