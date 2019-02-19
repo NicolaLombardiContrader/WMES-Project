@@ -1,9 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Benvenuti in WMES</title>
+<meta charset="ISO-8859-1">
+<title>Benvenuto in WMES</title>
 </head>
 <body>
-<h1>Benvenuti in WMES</h1>
+<h1>Login</h1>
 
 <form method="POST" action="login.do">
 

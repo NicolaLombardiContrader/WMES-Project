@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Benvenuto in WMES</title>
+<title>Inserisci nuovo utente</title>
 </head>
 <body>
 <h1>Inserisci</h1>
 
-<form method="POST" action="InsertUser.do">
+<form method="POST" action="userAdded.jsp">
 
-    Id: <input type="text" size="40" maxlength="40" name="nome" /><br>
-    User: <input type="text" size="40" maxlength="40" name="user"  /><br> 
+ 
+    Username: <input type="text" size="40" maxlength="40" name="username"  /><br> 
     Password: <input type="text" size="40" maxlength="40" name="password"  /><br> 
-    Type: <input type="text" size="40" maxlength="40" name="password"  /><br>
+    User Type: <input type="text" size="40" maxlength="40" name="type"  /><br>
     
 	<input type="SUBMIT" value="Inserisci">
 	
