@@ -2,15 +2,15 @@ package wmes.model;
 
 public class Order {
 	private int orderId;
-	private int userId;
-	private int clientId;
+	private User user;
+	private Client client;
 	private String description;
 
 	public Order(){}
 		
-	public Order(int userId, int clientId, String description) {
-		this.userId=userId;
-		this.clientId=clientId;
+	public Order(User user, Client client, String description) {
+		this.user=user;
+		this.client=client;
 		this.description=description;
 	}
 
@@ -22,20 +22,20 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public int getClientId() {
-		return clientId;
+	public Client getClient() {
+		return client;
 	}
 
-	public void setClientId(int clientId) {
-		this.clientId = clientId;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public String getDescription() {
@@ -49,16 +49,18 @@ public class Order {
 	
 	@Override
 	public String toString() {
-		return this.getOrderId()+"\t"+this.getUserId()+"\t"+
-				this.getClientId()+"\t"+this.getDescription();
+		return this.getOrderId()+"\t"
+			+ this.getUser().getUserId() +"\t"
+			+ this.getClient().getClientId() +"\t"
+			+this.getDescription();
 	}
 	
 	public boolean equals(Order orderCompare)  {
-		if (this.getUserId()!=(orderCompare.getUserId())) {
+		if (this.getUser().getUserId()!=orderCompare.getUser().getUserId()) {
 			return false;
 		}
 		
-		if (this.getClientId()!=(orderCompare.getClientId())) {
+		if (this.getClient().getClientId()!=orderCompare.getClient().getClientId()) {
 			return false;
 		}
 		
