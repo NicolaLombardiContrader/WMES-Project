@@ -11,6 +11,9 @@ public class Client {
 		this.clientName=clientName;
 	}
 
+
+	
+
 	public int getClientId() {
 		return clientId;
 	}
