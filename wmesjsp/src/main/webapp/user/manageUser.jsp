@@ -1,40 +1,60 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page import="wmes.dto.UserDTO"%>
+<%@ page import="java.util.*"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Gestione Utenti</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
+<%
+	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUser");
+%>
+</head>
 <body>
-<h1>Gestione Utenti</h1>
+	<h1>
+		Benvenuto
+		<%=request.getSession().getAttribute("utente")%></h1>
+<br>
 
-<table style="width:100%; border:1px solid black;">
-  <tr>
-    <th>Username</th> 
-    <th>Password</th>
-    <th>User Type</th> 
-    
-  </tr>
-  <tr>
-    <td>Bobo</td>
-    <td>123</td> 
-    <td>Admin</td>
-    <td><a href="updateUser.jsp"><i class="far fa-edit"  title="Modifica"></i></a></td>
-    <td><a href="deleteUser.jsp"> <i class="fas fa-trash-alt"  title="Cancella"></i></a></td>
-  </tr>
-  <tr>
-    <td>Carlo</td>
-    <td>456</td> 
-    <td>Business Owner</td>
-    <td><a href="updateUser.jsp"> <i class="far fa-edit"  title="Modifica"></i> </a></td>
-    <td><a href="deleteUser.jsp"><i class="fas fa-trash-alt"  title="Cancella"></i></a></td>
-  </tr>
-</table>
-<br/>
-	<a href="insertUser.jsp"> Inserisci nuovo utente</a>
+<a href="UserServlet?richiesta=insert">Inserisci nuovo Utente</a>
+
+<br>
+	<form action="Servlet" method="post">
+		<table border="2">
+			<tr>
+				<th>ID</th>
+				<th>Username</th>
+				<th>Password</th>
+				<th>User Type</th>
+			</tr>
+			<%
+				for (UserDTO user : allUser) {
+			%>
+			<tr>
+				<td><%=user.getId()%></td>
+				<td><%=user.getUsername()%></td>
+				<td><%=user.getPassword()%></td>
+				<td><%=user.getUsertype()%></td>
+
+				<td>
+					<form action="../UpdateRedirectServlet" method="post">
+						<input type="submit" value="modifica" name="richiesta">
+					</form>
+				</td>
+				<td><a
+					href="../UsersServlet?richiesta=delete&id=<%=user.getId()%>">Elimina</a>
+				</td>
+			</tr>
+			<%
+				}
+			%>
+		</table>
+
+		<input type="submit" value="Indietro" name="richiesta">
+	</form>
 
 </body>
 </html>

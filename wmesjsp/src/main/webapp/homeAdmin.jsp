@@ -9,7 +9,7 @@
 <body>
 <h1>Home Admin</h1>
 <br/>
-	<a href="user/manageUser.jsp"> Gestione Utenti</a>
+	<a href="UserServlet?richiesta=UserManager"> Gestione Utenti</a>
 <br/>
 	<p><a href="LogoutServlet" target="self">Logout</a></p>
 </body>

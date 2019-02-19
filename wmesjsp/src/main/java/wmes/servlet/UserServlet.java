@@ -96,7 +96,7 @@ public class UserServlet extends HttpServlet {
 private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 	allUsers = this.userServiceDTO.getAllUsers();
-	request.setAttribute("allUsers", allUsers);
+	request.setAttribute("allUser", allUsers);
 	getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
 }
 }
