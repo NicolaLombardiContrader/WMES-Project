@@ -7,6 +7,6 @@
 <title>Cancella Cliente</title>
 </head>
 <body>
-<h1>Cancella</h1>
+<h1>Cancella </h1>
 </body>
 </html>
