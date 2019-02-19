@@ -49,7 +49,7 @@
 			
 				<a	href="UsersServlet?richiesta=delete"=<%=user.getId()%>">Elimina</a>
 				
-				</td>
+				</td> 
 			</tr>
 			<%
 				}
