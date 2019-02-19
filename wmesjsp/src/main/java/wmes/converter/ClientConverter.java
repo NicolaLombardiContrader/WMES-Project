@@ -9,7 +9,9 @@ public class ClientConverter {
 
 		Client client = null;
 		if (clientDTO != null) {
-			client = new Client(clientDTO.getId(),clientDTO.getUser(), clientDTO.getClientName());	
+			client = new Client(clientDTO.getUser(), clientDTO.getClientName());
+			client.setClientId(clientDTO.getId());
+
 		}
 
 		return client;
