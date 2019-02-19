@@ -17,7 +17,7 @@ import wmes.service.UserServiceDTO;
 
 
 /**
- * La servlet si occupa di parlare con la JSP e utilizza i servizi opportuni.
+ * La servle t si occupa di parlare con la JSP e utilizza i servizi opportuni.
  * Per chi far� User dovr� anche occuparsi del Login che abbiamo lasciato come struttura e va modificata in modo opportuno
  *
  */
