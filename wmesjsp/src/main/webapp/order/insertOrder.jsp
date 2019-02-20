@@ -9,13 +9,15 @@
 <body>
 <h1>Inserisci</h1>
 
-<form method="POST" action="insertOrder.do">
+<form method="POST" action="../OrderServlet?richiesta=insert">
 
-    ID Cliente: <input type="text" size="40" maxlength="40" name="idcliente" /><br>
-    Descrizione Ordine: <input type="text" size="40" maxlength="40" name="descrizione" /><br>
+ 
+    UserId: <input type="text" size="40" maxlength="40" name="user_id"  /><br> 
+    ClientId: <input type="text" size="40" maxlength="40" name="client_id"  /><br> 
+    Description: <input type="text" size="40" maxlength="40" name="order_description"  /><br>
     
 	<input type="SUBMIT" value="Inserisci">
-		
+	
 </form>  
 </body>
 </html>

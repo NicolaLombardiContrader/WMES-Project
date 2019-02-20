@@ -1,4 +1,6 @@
 <%@ page import="wmes.dto.OrderDTO"%>
+<%@ page import="wmes.dto.ClientDTO"%>
+<%@ page import="wmes.dto.UserDTO"%>
 <%@ page import="java.util.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
@@ -16,10 +18,10 @@
 	List<OrderDTO> allOrder = (List<OrderDTO>) request.getAttribute("allOrder");
 %>
 </head>
-<body>
+<body> 
 	<h1>
 		Benvenuto
-		<%=((OrderDTO) request.getSession().getAttribute("utente")).getUser().getUserId()%></h1>
+		<%=((OrderDTO) request.getSession().getAttribute("utente")).getUser().getUsername()%></h1>
 	<br>
 
 	<a href="UserServlet?richiesta=insertRedirect">Inserisci nuovo
@@ -39,8 +41,8 @@
 			%>
 			<tr>
 				<td><%=order.getId()%></td>
-				<td><%=order.getUser()%></td>
-				<td><%=order.getClient()%></td>
+				<td><%=order.getUser().getUserId()%></td>
+				<td><%=order.getClient().getClientId()%></td>
 				<td><%=order.getDescription()%></td>
 
 				<td><a href="UserServlet?richiesta=updateRedirect">Modifica</a>
