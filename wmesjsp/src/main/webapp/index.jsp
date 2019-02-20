@@ -5,7 +5,7 @@
 <body>
 <h1>Benvenuti in WMES</h1>
 
-<form action="LoginServlet" method="post">
+<form action="LoginServlet" method="post"> 
 <h3>
 				username: <input type="text" id="user" name="username"
 					placeholder="inserisci username">
