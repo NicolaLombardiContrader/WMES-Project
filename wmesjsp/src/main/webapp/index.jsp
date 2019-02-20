@@ -15,6 +15,7 @@
 	   padding:20px;
 }
 
+
 .pre_contenitore p{
      color:white;
      text-align: center;
