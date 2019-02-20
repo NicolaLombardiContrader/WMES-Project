@@ -33,7 +33,8 @@ public class OrderServlet extends HttpServlet {
 
 		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true);
-
+		final UserDTO userLogged=(UserDTO) session.getAttribute("utente");
+		
 		switch (scelta) {
 
 		case "OrderManager":
@@ -93,8 +94,8 @@ public class OrderServlet extends HttpServlet {
 		case "delete":
 			final Integer orderdeleteId = Integer.parseInt(request.getParameter("id"));
 			
-			UserDTO deleteOrderUser = new UserDTO("","","");
-			OrderDTO orderDelete = new OrderDTO(deleteOrderUser,new ClientDTO(deleteOrderUser,""),"");
+			//UserDTO deleteOrderUser = new UserDTO("","","");
+			OrderDTO orderDelete = new OrderDTO(userLogged,new ClientDTO(userLogged,""),"");
 			orderDelete.setId(orderdeleteId);
 			
 			orderServiceDTO.deleteOrder(orderDelete);
