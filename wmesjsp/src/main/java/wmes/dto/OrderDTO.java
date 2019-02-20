@@ -1,19 +1,19 @@
 package wmes.dto;
-import wmes.model.User;
-import wmes.model.Client;
+import wmes.dto.*;
+
 
 public class OrderDTO {
 
 	private Integer id;
-	private User user;			//pass the User object class
-	private Client client;		//pass the Client object class
+	private UserDTO userDTO;			//pass the User object class
+	private ClientDTO clientDTO;		//pass the Client object class
 	private String description;		
 	
-	public OrderDTO(Integer id, User user, Client client, String description) {
+	public OrderDTO(UserDTO userDTO, ClientDTO clientDTO, String description) {
 		super();
-		this.id = id;
-		this.user = user;
-		this.client = client;
+		//this.id = id;
+		this.userDTO = userDTO;
+		this.clientDTO = clientDTO;
 		this.description = description;
 	}
 
@@ -25,21 +25,22 @@ public class OrderDTO {
 		this.id = id;
 	}
 
-	public User getUser() {
-		return user;
+	public UserDTO getUserDTO() {
+		return userDTO;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserDTO(UserDTO userDTO) {
+		this.userDTO = userDTO;
 	}
 
-	public Client getClient() {
-		return client;
+	public ClientDTO getClientDTO() {
+		return clientDTO;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClientDTO(ClientDTO clientDTO) {
+		this.clientDTO = clientDTO;
 	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -47,5 +48,7 @@ public class OrderDTO {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	
 
 } 

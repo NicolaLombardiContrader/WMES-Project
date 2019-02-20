@@ -43,12 +43,12 @@ public class OrderServiceDTO {
 		
 }
 	
-	public boolean deleteUsers (OrderDTO orderDTO) {
+	public boolean deleteOrder (OrderDTO orderDTO) {
 		return this.orderDAO.deleteOrder(OrderConverter.toEntity(orderDTO));
 		
 }
 	
-	public boolean insertUsers (OrderDTO orderDTO) {
+	public boolean insertOrder (OrderDTO orderDTO) {
 		return this.orderDAO.insertOrder(OrderConverter.toEntity(orderDTO));
 	
 }	

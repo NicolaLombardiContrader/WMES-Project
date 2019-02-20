@@ -1,17 +1,16 @@
 package wmes.dto;
 
-import wmes.model.User;
 
 public class ClientDTO {
 	
 	private int Id;
-	private User user;
+	private UserDTO userDTO;
 	private String clientName;
 
-	public ClientDTO (User user, String clientName) {
+	public ClientDTO (UserDTO userDTO, String clientName) {
 		super();
 		//this.Id = Id;
-		this.user=user; 
+		this.userDTO=userDTO; 
 		this.clientName=clientName;
 	}
 
@@ -19,16 +18,16 @@ public class ClientDTO {
 		return Id;
 	}
 
-	public void setId(int Id) {
-		this.Id = Id;
+	public void setId(int id) {
+		Id = id;
 	}
 
-	public User getUser() {
-		return user;
+	public UserDTO getUserDTO() {
+		return userDTO;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserDTO(UserDTO userDTO) {
+		this.userDTO = userDTO;
 	}
 
 	public String getClientName() {
@@ -38,6 +37,8 @@ public class ClientDTO {
 	public void setClientName(String clientName) {
 		this.clientName = clientName;
 	}
+
+	
 
 	
 }
