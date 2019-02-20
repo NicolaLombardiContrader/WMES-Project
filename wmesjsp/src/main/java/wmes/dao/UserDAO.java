@@ -92,66 +92,43 @@ public class UserDAO {
 		if (userToUpdate.getUserId() == 0)
 			return false;
 
-		User userRead = readUser(userToUpdate);
-		if (!userRead.equals(userToUpdate)) {
-			try {
-				// Fill the userToUpdate object
-				if (userToUpdate.getUsername() == null || userToUpdate.getUsername().equals("")) {
-					userToUpdate.setUser(userRead.getUsername());
-				}
-
-				if (userToUpdate.getPassword() == null || userToUpdate.getPassword().equals("")) {
-					userToUpdate.setPassword(userRead.getPassword());
-				}
-
-				if (userToUpdate.getUsertype() == null || userToUpdate.getUsertype().equals("")) {
-					userToUpdate.setUsertype(userRead.getUsertype());
-				}
-
-				// Update the user
-				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setString(1, userToUpdate.getUsername());
-				preparedStatement.setString(2, userToUpdate.getPassword());
-				preparedStatement.setString(3, userToUpdate.getUsertype());
-				preparedStatement.setInt(4, userToUpdate.getUserId());
-				int a = preparedStatement.executeUpdate();
-				if (a > 0)
-					return true;
-				else
-					return false;
-
-			} catch (SQLException e) {
-				return false;
+		// User userRead = readUser(userToUpdate);
+		// if (!userRead.equals(userToUpdate)) {
+		try {
+			// Fill the userToUpdate object
+			/*
+			if (userToUpdate.getUsername() == null || userToUpdate.getUsername().equals("")) {
+			 
+				userToUpdate.setUser(userRead.getUsername());
 			}
-		}
 
-		return false;
-		/*
-		 * 
-		 * User userRead = readUser(userModified.getUserId());
-		 * 
-		 * //Update only if users are different if (!userRead.equals(userModified)) {
-		 * Vector<String> fieldsList = new Vector<String>(); if
-		 * (userModified.getUsername()!=null &&
-		 * !userRead.getUsername().equals(userModified.getUsername())) {
-		 * fieldsList.add("user_user='" + userModified.getUsername() + "'"); }
-		 * 
-		 * if (userModified.getPassword()!=null &&
-		 * !userRead.getPassword().equals(userModified.getPassword())) {
-		 * fieldsList.add("user_pass='" + userModified.getPassword() + "'"); }
-		 * 
-		 * if (userModified.getUsertype()!=null &&
-		 * !userRead.getUsertype().equals(userModified.getUsertype())) {
-		 * fieldsList.add("user_type='" + userModified.getUsertype() + "'"); }
-		 * 
-		 * String[] arrayFields = fieldsList.toArray(new String[fieldsList.size()]);
-		 * 
-		 * query = "UPDATE user SET "+String.join(",",
-		 * arrayFields)+" WHERE user_id="+userModified.getUserId();
-		 * 
-		 * 
-		 * dbConnection.insert(query); }
-		 */
+			if (userToUpdate.getPassword() == null || userToUpdate.getPassword().equals("")) {
+				userToUpdate.setPassword(userRead.getPassword());
+			}
+
+			if (userToUpdate.getUsertype() == null || userToUpdate.getUsertype().equals("")) {
+				userToUpdate.setUsertype(userRead.getUsertype());
+			}
+			
+			*/
+			// Update the user
+			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
+			preparedStatement.setString(1, userToUpdate.getUsername());
+			preparedStatement.setString(2, userToUpdate.getPassword());
+			preparedStatement.setString(3, userToUpdate.getUsertype());
+			preparedStatement.setInt(4, userToUpdate.getUserId());
+			int a = preparedStatement.executeUpdate();
+			if (a > 0)
+				return true;
+			else
+				return false;
+
+		} catch (SQLException e) {
+			return false;
+		}
+		//}
+
+		//return false;
 
 	}
 
