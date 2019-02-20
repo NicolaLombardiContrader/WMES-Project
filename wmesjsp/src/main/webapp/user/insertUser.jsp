@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ include file ="/header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 <body>
 <h1>Inserisci</h1>
 
-<form method="POST" action="../UserServlet?richiesta=insert">
+<form method="POST" action="/wmesjsp/UserServlet?richiesta=insert">
 
  
     Username: <input type="text" size="40" maxlength="40" name="user_user"  /><br> 

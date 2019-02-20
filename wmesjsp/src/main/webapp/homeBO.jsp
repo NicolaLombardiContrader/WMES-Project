@@ -9,7 +9,7 @@
 <body>
 <h1>Home Business Owner</h1>
 <br/>
-	<a href="client/manageClient.jsp"> Gestione Clienti</a>
+	<a href="ClientServlet?richiesta=ClientManager"> Gestione Clienti</a>
 	
 <br/>
 	<a href="OrderServlet?richiesta=OrderManager"> Gestione Ordini</a>

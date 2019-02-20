@@ -39,10 +39,10 @@ public class ClientServlet extends HttpServlet{
 			break;
 
 		case "insert":
-			final int userId = Integer.parseInt(request.getParameter("user_id"));
+			//final int userId = Integer.parseInt(request.getParameter("user_id"));
 			final String clientName = request.getParameter("client_name");
 			UserDTO userInsert = new UserDTO("","","");
-			userInsert.setId(userId);
+			//userInsert.setId(userId);
 			final ClientDTO clientInsert = new ClientDTO(userInsert, clientName);
 			clientServiceDTO.insertClient(clientInsert);
 			showAllClient(request, response);

@@ -103,6 +103,7 @@ public class OrderServlet extends HttpServlet {
 			response.sendRedirect("homeBO.jsp");
 			break;
 
+			
 		case "logsMenu":
 			response.sendRedirect("index.jsp");
 			break;
