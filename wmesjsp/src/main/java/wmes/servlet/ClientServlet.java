@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import wmes.dto.ClientDTO;
-import wmes.dto.UserDTO;
 import wmes.model.User;
 import wmes.service.ClientServiceDTO;
-import wmes.service.UserServiceDTO;
+
 
 public class ClientServlet extends HttpServlet{
 
@@ -56,7 +55,7 @@ public class ClientServlet extends HttpServlet{
 
 			clientUpdate = this.clientServiceDTO.readClient(clientUpdate);
 			request.setAttribute("clientUpdate", clientUpdate);
-			getServletContext().getRequestDispatcher("/user/updateClient.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/client/updateClient.jsp").forward(request, response);
 
 			break;
 
@@ -64,29 +63,28 @@ public class ClientServlet extends HttpServlet{
 			//System.out.println("ID: " + Integer.parseInt(request.getParameter("client_id")));
 			//System.out.println("Id Utente: " + request.getParameter("user_id"));
 			//System.out.println("Nome Cliente: " + request.getParameter("client_name"));
-/*
-			final Integer idUpdate = Integer.parseInt(request.getParameter("client_id"));
-			final Integer iduserUpdate = request.getParameter("user_id");
-			final String clientNameUpdate = request.getParameter("client_name");
-			final ClientDTO user = new UserDTO();
-			user.setId(idUpdate);
 
-			userServiceDTO.updateUser(user);
+			final Integer idUpdate = Integer.parseInt(request.getParameter("client_id"));
+			final Integer iduserUpdate = Integer.parseInt(request.getParameter("user_id"));
+			final String clientNameUpdate = request.getParameter("client_name");
+			final ClientDTO clientDTO = new ClientDTO(new User(), "");
+			clientDTO .setId(idUpdate); 
+
+			clientServiceDTO.updateClient(clientDTO);
 			showAllUsers(request, response);
-			*/
+			
 			break;
 
 		case "delete":
 			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
 
-			final UserDTO userdelete = new UserDTO("", "", "");
-			userdelete.setId(deleteId);
-			//userServiceDTO.deleteUsers(userdelete);
+			final ClientDTO clientdelete = new ClientDTO(new User(), "");
+			clientdelete.setId(deleteId);
 			showAllUsers(request, response);
 			break;
 
 		case "indietro":
-			response.sendRedirect("homeAdmin.jsp");
+			response.sendRedirect("homeBO.jsp");
 			break;
 
 		case "logsMenu":
