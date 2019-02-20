@@ -43,6 +43,10 @@ public class UserServiceDTO {
 		return UserConverter.toDTO(userDAO.login(username, password));
 	}
 
+	public UserDTO readUser(UserDTO userDTO) {
+		return UserConverter.toDTO(this.userDAO.readUser(UserConverter.toEntity(userDTO)));
+	}
+	
 	public boolean updateUser(UserDTO userDTO) {
 		return this.userDAO.updateUser(UserConverter.toEntity(userDTO));
 		

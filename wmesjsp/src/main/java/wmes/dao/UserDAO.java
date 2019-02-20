@@ -18,7 +18,7 @@ public class UserDAO {
 	private final String QUERY_UPDATE = "UPDATE user SET user_user=?, user_pass=?, user_type=? WHERE user_id=?";
 	private final String QUERY_DELETE = "delete from user where user_id=?";
 	private final String QUERY_LOGIN = "select * from user where user_user=? and user_pass=?";
-	
+
 	public UserDAO() {
 
 	}
@@ -61,9 +61,10 @@ public class UserDAO {
 
 	}
 
-	public User readUser(int userId) {
+	public User readUser(User user) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
+			int userId = user.getUserId();
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 			preparedStatement.setInt(1, userId);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -73,7 +74,7 @@ public class UserDAO {
 			username = resultSet.getString("user_user");
 			password = resultSet.getString("user_pass");
 			usertype = resultSet.getString("user_type");
-			User user = new User(username, password, usertype);
+			user = new User(username, password, usertype);
 			user.setUserId(resultSet.getInt("user_id"));
 
 			return user;
@@ -91,22 +92,22 @@ public class UserDAO {
 		if (userToUpdate.getUserId() == 0)
 			return false;
 
-		User userRead = readUser(userToUpdate.getUserId());
+		User userRead = readUser(userToUpdate);
 		if (!userRead.equals(userToUpdate)) {
 			try {
 				// Fill the userToUpdate object
 				if (userToUpdate.getUsername() == null || userToUpdate.getUsername().equals("")) {
 					userToUpdate.setUser(userRead.getUsername());
 				}
-				
+
 				if (userToUpdate.getPassword() == null || userToUpdate.getPassword().equals("")) {
 					userToUpdate.setPassword(userRead.getPassword());
 				}
-				
+
 				if (userToUpdate.getUsertype() == null || userToUpdate.getUsertype().equals("")) {
 					userToUpdate.setUsertype(userRead.getUsertype());
 				}
-				
+
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, userToUpdate.getUsername());
@@ -167,8 +168,7 @@ public class UserDAO {
 		}
 		return false;
 	}
-	
-	
+
 	public User login(String username, String password) {
 
 		Connection connection = ConnectionSingleton.getInstance();
