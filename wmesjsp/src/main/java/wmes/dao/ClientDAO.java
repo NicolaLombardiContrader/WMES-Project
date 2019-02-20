@@ -113,12 +113,13 @@ public class ClientDAO {
 	
 	}
 
-	public boolean deleteClient(Integer id) {
+	public boolean deleteClient(Client client) {
 			Connection connection = ConnectionSingleton.getInstance();
 			
 			try {
+				int clientId=client.getClientId();
 				PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-				preparedStatement.setInt(1, id);
+				preparedStatement.setInt(1, clientId);
 				int n = preparedStatement.executeUpdate();
 				if (n != 0)
 					return true;
