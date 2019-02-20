@@ -22,7 +22,8 @@ public class ClientConverter {
 
 		ClientDTO clientDTO  = null;
 		if (client != null) {
-			clientDTO = new ClientDTO(client.getClientId(), client.getUser(), clientDTO.getClientName());
+			clientDTO = new ClientDTO(client.getUser(), clientDTO.getClientName());
+			clientDTO.setId(client.getClientId());
 		}
 
 		return clientDTO;

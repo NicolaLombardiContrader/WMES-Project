@@ -8,9 +8,9 @@ public class ClientDTO {
 	private User user;
 	private String clientName;
 
-	public ClientDTO (int Id, User user, String clientName) {
+	public ClientDTO (User user, String clientName) {
 		super();
-		this.Id = Id;
+		//this.Id = Id;
 		this.user=user; 
 		this.clientName=clientName;
 	}

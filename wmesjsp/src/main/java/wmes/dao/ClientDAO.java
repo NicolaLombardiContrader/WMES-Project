@@ -63,9 +63,10 @@ public class ClientDAO {
 
 	}
 
-	public Client readClient(int clientId) {
+	public Client readClient(Client client) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
+			int clientId = client.getClientId();
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 			preparedStatement.setInt(1, clientId);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -77,7 +78,7 @@ public class ClientDAO {
 			User userClient=new User(null,null,null);
 			userClient.setUserId(userId);
 			
-			Client client = new Client(userClient, clientName);
+			client = new Client(userClient, clientName);
 
 			client.setClientId(resultSet.getInt("client_id"));
 
@@ -89,19 +90,22 @@ public class ClientDAO {
 
 	}
 
-	public boolean updateClient(Client client) {
+	public boolean updateClient(Client clientToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (client.getClientId() == 0)
+		if (clientToUpdate.getClientId() == 0)
 			return false;
 
+	//	Client clientRead = readClient(clientToUpdate);
+	//	if (!clientRead.equals(clientToUpdate)) {
 		
 		try {
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-			preparedStatement.setString(1, client.getClientName());
-			preparedStatement.setInt(3, client.getClientId());
+			preparedStatement.setString(2, clientToUpdate.getClientName());
+			preparedStatement.setInt(3, clientToUpdate.getClientId());
 			int a = preparedStatement.executeUpdate();
+		
 			if (a > 0)
 				return true;
 			else
@@ -109,9 +113,9 @@ public class ClientDAO {
 		} catch (SQLException e) {
 			return false;
 		}
-
-	
+		
 	}
+
 
 	public boolean deleteClient(Client client) {
 			Connection connection = ConnectionSingleton.getInstance();
