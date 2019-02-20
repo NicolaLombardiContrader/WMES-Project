@@ -77,8 +77,9 @@ public class ClientServlet extends HttpServlet{
 		case "delete":
 			final Integer clientIdDelete = Integer.parseInt(request.getParameter("id"));
 
-			final ClientDTO clientdelete = new ClientDTO(new UserDTO("","",""), "");
+			final ClientDTO clientdelete = new ClientDTO(userLogged, "");
 			clientdelete.setId(clientIdDelete);
+			clientServiceDTO.deleteClient(clientdelete);
 			showAllClient(request, response);
 			break;
 

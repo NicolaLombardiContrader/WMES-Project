@@ -3,6 +3,19 @@
 <title>Benvenuti in WMES</title>
 </head>
 <body>
-	<h2>Hello World!</h2>
+<h1>Benvenuti in WMES</h1>
+
+<form action="LoginServlet" method="post"> 
+<h3>
+				Username: <input type="text" id="user" name="username"
+					placeholder="inserisci username">
+			</h3>
+			<h3>
+				Password: <input type="password" id="pass" name="password"
+					placeholder="inserisci password">
+			</h3>
+			<button type="submit" value="Login" name="pulsante">Login</button>
+	
+</form>  
 </body>
 </html>
