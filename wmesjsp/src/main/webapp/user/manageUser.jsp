@@ -1,6 +1,6 @@
 <%@ page import="wmes.dto.UserDTO"%>
 <%@ page import="java.util.*"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
 <html>
@@ -22,41 +22,39 @@
 		<%=((UserDTO) request.getSession().getAttribute("utente")).getUsername()%></h1>
 	<br>
 
-	<a href="UserServlet?richiesta=insertRedirect">Inserisci nuovo
-		Utente</a>
+	<a href="/wmesjsp/UserServlet?richiesta=insertRedirect">Inserisci
+		nuovo Utente</a>
 
 	<br />
-	
-		<table border="2">
-			<tr>
-				<th>ID</th>
-				<th>Username</th>
-				<th>Password</th>
-				<th>User Type</th>
-			</tr>
-			<%
-				for (UserDTO user : allUser) {
-			%>
-			<tr>
-				<td><%=user.getId()%></td>
-				<td><%=user.getUsername()%></td>
-				<td><%=user.getPassword()%></td>
-				<td><%=user.getUsertype()%></td>
 
-				<td><a href="UserServlet?richiesta=updateRedirect">Modifica</a>
-				</td>
-				<td>
-			
-				<a	href="UsersServlet?richiesta=delete"=<%=user.getId()%>">Elimina</a>
-				
-				</td> 
-			</tr>
-			<%
-				}
-			%>
-		</table>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Username</th>
+			<th>Password</th>
+			<th>User Type</th>
+		</tr>
+		<%
+			for (UserDTO user : allUser) {
+		%>
+		<tr>
+			<td><%=user.getId()%></td>
+			<td><%=user.getUsername()%></td>
+			<td><%=user.getPassword()%></td>
+			<td><%=user.getUsertype()%></td>
 
-		<a href="UserServlet?richiesta=indietro">Indietro</a>
+			<td><a href="/wmesjsp/UserServlet?richiesta=updateRedirect&id=<%=user.getId()%>"><i class="fas fa-edit" title="Modifica"></i></a>
+			</td>
+			<td><a href="/wmesjsp/UsersServlet?richiesta=delete&id=<%=user.getId()%>"><i class="fas fa-trash-alt" title="Elimina"></i></a>
+
+			</td>
+		</tr>
+		<%
+			}
+		%>
+	</table>
+
+	<a href="/wmesjsp/UserServlet?richiesta=indietro">Indietro</a>
 
 </body>
 </html>
