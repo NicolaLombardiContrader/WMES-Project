@@ -16,7 +16,7 @@ import wmes.model.User;
 public class ClientDAO {
 
 	private final String QUERY_ALL = "select * from client";
-	private final String QUERY_INSERT = "insert into client (user_id, client_name) values (?,?) WHERE client_id=?";
+	private final String QUERY_INSERT = "insert into client (user_id, client_name) values (?,?)";
 	private final String QUERY_READ = "select * from client where client_id=?";
 
 	private final String QUERY_UPDATE = "UPDATE client SET user_id=?, client_name=? WHERE client_id=?";
@@ -55,7 +55,6 @@ public class ClientDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
 			preparedStatement.setInt(1, client.getUser().getUserId());
 			preparedStatement.setString(2, client.getClientName());
-			preparedStatement.setInt(3, client.getClientId());
 			return preparedStatement.execute();
 		} catch (SQLException e) {
 			GestoreEccezioni.getInstance().gestisciEccezione(e);
