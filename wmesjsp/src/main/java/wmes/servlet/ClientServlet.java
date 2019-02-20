@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import wmes.dto.ClientDTO;
-import wmes.model.User;
 import wmes.service.ClientServiceDTO;
 
 
@@ -102,4 +101,3 @@ public class ClientServlet extends HttpServlet{
 		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
 	}
 }
-
