@@ -28,6 +28,7 @@ public class ClientConverter {
 			clientDTO.setId(client.getClientId());
 		}
 
+		
 		return clientDTO;
 	}
 	
