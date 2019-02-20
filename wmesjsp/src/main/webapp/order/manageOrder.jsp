@@ -25,7 +25,8 @@
 		<h1>------Gestione Ordini------</h1></h1>
 	<br>
 
-	<a href="OrderServlet?richiesta=insertRedirect">Inserisci nuovo Ordine</a>
+	<a href="/wmesjsp/OrderServlet?richiesta=insertRedirect">Inserisci nuovo Ordine</a>
+
 
 	<br />
 	
@@ -57,7 +58,7 @@
 			%>
 		</table>
 
-		<a href="UserServlet?richiesta=indietro">Indietro</a>
+		<a href="/wmesjsp/OrderServlet?richiesta=indietro">Indietro</a>
 
 </body>
 </html>

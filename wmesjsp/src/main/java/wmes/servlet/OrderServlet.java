@@ -43,7 +43,7 @@ public class OrderServlet extends HttpServlet {
 			break;
 
 		case "insertRedirect":
-			response.sendRedirect("/order/insertOrder.jsp");
+			response.sendRedirect("order/insertOrder.jsp");
 			break;
 
 		case "insert":
