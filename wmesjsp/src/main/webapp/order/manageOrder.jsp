@@ -58,7 +58,7 @@
 		
 		<br/>
 		<br/>
-		<a href="/wmesjsp/OrderServlet?richiesta=indietro">Indietro</a>
+		<a href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs">Indietro </span></a>
 
 </body>
 </html>

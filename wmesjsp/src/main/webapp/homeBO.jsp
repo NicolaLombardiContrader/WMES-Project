@@ -7,7 +7,6 @@
 <meta charset="ISO-8859-1">
 <title>Home Business Owner</title>
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
-
 </head>
 <body>
 <h1>
@@ -17,13 +16,13 @@
 </h1>
 
 <br>
-	<a href="ClientServlet?richiesta=ClientManager"> Gestione Clienti</a>
+	<a href="ClientServlet?richiesta=ClientManager"><span class="fs"> Gestione Clienti </span></a>
 <br>
 <br>
-	<a href="OrderServlet?richiesta=OrderManager"> Gestione Ordini</a>
+	<a href="OrderServlet?richiesta=OrderManager"><span class="fs"> Gestione Ordini </span></a>
 <br>	
 <br>	
-	<p><a href="LogoutServlet" target="self">Logout</a></p>
+	<p><a href="LogoutServlet" target="self"><span class="fs"> Logout </span></a></p>
 	
 </body>
 </html>

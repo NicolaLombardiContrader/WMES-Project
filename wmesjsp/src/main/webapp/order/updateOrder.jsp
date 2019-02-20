@@ -36,6 +36,10 @@ table, th, td {
     Description: <input type="text" size="40" maxlength="40" name="order_description" value="<%=updateOrder.getUserDTO().getId()%>"  /><br>
 	<input type="SUBMIT" value="Modifica">
 	
+		<br/>
+		<br/>
+		<a href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs">Indietro</span></a>
+	
 </form>  
 		
 	</div>

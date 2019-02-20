@@ -66,10 +66,12 @@ body{
 	</table>
 <br>
 <br>
-	<a href="/wmesjsp/UserServlet?richiesta=insertRedirect">Inserisci nuovo Utente</a>
+	<a href="/wmesjsp/UserServlet?richiesta=insertRedirect"><span class="fs"> Inserisci nuovo Utente </span></a>
+	
 <br>
 <br>
-	<a href="/wmesjsp/UserServlet?richiesta=indietro">Indietro</a>
+	<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs">Indietro </span></a>
+	
 
 </body>
 </html>

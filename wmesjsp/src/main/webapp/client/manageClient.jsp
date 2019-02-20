@@ -52,10 +52,10 @@
 	</table>
 <br>
 <br>
-<a href="/wmesjsp/ClientServlet?richiesta=insertRedirect">Inserisci nuovo Cliente</a>
+<a href="/wmesjsp/ClientServlet?richiesta=insertRedirect"><span class="fs"> Inserisci nuovo Cliente </span></a>
 <br>
 <br>
-<a href="/wmesjsp/ClientServlet?richiesta=indietro">Indietro</a>
+<a href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
 
 </body>
 </html>

@@ -31,7 +31,7 @@
 <input type="SUBMIT" value="Inserisci">
 <br>	
 <br>
-<a href="/wmesjsp/UserServlet?richiesta=indietro">Indietro</a>
+<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
 
 </form>
 </body>

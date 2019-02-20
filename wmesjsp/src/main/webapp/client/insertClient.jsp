@@ -15,6 +15,10 @@
     Nome cliente: <input type="text" size="40" maxlength="40" name="client_name" /><br>
     
 	<input type="SUBMIT" value="Inserisci">
+	
+<br>
+<br>
+<a href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
 		
 </form>  
 </body>

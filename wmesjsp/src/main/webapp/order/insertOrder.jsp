@@ -18,6 +18,10 @@
     
 	<input type="SUBMIT" value="Inserisci">
 	
+		<br/>
+		<br/>
+		<a href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
+	
 </form>  
 </body>
 </html>

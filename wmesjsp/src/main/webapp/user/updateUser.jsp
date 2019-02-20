@@ -42,6 +42,10 @@ table, th, td {
     <br>
 	<input type="SUBMIT" value="Modifica">
 	
+	<br>
+<br>
+	<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
+	
 </form>  
 		
 	</div>

@@ -7,7 +7,6 @@
 <meta charset="ISO-8859-1">
 <title>Home Admin</title>
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
-
 </head>
 <body>
 <h1>
@@ -16,8 +15,8 @@
 
 </h1>
 <br/>
-	<a href="UserServlet?richiesta=UserManager"> Gestione Utenti</a>
+	<a href="UserServlet?richiesta=UserManager"><span class="fs"> Gestione Utenti </span></a>
 <br/>
-	<p><a href="LogoutServlet" target="self">Logout</a></p>
+	<p><a href="LogoutServlet" target="self"><span class="fs"> Logout </span></a></p>
 </body>
 </html>

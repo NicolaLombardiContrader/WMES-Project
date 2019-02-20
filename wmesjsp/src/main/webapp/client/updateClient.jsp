@@ -38,7 +38,7 @@ table, th, td {
 	<input type="SUBMIT" value="Modifica">
 	<br>
     <br>
-	<a href="/wmesjsp/ClientServlet?richiesta=indietro">Indietro</a>
+	<a href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
 </form>  
 		
 	</div>
