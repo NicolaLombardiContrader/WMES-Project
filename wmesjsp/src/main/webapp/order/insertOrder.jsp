@@ -4,6 +4,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Inserisci nuovo ordine</title>
+<style>
+body{
+	background-image: url("https://i1.wp.com/www.deteched.com/wp-content/uploads/2017/10/Space-Vortex-4K-Abstract-Wallpapers.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	text-align: center;
+}
+</style>
 </head>
 <body>
 <h1>Inserisci</h1>
