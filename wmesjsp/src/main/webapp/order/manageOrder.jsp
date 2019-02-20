@@ -22,11 +22,10 @@
 </head>
 <body> 
 	<h1>
-		Benvenuto
-		<%=((UserDTO) request.getSession().getAttribute("utente")).getUsername()%></h1>
+		<h1>------Gestione Ordini------</h1></h1>
 	<br>
 
-	<a href="UserServlet?richiesta=insertRedirect">Inserisci nuovo Ordine</a>
+	<a href="OrderServlet?richiesta=insertRedirect">Inserisci nuovo Ordine</a>
 
 	<br />
 	

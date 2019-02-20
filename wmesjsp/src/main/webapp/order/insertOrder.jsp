@@ -9,7 +9,7 @@
 <body>
 <h1>Inserisci</h1>
 
-<form method="POST" action="../OrderServlet?richiesta=insert">
+<form method="POST" action="/wmesjsp/OrderServlet?richiesta=insert">
 
  
     UserId: <input type="text" size="40" maxlength="40" name="user_id"  /><br> 
