@@ -11,12 +11,12 @@ import java.util.List;
 
 public class OrderDAO {
 
-	private final String QUERY_ALL = "SELECT * FROM order";
-	private final String QUERY_CREATE = "insert into order (user_id, client_id, order_description) values (?,?,?)";
-	private final String QUERY_READ = "select * from order where order_id=?";
+	private final String QUERY_ALL = "SELECT * FROM orders";
+	private final String QUERY_CREATE = "insert into orders (user_id, client_id, order_description) values (?,?,?)";
+	private final String QUERY_READ = "select * from orders where order_id=?";
 
-	private final String QUERY_UPDATE = "UPDATE order SET user_id=?, client_id=?, order_description=? WHERE order_id=?";
-	private final String QUERY_DELETE = "DELETE FROM order WHERE order_id=?";
+	private final String QUERY_UPDATE = "UPDATE orders SET user_id=?, client_id=?, order_description=? WHERE order_id=?";
+	private final String QUERY_DELETE = "DELETE FROM orders WHERE order_id=?";
 
 	public OrderDAO() {
 
