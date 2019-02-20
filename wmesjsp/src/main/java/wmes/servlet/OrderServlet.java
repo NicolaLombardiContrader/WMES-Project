@@ -57,6 +57,8 @@ public class OrderServlet extends HttpServlet {
 			final OrderDTO orders = new OrderDTO(insertUserDTO, insertClientDTO, orderdescription);
 			orderServiceDTO.insertOrder(orders);
 			showAllOrder(request, response);
+			
+			
 			break;
 
 		case "updateRedirect":
