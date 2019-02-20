@@ -55,8 +55,15 @@ public class UserServlet extends HttpServlet {
 			break;
 		
 		case "updateRedirect":
-			response.sendRedirect("user/updateUser.jsp");
-			break;
+			int id= Integer.parseInt(request.getParameter("id"));
+				UserDTO userUpdate = new UserDTO("","","");
+				userUpdate.setId(id);
+				
+				userUpdate=this.userServiceDTO.readUser(userUpdate);
+				request.setAttribute("userUpdate",userUpdate);
+				getServletContext().getRequestDispatcher("/user/updateUser.jsp").forward(request, response);
+				
+				break;
 			
 		case "update":
 			System.out.println("ID: " + Integer.parseInt(request.getParameter("user_id")));
