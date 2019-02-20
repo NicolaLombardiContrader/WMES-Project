@@ -22,17 +22,16 @@ table, th, td {
 <body>
 	<div class="center">
 		
-		<h2 style="color: red"><%=updateOrder%>
+		<h2 style="color: red"><%=updateOrder %>
 		</h2>
 	
-		<h1>------Modifica Ordine------</h1>
+		<h1>------Modifica Cliente------</h1>
 		<form method="POST" action="/wmesjsp/OrderServlet?richiesta=update">
 
     <input type="hidden" name="order_id" value="<%=updateOrder.getId()%>"  /><br>
-    UserId: <input type="text" size="40" maxlength="40" name="user_id" value="<%=updateOrder.getUser().getUserId()%>"  /><br> 
-    ClientId: <input type="text" size="40" maxlength="40" name="client_id" value="<%=updateOrder.getClient().getClientId()%>"  /><br> 
-    Description: <input type="text" size="40" maxlength="40" name="order_description" value="<%=updateOrder.getDescription()%>"  /><br>
-    
+    User ID: <input type="text" size="40" maxlength="40" name="user_id" value="<%=updateOrder.getUserDTO().getId()%>"  /><br> 
+    Client ID: <input type="text" size="40" maxlength="40" name="client_id" value="<%=updateOrder.getClientDTO().getId()%>"  /><br>
+    Description: <input type="text" size="40" maxlength="40" name="order_description" value="<%=updateOrder.getUserDTO().getId()%>"  /><br>
 	<input type="SUBMIT" value="Modifica">
 	
 </form>  

@@ -3,6 +3,7 @@
 <%@ page import="wmes.dto.UserDTO"%>
 <%@ page import="java.util.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ include file="/header.jsp"%>
 
 <!DOCTYPE html>
 <html>
@@ -22,19 +23,18 @@
 <body> 
 	<h1>
 		Benvenuto
-		<%=((OrderDTO) request.getSession().getAttribute("utente")).getUser().getUsername()%></h1>
+		<%=((UserDTO) request.getSession().getAttribute("utente")).getUsername()%></h1>
 	<br>
 
-	<a href="UserServlet?richiesta=insertRedirect">Inserisci nuovo
-		Ordine</a>
+	<a href="UserServlet?richiesta=insertRedirect">Inserisci nuovo Ordine</a>
 
 	<br />
 	
 		<table border="2">
 			<tr>
-				<th>ID</th>
-				<th>User</th>
-				<th>Client</th>
+				<th>Order ID</th>
+				<th>User ID</th>
+				<th>Client ID</th>
 				<th>Description</th>
 			</tr>
 			<%
@@ -42,17 +42,16 @@
 			%>
 			<tr>
 				<td><%=order.getId()%></td>
-				<td><%=order.getUser().getUserId()%></td>
-				<td><%=order.getClient().getClientId()%></td>
+				<td><%=order.getUserDTO().getId()%></td>
+				<td><%=order.getClientDTO().getId()%></td>
 				<td><%=order.getDescription()%></td>
 
-				<td><a href="UserServlet?richiesta=updateRedirect">Modifica</a>
-				</td>
-				<td>
-			
-				<a	href="UsersServlet?richiesta=delete"=<%=order.getId()%>">Elimina</a>
-				
-				</td> 
+				<td><a
+				href="/wmesjsp/OrderServlet?richiesta=updateRedirect&id=<%=order.getId()%>"><i
+					class="fas fa-edit" title="Modifica"></i></a></td>
+				<td><a
+				href="/wmesjsp/OrderServlet?richiesta=delete&id=<%=order.getId()%>"><i
+					class="fas fa-trash-alt" title="Elimina"></i></a></td> 
 			</tr>
 			<%
 				}
