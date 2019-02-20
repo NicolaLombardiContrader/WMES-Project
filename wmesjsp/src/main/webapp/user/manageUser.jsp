@@ -1,6 +1,6 @@
 <%@ page import="wmes.dto.UserDTO"%>
 <%@ page import="java.util.*"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 <!DOCTYPE html>
 <html>
@@ -43,11 +43,12 @@
 			<td><%=user.getPassword()%></td>
 			<td><%=user.getUsertype()%></td>
 
-			<td><a href="/wmesjsp/UserServlet?richiesta=updateRedirect&id=<%=user.getId()%>"><i class="fas fa-edit" title="Modifica"></i></a>
-			</td>
-			<td><a href="/wmesjsp/UserServlet?richiesta=delete&id=<%=user.getId()%>"><i class="fas fa-trash-alt" title="Elimina"></i></a>
-
-			</td>
+			<td><a
+				href="/wmesjsp/UserServlet?richiesta=updateRedirect&id=<%=user.getId()%>"><i
+					class="fas fa-edit" title="Modifica"></i></a></td>
+			<td><a
+				href="/wmesjsp/UserServlet?richiesta=delete&id=<%=user.getId()%>"><i
+					class="fas fa-trash-alt" title="Elimina"></i></a></td>
 		</tr>
 		<%
 			}

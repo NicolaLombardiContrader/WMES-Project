@@ -1,6 +1,10 @@
 package wmes.converter;
+import wmes.dto.ClientDTO;
 import wmes.dto.OrderDTO;
+import wmes.dto.UserDTO;
+import wmes.model.Client;
 import wmes.model.Order;
+import wmes.model.User;
 
 /**
  * Il converter si occupa di "convertire" un model in un dto e viceversa
@@ -16,8 +20,10 @@ public class OrderConverter {
 
 		Order order = null;
 		if (orderDTO != null) {
-			order = new Order(orderDTO.getUser(), orderDTO.getClient(), orderDTO.getDescription());
-			//order.setOrderId(orderDTO.getId());
+			User user = UserConverter.toEntity(orderDTO.getUserDTO());
+			Client client = ClientConverter.toEntity(orderDTO.getClientDTO());
+			order = new Order(user, client, orderDTO.getDescription());
+			order.setOrderId(orderDTO.getId());
 		}
 
 		return order;
@@ -31,8 +37,10 @@ public class OrderConverter {
 
 		OrderDTO orderDTO  = null;
 		if (order != null) {
-			orderDTO = new OrderDTO(order.getOrderId(), order.getUser(), order.getClient(), order.getDescription());
-			//orderDTO.setId(order.getOrderId());
+			UserDTO userDTO = UserConverter.toDTO(order.getUser());
+			ClientDTO clientDTO=ClientConverter.toDTO(order.getClient());
+			orderDTO = new OrderDTO(userDTO,clientDTO, order.getDescription());
+			orderDTO.setId(order.getOrderId());
 		}
 
 		return orderDTO;

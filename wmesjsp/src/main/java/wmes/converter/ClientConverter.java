@@ -1,7 +1,9 @@
 package wmes.converter;
 
 import wmes.dto.ClientDTO;
+import wmes.dto.UserDTO;
 import wmes.model.Client;
+import wmes.model.User;
 
 public class ClientConverter {
 	
@@ -9,22 +11,20 @@ public class ClientConverter {
 
 		Client client = null;
 		if (clientDTO != null) {
-			client = new Client(clientDTO.getUser(), clientDTO.getClientName());
+			User user = UserConverter.toEntity(clientDTO.getUserDTO());
+			client = new Client(user, clientDTO.getClientName());
 			client.setClientId(clientDTO.getId());
-
 		}
-
 		return client;
 	}
-
-	
 
 	
 	public static ClientDTO toDTO(Client client) {
 
 		ClientDTO clientDTO  = null;
 		if (client != null) {
-			clientDTO = new ClientDTO(client.getUser(), clientDTO.getClientName());
+			UserDTO userDTO = UserConverter.toDTO(client.getUser());
+			clientDTO = new ClientDTO(userDTO, client.getClientName());
 			clientDTO.setId(client.getClientId());
 		}
 
