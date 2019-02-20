@@ -16,7 +16,7 @@ import wmes.model.User;
 public class ClientDAO {
 
 	private final String QUERY_ALL = "select * from client";
-	private final String QUERY_INSERT = "insert into client (client_name) values (?)";
+	private final String QUERY_INSERT = "insert into client (user_id, client_name) values (?,?) WHERE client_id=?";
 	private final String QUERY_READ = "select * from client where client_id=?";
 
 	private final String QUERY_UPDATE = "UPDATE client SET user_id=?, client_name=? WHERE client_id=?";
@@ -34,12 +34,12 @@ public class ClientDAO {
 			Client client;
 			while (resultSet.next()) {
 				int userId = resultSet.getInt("user_id");
-				User userClient=new User(null,null,null);
+				User userClient = new User(null, null, null);
 				userClient.setUserId(userId);
-				
+
 				String clientName = resultSet.getString("client_name");
-				
-				client = new Client(userClient,clientName);
+
+				client = new Client(userClient, clientName);
 				client.setClientId(resultSet.getInt("client_id"));
 				clientList.add(client);
 			}
@@ -48,13 +48,14 @@ public class ClientDAO {
 		}
 		return clientList;
 	}
-	
 
 	public boolean insertClient(Client client) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
-			preparedStatement.setString(1, client.getClientName());
+			preparedStatement.setInt(1, client.getUser().getUserId());
+			preparedStatement.setString(2, client.getClientName());
+			preparedStatement.setInt(3, client.getClientId());
 			return preparedStatement.execute();
 		} catch (SQLException e) {
 			GestoreEccezioni.getInstance().gestisciEccezione(e);
@@ -72,12 +73,12 @@ public class ClientDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			String user, clientName;
-			
+
 			clientName = resultSet.getString("client_name");
 			int userId = resultSet.getInt("user_id");
-			User userClient=new User(null,null,null);
+			User userClient = new User(null, null, null);
 			userClient.setUserId(userId);
-			
+
 			client = new Client(userClient, clientName);
 
 			client.setClientId(resultSet.getInt("client_id"));
@@ -97,16 +98,16 @@ public class ClientDAO {
 		if (clientToUpdate.getClientId() == 0)
 			return false;
 
-	//	Client clientRead = readClient(clientToUpdate);
-	//	if (!clientRead.equals(clientToUpdate)) {
-		
+		// Client clientRead = readClient(clientToUpdate);
+		// if (!clientRead.equals(clientToUpdate)) {
+
 		try {
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 			preparedStatement.setInt(1, clientToUpdate.getUser().getUserId());
 			preparedStatement.setString(2, clientToUpdate.getClientName());
 			preparedStatement.setInt(3, clientToUpdate.getClientId());
 			int a = preparedStatement.executeUpdate();
-		
+
 			if (a > 0)
 				return true;
 			else
@@ -114,24 +115,22 @@ public class ClientDAO {
 		} catch (SQLException e) {
 			return false;
 		}
-		
-	}
 
+	}
 
 	public boolean deleteClient(Client client) {
-			Connection connection = ConnectionSingleton.getInstance();
-			
-			try {
-				int clientId=client.getClientId();
-				PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-				preparedStatement.setInt(1, clientId);
-				int n = preparedStatement.executeUpdate();
-				if (n != 0)
-					return true;
-			} catch (SQLException e) {
-			}
-			return false;
-		
+		Connection connection = ConnectionSingleton.getInstance();
+
+		try {
+			int clientId = client.getClientId();
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
+			preparedStatement.setInt(1, clientId);
+			int n = preparedStatement.executeUpdate();
+			if (n != 0)
+				return true;
+		} catch (SQLException e) {
+		}
+		return false;
 
 	}
-	}
+}

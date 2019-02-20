@@ -19,13 +19,14 @@ public class ClientServlet extends HttpServlet{
 
 	private final ClientServiceDTO clientServiceDTO = new ClientServiceDTO();
 	private List<ClientDTO> allClients = new ArrayList<>();
-
+	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true);
-
+		final UserDTO userLogged=(UserDTO) session.getAttribute("utente");
+		
 		switch (scelta) {
 
 		case "ClientManager":
@@ -35,18 +36,20 @@ public class ClientServlet extends HttpServlet{
 			break;
 
 		case "insertRedirect":
-			response.sendRedirect("/client/insertClient.jsp");
+			response.sendRedirect("client/insertClient.jsp");
 			break;
 
 		case "insert":
 			//final int userId = Integer.parseInt(request.getParameter("user_id"));
 			final String clientName = request.getParameter("client_name");
-			UserDTO userInsert = new UserDTO("","","");
+			//UserDTO userInsert = new UserDTO("","","");
+			
 			//userInsert.setId(userId);
-			final ClientDTO clientInsert = new ClientDTO(userInsert, clientName);
+			final ClientDTO clientInsert = new ClientDTO(userLogged, clientName);
 			clientServiceDTO.insertClient(clientInsert);
 			showAllClient(request, response);
 			break;
+
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));

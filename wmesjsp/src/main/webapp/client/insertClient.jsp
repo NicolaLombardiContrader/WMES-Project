@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ include file="/header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +7,11 @@
 <title>Inserisci nuovo cliente</title>
 </head>
 <body>
-<h1>Inserisci</h1>
+<h1>Inserisci Cliente</h1>
 
-<form method="POST" action="insertClient.do">
+<form method="POST" action="/wmesjsp/ClientServlet?richiesta=insert">
 
-    Nome: <input type="text" size="40" maxlength="40" name="nome" /><br>
+    Nome cliente: <input type="text" size="40" maxlength="40" name="client_name" /><br>
     
 	<input type="SUBMIT" value="Inserisci">
 		
