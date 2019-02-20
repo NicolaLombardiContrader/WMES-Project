@@ -49,13 +49,14 @@ public class OrderServlet extends HttpServlet {
 
 		case "insert":
 			// final Integer id = Integer.parseInt(request.getParameter("user_id"));
-			final int userid = Integer.parseInt(request.getParameter("user_id"));
+			//final int userid = Integer.parseInt(request.getParameter("user_id"));
 			final int clientid = Integer.parseInt(request.getParameter("client_id"));
 			final String orderdescription = request.getParameter("order_description");
-			final UserDTO insertUserDTO = new UserDTO("","","");
-			insertUserDTO.setId(userid);
-			final ClientDTO insertClientDTO = new ClientDTO(insertUserDTO,"");
-			final OrderDTO orders = new OrderDTO(insertUserDTO, insertClientDTO, orderdescription);
+			//final UserDTO insertUserDTO = new UserDTO("","","");
+			//insertUserDTO.setId(userid);
+			final ClientDTO insertClientDTO = new ClientDTO(userLogged,"");
+			insertClientDTO.setId(clientid);
+			final OrderDTO orders = new OrderDTO(userLogged, insertClientDTO, orderdescription);
 			orderServiceDTO.insertOrder(orders);
 			showAllOrder(request, response);
 			
@@ -64,8 +65,7 @@ public class OrderServlet extends HttpServlet {
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
-			UserDTO updateRedirectUser = new UserDTO("","","");
-			OrderDTO orderUpdate = new OrderDTO(updateRedirectUser,new ClientDTO(updateRedirectUser,""),"");
+			OrderDTO orderUpdate = new OrderDTO(userLogged,new ClientDTO(userLogged,""),"");
 			orderUpdate.setId(id);
 
 			orderUpdate = this.orderServiceDTO.readOrder(orderUpdate);
