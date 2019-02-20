@@ -45,7 +45,7 @@
 
 			<td><a href="/wmesjsp/UserServlet?richiesta=updateRedirect&id=<%=user.getId()%>"><i class="fas fa-edit" title="Modifica"></i></a>
 			</td>
-			<td><a href="/wmesjsp/UsersServlet?richiesta=delete&id=<%=user.getId()%>"><i class="fas fa-trash-alt" title="Elimina"></i></a>
+			<td><a href="/wmesjsp/UserServlet?richiesta=delete&id=<%=user.getId()%>"><i class="fas fa-trash-alt" title="Elimina"></i></a>
 
 			</td>
 		</tr>

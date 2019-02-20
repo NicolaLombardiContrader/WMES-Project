@@ -83,11 +83,11 @@ public class UserServlet extends HttpServlet {
 			break;
 
 		case "delete":
-			final Integer idUpdat = Integer.parseInt(request.getParameter("user_id"));
+			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
 
-			final UserDTO use = new UserDTO("", "", "");
-			use.setId(idUpdat);
-			userServiceDTO.deleteUsers(use);
+			final UserDTO userdelete = new UserDTO("", "", "");
+			userdelete.setId(deleteId);
+			userServiceDTO.deleteUsers(userdelete);
 			showAllUsers(request, response);
 			break;
 
