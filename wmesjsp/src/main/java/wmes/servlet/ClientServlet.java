@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import wmes.dto.ClientDTO;
+import wmes.dto.UserDTO;
 import wmes.service.ClientServiceDTO;
 
 
@@ -40,16 +41,16 @@ public class ClientServlet extends HttpServlet{
 		case "insert":
 			final int userId = Integer.parseInt(request.getParameter("user_id"));
 			final String clientName = request.getParameter("client_name");
-			User userInsert = new User();
-			userInsert.setUserId(userId);
-			final ClientDTO client = new ClientDTO(userInsert, clientName);
-			clientServiceDTO.insertClient(client);
-			showAllUsers(request, response);
+			UserDTO userInsert = new UserDTO("","","");
+			userInsert.setId(userId);
+			final ClientDTO clientInsert = new ClientDTO(userInsert, clientName);
+			clientServiceDTO.insertClient(clientInsert);
+			showAllClient(request, response);
 			break;
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
-			ClientDTO clientUpdate = new ClientDTO(new User(), "");
+			ClientDTO clientUpdate = new ClientDTO(new UserDTO("","",""), "");
 			clientUpdate.setId(id);
 
 			clientUpdate = this.clientServiceDTO.readClient(clientUpdate);
@@ -59,27 +60,23 @@ public class ClientServlet extends HttpServlet{
 			break;
 
 		case "update":
-			//System.out.println("ID: " + Integer.parseInt(request.getParameter("client_id")));
-			//System.out.println("Id Utente: " + request.getParameter("user_id"));
-			//System.out.println("Nome Cliente: " + request.getParameter("client_name"));
-
-			final Integer idUpdate = Integer.parseInt(request.getParameter("client_id"));
-			final Integer iduserUpdate = Integer.parseInt(request.getParameter("user_id"));
+			final Integer clientIdUpdate = Integer.parseInt(request.getParameter("client_id"));
+			final Integer userIdUpdate = Integer.parseInt(request.getParameter("user_id"));
 			final String clientNameUpdate = request.getParameter("client_name");
-			final ClientDTO clientDTO = new ClientDTO(new User(), "");
-			clientDTO .setId(idUpdate); 
-
+			UserDTO userUpdate= new UserDTO("","","");
+			userUpdate.setId(userIdUpdate);
+			final ClientDTO clientDTO = new ClientDTO(userUpdate, clientNameUpdate);
+			clientDTO .setId(clientIdUpdate);
 			clientServiceDTO.updateClient(clientDTO);
-			showAllUsers(request, response);
-			
+			showAllClient(request, response);
 			break;
 
 		case "delete":
-			final Integer deleteId = Integer.parseInt(request.getParameter("id"));
+			final Integer clientIdDelete = Integer.parseInt(request.getParameter("id"));
 
-			final ClientDTO clientdelete = new ClientDTO(new User(), "");
-			clientdelete.setId(deleteId);
-			showAllUsers(request, response);
+			final ClientDTO clientdelete = new ClientDTO(new UserDTO("","",""), "");
+			clientdelete.setId(clientIdDelete);
+			showAllClient(request, response);
 			break;
 
 		case "indietro":
@@ -94,10 +91,10 @@ public class ClientServlet extends HttpServlet{
 
 	}
 
-	private void showAllUsers(HttpServletRequest request, HttpServletResponse response)
+	private void showAllClient(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		allClients = this.clientServiceDTO.getAllClient();
-		request.setAttribute("allUser", allClients);
-		getServletContext().getRequestDispatcher("/user/manageUser.jsp").forward(request, response);
+		request.setAttribute("allClient", allClients);
+		getServletContext().getRequestDispatcher("/client/manageClient.jsp").forward(request, response);
 	}
 }
