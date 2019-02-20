@@ -12,7 +12,7 @@
 	<a href="client/manageClient.jsp"> Gestione Clienti</a>
 	
 <br/>
-	<a href="order/manageOrder.jsp"> Gestione Ordini</a>
+	<a href="OrderServlet?richiesta=OrderManager"> Gestione Ordini</a>
 	
 <br/>
 	<p><a href="LogoutServlet" target="self">Logout</a></p>
