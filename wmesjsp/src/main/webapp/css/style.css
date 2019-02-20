@@ -1,4 +1,17 @@
-table, th, td, tr {
+table {
+  border-collapse: collapse;
+  width: 60%;
+  margin: 0 auto;
+}
+
+table, th, td {
   border: 1px solid black;
-  width: 100%;
+}
+
+th {
+  height: 50px;
+}
+
+.center {
+	text-align:center;
 }
