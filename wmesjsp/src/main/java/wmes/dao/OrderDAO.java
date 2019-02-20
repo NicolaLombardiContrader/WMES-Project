@@ -64,11 +64,11 @@ public class OrderDAO {
 
 	}
 
-	public Order readOrder(int orderId) {
+	public Order readOrder(Order order) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
-			preparedStatement.setInt(1, orderId);
+			preparedStatement.setInt(1, order.getOrderId());
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			int userId, clientId;
@@ -82,7 +82,7 @@ public class OrderDAO {
 			Client clientOrder = new Client();
 			clientOrder.setClientId(clientId);
 			description = resultSet.getString("order_description");
-			Order order = new Order(userOrder, clientOrder, description);
+			order = new Order(userOrder, clientOrder, description);
 			order.setOrderId(resultSet.getInt("order_id"));
 
 			return order;
@@ -117,11 +117,11 @@ public class OrderDAO {
 		}
 	}
 
-	public boolean deleteOrder(Integer orderId) {
+	public boolean deleteOrder(Order order) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-			preparedStatement.setInt(1, orderId);
+			preparedStatement.setInt(1, order.getOrderId());
 			int n = preparedStatement.executeUpdate();
 			if (n != 0)
 				return true;
