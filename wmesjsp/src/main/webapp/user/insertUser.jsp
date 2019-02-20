@@ -5,15 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Inserisci nuovo utente</title>
-<style>
-body{
-	background-image: url("https://i1.wp.com/www.deteched.com/wp-content/uploads/2017/10/Space-Vortex-4K-Abstract-Wallpapers.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	text-align: center;
-}
-</style>
+
+<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
 </head>
 <body>
 	<h1>------Inserisci nuovo Utente------</h1>

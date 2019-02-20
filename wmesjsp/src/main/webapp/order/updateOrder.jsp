@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
 <style>
 .center {
 	margin: auto;
@@ -14,15 +15,7 @@ table, th, td {
 	border: 1px solid black;
 }
 </style>
-<style>
-body{
-	background-image: url("https://i1.wp.com/www.deteched.com/wp-content/uploads/2017/10/Space-Vortex-4K-Abstract-Wallpapers.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	text-align: center;
-}
-</style>
+
 <%
 	OrderDTO updateOrder = (OrderDTO) request.getAttribute("orderUpdate");
 %>

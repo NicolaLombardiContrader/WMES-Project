@@ -12,6 +12,7 @@ body{
 	background-attachment: fixed;
 	background-size: cover;
 	text-align: center;
+	color:white;
 }
 </style>
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
