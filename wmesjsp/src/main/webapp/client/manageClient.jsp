@@ -15,16 +15,13 @@
 %>
 </head>
 <body>
-	<h1>
-		Benvenuto
-		<%=((UserDTO) request.getSession().getAttribute("utente")).getUsername()%></h1>
-	<br>
+	
+<h1>------Gestione Clienti------</h1>
+<br>
 
-	<a href="/wmesjsp/ClientServlet?richiesta=insertRedirect">Inserisci
-		nuovo Cliente</a>
 
-	<br />
 
+<br/>
 	<table>
 		<tr>
 			<th>Client ID</th>
@@ -52,8 +49,12 @@
 			}
 		%>
 	</table>
-
-	<a href="/wmesjsp/ClientServlet?richiesta=indietro">Indietro</a>
+<br>
+<br>
+<a href="/wmesjsp/ClientServlet?richiesta=insertRedirect">Inserisci nuovo Cliente</a>
+<br>
+<br>
+<a href="/wmesjsp/ClientServlet?richiesta=indietro">Indietro</a>
 
 </body>
 </html>

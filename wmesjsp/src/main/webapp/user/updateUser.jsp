@@ -28,9 +28,16 @@ table, th, td {
 
     <input type="hidden" name="user_id" value="<%=updateUser.getId()%>"  /><br>
     Username: <input type="text" size="40" maxlength="40" name="user_user" value="<%=updateUser.getUsername()%>"  /><br> 
+    <br>
     Password: <input type="text" size="40" maxlength="40" name="user_pass" value="<%=updateUser.getPassword()%>"  /><br> 
-    User Type: <input type="text" size="40" maxlength="40" name="user_type" value="<%=updateUser.getUsertype()%>"  /><br>
-    
+    <br>
+    User type: <select name="user_type">
+			<option value="admin">Amministratore</option>
+			<option value="bo">Business Owner</option>
+		</select>
+   <!-- User Type: <input type="text" size="40" maxlength="40" name="user_type" value="<%=updateUser.getUsertype()%>"  /><br>-->
+    <br>
+    <br>
 	<input type="SUBMIT" value="Modifica">
 	
 </form>  

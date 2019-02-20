@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page import="wmes.dto.*"%>
+<%@ page import="java.util.*"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,11 @@
 <title>Home Admin</title>
 </head>
 <body>
-<h1>Home Admin</h1>
+<h1>
+		Benvenuto
+		<%=((UserDTO) request.getSession().getAttribute("utente")).getUsername()%>
+
+</h1>
 <br/>
 	<a href="UserServlet?richiesta=UserManager"> Gestione Utenti</a>
 <br/>
