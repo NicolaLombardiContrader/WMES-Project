@@ -17,7 +17,9 @@ public class ClientConverter {
 		return client;
 	}
 
+	
 
+	
 	public static ClientDTO toDTO(Client client) {
 
 		ClientDTO clientDTO  = null;
