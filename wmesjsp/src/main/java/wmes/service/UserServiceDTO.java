@@ -7,7 +7,6 @@ import java.util.List;
 import wmes.converter.UserConverter;
 import wmes.dao.UserDAO;
 import wmes.dto.UserDTO;
-//import wmes.model.Nodes;
 import wmes.model.User;
 
 /**
