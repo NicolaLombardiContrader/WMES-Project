@@ -19,7 +19,7 @@ public class ClientDAO {
 	private final String QUERY_INSERT = "insert into client (client_name) values (?)";
 	private final String QUERY_READ = "select * from client where client_id=?";
 
-	private final String QUERY_UPDATE = "UPDATE client SET client_name=? WHERE client_id=?";
+	private final String QUERY_UPDATE = "UPDATE client SET user_id=?, client_name=? WHERE client_id=?";
 	private final String QUERY_DELETE = "DELETE from client WHERE client_id=?";
 
 	public ClientDAO() {
@@ -102,6 +102,7 @@ public class ClientDAO {
 		
 		try {
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
+			preparedStatement.setInt(1, clientToUpdate.getUser().getUserId());
 			preparedStatement.setString(2, clientToUpdate.getClientName());
 			preparedStatement.setInt(3, clientToUpdate.getClientId());
 			int a = preparedStatement.executeUpdate();
