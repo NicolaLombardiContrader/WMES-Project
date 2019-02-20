@@ -54,7 +54,7 @@ public class UserServlet extends HttpServlet {
 			showAllUsers(request, response);
 			break;
 		
-		case "updateRedirect":
+		case "updateRedirect": 
 			int id= Integer.parseInt(request.getParameter("id"));
 				UserDTO userUpdate = new UserDTO("","","");
 				userUpdate.setId(id);
