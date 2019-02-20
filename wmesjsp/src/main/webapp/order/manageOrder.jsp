@@ -9,7 +9,16 @@
 <html>
 <head>
 <title>Gestione Ordini</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style>
+body{
+	background-image: url("https://i1.wp.com/www.deteched.com/wp-content/uploads/2017/10/Space-Vortex-4K-Abstract-Wallpapers.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	text-align: center;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"

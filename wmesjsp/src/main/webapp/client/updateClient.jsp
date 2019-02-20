@@ -3,6 +3,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
+<style>
+.center {
+	margin: auto;
+	width: 80%;
+	text-align: left
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+<style>
+body{
+	background-image: url("https://i1.wp.com/www.deteched.com/wp-content/uploads/2017/10/Space-Vortex-4K-Abstract-Wallpapers.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	text-align: center;
+}
+</style>
 
 <%
 	ClientDTO updateClient = (ClientDTO) request.getAttribute("clientUpdate");
