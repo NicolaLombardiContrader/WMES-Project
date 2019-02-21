@@ -35,20 +35,24 @@ public class TaskServlet extends HttpServlet {
 			showAllTask(request, response);
 			break;
 
-		/*case "insertRedirect":
-			response.sendRedirect("client/insertClient.jsp");
+		case "insertRedirect":
+			response.sendRedirect("task/insertTask.jsp");
 			break;
 
 		case "insert":
-			// final int userId = Integer.parseInt(request.getParameter("user_id"));
-			final String clientName = request.getParameter("client_name");
-			// UserDTO userInsert = new UserDTO("","","");
+			final String taskDescription = request.getParameter("task_description");
+			final String taskAction = request.getParameter("task_action");
+			final String taskInput = request.getParameter("task_input");
+			final String taskOutput = request.getParameter("task_output");
+			final String taskResource = request.getParameter("task_resource");
+			final int taskTime = Integer.parseInt(request.getParameter("task_time"));
+			final int taskState = Integer.parseInt(request.getParameter("task_state"));
+			
 
-			// userInsert.setId(userId);
-			final ClientDTO clientInsert = new ClientDTO(userLogged, clientName);
-			clientServiceDTO.insertClient(clientInsert);
-			showAllClient(request, response);
-			break;*/
+			final TaskDTO taskInsert = new TaskDTO(userLogged, taskDescription, taskAction, taskInput, taskOutput, taskResource, taskTime, taskState);
+			taskServiceDTO.insertTask(taskInsert);
+			showAllTask(request, response);
+			break;
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
