@@ -98,7 +98,7 @@
 	<a href="/wmesjsp/TaskServlet?richiesta=insertRedirect"><span class="fs"> New Task </span></a>
 	<br>
 	<br>
-	<a href="/wmesjsp/TasktServlet?richiesta=indietro"><span class="fs"> Back </span></a>
+	<a href="/wmesjsp/TaskServlet?richiesta=indietro"><span class="fs"> Back </span></a>
 
 </body>
 </html>
