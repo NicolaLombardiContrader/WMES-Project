@@ -95,10 +95,10 @@
 	</table>
 	<br>
 	<br>
-	<a href="/wmesjsp/TaskServlet?richiesta=insertRedirect"><span class="fs"> New Task </span></a>
+	<a href="/wmesjsp/TaskServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Task</i></a>
 	<br>
 	<br>
-	<a href="/wmesjsp/TaskServlet?richiesta=indietro"><span class="fs"> Back </span></a>
+	<a href="/wmesjsp/TaskServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 </body>
 </html>

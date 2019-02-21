@@ -76,10 +76,10 @@
 	</table>
 	<br>
 	<br>
-	<a href="/wmesjsp/OrderServlet?richiesta=insertRedirect"><span class="fs">New Order</a>
+	<a href="/wmesjsp/OrderServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Order</i></a>
 	<br />
 	<br />
-	<a href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs">Back </span></a>
+	<a href="/wmesjsp/OrderServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 </body>
 </html>

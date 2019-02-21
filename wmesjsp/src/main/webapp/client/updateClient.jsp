@@ -4,7 +4,8 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <style>
 /*contenitore in cima dove c'è scritto "Login"*/
 .pre_contenitore {
@@ -54,7 +55,7 @@
 			<input type="SUBMIT" value="Update">
 			<br>
 			<br>
-			<a href="/wmesjsp/ClientServlet?richiesta=ClientManager"><span class="fs"> Back </span></a>
+			<a href="/wmesjsp/ClientServlet?richiesta=ClientManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 		</form>
 
 	</div>

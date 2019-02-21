@@ -70,10 +70,10 @@
 	</table>
 	<br>
 	<br>
-	<a href="/wmesjsp/ClientServlet?richiesta=insertRedirect"><span class="fs"> New Client </span></a>
+	<a href="/wmesjsp/ClientServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New Client</i></a>
 	<br>
 	<br>
-	<a href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs"> Back </span></a>
+	<a href="/wmesjsp/ClientServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 </body>
 </html>

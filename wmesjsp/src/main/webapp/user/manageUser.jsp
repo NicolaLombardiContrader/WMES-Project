@@ -85,11 +85,11 @@ body {
 	</table>
 	<br>
 	<br>
-	<a href="/wmesjsp/UserServlet?richiesta=insertRedirect"><span class="fs"> New User </span></a>
+	<a href="/wmesjsp/UserServlet?richiesta=insertRedirect"><i class="fas fa-plus-circle fa-lg"> New User</i></a>
 
 	<br>
 	<br>
-	<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Back </span></a>
+	<a href="/wmesjsp/UserServlet?richiesta=indietro"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 </body>

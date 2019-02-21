@@ -5,6 +5,8 @@
 <meta charset="ISO-8859-1">
 <title>Inserisci nuovo task</title>
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <style>
 .pre_contenitore {
 	width: 320px;
@@ -73,7 +75,7 @@
 
 	<br>
 	<br>
-	<a href="/wmesjsp/TaskServlet?richiesta=TaskManager"><span class="fs">Back </span></a>
+	<a href="/wmesjsp/TaskServlet?richiesta=TaskManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 
 

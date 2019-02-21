@@ -5,7 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Inserisci nuovo utente</title>
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
 <style>
 .pre_contenitore {
@@ -56,7 +57,7 @@
 		<input type="SUBMIT" value="Add">
 		<br>
 		<br>
-		<a href="/wmesjsp/UserServlet?richiesta=UserManager"><span class="fs"> Back </span></a>
+		<a href="/wmesjsp/UserServlet?richiesta=UserManager"><i class="fas fa-arrow-alt-circle-left fa-lg"> Back</i></a>
 
 	</form>
 </body>
