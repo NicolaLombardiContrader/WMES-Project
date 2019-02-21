@@ -56,15 +56,11 @@
 		Output: <input type="text" size="40" maxlength="40"
 			name="task_output" /><br> <br> 			
 			
-
-
 		Resource: <input type="number" size="40" maxlength="40"
 			name="task_resource" /><br> <br> 
 			
 		Time: <input type="text" size="40" maxlength="40"
 			name="task_time" /><br> <br> 
-			
-			
 			
 		State: <select style="width:275px;" name="task_state">
 			<option value="0">Pending</option>

@@ -2,7 +2,6 @@
 <head>
 	<title>Login</title>
 	<style>
-	/*contenitore in cima dove c'è scritto "Login"*/
 .pre_contenitore{
 	  width:320px;
 	  margin:auto;
@@ -20,10 +19,7 @@
      font-size: 1.9em;
      font-family: arial;
     line-height:2px;
-
-
 }
-
 
 body{
 	background-image: url("https://i1.wp.com/www.deteched.com/wp-content/uploads/2017/10/Space-Vortex-4K-Abstract-Wallpapers.jpg");
@@ -32,8 +28,6 @@ body{
 	background-size: cover;
 	text-align: center;
 }
-
-/*contenitore contenete il form */
 
 .contenitore {
 	  border:1px solid black;

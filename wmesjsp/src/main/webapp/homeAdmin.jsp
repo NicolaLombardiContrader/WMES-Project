@@ -8,7 +8,7 @@
 <title>Home Admin</title>
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
 <style>
-	/*contenitore in cima dove c'è scritto "Login"*/
+
 .pre_contenitore{
 	  width:320px;
 	  margin:auto;

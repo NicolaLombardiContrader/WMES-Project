@@ -1,5 +1,16 @@
 <%@ include file ="/header.jsp"%>
-
+<%!
+			private String convertState(int taskState){
+				
+			switch(taskState){
+			
+				case 0: return "Pending";
+				case 1: return "In Progress";
+				case 2: return "Completed";
+				default: return "Pending";
+				}	
+						
+			} %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,8 +57,6 @@
 </div>
 <br>
 
-
-
 <br/>
 	<table>
 		<tr>
@@ -74,7 +83,8 @@
 			<td><%=task.getTaskOutput()%></td>
 			<td><%=task.getTaskResource()%></td>
 			<td><%=task.getTaskTime()%></td>
-			<td><%=task.getTaskState()%></td>
+			<td><%=convertState(task.getTaskState())%></td>
+			
 			
 
 			<td><a
