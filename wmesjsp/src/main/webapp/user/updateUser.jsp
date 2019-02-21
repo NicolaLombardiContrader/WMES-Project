@@ -65,7 +65,7 @@
 				name="user_pass" value="<%=updateUser.getPassword()%>" /><br>
 			<br> <br> <br> <input type="SUBMIT" value="Update">
 
-			<br> <br> <a href="/wmesjsp/UserServlet?richiesta=indietro"><span
+			<br> <br> <a href="/wmesjsp/UserServlet?richiesta=UserManager"><span
 				class="fs"> Back </span></a>
 
 		</form>

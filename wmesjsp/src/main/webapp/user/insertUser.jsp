@@ -55,7 +55,7 @@
 <input type="SUBMIT" value="Add">
 <br>	
 <br>
-<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Back </span></a>
+<a href="/wmesjsp/UserServlet?richiesta=UserManager"><span class="fs"> Back </span></a>
 
 </form>
 </body>

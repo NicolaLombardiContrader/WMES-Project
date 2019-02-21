@@ -73,7 +73,7 @@
 			Description: <input type="text" size="40" maxlength="40"
 				name="order_description" value="<%=updateOrder.getDescription()%>" /><br>
 			<br> <input type="SUBMIT" value="Update"> <br /> <br />
-			<a href="/wmesjsp/OrderServlet?richiesta=indietro"><span
+			<a href="/wmesjsp/OrderServlet?richiesta=OrderManager"><span
 				class="fs">Back</span></a>
 
 		</form>

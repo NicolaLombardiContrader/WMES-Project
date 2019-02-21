@@ -97,6 +97,9 @@ body{
 <br>
 <br>
 	<a href="OrderServlet?richiesta=OrderManager"><span class="fs"> Order Management </span></a>
+<br>
+<br>
+	<a href="TaskServlet?richiesta=TaskManager"><span class="fs"> Task Management </span></a>
 <br>	
 <br>	
 <br>

@@ -54,7 +54,7 @@
 	<input type="SUBMIT" value="Update">
 	<br>
     <br>
-	<a href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs"> Back </span></a>
+	<a href="/wmesjsp/ClientServlet?richiesta=ClientManager"><span class="fs"> Back </span></a>
 </form>  
 		
 	</div>

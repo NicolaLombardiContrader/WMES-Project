@@ -45,7 +45,7 @@
 		Client Name: <input type="text" size="40" maxlength="40"
 			name="client_name" /><br> <br> <input
 			type="SUBMIT" value="Add"> <br> <br> <a
-			href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs">Back </span></a>
+			href="/wmesjsp/ClientServlet?richiesta=ClientManager"><span class="fs">Back </span></a>
 
 	</form>
 </body>
