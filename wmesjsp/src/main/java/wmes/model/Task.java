@@ -6,25 +6,26 @@ public class Task {
 	private User user;
 	private String taskDescription; 
 	private String taskAction;
-	private String input; 
-	private String output;
-	private String resource; 
-	private int tempo;
-	private int stato;
-	
+	private String taskInput; 
+	private String taskOutput;
+	private String taskResource; 
+	private int taskTime;
+	private int taskState;
+	 
 	
 	public Task() {}
 		
-	public Task(User user, String taskDescription, String taskAction, String input, String output, String resource, int tempo, int stato) {
+	public Task(User user, String taskDescription, String taskAction, String taskInput, String taskOutput, String taskResource, int tasktime, int taskState) {
 		this.user=user;
 		this.taskDescription=taskDescription;
 		this.taskAction=taskAction;
-		this.input=input;
-		this.output=output;
-		this.resource=resource; 
-		this.tempo=tempo; 
-		this.stato=stato;
-	}
+		this.taskInput=taskInput;
+		this.taskOutput=taskOutput;
+		this.taskResource=taskResource; 
+		this.taskTime=tasktime; 
+		this.taskState=taskState;
+	}  
+
 
 	public int getTaskId() {
 		return taskId;
@@ -58,50 +59,54 @@ public class Task {
 		this.taskAction = taskAction;
 	}
 
-	public String getInput() {
-		return input;
+	public String getTaskInput() {
+		return taskInput;
 	}
 
-	public void setInput(String input) {
-		this.input = input;
+	public void setTaskInput(String taskInput) {
+		this.taskInput = taskInput;
 	}
 
-	public String getOutput() {
-		return output;
+	public String getTaskOutput() {
+		return taskOutput;
 	}
 
-	public void setOutput(String output) {
-		this.output = output;
+	public void setTaskOutput(String taskOutput) {
+		this.taskOutput = taskOutput;
 	}
 
-	public String getResource() {
-		return resource;
+	public String getTaskResource() {
+		return taskResource;
 	}
 
-	public void setResource(String resource) {
-		this.resource = resource;
+	public void setTaskResource(String taskResource) {
+		this.taskResource = taskResource;
 	}
 
-	public int getTempo() {
-		return tempo;
+	public int getTaskTime() {
+		return taskTime;
 	}
 
-	public void setTempo(int tempo) {
-		this.tempo = tempo;
+	public void setTaskTime(int taskTime) {
+		this.taskTime = taskTime;
 	}
 
-	public int getStato() {
-		return stato;
+	public int getTaskState() {
+		return taskState;
 	}
 
-	public void setStato(int stato) {
-		this.stato = stato;
+	public void setTaskState(int taskState) {
+		this.taskState = taskState;
 	}
+
+
+	
+
 	
 	public String toString() {
 		return this.getTaskId() + "\t " + this.getUser() + "\t" 
-				+ this.getTaskDescription() + "\t" + this.getTaskAction() + "\t" + this.getInput() + "\t"
-				+ this.getOutput() + "\t" + this.getResource() + "\t" + this.getTempo() + "\t" + this.getStato();
+				+ this.getTaskDescription() + "\t" + this.getTaskAction() + "\t" + this.getTaskInput() + "\t"
+				+ this.getTaskOutput() + "\t" + this.getTaskResource() + "\t" + this.getTaskTime() + "\t" + this.getTaskState();
 		
 	}
 	
@@ -118,23 +123,23 @@ public class Task {
 		return false;
 	
 	
-	if (!this.getInput().equals(taskCompare.getInput()))
+	if (!this.getTaskInput().equals(taskCompare.getTaskInput()))
 		return false;
 	
 	
-	if (!this.getOutput().equals(taskCompare.getOutput())) 
+	if (!this.getTaskOutput().equals(taskCompare.getTaskOutput())) 
 		return false;
 	
 	
-	if (!this.getResource().equals(taskCompare.getResource())) 
+	if (!this.getTaskResource().equals(taskCompare.getTaskResource())) 
 		return false;
 	
 	
-	if (this.getTempo()!=taskCompare.getTempo()) {
+	if (this.getTaskTime()!=taskCompare.getTaskTime()) {
 		return false;
 	}
 	
-	if (this.getStato()!=taskCompare.getStato()) {
+	if (this.getTaskState()!=taskCompare.getTaskState()) {
 		return false;
 	}
   
@@ -142,7 +147,6 @@ public class Task {
 	return true;
 	
 	}
-	
 	}
 
 
