@@ -57,7 +57,7 @@
 		<br>
 		<br> Description: <input type="text" size="40" maxlength="40"
 			name="order_description" /><br> <br> <input type="SUBMIT"
-			value="Inserisci"> <br /> <br /> <a
+			value="Add"> <br /> <br /> <a
 			href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs">Back </span></a>
 
 	</form>

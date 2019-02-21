@@ -52,7 +52,7 @@
 		<br>
 		<br>	
 		<br>			
-<input type="SUBMIT" value="Inserisci">
+<input type="SUBMIT" value="Add">
 <br>	
 <br>
 <a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Back </span></a>
