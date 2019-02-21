@@ -41,7 +41,7 @@
 	
 <div class="pre_contenitore">
 
-		<p> Gestione Clienti </p>
+		<p> Client Management </p>
 
 </div>
 <br>
@@ -66,10 +66,10 @@
 
 			<td><a
 				href="/wmesjsp/ClientServlet?richiesta=updateRedirect&id=<%=client.getId()%>"><i
-					class="fas fa-edit" title="Modifica"></i></a></td>
+					class="fas fa-edit" title="Update"></i></a></td>
 			<td><a
 				href="/wmesjsp/ClientServlet?richiesta=delete&id=<%=client.getId()%>"><i
-					class="fas fa-trash-alt" title="Elimina"></i></a></td>
+					class="fas fa-trash-alt" title="Delete"></i></a></td>
 		</tr>
 		<%
 			}
@@ -77,10 +77,10 @@
 	</table>
 <br>
 <br>
-<a href="/wmesjsp/ClientServlet?richiesta=insertRedirect"><span class="fs"> Inserisci nuovo Cliente </span></a>
+<a href="/wmesjsp/ClientServlet?richiesta=insertRedirect"><span class="fs"> New Client </span></a>
 <br>
 <br>
-<a href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
+<a href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs"> Back </span></a>
 
 </body>
 </html>

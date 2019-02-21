@@ -36,7 +36,7 @@
 <body>
 	<div class="pre_contenitore">
 
-		<p>Inserisci Ordine</p>
+		<p>New Order</p>
 
 	</div>
 	<br>
@@ -58,8 +58,7 @@
 		<br> Description: <input type="text" size="40" maxlength="40"
 			name="order_description" /><br> <br> <input type="SUBMIT"
 			value="Inserisci"> <br /> <br /> <a
-			href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs">
-				Indietro </span></a>
+			href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs">Back </span></a>
 
 	</form>
 </body>

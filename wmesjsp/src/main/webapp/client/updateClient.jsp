@@ -40,7 +40,7 @@
 	
 		<div class="pre_contenitore">
 
-		<p> Modifica Cliente</p>
+		<p> Client Update</p>
 
 </div>
 		<form method="POST" action="/wmesjsp/ClientServlet?richiesta=update">
@@ -51,10 +51,10 @@
     Client Name: <input type="text" size="40" maxlength="40" name="client_name" value="<%=updateClient.getClientName()%>"  /><br>
     <br>
     <br>
-	<input type="SUBMIT" value="Modifica">
+	<input type="SUBMIT" value="Update">
 	<br>
     <br>
-	<a href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
+	<a href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs"> Back </span></a>
 </form>  
 		
 	</div>

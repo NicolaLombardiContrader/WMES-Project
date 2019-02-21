@@ -41,7 +41,7 @@
 <body> 
 	<div class="pre_contenitore">
 
-		<p> Gestione Ordini </p>
+		<p> Order Management </p>
 
 </div>
 <br>
@@ -72,10 +72,10 @@
 
 				<td><a
 				href="/wmesjsp/OrderServlet?richiesta=updateRedirect&id=<%=order.getId()%>">
-				<i class="fas fa-edit" title="Modifica"></i></a></td>
+				<i class="fas fa-edit" title="Update"></i></a></td>
 				<td><a
 				href="/wmesjsp/OrderServlet?richiesta=delete&id=<%=order.getId()%>"><i
-					class="fas fa-trash-alt" title="Elimina"></i></a></td> 
+					class="fas fa-trash-alt" title="Delete"></i></a></td> 
 			</tr>
 			<%
 				} 
@@ -83,10 +83,10 @@
 		</table>
 		<br>
 		<br>
-		<a href="/wmesjsp/OrderServlet?richiesta=insertRedirect">Inserisci nuovo Ordine</a>
+		<a href="/wmesjsp/OrderServlet?richiesta=insertRedirect">New Order</a>
 		<br/>
 		<br/>
-		<a href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs">Indietro </span></a>
+		<a href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs">Back </span></a>
 
 </body>
 </html>

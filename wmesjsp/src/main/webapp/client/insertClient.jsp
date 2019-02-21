@@ -34,7 +34,7 @@
 <body>
 	<div class="pre_contenitore">
 
-		<p> Inserisci Cliente </p>
+		<p> New Client </p>
 
 </div>
 <br>
@@ -42,11 +42,10 @@
 <br>
 	<form method="POST" action="/wmesjsp/ClientServlet?richiesta=insert">
 
-		Nome cliente: <input type="text" size="40" maxlength="40"
+		Client Name: <input type="text" size="40" maxlength="40"
 			name="client_name" /><br> <br> <input
 			type="SUBMIT" value="Inserisci"> <br> <br> <a
-			href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs">
-				Indietro </span></a>
+			href="/wmesjsp/ClientServlet?richiesta=indietro"><span class="fs">Back </span></a>
 
 	</form>
 </body>
