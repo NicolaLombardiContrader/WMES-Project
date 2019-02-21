@@ -83,7 +83,7 @@
 		</table>
 		<br>
 		<br>
-		<a href="/wmesjsp/OrderServlet?richiesta=insertRedirect">New Order</a>
+		<a href="/wmesjsp/OrderServlet?richiesta=insertRedirect"><span class="fs">New Order</a>
 		<br/>
 		<br/>
 		<a href="/wmesjsp/OrderServlet?richiesta=indietro"><span class="fs">Back </span></a>

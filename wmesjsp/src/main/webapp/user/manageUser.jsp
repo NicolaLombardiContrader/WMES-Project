@@ -79,7 +79,7 @@ body{
 			<td><%=user.getUsertype()%></td>
 			<td class="center"><a
 				href="/wmesjsp/UserServlet?richiesta=updateRedirect&id=<%=user.getId()%>"><i
-					class="fas fa-edit" title="Modify"></i></a></td>
+					class="fas fa-edit" title="Update"></i></a></td>
 			<td class="center"><a
 				href="/wmesjsp/UserServlet?richiesta=delete&id=<%=user.getId()%>"><i
 					class="fas fa-trash-alt" title="Delete"></i></a></td>
