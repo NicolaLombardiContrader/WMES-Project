@@ -90,6 +90,7 @@ body{
 			<form action="LoginServlet" method="post"> 
 				<p>Inserisci le tue credenziali</p>
 					<p>
+					<br>
 						<label>Username</label><br>
 							<input type="text" name="username" class="username" placeholder="Username">
 					</p>

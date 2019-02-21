@@ -3,16 +3,27 @@
 <head>
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
 <style>
-.center {
-	margin: auto;
-	width: 80%;
-	text-align: left
+	/*contenitore in cima dove c'è scritto "Login"*/
+.pre_contenitore{
+	  width:320px;
+	  margin:auto;
+	  height:50px;
+	  border:1px solid black;
+	  border-radius: 40px 40px 40px 40px;
+	   background-color:rgba(0,0,0,0.9);
+	   box-shadow: 20px 30px 20px #000000;
+	   padding:20px; 
 }
 
-table, th, td {
-	border: 1px solid black;
+.pre_contenitore p{
+     color:white;
+     text-align: center;
+     font-size: 1.9em;
+     font-family: arial;
+    line-height:2px;
+
 }
-</style>
+	</style>
 
 <%
 	UserDTO updateUser = (UserDTO) request.getAttribute("userUpdate");
@@ -22,10 +33,13 @@ table, th, td {
 <body>
 	<div class="center">
 		
-		<h2 style="color: red"><%=updateUser%>
-		</h2>
-	
-		<h1>------Modifica Utente------</h1>
+		<div class="pre_contenitore">
+
+		<p> Modifica Utente</p>
+
+</div>
+<br>
+<br>
 		<form method="POST" action="/wmesjsp/UserServlet?richiesta=update">
 
     <input type="hidden" name="user_id" value="<%=updateUser.getId()%>"  /><br>
@@ -37,7 +51,6 @@ table, th, td {
 			<option value="admin">Amministratore</option>
 			<option value="bo">Business Owner</option>
 		</select>
-   <!-- User Type: <input type="text" size="40" maxlength="40" name="user_type" value="<%=updateUser.getUsertype()%>"  /><br>-->
     <br>
     <br>
 	<input type="SUBMIT" value="Modifica">
