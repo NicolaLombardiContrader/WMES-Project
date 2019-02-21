@@ -21,7 +21,7 @@
 }
 
 .pre_contenitore p {
-	color: white;
+	color: orange;
 	text-align: center;
 	font-size: 1.9em;
 	font-family: arial;
