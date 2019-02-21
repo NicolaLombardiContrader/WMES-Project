@@ -92,7 +92,6 @@ body{
 		<p> Welcome! </p>
 
 </div>
-<br>
 <div class="contenitore">
 	<a href="ClientServlet?richiesta=ClientManager"><span class="fs"> Gestione Clienti </span></a>
 <br>

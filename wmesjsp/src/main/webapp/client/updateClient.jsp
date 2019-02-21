@@ -4,35 +4,51 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
+
 <style>
-.center {
-	margin: auto;
-	width: 80%;
-	text-align: left
+	/*contenitore in cima dove c'è scritto "Login"*/
+.pre_contenitore{
+	  width:320px;
+	  margin:auto;
+	  height:50px;
+	  border:1px solid black;
+	  border-radius: 40px 40px 40px 40px;
+	   background-color:rgba(0,0,0,0.9);
+	   box-shadow: 20px 30px 20px #000000;
+	   padding:20px; 
 }
 
-table, th, td {
-	border: 1px solid black;
+.pre_contenitore p{
+     color:white;
+     text-align: center;
+     font-size: 1.9em;
+     font-family: arial;
+    line-height:2px;
+
 }
-</style>
+	</style>
 
 <%
 	ClientDTO updateClient = (ClientDTO) request.getAttribute("clientUpdate");
 %>
 </head>
-
+<br>
 <body>
 	<div class="center">
 		
 		
 	
-		<h1>------Modifica Cliente------</h1>
+		<div class="pre_contenitore">
+
+		<p> Modifica Cliente</p>
+
+</div>
 		<form method="POST" action="/wmesjsp/ClientServlet?richiesta=update">
 <br>
      
     <br>
     <input type="hidden" name="client_id" value="<%=updateClient.getId()%>"  />
-    ClientName: <input type="text" size="40" maxlength="40" name="client_name" value="<%=updateClient.getClientName()%>"  /><br>
+    Client Name: <input type="text" size="40" maxlength="40" name="client_name" value="<%=updateClient.getClientName()%>"  /><br>
     <br>
     <br>
 	<input type="SUBMIT" value="Modifica">

@@ -15,7 +15,7 @@
 	  height:50px;
 	  border:1px solid black;
 	  border-radius: 40px 40px 0px 0px;
-	   background-color:rgba(0,0,0,0.9);
+	   background-color:rgba(0,0,0,0.8);
 	   box-shadow: 20px 30px 20px #000000;
 	   padding:20px; 
 }
@@ -92,7 +92,6 @@ body{
 		<p> Welcome! </p>
 
 </div>
-<br>
 <div class="contenitore">
 	<a href="UserServlet?richiesta=UserManager"><span class="fs"> Gestione Utenti </span></a>
 <br>
