@@ -54,7 +54,7 @@
 		<table>
 			<tr>
 				
-				<th>Client</th>
+				<th>ClientName</th>
 				<th>Description</th>
 				<th>Update</th>
 				<th>Delete</th>
@@ -67,7 +67,7 @@
 				<td><%=order.getId()%></td>
 				<td><%=order.getUserDTO().getId()%></td>
 				 -->
-				<td><%=order.getClientDTO().getId()%></td>
+				<td><%=order.getClientDTO().getClientName()%></td>
 				<td><%=order.getDescription()%></td>
 
 				<td><a

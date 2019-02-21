@@ -1,4 +1,5 @@
 package wmes.converter;
+
 import wmes.dto.ClientDTO;
 import wmes.dto.OrderDTO;
 import wmes.dto.UserDTO;
@@ -12,7 +13,6 @@ import wmes.model.User;
  */
 public class OrderConverter {
 
-
 	/**
 	 * Converte un OrderDTO in Order
 	 */
@@ -23,7 +23,9 @@ public class OrderConverter {
 			User user = UserConverter.toEntity(orderDTO.getUserDTO());
 			Client client = ClientConverter.toEntity(orderDTO.getClientDTO());
 			order = new Order(user, client, orderDTO.getDescription());
-			order.setOrderId(orderDTO.getId());
+
+			if (orderDTO.getId() != null)
+				order.setOrderId(orderDTO.getId());
 		}
 
 		return order;
@@ -35,16 +37,15 @@ public class OrderConverter {
 
 	public static OrderDTO toDTO(Order order) {
 
-		OrderDTO orderDTO  = null;
+		OrderDTO orderDTO = null;
 		if (order != null) {
 			UserDTO userDTO = UserConverter.toDTO(order.getUser());
-			ClientDTO clientDTO=ClientConverter.toDTO(order.getClient());
-			orderDTO = new OrderDTO(userDTO,clientDTO, order.getDescription());
+			ClientDTO clientDTO = ClientConverter.toDTO(order.getClient());
+			orderDTO = new OrderDTO(userDTO, clientDTO, order.getDescription());
 			orderDTO.setId(order.getOrderId());
 		}
 
 		return orderDTO;
 	}
-	
 
 }
