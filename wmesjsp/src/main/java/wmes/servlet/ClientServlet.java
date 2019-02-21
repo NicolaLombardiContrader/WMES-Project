@@ -64,11 +64,10 @@ public class ClientServlet extends HttpServlet{
 
 		case "update":
 			final Integer clientIdUpdate = Integer.parseInt(request.getParameter("client_id"));
-			final Integer userIdUpdate = Integer.parseInt(request.getParameter("user_id"));
+			//final Integer userIdUpdate = Integer.parseInt(request.getParameter("user_id"));
 			final String clientNameUpdate = request.getParameter("client_name");
-			UserDTO userUpdate= new UserDTO("","","");
-			userUpdate.setId(userIdUpdate);
-			final ClientDTO clientDTO = new ClientDTO(userUpdate, clientNameUpdate);
+			
+			final ClientDTO clientDTO = new ClientDTO(userLogged, clientNameUpdate);
 			clientDTO .setId(clientIdUpdate);
 			clientServiceDTO.updateClient(clientDTO);
 			showAllClient(request, response);
