@@ -25,17 +25,16 @@
 <br/>
 	<table>
 		<tr>
-			<th>Client ID</th>
-			<th>User ID</th>
 			<th>Client Name</th>
+			<th>Update</th>
+			<th>Delete</th>
 		
 		</tr>
 		<%
 			for (ClientDTO client : allClient) {
 		%>
 		<tr>
-			<td><%=client.getId()%></td>
-			<td><%=client.getUserDTO().getId()%></td>
+
 			<td><%=client.getClientName()%></td>
 			
 

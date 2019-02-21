@@ -14,25 +14,23 @@ import wmes.dto.ClientDTO;
 import wmes.dto.UserDTO;
 import wmes.service.ClientServiceDTO;
 
+public class ClientServlet extends HttpServlet {
 
-public class ClientServlet extends HttpServlet{
+	private ClientServiceDTO clientServiceDTO = new ClientServiceDTO();
+	private List<ClientDTO> allClients = new ArrayList<ClientDTO>();
+	private List<ClientDTO> filteredClients = new ArrayList<ClientDTO>();
 
-	private final ClientServiceDTO clientServiceDTO = new ClientServiceDTO();
-	private List<ClientDTO> allClients = new ArrayList<>();
-	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true);
-		final UserDTO userLogged=(UserDTO) session.getAttribute("utente");
-		
+		final UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+
 		switch (scelta) {
 
 		case "ClientManager":
-			allClients = this.clientServiceDTO.getAllClient();
-			request.setAttribute("allClient", allClients);
-			getServletContext().getRequestDispatcher("/client/manageClient.jsp").forward(request, response);
+			showAllClient(request, response);
 			break;
 
 		case "insertRedirect":
@@ -40,20 +38,19 @@ public class ClientServlet extends HttpServlet{
 			break;
 
 		case "insert":
-			//final int userId = Integer.parseInt(request.getParameter("user_id"));
+			// final int userId = Integer.parseInt(request.getParameter("user_id"));
 			final String clientName = request.getParameter("client_name");
-			//UserDTO userInsert = new UserDTO("","","");
-			
-			//userInsert.setId(userId);
+			// UserDTO userInsert = new UserDTO("","","");
+
+			// userInsert.setId(userId);
 			final ClientDTO clientInsert = new ClientDTO(userLogged, clientName);
 			clientServiceDTO.insertClient(clientInsert);
 			showAllClient(request, response);
 			break;
 
-
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
-			ClientDTO clientUpdate = new ClientDTO(new UserDTO("","",""), "");
+			ClientDTO clientUpdate = new ClientDTO(new UserDTO("", "", ""), "");
 			clientUpdate.setId(id);
 
 			clientUpdate = this.clientServiceDTO.readClient(clientUpdate);
@@ -64,12 +61,12 @@ public class ClientServlet extends HttpServlet{
 
 		case "update":
 			final Integer clientIdUpdate = Integer.parseInt(request.getParameter("client_id"));
-			final Integer userIdUpdate = Integer.parseInt(request.getParameter("user_id"));
+			// final Integer userIdUpdate =
+			// Integer.parseInt(request.getParameter("user_id"));
 			final String clientNameUpdate = request.getParameter("client_name");
-			UserDTO userUpdate= new UserDTO("","","");
-			userUpdate.setId(userIdUpdate);
-			final ClientDTO clientDTO = new ClientDTO(userUpdate, clientNameUpdate);
-			clientDTO .setId(clientIdUpdate);
+
+			final ClientDTO clientDTO = new ClientDTO(userLogged, clientNameUpdate);
+			clientDTO.setId(clientIdUpdate);
 			clientServiceDTO.updateClient(clientDTO);
 			showAllClient(request, response);
 			break;
@@ -94,11 +91,22 @@ public class ClientServlet extends HttpServlet{
 		}
 
 	}
-
+	
+	// Show all client for user logged
 	private void showAllClient(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		allClients.clear();
+		filteredClients.clear();
 		allClients = this.clientServiceDTO.getAllClient();
-		request.setAttribute("allClient", allClients);
+		HttpSession session = request.getSession(true);
+		UserDTO userLogged=(UserDTO) session.getAttribute("utente");
+		
+		for (ClientDTO clientDTO:allClients) {
+			if (clientDTO.getUserDTO().getId()==userLogged.getId())
+				filteredClients.add(clientDTO);
+		}
+			
+		request.setAttribute("allClient", filteredClients);
 		getServletContext().getRequestDispatcher("/client/manageClient.jsp").forward(request, response);
 	}
 }

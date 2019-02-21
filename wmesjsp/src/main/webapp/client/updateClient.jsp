@@ -29,9 +29,9 @@ table, th, td {
 		<h1>------Modifica Cliente------</h1>
 		<form method="POST" action="/wmesjsp/ClientServlet?richiesta=update">
 <br>
-    <input type="hidden" name="client_id" value="<%=updateClient.getId()%>"  /><br>
-    UserId: <input type="text" size="40" maxlength="40" name="user_id" value="<%=updateClient.getUserDTO().getId()%>"  /><br> 
+     
     <br>
+    <input type="hidden" name="client_id" value="<%=updateClient.getId()%>"  />
     ClientName: <input type="text" size="40" maxlength="40" name="client_name" value="<%=updateClient.getClientName()%>"  /><br>
     <br>
     <br>
