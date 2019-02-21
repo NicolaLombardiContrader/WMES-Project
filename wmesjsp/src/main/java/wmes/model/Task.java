@@ -137,7 +137,7 @@ public class Task {
 	if (this.getStato()!=taskCompare.getStato()) {
 		return false;
 	}
-
+  
 	
 	return true;
 	
