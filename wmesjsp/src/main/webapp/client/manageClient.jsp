@@ -53,7 +53,7 @@
 			<th>Delete</th>
 
 		</tr>
-		<%
+		<% 
 			for (ClientDTO client : allClient) {
 		%>
 		<tr>
