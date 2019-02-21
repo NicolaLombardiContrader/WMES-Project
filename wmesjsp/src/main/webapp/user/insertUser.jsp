@@ -40,16 +40,15 @@
 <br>
 	<form method="POST" action="/wmesjsp/UserServlet?richiesta=insert">
 
-
-		Username: <input type="text" size="40" maxlength="40" name="user_user" /><br>
-		<br>
-		Password:  <input type="text" size="40" maxlength="40" name="user_pass" /><br>
-		<br>
-		User type: <select name="user_type">
+       User type: <select style="width:275px;" name="user_type">
 			<option value="admin">Amministratore</option>
 			<option value="bo">Business Owner</option>
 		</select>
-
+		<br>
+		<br>
+		Username: <input type="text" size="40" maxlength="40" name="user_user" /><br>
+		<br>
+		Password:  <input type="text" size="40" maxlength="40" name="user_pass" /><br>
 		<br>
 		<br>	
 		<br>			

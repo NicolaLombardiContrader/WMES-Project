@@ -42,15 +42,17 @@
 <br>
 		<form method="POST" action="/wmesjsp/UserServlet?richiesta=update">
 
+  User type: <select style="width:275px;" name="user_type">
+			<option value="admin">Amministratore</option>
+			<option value="bo">Business Owner</option>
+		</select>
+		<br>
     <input type="hidden" name="user_id" value="<%=updateUser.getId()%>"  /><br>
     Username: <input type="text" size="40" maxlength="40" name="user_user" value="<%=updateUser.getUsername()%>"  /><br> 
     <br>
     Password: <input type="text" size="40" maxlength="40" name="user_pass" value="<%=updateUser.getPassword()%>"  /><br> 
     <br>
-    User type: <select name="user_type">
-			<option value="admin">Amministratore</option>
-			<option value="bo">Business Owner</option>
-		</select>
+  
     <br>
     <br>
 	<input type="SUBMIT" value="Modifica">

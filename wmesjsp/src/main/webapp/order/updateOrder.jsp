@@ -48,8 +48,7 @@
 
 			<input type="hidden" name="order_id" value="<%=updateOrder.getId()%>" /><br>
 
-			Client Name:
-			 <select name="client_id">
+			Client Name:<select style="width:270px;" name="client_id">
 			<%
 				for (ClientDTO clientDTO : allClientsByUser) {
 					if (clientDTO.getId() == updateOrder.getClientDTO().getId()) {

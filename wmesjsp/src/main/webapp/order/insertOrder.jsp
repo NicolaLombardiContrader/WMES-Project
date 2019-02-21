@@ -45,7 +45,7 @@
 
 
 
-		ClientName: <select name="client_id">
+		Client Name: <select style="width:270px;" name="client_id">
 			<%
 				for (ClientDTO clientDTO : allClientsByUser) {
 			%>
@@ -54,6 +54,7 @@
 				}
 			%>
 		</select>
+		<br>
 		<br> Description: <input type="text" size="40" maxlength="40"
 			name="order_description" /><br> <br> <input type="SUBMIT"
 			value="Inserisci"> <br /> <br /> <a
