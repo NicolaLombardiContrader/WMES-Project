@@ -22,7 +22,7 @@ public class TaskDAO {
 	private final String QUERY_INSERT = "insert into task (user_id, task_description, task_action, task_input, task_output, task_resource, task_time, task_state) values (?, ?, ?, ?, ?, ?, ?, ?)";
 	private final String QUERY_READ = "select * from task where task_id=?";
 
-	private final String QUERY_UPDATE = "UPDATE task SET user_id=?, task_description=?, task_action=?; task_input=?, task_output=?, task_resource=?, task_time=?, task_state=?, WHERE task_id=?";
+	private final String QUERY_UPDATE = "UPDATE task SET user_id=?, task_description=?, task_action=?, task_input=?, task_output=?, task_resource=?, task_time=?, task_state=? WHERE task_id=?";
 	private final String QUERY_DELETE = "DELETE from task WHERE task_id=?";
 
 	public TaskDAO() {
