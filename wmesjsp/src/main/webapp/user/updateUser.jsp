@@ -35,7 +35,7 @@
 		
 		<div class="pre_contenitore">
 
-		<p> Modifica Utente</p>
+		<p> User Update</p>
 
 </div>
 <br>
@@ -43,7 +43,7 @@
 		<form method="POST" action="/wmesjsp/UserServlet?richiesta=update">
 
   User type: <select style="width:275px;" name="user_type">
-			<option value="admin">Amministratore</option>
+			<option value="admin">Admin</option>
 			<option value="bo">Business Owner</option>
 		</select>
 		<br>
@@ -55,11 +55,11 @@
   
     <br>
     <br>
-	<input type="SUBMIT" value="Modifica">
+	<input type="SUBMIT" value="Update">
 	
 	<br>
 <br>
-	<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
+	<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Back </span></a>
 	
 </form>  
 		

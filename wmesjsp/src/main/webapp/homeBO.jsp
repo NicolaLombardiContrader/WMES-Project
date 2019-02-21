@@ -93,10 +93,10 @@ body{
 
 </div>
 <div class="contenitore">
-	<a href="ClientServlet?richiesta=ClientManager"><span class="fs"> Gestione Clienti </span></a>
+	<a href="ClientServlet?richiesta=ClientManager"><span class="fs"> Client Management </span></a>
 <br>
 <br>
-	<a href="OrderServlet?richiesta=OrderManager"><span class="fs"> Gestione Ordini </span></a>
+	<a href="OrderServlet?richiesta=OrderManager"><span class="fs"> Order Management </span></a>
 <br>	
 <br>	
 <br>

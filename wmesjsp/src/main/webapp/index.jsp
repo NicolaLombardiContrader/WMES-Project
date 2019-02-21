@@ -88,7 +88,7 @@ body{
 		</div>
 		<div class="contenitore">
 			<form action="LoginServlet" method="post"> 
-				<p>Inserisci le tue credenziali</p>
+				<p>Enter your login details</p>
 					<p>
 					<br>
 						<label>Username</label><br>

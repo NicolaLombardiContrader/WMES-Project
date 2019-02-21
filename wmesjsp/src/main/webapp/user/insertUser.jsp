@@ -32,7 +32,7 @@
 <body>
 	<div class="pre_contenitore">
 
-		<p> Inserisci Utente </p>
+		<p> New User </p>
 
 </div>
 
@@ -41,7 +41,7 @@
 	<form method="POST" action="/wmesjsp/UserServlet?richiesta=insert">
 
        User type: <select style="width:275px;" name="user_type">
-			<option value="admin">Amministratore</option>
+			<option value="admin">Admin</option>
 			<option value="bo">Business Owner</option>
 		</select>
 		<br>
@@ -55,7 +55,7 @@
 <input type="SUBMIT" value="Inserisci">
 <br>	
 <br>
-<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Indietro </span></a>
+<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Back </span></a>
 
 </form>
 </body>

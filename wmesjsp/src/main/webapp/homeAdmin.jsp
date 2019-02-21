@@ -93,7 +93,7 @@ body{
 
 </div>
 <div class="contenitore">
-	<a href="UserServlet?richiesta=UserManager"><span class="fs"> Gestione Utenti </span></a>
+	<a href="UserServlet?richiesta=UserManager"><span class="fs"> User Management </span></a>
 <br>
 <br>	
 <br>

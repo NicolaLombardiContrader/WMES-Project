@@ -51,7 +51,7 @@ body{
 	
 		<div class="pre_contenitore">
 
-		<p> Gestione Utenti</p>
+		<p> User Management </p>
 
 </div>
 	<br>
@@ -79,10 +79,10 @@ body{
 			<td><%=user.getUsertype()%></td>
 			<td class="center"><a
 				href="/wmesjsp/UserServlet?richiesta=updateRedirect&id=<%=user.getId()%>"><i
-					class="fas fa-edit" title="Modifica"></i></a></td>
+					class="fas fa-edit" title="Modify"></i></a></td>
 			<td class="center"><a
 				href="/wmesjsp/UserServlet?richiesta=delete&id=<%=user.getId()%>"><i
-					class="fas fa-trash-alt" title="Elimina"></i></a></td>
+					class="fas fa-trash-alt" title="Delete"></i></a></td>
 
 		</tr>
 		<%
@@ -91,11 +91,11 @@ body{
 	</table>
 <br>
 <br>
-	<a href="/wmesjsp/UserServlet?richiesta=insertRedirect"><span class="fs"> Inserisci nuovo Utente </span></a>
+	<a href="/wmesjsp/UserServlet?richiesta=insertRedirect"><span class="fs"> New User </span></a>
 	
 <br>
 <br>
-	<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs">Indietro </span></a>
+	<a href="/wmesjsp/UserServlet?richiesta=indietro"><span class="fs"> Back </span></a>
 	
 
 </body>
