@@ -10,27 +10,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import wmes.dto.ClientDTO;
 import wmes.dto.UserDTO;
-import wmes.service.ClientServiceDTO;
+import wmes.dto.TaskDTO;
+import wmes.service.TaskServiceDTO;
+
 
 public class TaskServlet extends HttpServlet {
 
 	private TaskServiceDTO taskServiceDTO = new TaskServiceDTO();
 	private List<TaskDTO> allTasks = new ArrayList<TaskDTO>();
 	private List<TaskDTO> filteredTasks = new ArrayList<TaskDTO>();
+	private UserDTO userLogged;
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		final String scelta = request.getParameter("richiesta");
 		final HttpSession session = request.getSession(true);
-		final UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		this.userLogged = (UserDTO) session.getAttribute("utente");
 
 		switch (scelta) {
 
 		case "TaskManager":
-			showAllClient(request, response);
+			showAllTask(request, response);
 			break;
 
 		/*case "insertRedirect":
@@ -50,34 +52,41 @@ public class TaskServlet extends HttpServlet {
 
 		case "updateRedirect":
 			int id = Integer.parseInt(request.getParameter("id"));
-			ClientDTO clientUpdate = new ClientDTO(new UserDTO("", "", ""), "");
-			clientUpdate.setId(id);
+			TaskDTO taskUpdate = new TaskDTO(this.userLogged,"","","","","",0,0);
+			taskUpdate.setId(id);
 
-			clientUpdate = this.clientServiceDTO.readClient(clientUpdate);
-			request.setAttribute("clientUpdate", clientUpdate);
-			getServletContext().getRequestDispatcher("/client/updateClient.jsp").forward(request, response);
+			taskUpdate = this.taskServiceDTO.readTask(taskUpdate);
+			request.setAttribute("taskUpdate", taskUpdate);
+			getServletContext().getRequestDispatcher("/task/updateTask.jsp").forward(request, response);
 
 			break;
 
 		case "update":
-			final Integer clientIdUpdate = Integer.parseInt(request.getParameter("client_id"));
+			final Integer taskIdUpdate = Integer.parseInt(request.getParameter("task_id"));
 			// final Integer userIdUpdate =
 			// Integer.parseInt(request.getParameter("user_id"));
-			final String clientNameUpdate = request.getParameter("client_name");
+			final String taskDescriptionUpdate = request.getParameter("task_description");
+			final String taskActionUpdate = request.getParameter("task_action");
+			final String taskInputUpdate = request.getParameter("task_input");
+			final String taskOutputUpdate = request.getParameter("task_output");
+			final String taskResourceUpdate = request.getParameter("task_resource");
+			final int taskTimeUpdate = Integer.parseInt(request.getParameter("task_time"));
+			final int taskStateUpdate = Integer.parseInt(request.getParameter("task_state"));
 
-			final ClientDTO clientDTO = new ClientDTO(userLogged, clientNameUpdate);
-			clientDTO.setId(clientIdUpdate);
-			clientServiceDTO.updateClient(clientDTO);
-			showAllClient(request, response);
+			final TaskDTO taskDTO = new TaskDTO(userLogged, taskDescriptionUpdate, taskActionUpdate,taskInputUpdate,taskOutputUpdate,
+					taskResourceUpdate,taskTimeUpdate,taskStateUpdate);
+			taskDTO.setId(taskIdUpdate);
+			taskServiceDTO.updateTask(taskDTO);
+			showAllTask(request, response);
 			break;
 
 		case "delete":
-			final Integer clientIdDelete = Integer.parseInt(request.getParameter("id"));
+			final Integer taskIdDelete = Integer.parseInt(request.getParameter("id"));
 
-			final ClientDTO clientdelete = new ClientDTO(userLogged, "");
-			clientdelete.setId(clientIdDelete);
-			clientServiceDTO.deleteClient(clientdelete);
-			showAllClient(request, response);
+			final TaskDTO taskdelete = new TaskDTO(userLogged,"","","","","",0,0);
+			taskdelete.setId(taskIdDelete);
+			taskServiceDTO.deleteTask(taskdelete);
+			showAllTask(request, response);
 			break;
 
 		case "indietro":
@@ -93,7 +102,7 @@ public class TaskServlet extends HttpServlet {
 	}
 	
 	// Show all client for user logged
-	private void showAllClient(HttpServletRequest request, HttpServletResponse response)
+	private void showAllTask(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		allTasks.clear();
 		filteredTasks.clear();
@@ -102,7 +111,7 @@ public class TaskServlet extends HttpServlet {
 		UserDTO userLogged=(UserDTO) session.getAttribute("utente");
 		
 		for (TaskDTO taskDTO:allTasks) {
-			if (taskDTO.getTaskDTO().getId()==userLogged.getId())
+			if (taskDTO.getUserDTO().getId()==userLogged.getId())
 				filteredTasks.add(taskDTO);
 		}
 			

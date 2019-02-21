@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Gestione Clienti</title>
+<title>Gestione Task</title>
 
 <link rel="stylesheet" type="text/css" href="/wmesjsp/css/style.css">
 <link rel="stylesheet"
@@ -59,6 +59,8 @@
 			<th>Resource</th>
 			<th>Time</th>
 			<th>State</th>
+			<th>Update</th>
+			<th>Delete</th>
 		
 		</tr>
 		<%
@@ -67,6 +69,12 @@
 		<tr>
 
 			<td><%=task.getTaskDescription()%></td>
+			<td><%=task.getTaskAction()%></td>
+			<td><%=task.getTaskInput()%></td>
+			<td><%=task.getTaskOutput()%></td>
+			<td><%=task.getTaskResource()%></td>
+			<td><%=task.getTaskTime()%></td>
+			<td><%=task.getTaskState()%></td>
 			
 
 			<td><a

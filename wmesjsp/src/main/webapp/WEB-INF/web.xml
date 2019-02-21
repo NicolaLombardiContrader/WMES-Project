@@ -29,6 +29,10 @@
 		<servlet-name>OrderServlet</servlet-name>
 		<servlet-class>wmes.servlet.OrderServlet</servlet-class>
 	</servlet>
+    <servlet>
+		<servlet-name>TaskServlet</servlet-name>
+		<servlet-class>wmes.servlet.TaskServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
@@ -50,4 +54,10 @@
 		<servlet-name>OrderServlet</servlet-name>
 		<url-pattern>/OrderServlet</url-pattern>
 	</servlet-mapping>
+    <servlet-mapping>
+		<servlet-name>TaskServlet</servlet-name>
+		<url-pattern>/TaskServlet</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>

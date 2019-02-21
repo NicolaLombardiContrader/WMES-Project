@@ -21,7 +21,7 @@
 }
 
 .pre_contenitore p{
-     color:white;
+     color:orange;
      text-align: center;
      font-size: 1.9em;
      font-family: arial;
@@ -50,7 +50,7 @@ body{
       background-color:rgba(0,0,0,0.8);
       box-shadow: 20px 20px 20px #000000;
      
-      color:white;
+      color:orange;
 
 }
 
