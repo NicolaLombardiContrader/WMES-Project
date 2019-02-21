@@ -19,7 +19,7 @@
 }
 
 .pre_contenitore p{
-     color:white;
+     color:white; 
      text-align: center;
      font-size: 1.9em;
      font-family: arial;
