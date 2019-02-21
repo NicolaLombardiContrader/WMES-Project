@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +18,7 @@
 }
 
 .pre_contenitore p {
-	color: white;
+	color: orange;
 	text-align: center;
 	font-size: 1.9em;
 	font-family: arial;
@@ -42,22 +41,31 @@
 	<form method="POST" action="/wmesjsp/TaskServlet?richiesta=insert">
 
 
-		Description: <input type="text" size="40" maxlength="40"
-			name="task_description" /><br> <br> Action: <input
-			type="text" size="40" maxlength="40" name="task_action" /><br>
-		<br> Input: <input type="text" size="40" maxlength="40"
-			name="task_input" /><br> <br> Output: <input type="text"
-			size="40" maxlength="40" name="task_output" /><br> <br>
+		Description: <input type="text" size="40" maxlength="40" name="task_description" />
+		<br>
+		<br>
+		Action: <input type="text" size="40" maxlength="40" name="task_action" />
+		<br>
+		<br>
+		Input: <input type="text" size="40" maxlength="40" name="task_input" />
+		<br>
+		<br>
+		Output: <input type="text" size="40" maxlength="40" name="task_output" />
+		<br>
+		<br>
 
-		Resource: <input type="text" size="40" maxlength="40"
-			name="task_resource" /><br> <br> Time (minutes): <input
-			type="number" size="40" maxlength="40" name="task_time" /><br>
-		<br> State: <select style="width: 275px;" name="task_state">
+		Resource: <input type="text" size="40" maxlength="40" name="task_resource" />
+		<br>
+		<br>
+		Time (minutes): <input type="number" size="40" maxlength="40" name="task_time" />
+		<br>
+		<br>
+		State: <select style="width: 275px;" name="task_state">
 			<option value="0">Pending</option>
 			<option value="1">In progress</option>
 			<option value="2">Completed</option>
 
-		</select> 
+		</select>
 		<br>
 		<input type="SUBMIT" value="Add">
 	</form>
@@ -65,8 +73,7 @@
 
 	<br>
 	<br>
-	<a href="/wmesjsp/TaskServlet?richiesta=TaskManager"><span
-		class="fs">Back </span></a>
+	<a href="/wmesjsp/TaskServlet?richiesta=TaskManager"><span class="fs">Back </span></a>
 
 
 

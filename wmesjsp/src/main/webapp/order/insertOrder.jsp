@@ -45,7 +45,7 @@
 
 
 
-		Client Name: <select style="width:270px;" name="client_id">
+		Client Name: <select style="width: 270px;" name="client_id">
 			<%
 				for (ClientDTO clientDTO : allClientsByUser) {
 			%>
@@ -55,10 +55,14 @@
 			%>
 		</select>
 		<br>
-		<br> Description: <input type="text" size="40" maxlength="40"
-			name="order_description" /><br> <br> <input type="SUBMIT"
-			value="Add"> <br /> <br /> <a
-			href="/wmesjsp/OrderServlet?richiesta=OrderManager"><span class="fs">Back </span></a>
+		<br>
+		Description: <input type="text" size="40" maxlength="40" name="order_description" />
+		<br>
+		<br>
+		<input type="SUBMIT" value="Add">
+		<br />
+		<br />
+		<a href="/wmesjsp/OrderServlet?richiesta=OrderManager"><span class="fs">Back </span></a>
 
 	</form>
 </body>

@@ -43,38 +43,26 @@
 			<p>Order Update</p>
 
 		</div>
-		<br> <br>
+		<br>
+		<br>
 		<form method="POST" action="/wmesjsp/OrderServlet?richiesta=update">
 
-			<input type="hidden" name="order_id" value="<%=updateOrder.getId()%>" /><br>
+			<input type="hidden" name="order_id" value="<%=updateOrder.getId()%>" />
+			<br>
 
-			Client Name:<select style="width:270px;" name="client_id">
-			<%
-				for (ClientDTO clientDTO : allClientsByUser) {
-					if (clientDTO.getId() == updateOrder.getClientDTO().getId()) {
-			%>
 
-			<option selected="selected" value="<%=clientDTO.getId()%>"><%=clientDTO.getClientName()%></option>
 
-			<%
-				} else {
-			%>
-
-			<option value="<%=clientDTO.getId()%>"><%=clientDTO.getClientName()%></option>
-
-			<%
-				} //end if
-				} //end for
-			%>
 			</select>
 			<br>
 			<br>
 
-			Description: <input type="text" size="40" maxlength="40"
-				name="order_description" value="<%=updateOrder.getDescription()%>" /><br>
-			<br> <input type="SUBMIT" value="Update"> <br /> <br />
-			<a href="/wmesjsp/OrderServlet?richiesta=OrderManager"><span
-				class="fs">Back</span></a>
+			Description: <input type="text" size="40" maxlength="40" name="order_description" value="<%=updateOrder.getDescription()%>" />
+			<br>
+			<br>
+			<input type="SUBMIT" value="Update">
+			<br />
+			<br />
+			<a href="/wmesjsp/OrderServlet?richiesta=OrderManager"><span class="fs">Back</span></a>
 
 		</form>
 

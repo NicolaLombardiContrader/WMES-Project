@@ -19,7 +19,7 @@
 }
 
 .pre_contenitore p {
-	color: white;
+	color: orange;
 	text-align: center;
 	font-size: 1.9em;
 	font-family: arial;
@@ -43,30 +43,43 @@
 
 		</div>
 		<form method="POST" action="/wmesjsp/TaskServlet?richiesta=update">
-			<br> <br> <input type="hidden" name="task_id"
-				value="<%=updateTask.getId()%>" /> Description: <input type="text"
-				size="40" maxlength="40" name="task_description"
-				value="<%=updateTask.getTaskDescription()%>" /><br> <br>
-			<br> Action: <input type="text" size="40" maxlength="40"
-				name="task_action" value="<%=updateTask.getTaskAction()%>" /><br>
-			<br> <br> Input: <input type="text" size="40"
-				maxlength="40" name="task_input"
-				value="<%=updateTask.getTaskInput()%>" /><br> <br> <br>
-			Output: <input type="text" size="40" maxlength="40"
-				name="task_output" value="<%=updateTask.getTaskOutput()%>" /><br>
-			<br> <br> Resource: <input type="text" size="40"
-				maxlength="40" name="task_resource"
-				value="<%=updateTask.getTaskResource()%>" /><br> <br> <br>
-			Time: <input type="text" size="40" maxlength="40" name="task_time"
-				value="<%=updateTask.getTaskTime()%>" /><br> <br> <br>
-			State: <input type="text" size="40" maxlength="40" name="task_state"
-				value="<%=updateTask.getTaskState()%>" /><br> <br> <br>
+			<br>
+			<br>
+			<input type="hidden" name="task_id" value="<%=updateTask.getId()%>" /> Description: <input type="text" size="40" maxlength="40"
+				name="task_description" value="<%=updateTask.getTaskDescription()%>" />
+			<br>
+			<br>
+			<br>
+			Action: <input type="text" size="40" maxlength="40" name="task_action" value="<%=updateTask.getTaskAction()%>" />
+			<br>
+			<br>
+			<br>
+			Input: <input type="text" size="40" maxlength="40" name="task_input" value="<%=updateTask.getTaskInput()%>" />
+			<br>
+			<br>
+			<br>
+			Output: <input type="text" size="40" maxlength="40" name="task_output" value="<%=updateTask.getTaskOutput()%>" />
+			<br>
+			<br>
+			<br>
+			Resource: <input type="text" size="40" maxlength="40" name="task_resource" value="<%=updateTask.getTaskResource()%>" />
+			<br>
+			<br>
+			<br>
+			Time: <input type="text" size="40" maxlength="40" name="task_time" value="<%=updateTask.getTaskTime()%>" />
+			<br>
+			<br>
+			<br>
+			State: <input type="text" size="40" maxlength="40" name="task_state" value="<%=updateTask.getTaskState()%>" />
+			<br>
+			<br>
+			<br>
 			<input type="SUBMIT" value="Update">
 		</form>
 
-		<br> <br> <a
-			href="/wmesjsp/TaskServlet?richiesta=ClientManager"><span
-			class="fs"> Back </span></a>
+		<br>
+		<br>
+		<a href="/wmesjsp/TaskServlet?richiesta=ClientManager"><span class="fs"> Back </span></a>
 
 	</div>
 </body>

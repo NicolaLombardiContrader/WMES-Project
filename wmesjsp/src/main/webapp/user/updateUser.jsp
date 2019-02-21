@@ -37,7 +37,8 @@
 			<p>User Update</p>
 
 		</div>
-		<br> <br>
+		<br>
+		<br>
 		<form method="POST" action="/wmesjsp/UserServlet?richiesta=update">
 
 			<%
@@ -51,22 +52,28 @@
 			%>
 
 			User type: <select style="width: 270px;" name="user_type">
-				
+
 				<option <%=adminSelected%> value="<%=updateUser.getUsertype()%>">Admin</option>
-				<option <%=boSelected%> value="<%=updateUser.getUsertype()%>">Business
-					owner</option>
+				<option <%=boSelected%> value="<%=updateUser.getUsertype()%>">Business owner</option>
 
-				
-			</select> <br> <input type="hidden" name="user_id"
-				value="<%=updateUser.getId()%>" /><br> Username: <input
-				type="text" size="40" maxlength="40" name="user_user"
-				value="<%=updateUser.getUsername()%>" /><br> <br>
-			Password: <input type="text" size="40" maxlength="40"
-				name="user_pass" value="<%=updateUser.getPassword()%>" /><br>
-			<br> <br> <br> <input type="SUBMIT" value="Update">
 
-			<br> <br> <a href="/wmesjsp/UserServlet?richiesta=UserManager"><span
-				class="fs"> Back </span></a>
+			</select>
+			<br>
+			<input type="hidden" name="user_id" value="<%=updateUser.getId()%>" />
+			<br>
+			Username: <input type="text" size="40" maxlength="40" name="user_user" value="<%=updateUser.getUsername()%>" />
+			<br>
+			<br>
+			Password: <input type="text" size="40" maxlength="40" name="user_pass" value="<%=updateUser.getPassword()%>" />
+			<br>
+			<br>
+			<br>
+			<br>
+			<input type="SUBMIT" value="Update">
+
+			<br>
+			<br>
+			<a href="/wmesjsp/UserServlet?richiesta=UserManager"><span class="fs"> Back </span></a>
 
 		</form>
 
