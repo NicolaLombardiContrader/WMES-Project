@@ -1,5 +1,7 @@
 package wmes.dto;
 
+import wmes.model.User;
+
 public class UserDTO {
 
 	private Integer id;
@@ -45,5 +47,22 @@ public class UserDTO {
 	public void setUsertype(String usertype) {
 		this.usertype = usertype;
 	}
+	
+	public boolean equals(UserDTO userCompare)  {
+		if (!this.getUsername().equals(userCompare.getUsername())) {
+			return false;
+		}
+		
+		if (!this.getPassword().equals(userCompare.getPassword())) {
+			return false;
+		}
+		
+		if (!this.getUsertype().equals(userCompare.getUsertype())) {
+			return false;
+		}
+		
+		return true;		
+	}
+	
 
 }
