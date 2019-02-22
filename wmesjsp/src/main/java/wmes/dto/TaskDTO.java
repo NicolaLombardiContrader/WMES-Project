@@ -1,7 +1,5 @@
 package wmes.dto;
 
-import wmes.model.Task;
-import wmes.model.User;
 
 public class TaskDTO {
 	private int Id; 
@@ -101,9 +99,6 @@ public class TaskDTO {
 		this.taskState = taskState;
 	}
 
-
-	
-
 	
 	public String toString() {
 		return this.getId() + "\t " + this.getUserDTO() + "\t" 
@@ -111,6 +106,35 @@ public class TaskDTO {
 				+ this.getTaskOutput() + "\t" + this.getTaskResource() + "\t" + this.getTaskTime() + "\t" + this.getTaskState();
 		
 	}
+
+	public boolean equals(TaskDTO taskCompare) {
+		if (!taskAction.equals(taskCompare.getTaskAction()))
+			return false;
+		
+		if (!taskDescription.equals(taskCompare.getTaskDescription()))
+			return false;
+		
+		if (!taskInput.equals(taskCompare.getTaskInput()))
+			return false;
+		
+		if (!taskOutput.equals(taskCompare.getTaskOutput()))
+			return false;
+		
+		if (!taskResource.equals(taskCompare.getTaskResource()))
+			return false;
+		
+		if (taskState != taskCompare.getTaskState())
+			return false;
+		
+		if (taskTime != taskCompare.getTaskTime())
+			return false;
+		
+		if (userDTO.getId()!=taskCompare.getUserDTO().getId())
+			return false;
+		
+		return true;
+	}
+	
 	
 	
 }
