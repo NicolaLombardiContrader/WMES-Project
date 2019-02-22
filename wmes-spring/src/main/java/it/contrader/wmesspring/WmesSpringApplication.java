@@ -9,5 +9,5 @@ public class WmesSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WmesSpringApplication.class, args);
 	}
-
+ 
 }
