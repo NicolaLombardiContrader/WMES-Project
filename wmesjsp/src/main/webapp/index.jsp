@@ -23,7 +23,7 @@
 	font-family: arial;
 	line-height: 2px;
 }
-
+ 
 body {
 	background-image:
 		url("https://i1.wp.com/www.deteched.com/wp-content/uploads/2017/10/Space-Vortex-4K-Abstract-Wallpapers.jpg");
