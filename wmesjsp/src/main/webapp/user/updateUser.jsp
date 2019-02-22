@@ -55,8 +55,8 @@
 
 			User type: <select style="width: 270px;" name="user_type">
 
-				<option <%=adminSelected%> value="<%=updateUser.getUsertype()%>">Admin</option>
-				<option <%=boSelected%> value="<%=updateUser.getUsertype()%>">Business owner</option>
+				<option <%=adminSelected%> value="admin">Admin</option>
+				<option <%=boSelected%> value="bo">Business owner</option>
 
 
 			</select>

@@ -66,16 +66,16 @@ public class UserServlet extends HttpServlet {
 			break;
 
 		case "update":
-			System.out.println("ID: " + Integer.parseInt(request.getParameter("user_id")));
-			System.out.println("username: " + request.getParameter("user_user"));
-			System.out.println("password: " + request.getParameter("user_pass"));
-			System.out.println("Tipo utente: " + request.getParameter("user_type"));
+			//System.out.println("ID: " + Integer.parseInt(request.getParameter("user_id")));
+			//System.out.println("username: " + request.getParameter("user_user"));
+			//System.out.println("password: " + request.getParameter("user_pass"));
+			//System.out.println("Tipo utente: " + request.getParameter("user_type"));
 
 			final Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
 			final String usernameUpdate = request.getParameter("user_user");
 			final String passwordUpdate = request.getParameter("user_pass");
-			final String ruoloUpdate = request.getParameter("user_type");
-			final UserDTO user = new UserDTO(usernameUpdate, passwordUpdate, ruoloUpdate);
+			final String usertypeUpdate = request.getParameter("user_type");
+			final UserDTO user = new UserDTO(usernameUpdate, passwordUpdate, usertypeUpdate);
 			user.setId(idUpdate);
 
 			userServiceDTO.updateUser(user);

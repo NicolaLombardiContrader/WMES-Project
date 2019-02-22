@@ -1,5 +1,11 @@
-
 <%@ include file="/header.jsp"%>
+<%!
+private String convertUsertype(String userType) {
+		if (userType.equals("admin"))
+			return "Admin";
+		else
+			return "Business Owner";
+	}%>
 
 <!DOCTYPE html>
 <html>
@@ -74,7 +80,7 @@ body {
 			<td><%=user.getId()%></td>
 			<td><%=user.getUsername()%></td>
 			<td><%=user.getPassword()%></td>
-			<td><%=user.getUsertype()%></td>
+			<td><%=convertUsertype(user.getUsertype())%></td>
 			<td class="center"><a href="/wmesjsp/UserServlet?richiesta=updateRedirect&id=<%=user.getId()%>"><i class="fas fa-edit" title="Update"></i></a></td>
 			<td class="center"><a href="/wmesjsp/UserServlet?richiesta=delete&id=<%=user.getId()%>"><i class="fas fa-trash-alt" title="Delete"></i></a></td>
 
