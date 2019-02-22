@@ -1,17 +1,17 @@
 package wmes.dto;
-import wmes.dto.*;
 
+import wmes.dto.*;
 
 public class OrderDTO {
 
 	private Integer id;
-	private UserDTO userDTO;			//pass the User object class
-	private ClientDTO clientDTO;		//pass the Client object class
-	private String description;		
-	
+	private UserDTO userDTO; // pass the User object class
+	private ClientDTO clientDTO; // pass the Client object class
+	private String description;
+
 	public OrderDTO(UserDTO userDTO, ClientDTO clientDTO, String description) {
 		super();
-		//this.id = id;
+		// this.id = id;
 		this.userDTO = userDTO;
 		this.clientDTO = clientDTO;
 		this.description = description;
@@ -49,6 +49,18 @@ public class OrderDTO {
 		this.description = description;
 	}
 
-	
 
-} 
+	public boolean equals(OrderDTO orderCompare) {
+		if (this.getUserDTO().getId()!=orderCompare.getUserDTO().getId())
+			return false;
+	
+		if (this.getClientDTO().getId()!=orderCompare.getClientDTO().getId())
+			return false;
+		
+		if (!this.description.equals(orderCompare.description))
+			return false;
+		
+		return true;
+	}
+
+}

@@ -28,18 +28,18 @@ public class OrderDAO {
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
-				
+
 			Order order;
 			while (resultSet.next()) {
 				int orderId = resultSet.getInt("order_id");
-				User userOrder= new User();
+				User userOrder = new User();
 				userOrder.setUserId(resultSet.getInt("user_id"));
 				Client clientOrder = new Client();
-				clientOrder.setClientId(resultSet.getInt("client_id"));		
+				clientOrder.setClientId(resultSet.getInt("client_id"));
 				String description = resultSet.getString("order_description");
 				order = new Order(userOrder, clientOrder, description);
 				order.setOrderId(orderId);
-		
+
 				ordersList.add(order);
 			}
 		} catch (SQLException e) {
@@ -55,7 +55,8 @@ public class OrderDAO {
 			preparedStatement.setInt(1, order.getUser().getUserId());
 			preparedStatement.setInt(2, order.getClient().getClientId());
 			preparedStatement.setString(3, order.getDescription());
-			return preparedStatement.execute();
+			preparedStatement.execute();
+			return true;
 		} catch (SQLException e) {
 			GestoreEccezioni.getInstance().gestisciEccezione(e);
 			return false;
@@ -76,7 +77,7 @@ public class OrderDAO {
 			userId = resultSet.getInt("user_id");
 			User userOrder = new User();
 			userOrder.setUserId(userId);
-			
+
 			clientId = resultSet.getInt("client_id");
 			Client clientOrder = new Client();
 			clientOrder.setClientId(clientId);
@@ -91,15 +92,14 @@ public class OrderDAO {
 		}
 
 	}
-	
-	
+
 	public boolean updateOrder(Order order) {
 		Connection connection = ConnectionSingleton.getInstance();
-		
-		//Check if id is present
-		if (order.getOrderId()==0)
+
+		// Check if id is present
+		if (order.getOrderId() == 0)
 			return false;
-		
+
 		try {
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 			preparedStatement.setInt(1, order.getUser().getUserId());
