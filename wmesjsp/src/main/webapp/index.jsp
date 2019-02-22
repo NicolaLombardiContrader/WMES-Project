@@ -3,6 +3,7 @@
 <head>
 <title>Login</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 <style>
 .pre_contenitore {
 	width: 320px;
@@ -98,7 +99,16 @@ body {
 				<input type="Password" name="password" class="password" placeholder="Password">
 			</p>
 			<button type="submit" value="Login" class="btn btn-warning" >Login</button>
-		
+			<br>
+			<br>
+		  <div class="spinner-border text-muted"></div>
+  <div class="spinner-border text-primary"></div>
+  <div class="spinner-border text-success"></div>
+  <div class="spinner-border text-info"></div>
+  <div class="spinner-border text-warning"></div>
+  <div class="spinner-border text-danger"></div>
+  <div class="spinner-border text-secondary"></div>
+  
 		</form>
 	</div>
 
