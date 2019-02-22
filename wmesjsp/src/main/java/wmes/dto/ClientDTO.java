@@ -38,6 +38,19 @@ public class ClientDTO {
 		this.clientName = clientName;
 	}
 
+	public boolean equals(ClientDTO clientCompare) {
+
+		if (userDTO.getId()!=clientCompare.getUserDTO().getId()) {
+			return false;
+		}
+
+		if (!this.getClientName().equals(getClientName())) {
+			return false;
+
+		}
+		
+		return true;
+	}
 	
 
 	
