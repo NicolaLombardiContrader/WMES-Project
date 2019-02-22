@@ -1,6 +1,8 @@
+
 <html>
 <head>
 <title>Login</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <style>
 .pre_contenitore {
 	width: 320px;
@@ -95,7 +97,8 @@ body {
 				<br>
 				<input type="Password" name="password" class="password" placeholder="Password">
 			</p>
-			<button type="submit" value="Login" name="pulsante">Login</button>
+			<button type="submit" value="Login" class="btn btn-warning" >Login</button>
+		
 		</form>
 	</div>
 
