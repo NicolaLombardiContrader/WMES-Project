@@ -15,12 +15,17 @@ public class ClientDAOTest {
 	private Client clientTest;
 	private ClientDAO clientDAO;
 	private int clientIdTest;
-	
+	private UserDAO userDAO;
+	private User userClient;
 	
 	@Before
 	public void setUp() throws Exception {
-	user userClient = new 
-	clientTest = new Client(("ds","sd",""),"ClientNameTest");
+	
+	userClient = new User("testuser","userpas","usertypt");
+	userDAO.insertUser(userClient);
+	userClient.setUserId(TestUtils.getLastInsertedID("user"));
+
+	clientTest = new Client(userClient,"ClientNameTest");
 	clientDAO = new ClientDAO();
 	clientDAO.insertClient(clientTest);
 	clientIdTest = TestUtils.getLastInsertedID("client");
@@ -30,16 +35,24 @@ public class ClientDAOTest {
 	@After
 	public void tearDown() throws Exception {
 		clientDAO.deleteClient(clientTest);
+		userDAO.deleteUser(userClient);
 	}
 
 	@Test
 	public void testInsertClient() {
-		Client clientInsertTest = new Client(("","",""), "InsertTest");
 		
-		boolean clientInsertedCheck = clientDAO.insertClient(clientInsertTest);
-		
-		int  clientInsertTestId = TestUtils.getLastInsertedID("client");
-		clientDAO.deleteClient(clientInsertTest);
+		//Costruzione oggetti
+		User userInsert = new User("testuser","userpas","usertypt");
+		userDAO.insertUser(userInsert);
+		userInsert.setUserId(TestUtils.getLastInsertedID("user"));
+		Client clientInsert = new Client(userInsert,"ClientNameTest");
+		//Inserimento cliente
+		boolean clientInsertedCheck = clientDAO.insertClient(clientInsert);
+		int clientInsertIdTest = TestUtils.getLastInsertedID("client");
+		clientInsert.setClientId(clientInsertIdTest);
+		//Cancellazione
+		clientDAO.deleteClient(clientInsert);
+		userDAO.deleteUser(userInsert);
 		
 		Assert.assertTrue(clientInsertedCheck);
 	}
@@ -47,12 +60,23 @@ public class ClientDAOTest {
 	
 	@Test
 	public void testReadtClient() {
-		Client DBuser=ClientDAO.readClient(clientTest);
-		Assert.assertTrue(DBuser.equals(clientTest));
+		Client clientDB= clientDAO.readClient(clientTest);
+		Assert.assertTrue(clientDB.equals(clientTest));
 	}
 	
+	@Test
+	public void testUpdateUser() {
+		clientTest.setClientName("ClientNameMod");
+		clientDAO.updateClient(clientTest);
+		Client DBClient = clientDAO.readClient(clientTest);
+		Assert.assertTrue(DBClient.getClientName().equals("ClientNameMod"));
+	}
 	
-	
+	@Test
+	public void testDeleteClient() {
+		Assert.assertTrue(clientDAO.deleteClient(clientTest));
+		Assert.assertTrue(userDAO.deleteUser(userClient));
+	}
 	
 	
 	
