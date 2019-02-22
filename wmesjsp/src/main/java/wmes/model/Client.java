@@ -45,8 +45,7 @@ public class Client {
 
 	public boolean equals(Client clientCompare) {
 
-		if (!this.getUser().equals(getUser())) {
-
+		if (user.getUserId()!=clientCompare.getUser().getUserId()) {
 			return false;
 		}
 

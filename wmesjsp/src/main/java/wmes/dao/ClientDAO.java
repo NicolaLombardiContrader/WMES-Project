@@ -55,7 +55,8 @@ public class ClientDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
 			preparedStatement.setInt(1, client.getUser().getUserId());
 			preparedStatement.setString(2, client.getClientName());
-			return preparedStatement.execute();
+			preparedStatement.execute();
+			return true;
 		} catch (SQLException e) {
 			GestoreEccezioni.getInstance().gestisciEccezione(e);
 			return false;

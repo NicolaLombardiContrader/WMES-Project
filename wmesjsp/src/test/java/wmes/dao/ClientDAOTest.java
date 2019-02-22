@@ -21,12 +21,14 @@ public class ClientDAOTest {
 	@Before
 	public void setUp() throws Exception {
 	
-	userClient = new User("testuser","userpas","usertypt");
+	userDAO = new UserDAO();
+	clientDAO= new ClientDAO();
+	
+	userClient = new User("userTest","passTest","bo");
 	userDAO.insertUser(userClient);
 	userClient.setUserId(TestUtils.getLastInsertedID("user"));
 
 	clientTest = new Client(userClient,"ClientNameTest");
-	clientDAO = new ClientDAO();
 	clientDAO.insertClient(clientTest);
 	clientIdTest = TestUtils.getLastInsertedID("client");
 	clientTest.setClientId(clientIdTest);
@@ -42,7 +44,7 @@ public class ClientDAOTest {
 	public void testInsertClient() {
 		
 		//Costruzione oggetti
-		User userInsert = new User("testuser","userpas","usertypt");
+		User userInsert = new User("testuser","pass","usertypt");
 		userDAO.insertUser(userInsert);
 		userInsert.setUserId(TestUtils.getLastInsertedID("user"));
 		Client clientInsert = new Client(userInsert,"ClientNameTest");
