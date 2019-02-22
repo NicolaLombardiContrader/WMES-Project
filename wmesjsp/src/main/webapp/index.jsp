@@ -107,7 +107,7 @@ body {
 			<div class="spinner-border text-info"></div>
 			<div class="spinner-border text-warning"></div>
 			<div class="spinner-border text-danger"></div>
-			
+			<div class="spinner-border text-secondary"></div>
 
 		</form>
 	</div>
