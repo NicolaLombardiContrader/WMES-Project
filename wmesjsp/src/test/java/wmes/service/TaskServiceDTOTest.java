@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import wmes.main.TestUtils;
-import wmes.dto.ClientDTO;
 import wmes.dto.TaskDTO;
 import wmes.dto.UserDTO;
 
@@ -66,7 +65,7 @@ public class TaskServiceDTOTest {
 	}
 
 	@Test
-	public void testReadClient() {
+	public void testReadTask() {
 		TaskDTO DBtask = taskServiceDTO.readTask(taskTest);
 		Assert.assertTrue(DBtask.equals(taskTest));
 	}
@@ -74,7 +73,7 @@ public class TaskServiceDTOTest {
 
 
 	@Test
-	public void testUpdateUser() {
+	public void testUpdateTask() {
 		taskTest.setTaskDescription("taskDescriptionMod");
 		taskTest.setTaskAction("taskActionMod");
 		taskTest.setTaskInput("taskInputMod");
@@ -95,7 +94,7 @@ public class TaskServiceDTOTest {
 	}
 
 	@Test
-	public void testDeleteClient() {
+	public void testDeleteTask() {
 		Assert.assertTrue(taskServiceDTO.deleteTask(taskTest));
 		Assert.assertTrue(userServiceDTO.deleteUsers(userTest));
 	}
