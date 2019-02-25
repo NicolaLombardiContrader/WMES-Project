@@ -14,7 +14,7 @@ import wmes.dto.UserDTO;
 public class ClientServiceDTOTest {
 
 	private ClientDTO clientTest;
-	private ClientServiceDTO clientDTO;
+	private ClientServiceDTO clientService;
 	private int clientIdTest;
 	private UserServiceDTO userDTO;
 	private UserDTO userClient;
@@ -23,21 +23,21 @@ public class ClientServiceDTOTest {
 	public void setUp() throws Exception {
 	
 	userDTO = new UserServiceDTO();
-	clientDTO= new ClientServiceDTO();
+	clientService= new ClientServiceDTO();
 	
 	userClient = new UserDTO("userTest","passTest","bo");
 	userDTO.insertUsers(userClient);
 	userClient.setId(TestUtils.getLastInsertedID("user"));
 
 	clientTest = new ClientDTO(userClient,"ClientNameTest");
-	clientDTO.insertClient(clientTest);
+	clientService.insertClient(clientTest);
 	clientIdTest = TestUtils.getLastInsertedID("client");
 	clientTest.setId(clientIdTest);
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		clientDTO.deleteClient(clientTest);
+		clientService.deleteClient(clientTest);
 		userDTO.deleteUsers(userClient);
 	}
 
@@ -50,11 +50,11 @@ public class ClientServiceDTOTest {
 		userInsert.setId(TestUtils.getLastInsertedID("user"));
 		ClientDTO clientInsert = new ClientDTO(userInsert,"ClientNameTest");
 		//Inserimento cliente
-		boolean clientInsertedCheck = clientDTO.insertClient(clientInsert);
+		boolean clientInsertedCheck = clientService.insertClient(clientInsert);
 		int clientInsertIdTest = TestUtils.getLastInsertedID("client");
 		clientInsert.setId(clientInsertIdTest);
 		//Cancellazione
-		clientDTO.deleteClient(clientInsert);
+		clientService.deleteClient(clientInsert);
 		userDTO.deleteUsers(userInsert);
 		
 		Assert.assertTrue(clientInsertedCheck);
@@ -62,22 +62,22 @@ public class ClientServiceDTOTest {
 
 	
 	@Test
-	public void testReadtClient() {
-		ClientDTO clientDB= clientDTO.readClient(clientTest);
-		Assert.assertTrue(clientDB.equals(clientTest));
+	public void testReadClient() {
+		ClientDTO DBclient= clientService.readClient(clientTest);
+		Assert.assertTrue(DBclient.equals(clientTest));
 	}
 	
 	@Test
 	public void testUpdateUser() {
 		clientTest.setClientName("ClientNameMod");
-		clientDTO.updateClient(clientTest);
-		ClientDTO DBClient = clientDTO.readClient(clientTest);
+		clientService.updateClient(clientTest);
+		ClientDTO DBClient = clientService.readClient(clientTest);
 		Assert.assertTrue(DBClient.getClientName().equals("ClientNameMod"));
 	}
 	
 	@Test
 	public void testDeleteClient() {
-		Assert.assertTrue(clientDTO.deleteClient(clientTest));
+		Assert.assertTrue(clientService.deleteClient(clientTest));
 		Assert.assertTrue(userDTO.deleteUsers(userClient));
 	}
 	

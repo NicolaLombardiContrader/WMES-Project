@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import wmes.main.TestUtils;
+import wmes.model.Client;
 import wmes.model.Task;
 import wmes.model.User;
 
@@ -13,9 +14,8 @@ public class TaskDAOTest {
 
 	private Task taskTest;
 	private TaskDAO taskDAO;
-	private int taskIdTest;
 	private UserDAO userDAO;
-	private User userTask;
+	private User userTest;
 
 	@Before
 	public void setUp() throws Exception {
@@ -23,21 +23,22 @@ public class TaskDAOTest {
 		userDAO = new UserDAO();
 		taskDAO = new TaskDAO();
 
-		userTask = new User("userTest", "passTest", "bo");
-		userDAO.insertUser(userTask);
-		userTask.setUserId(TestUtils.getLastInsertedID("user"));
+		userTest = new User("userTest", "passTest", "bo");
+		userDAO.insertUser(userTest);
+		userTest.setUserId(TestUtils.getLastInsertedID("user"));
 
-		taskTest = new Task(userTask, "TaskDescriptionTest", "TaskActionTest", "TaskInputTest", "TaskOutputTest",
+		taskTest = new Task(userTest, "TaskDescriptionTest", "TaskActionTest", "TaskInputTest", "TaskOutputTest",
 				"TaskResourceTest", 15, 1);
 		taskDAO.insertTask(taskTest);
-		taskIdTest = TestUtils.getLastInsertedID("client");
-		taskTest.setTaskId(taskIdTest);
+		
+		taskTest.setTaskId(TestUtils.getLastInsertedID("task"));
+
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		taskDAO.deleteTask(taskTest);
-		userDAO.deleteUser(userTask);
+		userDAO.deleteUser(userTest);
 	}
 
 	@Test
@@ -49,26 +50,28 @@ public class TaskDAOTest {
 		userDAO.insertUser(userInsert);
 		userInsert.setUserId(TestUtils.getLastInsertedID("user"));
 		
-		// Inserimento Order
 
 		Task taskInsert = new Task(userInsert, "TaskDescriptionTest", "TaskActionTest", "TaskInputTest",
 				"TaskOutputTest", "TaskResourceTest", 15, 1);
 		// Inserimento Order
 		
-		boolean taskInsertedCheck = taskDAO.insertTask(taskInsert);
+		boolean taskDaoInsertedCheck = taskDAO.insertTask(taskInsert);
 		taskInsert.setTaskId(TestUtils.getLastInsertedID("task"));
 		// Cancellazione
+
 		taskDAO.deleteTask(taskInsert);
 		userDAO.deleteUser(userInsert);
 
-		Assert.assertTrue(taskInsertedCheck);
+		Assert.assertTrue(taskDaoInsertedCheck);
 	}
 
 	@Test
-	public void testReadtClient() {
+	public void testReadClient() {
 		Task DBtask = taskDAO.readTask(taskTest);
 		Assert.assertTrue(DBtask.equals(taskTest));
 	}
+	
+
 
 	@Test
 	public void testUpdateUser() {
@@ -94,7 +97,7 @@ public class TaskDAOTest {
 	@Test
 	public void testDeleteClient() {
 		Assert.assertTrue(taskDAO.deleteTask(taskTest));
-		Assert.assertTrue(userDAO.deleteUser(userTask));
+		Assert.assertTrue(userDAO.deleteUser(userTest));
 	}
 
 }

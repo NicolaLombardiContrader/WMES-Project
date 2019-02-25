@@ -55,7 +55,7 @@ public class OrderDAOTest {
 	}
 
 	@Test
-	public void testInsertClient() {
+	public void testInsertOrder() {
 
 		// Costruzione oggetti
 		User userInsert = new User("testuser", "pass", "usertypt");

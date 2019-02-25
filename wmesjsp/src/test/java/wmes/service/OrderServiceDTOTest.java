@@ -78,8 +78,8 @@ public class OrderServiceDTOTest {
 
 	@Test
 	public void testReadtClient() {
-		OrderDTO orderDB = orderDAO.readOrder(orderTest);
-		Assert.assertTrue(orderDB.equals(orderTest));
+		OrderDTO DBOrder = orderDAO.readOrder(orderTest);
+		Assert.assertTrue(DBOrder.equals(orderTest));
 	}
 
 	@Test
