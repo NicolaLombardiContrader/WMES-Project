@@ -99,7 +99,7 @@ body {
 				<input type="Password" name="password" class="password" placeholder="Password">
 			</p>
 			<button type="submit" value="Login" class="btn btn-warning">Sign in</button>
-			<br>
+			<!--  <br>
 			<br>
 			<div class="spinner-border text-muted"></div>
 			<div class="spinner-border text-primary"></div>
@@ -108,7 +108,7 @@ body {
 			<div class="spinner-border text-warning"></div>
 			<div class="spinner-border text-danger"></div>
 			<div class="spinner-border text-secondary"></div>
-
+-->
 		</form>
 	</div>
 
