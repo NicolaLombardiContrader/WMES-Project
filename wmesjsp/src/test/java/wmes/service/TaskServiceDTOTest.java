@@ -1,45 +1,44 @@
 package wmes.service;
 
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
 import wmes.main.TestUtils;
-
+import wmes.dto.ClientDTO;
 import wmes.dto.TaskDTO;
 import wmes.dto.UserDTO;
 
 public class TaskServiceDTOTest {
 
 	private TaskDTO taskTest;
-	private TaskServiceDTO taskDTO;
-	private int taskIdTest;
-	private UserServiceDTO userDTO;
-	private UserDTO userTask;
+	private TaskServiceDTO taskServiceDTO;
+	private UserServiceDTO userServiceDTO;
+	private UserDTO userTest;
 
 	@Before
 	public void setUp() throws Exception {
 
-		userDTO = new UserServiceDTO();
-		taskDTO = new TaskServiceDTO();
+		userServiceDTO = new UserServiceDTO();
+		taskServiceDTO = new TaskServiceDTO();
 
-		userTask = new UserDTO("userTest", "passTest", "bo");
-		userDTO.insertUsers(userTask);
-		userTask.setId(TestUtils.getLastInsertedID("user"));
+		userTest = new UserDTO("userTest", "passTest", "bo");
+		userServiceDTO.insertUsers(userTest);
+		userTest.setId(TestUtils.getLastInsertedID("user"));
 
-		taskTest = new TaskDTO(userTask, "TaskDescriptionTest", "TaskActionTest", "TaskInputTest", "TaskOutputTest",
+		taskTest = new TaskDTO(userTest, "TaskDescriptionTest", "TaskActionTest", "TaskInputTest", "TaskOutputTest",
 				"TaskResourceTest", 15, 1);
-		taskDTO.insertTask(taskTest);
-		taskIdTest = TestUtils.getLastInsertedID("client");
-		taskTest.setId(taskIdTest);
+		taskServiceDTO.insertTask(taskTest);
+		
+		taskTest.setId(TestUtils.getLastInsertedID("task"));
+
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		taskDTO.deleteTask(taskTest);
-		userDTO.deleteUsers(userTask);
+		taskServiceDTO.deleteTask(taskTest);
+		userServiceDTO.deleteUsers(userTest);
 	}
 
 	@Test
@@ -48,7 +47,7 @@ public class TaskServiceDTOTest {
 		// Costruzione oggetti
 		//insermento UserDTO
 		UserDTO userInsert = new UserDTO("testuser", "pass", "usertypt");
-		userDTO.insertUsers(userInsert);
+		userServiceDTO.insertUsers(userInsert);
 		userInsert.setId(TestUtils.getLastInsertedID("user"));
 		
 
@@ -56,22 +55,23 @@ public class TaskServiceDTOTest {
 				"TaskOutputTest", "TaskResourceTest", 15, 1);
 		// Inserimento Order
 		
-		boolean taskInsertedCheck = taskDTO.insertTask(taskInsert);
+		boolean taskDaoInsertedCheck = taskServiceDTO.insertTask(taskInsert);
 		taskInsert.setId(TestUtils.getLastInsertedID("task"));
-		
-		
 		// Cancellazione
-		taskDTO.deleteTask(taskInsert);
-		userDTO.deleteUsers(userInsert);
 
-		Assert.assertTrue(taskInsertedCheck);
+		taskServiceDTO.deleteTask(taskInsert);
+		userServiceDTO.deleteUsers(userInsert);
+
+		Assert.assertTrue(taskDaoInsertedCheck);
 	}
 
 	@Test
-	public void testReadtClient() {
-		TaskDTO taskDB = taskDTO.readTask(taskTest);
-		Assert.assertTrue(taskDB.equals(taskTest));
+	public void testReadClient() {
+		TaskDTO DBtask = taskServiceDTO.readTask(taskTest);
+		Assert.assertTrue(DBtask.equals(taskTest));
 	}
+	
+
 
 	@Test
 	public void testUpdateUser() {
@@ -82,8 +82,8 @@ public class TaskServiceDTOTest {
 		taskTest.setTaskResource("taskResourceMod");
 		taskTest.setTaskTime(10);
 		taskTest.setTaskState(2);
-		taskDTO.updateTask(taskTest);
-		TaskDTO DBTask = taskDTO.readTask(taskTest);
+		taskServiceDTO.updateTask(taskTest);
+		TaskDTO DBTask = taskServiceDTO.readTask(taskTest);
 		Assert.assertTrue(DBTask.getTaskDescription().equals("taskDescriptionMod"));
 		Assert.assertTrue(DBTask.getTaskAction().equals("taskActionMod"));
 		Assert.assertTrue(DBTask.getTaskInput().equals("taskInputMod"));
@@ -96,10 +96,8 @@ public class TaskServiceDTOTest {
 
 	@Test
 	public void testDeleteClient() {
-		Assert.assertTrue(taskDTO.deleteTask(taskTest));
-		Assert.assertTrue(userDTO.deleteUsers(userTask));
+		Assert.assertTrue(taskServiceDTO.deleteTask(taskTest));
+		Assert.assertTrue(userServiceDTO.deleteUsers(userTest));
 	}
 
 }
-
-
