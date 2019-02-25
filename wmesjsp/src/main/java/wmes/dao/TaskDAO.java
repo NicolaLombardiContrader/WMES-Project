@@ -71,7 +71,8 @@ public class TaskDAO {
 			preparedStatement.setString(6, task.getTaskResource());
 			preparedStatement.setInt(7, task.getTaskTime());
 			preparedStatement.setInt(8, task.getTaskState());
-			return preparedStatement.execute();
+			preparedStatement.execute();
+			return true;
 		} catch (SQLException e) {
 			GestoreEccezioni.getInstance().gestisciEccezione(e);
 			return false;
