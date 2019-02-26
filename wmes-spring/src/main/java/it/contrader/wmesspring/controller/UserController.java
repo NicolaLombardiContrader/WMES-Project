@@ -59,7 +59,7 @@ public class UserController {
 
 		final String content = request.getParameter("search");
 
-		List<UserDTO> allUser = this.userService.findUserDTOByUsername(content);
+		List<UserDTO> allUser = this.userService.findUserDTOByUserUser(content);
 		request.setAttribute("allUserDTO", allUser);
 
 		return "homeUser";
@@ -107,9 +107,9 @@ public class UserController {
 			case "admin":
 				return "homeAdmin";
 			case "bo":
-				return "bo";
+				return "homeBO";
 			case "resource":
-				return "resource";
+				return "homeResource";
 			default:
 				return "index";
 			}
