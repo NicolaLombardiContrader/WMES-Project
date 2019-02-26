@@ -17,7 +17,7 @@ public class ResourceDTO  {
 
 	private String resourceName;
 
-	private User user;
+	private UserDTO userDTO;
 	
 	private String resourcePass;
 

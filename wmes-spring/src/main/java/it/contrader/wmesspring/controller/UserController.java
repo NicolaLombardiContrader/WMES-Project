@@ -66,7 +66,7 @@ public class UserController {
 
 	}
 
-	// TODO da modificare nella view rulo con usertype
+	// TODO da modificare nella view ruolo con usertype
 	@RequestMapping(value = "/creaUser", method = RequestMethod.POST)
 	public String insertUser(HttpServletRequest request) {
 		String username = request.getParameter("username").toString();
@@ -93,12 +93,28 @@ public class UserController {
 		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
 		final String userType = userDTO.getUserType();
 		if (!StringUtils.isEmpty(userType)) {
+			
 			session.setAttribute("utente", userDTO);
-			if (userType.equals("ADMIN")) {
+			
+			/* 
+			 if (userType.equals("admin")) {
 				return "home";
-			} else if (userType.equals("BO")) {
+			} else if (userType.equals("bo")) {
 				return "home";
 			}
+			*/
+			switch (userType.toLowerCase()) {
+			case "admin":
+				return "homeAdmin";
+			case "bo":
+				return "bo";
+			case "resource":
+				return "resource";
+			default:
+				return "index";
+			}
+			
+			
 		}
 		return "index";
 	}
