@@ -19,7 +19,7 @@ public class ProjectDTO {
 	private String projectName;
 
 	
-	private String projectStatus;
+	private int projectStatus;
 
 
 	private UserDTO userDTO;
