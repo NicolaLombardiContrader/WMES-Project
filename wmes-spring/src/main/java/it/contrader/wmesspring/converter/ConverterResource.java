@@ -9,6 +9,7 @@ import it.contrader.wmesspring.model.Resource;
 public class ConverterResource {
 	
 	
+	
 	public static UserDTO toDTO(User resource) {
 		UserDTO resourceDTO = null;
 		if (resource != null) {
