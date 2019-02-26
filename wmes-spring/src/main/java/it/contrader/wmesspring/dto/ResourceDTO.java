@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-import it.contrader.wmesspring.model.User;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
