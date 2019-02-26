@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="orders")
 @NamedQuery(name="Order.findAll", query="SELECT o FROM Order o")
-public class Order implements Serializable {
+public class Order  {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -35,6 +35,7 @@ public class Order implements Serializable {
 
 	public Order() {
 	}
+
 
 	public String getOrderDescription() {
 		return this.orderDescription;

@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name="clients")
 @NamedQuery(name="Client.findAll", query="SELECT c FROM Client c")
-public class Client implements Serializable {
+public class Client  {
 	private static final long serialVersionUID = 1L;
 
 	@Id

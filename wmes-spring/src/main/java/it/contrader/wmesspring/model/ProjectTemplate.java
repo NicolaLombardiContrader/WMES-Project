@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name="project_templates")
 @NamedQuery(name="ProjectTemplate.findAll", query="SELECT p FROM ProjectTemplate p")
-public class ProjectTemplate implements Serializable {
+public class ProjectTemplate  {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -22,11 +22,6 @@ public class ProjectTemplate implements Serializable {
 
 	@Column(name="project_name")
 	private String projectName;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
 
 	//bi-directional many-to-many association to Task
 	@ManyToMany
@@ -40,6 +35,11 @@ public class ProjectTemplate implements Serializable {
 			}
 		)
 	private List<Task> tasks;
+
+	//bi-directional many-to-one association to User
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 
 	public ProjectTemplate() {
 	}
@@ -60,20 +60,20 @@ public class ProjectTemplate implements Serializable {
 		this.projectName = projectName;
 	}
 
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	public List<Task> getTasks() {
 		return this.tasks;
 	}
 
 	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
+	}
+
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

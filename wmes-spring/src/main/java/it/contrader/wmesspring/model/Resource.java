@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name="resources")
 @NamedQuery(name="Resource.findAll", query="SELECT r FROM Resource r")
-public class Resource implements Serializable {
+public class Resource  {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -22,6 +22,12 @@ public class Resource implements Serializable {
 
 	@Column(name="resource_name")
 	private String resourceName;
+
+	@Column(name="resource_pass")
+	private String resourcePass;
+
+	@Column(name="resource_username")
+	private String resourceUsername;
 
 	@Column(name="user_id")
 	private int userId;
@@ -47,6 +53,22 @@ public class Resource implements Serializable {
 
 	public void setResourceName(String resourceName) {
 		this.resourceName = resourceName;
+	}
+
+	public String getResourcePass() {
+		return this.resourcePass;
+	}
+
+	public void setResourcePass(String resourcePass) {
+		this.resourcePass = resourcePass;
+	}
+
+	public String getResourceUsername() {
+		return this.resourceUsername;
+	}
+
+	public void setResourceUsername(String resourceUsername) {
+		this.resourceUsername = resourceUsername;
 	}
 
 	public int getUserId() {

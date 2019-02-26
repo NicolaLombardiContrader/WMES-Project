@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import javax.persistence.Column;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +18,11 @@ public class ResourceDTO  {
 	private String resourceName;
 
 	private int userId;
+	
+	private String resourcePass;
 
+	private String resourceUsername;
+	
 	private List<TaskDTO> tasksDTO;
 
 }

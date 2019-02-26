@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name="projects")
 @NamedQuery(name="Project.findAll", query="SELECT p FROM Project p")
-public class Project implements Serializable {
+public class Project  {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,12 +24,7 @@ public class Project implements Serializable {
 	private String projectName;
 
 	@Column(name="project_status")
-	private String projectStatus;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
+	private int projectStatus;
 
 	//bi-directional many-to-many association to Task
 	@ManyToMany
@@ -43,6 +38,11 @@ public class Project implements Serializable {
 			}
 		)
 	private List<Task> tasks;
+
+	//bi-directional many-to-one association to User
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 
 	public Project() {
 	}
@@ -63,20 +63,12 @@ public class Project implements Serializable {
 		this.projectName = projectName;
 	}
 
-	public String getProjectStatus() {
+	public int getProjectStatus() {
 		return this.projectStatus;
 	}
 
-	public void setProjectStatus(String projectStatus) {
+	public void setProjectStatus(int projectStatus) {
 		this.projectStatus = projectStatus;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public List<Task> getTasks() {
@@ -85,6 +77,14 @@ public class Project implements Serializable {
 
 	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
+	}
+
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }
