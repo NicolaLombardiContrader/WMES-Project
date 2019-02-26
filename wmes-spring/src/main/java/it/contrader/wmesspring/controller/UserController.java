@@ -9,12 +9,10 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.UserService;
 
 import java.util.List;
-
 
 @Controller
 @RequestMapping("/User")
@@ -22,23 +20,23 @@ public class UserController {
 
 	private final UserService userService;
 	private HttpSession session;
-	
+
 	@Autowired
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
 
-	private void visualUser(HttpServletRequest request){
+	private void visualUser(HttpServletRequest request) {
 		List<UserDTO> allUser = this.userService.getListaUserDTO();
 		request.setAttribute("allUserDTO", allUser);
 	}
-	
+
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
 	public String userManagement(HttpServletRequest request) {
 		visualUser(request);
-		return "homeUser";		
+		return "homeUser";
 	}
-	
+
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
@@ -46,17 +44,16 @@ public class UserController {
 		this.userService.deleteUserById(id);
 		visualUser(request);
 		return "homeUser";
-		
+
 	}
-	
+
 	@RequestMapping(value = "/crea", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
 		visualUser(request);
 		request.setAttribute("option", "insert");
 		return "creaUser";
-		
 	}
-	
+
 	@RequestMapping(value = "/cercaUser", method = RequestMethod.GET)
 	public String cercaUser(HttpServletRequest request) {
 
@@ -68,15 +65,15 @@ public class UserController {
 		return "homeUser";
 
 	}
-	
-	//TODO da modificare nella view rulo con usertype
+
+	// TODO da modificare nella view rulo con usertype
 	@RequestMapping(value = "/creaUser", method = RequestMethod.POST)
 	public String insertUser(HttpServletRequest request) {
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();
 		String userType = request.getParameter("usertype").toString();
 
-		//UserDTO userObj = new UserDTO(0, username, password, ruolo,"");
+		// UserDTO userObj = new UserDTO(0, username, password, ruolo,"");
 		UserDTO userObj = new UserDTO();
 		userObj.setUserUser(username);
 		userObj.setUserPass(password);
@@ -86,7 +83,7 @@ public class UserController {
 		visualUser(request);
 		return "homeUser";
 	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginControl(HttpServletRequest request) {
 
