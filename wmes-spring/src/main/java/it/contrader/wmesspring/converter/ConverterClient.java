@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.wmesspring.dto.ClientDTO;
-import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.model.Client;
-import it.contrader.wmesspring.model.User;
 
 
 
@@ -18,8 +16,8 @@ public class ConverterClient {
 			
 			if (client != null) {
 				clientDTO = new ClientDTO();
-				UserDTO userDTO = ConverterUser.toDTO(client.getUser());
-								
+				clientDTO.setUserDTO(ConverterUser.toDTO(client.getUser()));
+				
 				clientDTO.setClientName(client.getClientName());
 
 				clientDTO.setClientId(client.getClientId());	
@@ -34,7 +32,7 @@ public class ConverterClient {
 		
 		if (clientDTO != null) {
 			client = new Client();
-			User user = ConverterUser.toEntity(clientDTO.getUserDTO());
+			client.setUser(ConverterUser.toEntity(clientDTO.getUserDTO()));
 
 			client.setClientId(clientDTO.getClientId());
 			client.setClientName(clientDTO.getClientName());
