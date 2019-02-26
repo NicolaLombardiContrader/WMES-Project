@@ -12,16 +12,17 @@ public class ConverterTask {
 		TaskDTO taskDTO = null;
 		if (task != null) {
 			taskDTO = new TaskDTO();
+			
 			taskDTO.setTaskId(task.getTaskId());
-			taskDTO.setTaskname(task.getTaskUser());
-			taskDTO.setPassword(task.getTaskPass());
-			// userDTO.setEmail(user.getEmail());
-			taskDTO.setTasktype(task.getTaskType());
-			
-			
-			
-			
-			
+			taskDTO.setUserDTO(ConverterUser.toDTO(task.getUser()));
+			taskDTO.setResourceDTO(ConverterResource.toDTO(task.getResource()));
+			taskDTO.setTaskAction(task.getTaskAction());
+			taskDTO.setTaskDescription(task.getTaskDescription());
+		 	taskDTO.setTaskInput(task.getTaskInput());
+			taskDTO.setTaskOutput(task.getTaskOutput());
+			taskDTO.setTaskTime(task.getTaskTime());
+			taskDTO.setTaskState(task.getTaskState());
+						
 		}
 		return taskDTO;
 	}
@@ -31,10 +32,14 @@ public class ConverterTask {
 		if (taskDTO != null) {
 			task = new Task();
 			task.setTaskId(taskDTO.getTaskId());
-			task.setTaskUser(taskDTO.getTaskUser());
-			task.setTaskPass(taskDTO.getPassword());
-			// user.setEmail(userDTO.getEmail());
-			task.setTaskType(taskDTO.getTasktype());
+			task.setUser(ConverterUser.toEntity(taskDTO.getUserDTO()));
+			task.setResource(ConverterResource.toEntity(taskDTO.getResourceDTO()));
+			task.setTaskAction(taskDTO.getTaskAction());
+			task.setTaskDescription(taskDTO.getTaskDescription());
+			task.setTaskInput(taskDTO.getTaskInput());
+			task.setTaskOutput(taskDTO.getTaskOutput());
+			task.setTaskTime(taskDTO.getTaskTime());
+			task.setTaskState(taskDTO.getTaskState());
 		}
 		return task;
 	}
