@@ -5,8 +5,10 @@ import java.util.List;
 
 import it.contrader.wmesspring.dto.ClientDTO;
 import it.contrader.wmesspring.dto.ProjectDTO;
+import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.model.Client;
 import it.contrader.wmesspring.model.Project;
+import it.contrader.wmesspring.model.Task;
 
 public class ConverterProject {
 
@@ -20,7 +22,14 @@ public class ConverterProject {
 			projectDTO.setProjectName(project.getProjectName());
 			projectDTO.setProjectStatus(project.getProjectStatus());
 			projectDTO.setUserDTO(ConverterUser.toDTO(project.getUser()));
-
+			List<Task> taskList= project.getTasks();
+			List<TaskDTO> taskListDTO= new ArrayList<TaskDTO>();
+			
+			for (Task task: taskList) {
+				taskListDTO.add(ConverterTask.toDTO(task));
+			}
+			
+			projectDTO.setTasksDTO(taskListDTO); 
 		}
 	
 	return projectDTO;
@@ -36,11 +45,20 @@ public class ConverterProject {
 			project.setProjectName(projectDTO.getProjectName());
 			project.setProjectStatus(projectDTO.getProjectStatus()); 
 			project.setUser(ConverterUser.toEntity(projectDTO.getUserDTO()));
-
+			
+			List<TaskDTO> taskListDTO= projectDTO.getTasksDTO();
+			List<Task> taskList= new ArrayList<Task>();
+			
+			for (TaskDTO taskDTO: taskListDTO) {
+				taskList.add(ConverterTask.toEntity(taskDTO));
+			}
+			
+			project.setTasks(taskList); 
 		}
 		
 		return project;	
 		}
+	
 	
 	public static List<ProjectDTO> toListDTO(List<Project> list) {
 		List<ProjectDTO> listProjectDTO = new ArrayList<>();
