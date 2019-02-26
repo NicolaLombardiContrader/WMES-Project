@@ -5,8 +5,10 @@ import java.util.List;
 
 import it.contrader.wmesspring.dto.ProjectTemplateDTO;
 import it.contrader.wmesspring.dto.ResourceDTO;
+import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.model.ProjectTemplate;
 import it.contrader.wmesspring.model.Resource;
+import it.contrader.wmesspring.model.Task;
 
 
 public class ConverterProjectTemplate {
@@ -20,7 +22,17 @@ public class ConverterProjectTemplate {
 			projectTemplateDTO.setUserDTO(ConverterUser.toDTO(projectTemplate.getUser()));
 			projectTemplateDTO.setProjectName(projectTemplate.getProjectName());
 
-			//+ task list
+			List<Task> taskList = projectTemplate.getTasks();
+			List<TaskDTO> taskListDTO = new ArrayList<TaskDTO>();
+			
+			for(Task task: taskList) {
+				taskListDTO.add(ConverterTask.toDTO(task));
+				
+			}
+				
+	projectTemplateDTO.setTasksDTO(taskListDTO);
+	
+	
 		 	
 		}
 		return projectTemplateDTO;
@@ -35,9 +47,21 @@ public class ConverterProjectTemplate {
 			projectTemplate.setUser(ConverterUser.toEntity(projectTemplateDTO.getUserDTO()));
 			projectTemplate.setProjectName(projectTemplate.getProjectName());
 			
-			//+ task list
+			
+			List<TaskDTO> taskListDTO = projectTemplateDTO.getTasksDTO();
+			List<Task> taskList = new ArrayList<Task>();
+			
+			for(TaskDTO taskDTO: taskListDTO) {
+				taskList.add(ConverterTask.toEntity(taskDTO));
+				
+			}
+				
+	projectTemplate.setTasks(taskList);
+	
+	
+			
 		
-		}
+		}	
 		return projectTemplate;
 	}
 
