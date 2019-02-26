@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 
+import it.contrader.wmesspring.model.User;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +19,7 @@ public class ResourceDTO  {
 
 	private String resourceName;
 
-	private int userId;
+	private User user;
 	
 	private String resourcePass;
 

@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name="users")
 @NamedQuery(name="User.findAll", query="SELECT u FROM User u")
-public class User  {
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -45,6 +45,10 @@ public class User  {
 	//bi-directional many-to-one association to Project
 	@OneToMany(mappedBy="user")
 	private List<Project> projects;
+
+	//bi-directional many-to-one association to Resource
+	@OneToMany(mappedBy="user")
+	private List<Resource> resources;
 
 	//bi-directional many-to-one association to Task
 	@OneToMany(mappedBy="user")
@@ -171,6 +175,28 @@ public class User  {
 		project.setUser(null);
 
 		return project;
+	}
+
+	public List<Resource> getResources() {
+		return this.resources;
+	}
+
+	public void setResources(List<Resource> resources) {
+		this.resources = resources;
+	}
+
+	public Resource addResource(Resource resource) {
+		getResources().add(resource);
+		resource.setUser(this);
+
+		return resource;
+	}
+
+	public Resource removeResource(Resource resource) {
+		getResources().remove(resource);
+		resource.setUser(null);
+
+		return resource;
 	}
 
 	public List<Task> getTasks() {

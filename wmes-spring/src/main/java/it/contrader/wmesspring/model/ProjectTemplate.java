@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name="project_templates")
 @NamedQuery(name="ProjectTemplate.findAll", query="SELECT p FROM ProjectTemplate p")
-public class ProjectTemplate  {
+public class ProjectTemplate implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
