@@ -27,7 +27,7 @@ public class UserService {
 	}
 
 	public UserDTO getUserDTOById(Integer id) {
-		return ConverterUser.toDTO(userRepository.findById(id).get());
+		return ConverterUser.toDTO(userRepository.findById(id).get()); 
 	}
 
 	public UserDTO getByUsernameAndPassword(String username, String password) {
@@ -49,7 +49,7 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 	
-	public List<UserDTO> findUserDTOByUserUser(String username) {
+	public List<UserDTO> findUserDTOByUsername(String username) {
 		
 		final List<User> list = userRepository.findAllByUserUser(username);
 		final List<UserDTO> userDTOs = new ArrayList<>();
