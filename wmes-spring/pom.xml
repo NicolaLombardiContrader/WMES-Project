@@ -63,10 +63,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Added dependencies -->
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
-		<!-- <dependency> <groupId>org.apache.tomcat.embed</groupId> <artifactId>tomcat-embed-jasper</artifactId> 
-			<version>9.0.16</version> </dependency> -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api -->
 		<dependency>
