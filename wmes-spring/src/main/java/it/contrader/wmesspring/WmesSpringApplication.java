@@ -12,7 +12,7 @@ public class WmesSpringApplication {
 	static UserService userService;
 /*
 	@Autowired
-	public WMESApplication(UserService userService) {
+	public WmesApplication(UserService userService) {
 		//this.nodoService = nodoService;
 		this.userService = userService;
 	}
