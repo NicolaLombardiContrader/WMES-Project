@@ -9,7 +9,7 @@ import it.contrader.wmesspring.model.Client;
 
 
 public class ConverterClient {
-	
+	 
 	public static ClientDTO toDTO(Client client) {
 
 			ClientDTO clientDTO = null;
