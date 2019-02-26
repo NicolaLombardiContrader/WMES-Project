@@ -15,7 +15,7 @@ public class OrderDTO  {
 
 	private String orderDescription;
 
-	private ClientDTO client;
+	private ClientDTO clientDTO;
 	
 	private UserDTO userDTO;
 
