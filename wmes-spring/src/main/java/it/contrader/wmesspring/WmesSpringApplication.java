@@ -10,13 +10,13 @@ import it.contrader.wmesspring.service.UserService;
 public class WmesSpringApplication {
 
 	static UserService userService;
-/*
+
 	@Autowired
-	public WmesApplication(UserService userService) {
+	public WmesSpringApplication(UserService userService) {
 		//this.nodoService = nodoService;
 		this.userService = userService;
 	}
-*/
+
 	public static void main(String[] args) {
 		SpringApplication.run(WmesSpringApplication.class, args);
 	}
