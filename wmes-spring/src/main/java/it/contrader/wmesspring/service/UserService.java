@@ -30,7 +30,7 @@ public class UserService {
 		return ConverterUser.toDTO(userRepository.findById(id).get());
 	}
 
-	public UserDTO getByUsernameAndPassword(String username, String password) {
+	public UserDTO getUserByUserUserAndUserPass(String username, String password) {
 
 		final User user = userRepository.findUserByUserUserAndUserPass(username, password);
 

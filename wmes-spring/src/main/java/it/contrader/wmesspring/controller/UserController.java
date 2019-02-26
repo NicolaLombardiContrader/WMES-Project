@@ -90,7 +90,7 @@ public class UserController {
 		session = request.getSession();
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
-		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
+		final UserDTO userDTO = userService.getUserByUserUserAndUserPass(username, password);
 		final String userType = userDTO.getUserType();
 		if (!StringUtils.isEmpty(userType)) {
 			
