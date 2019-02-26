@@ -12,8 +12,9 @@ public class ConverterResource {
 		ResourceDTO resourceDTO = null;
 		if (resource != null) {
 			resourceDTO = new ResourceDTO();
+
 			resourceDTO.setResourceId(resource.getResourceId());
-			resourceDTO.setUser(resource.getUser());
+			resourceDTO.setUserDTO(ConverterUser.toDTO(resource.getUser()));
 			resourceDTO.setResourceUsername(resourceDTO.getResourceUsername());
 			resourceDTO.setResourcePass(resourceDTO.getResourcePass());
 			resourceDTO.setResourceName(resource.getResourceName());
@@ -27,7 +28,7 @@ public class ConverterResource {
 		if (resourceDTO != null) {
 			resource = new Resource();
 			resource.setResourceId(resourceDTO.getResourceId());
-			resource.setUser(resourceDTO.getUser());
+			resource.setUser(ConverterUser.toEntity(resourceDTO.getUserDTO()));
 			resource.setResourceUsername(resourceDTO.getResourceUsername());
 			resource.setResourcePass(resourceDTO.getResourcePass());
 			resource.setResourceName(resource.getResourceName());
