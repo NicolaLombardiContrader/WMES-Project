@@ -10,47 +10,48 @@ public class ConverterResource {
 	
 	
 	
-	public static UserDTO toDTO(User resource) {
-		UserDTO resourceDTO = null;
+	public static ResourceDTO toDTO(Resource resource) {
+		ResourceDTO resourceDTO = null;
 		if (resource != null) {
-			resourceDTO = new UserDTO();
-			resourceDTO.setIdUser(resource.getUserId());
-			resourceDTO.setUsername(resource.getUserUser());
-			resourceDTO.setPassword(resource.getUserPass());
-			//userDTO.setEmail(user.getEmail());
-			resourceDTO.setUsertype(resource.getUserType());
+			resourceDTO = new ResourceDTO();
+			resourceDTO.setResourceId(resource.getResourceId());
+			resourceDTO.setUser(resource.getUser());
+			resourceDTO.setResourceUsername(resourceDTO.getResourceUsername());
+			resourceDTO.setResourcePass(resourceDTO.getResourcePass());
+			resourceDTO.setResourceName(resource.getResourceName());
+
 		}
 		return resourceDTO;
 	}
 
-	public static User toEntity(UserDTO resourceDTO) {
-		User user = null;
-		if (userDTO != null) {
-			user = new User();
-			user.setUserId(userDTO.getIdUser());
-			user.setUserUser(userDTO.getUsername());
-			user.setUserPass(userDTO.getPassword());
-			//user.setEmail(userDTO.getEmail());
-			user.setUserType(userDTO.getUsertype());
+	public static Resource toEntity(ResourceDTO resourceDTO) {
+		Resource resource = null;
+		if (resourceDTO != null) {
+			resource = new Resource();
+			resource.setResourceId(resourceDTO.getResourceId());
+			resource.setUser(resource.getUser());
+			resource.setResourceUsername(resourceDTO.getResourceUsername());
+			resource.setResourcePass(resourceDTO.getResourcePass());
+			resource.setResourceName(resource.getResourceName());
 		}
-		return user;
+		return resource;
 	}
 
-	public static List<UserDTO> toListDTO(List<User> list) {
-		List<UserDTO> listUserDTO = new ArrayList<>();
+	public static List<ResourceDTO> toListDTO(List<Resource> list) {
+		List<ResourceDTO> listResourceDTO = new ArrayList<>();
 		if (!list.isEmpty()) {
-			for (User user : list) {
-				listUserDTO.add(ConverterUser.toDTO(user));
+			for (Resource resource : list) {
+				listResourceDTO.add(ConverterResource.toDTO(resource));
 			}
 		}
-		return listUserDTO;
+		return listResourceDTO;
 	}
 
-	public static List<User> toListEntity(List<UserDTO> listUserDTO) {
-		List<User> list = new ArrayList<>();
-		if (!listUserDTO.isEmpty()) {
-			for (UserDTO userDTO : listUserDTO) {
-				list.add(ConverterUser.toEntity(userDTO));
+	public static List<Resource> toListEntity(List<ResourceDTO> listResourceDTO) {
+		List<Resource> list = new ArrayList<>();
+		if (!listResourceDTO.isEmpty()) {
+			for (ResourceDTO resourceDTO : listResourceDTO) {
+				list.add(ConverterResource.toEntity(resourceDTO));
 			}
 		}
 		return list;
