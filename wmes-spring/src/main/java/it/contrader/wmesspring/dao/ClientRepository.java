@@ -11,3 +11,4 @@ public interface ClientRepository extends CrudRepository<Client, Integer> {
 
 	public List<Client> findAllByUser(User user);
 }
+ 
