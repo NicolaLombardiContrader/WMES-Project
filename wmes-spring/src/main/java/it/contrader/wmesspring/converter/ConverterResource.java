@@ -7,9 +7,7 @@ import it.contrader.wmesspring.dto.ResourceDTO;
 import it.contrader.wmesspring.model.Resource;
 
 public class ConverterResource {
-	
-	
-	
+
 	public static ResourceDTO toDTO(Resource resource) {
 		ResourceDTO resourceDTO = null;
 		if (resource != null) {
@@ -29,7 +27,7 @@ public class ConverterResource {
 		if (resourceDTO != null) {
 			resource = new Resource();
 			resource.setResourceId(resourceDTO.getResourceId());
-			resource.setUser(resource.getUser());
+			resource.setUser(resourceDTO.getUser());
 			resource.setResourceUsername(resourceDTO.getResourceUsername());
 			resource.setResourcePass(resourceDTO.getResourcePass());
 			resource.setResourceName(resource.getResourceName());
