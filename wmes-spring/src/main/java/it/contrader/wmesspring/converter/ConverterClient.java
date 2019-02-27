@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.wmesspring.dto.ClientDTO;
+import it.contrader.wmesspring.dto.OrderDTO;
+import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.model.Client;
+import it.contrader.wmesspring.model.Order;
+import it.contrader.wmesspring.model.Task;
 
 
 
@@ -21,11 +25,22 @@ public class ConverterClient {
 				clientDTO.setClientName(client.getClientName());
 
 				clientDTO.setClientId(client.getClientId());	
+				
+				List<Order> orderList= client.getOrders();
+				List<OrderDTO> orderListDTO= new ArrayList<OrderDTO>();
+				
+				for (Order order: orderList) {
+					orderListDTO.add(ConverterOrder.toDTO(order));
+				}
+				
+				clientDTO.setOrdersDTO(orderListDTO);
+				
+				
 			}
 		
 		return clientDTO;
 	}
-	
+	 
 	public static Client toEntity(ClientDTO clientDTO) {
 		
 		Client client = null;
@@ -36,6 +51,17 @@ public class ConverterClient {
 
 			client.setClientId(clientDTO.getClientId());
 			client.setClientName(clientDTO.getClientName());
+			
+			
+			List<OrderDTO> orderListDTO= clientDTO.getOrdersDTO();
+			List<Order> orderList= new ArrayList<Order>();
+			
+			for (OrderDTO orderDTO: orderListDTO) {
+				orderList.add(ConverterOrder.toEntity(orderDTO));
+			}
+		
+			client.setOrders(orderList); 
+			
 		}
 		return client;	
 		}
