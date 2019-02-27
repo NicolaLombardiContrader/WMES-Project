@@ -36,7 +36,7 @@ public class OrderController {
 		}
 
 		@RequestMapping(value = "orderManagement", method = RequestMethod.GET)
-		public String userManagement(HttpServletRequest request) {
+		public String orderManagement(HttpServletRequest request) {
 			visualOrder(request);
 			return "order/manageOrder";
 		}		
