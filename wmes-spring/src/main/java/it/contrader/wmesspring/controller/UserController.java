@@ -34,7 +34,7 @@ public class UserController {
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
 	public String userManagement(HttpServletRequest request) {
 		visualUser(request);
-		return "homeUser";
+		return "user/manageUser";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)

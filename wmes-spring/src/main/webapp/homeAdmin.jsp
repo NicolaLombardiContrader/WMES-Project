@@ -45,7 +45,7 @@
         <aside class="menu-sidebar2">
             <div class="logo">
                 <a href="#">
-                    <img src="/images/icon/wmeslogo.jpg" alt="Cool Admin" />
+                    <img src="/images/icon/wmeslogo.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
@@ -58,14 +58,18 @@
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
+                    <li>
+                            <a href="Dashboard.html">
+                                <i class="fas fa-chart-bar"></i>Dashboard</a>
+                        </li>
+                       <!--  <li class="active has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                                 <span class="arrow">
                                     <i class="fas fa-angle-down"></i>
                                 </span>
                             </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                           <!--   <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="index.html">
                                         <i class="fas fa-tachometer-alt"></i>Dashboard 1</a>
@@ -83,13 +87,13 @@
                                         <i class="fas fa-tachometer-alt"></i>Dashboard 4</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>--> 
                         <li>
-                            <a href="inbox.html">
-                                <i class="fas fa-chart-bar"></i>Inbox</a>
-                            <span class="inbox-num">3</span>
+                            <a href="/User/userManagement">
+                                <i class="far fa-user"></i>Users</a> 
+
                         </li>
-                        <li>
+                       <!--   <li>
                             <a href="#">
                                 <i class="fas fa-shopping-basket"></i>eCommerce</a>
                         </li>
@@ -126,7 +130,7 @@
                                     <i class="fas fa-angle-down"></i>
                                 </span>
                             </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <ul class="list-unstyled navbar__sub-list js-sub-list"> 
                                 <li>
                                     <a href="login.html">
                                         <i class="fas fa-sign-in-alt"></i>Login</a>
@@ -140,8 +144,8 @@
                                         <i class="fas fa-unlock-alt"></i>Forget Password</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="has-sub">
+                        </li>-->
+                       <!--   <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements
                                 <span class="arrow">
@@ -149,8 +153,8 @@
                                 </span>
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="button.html">
+                                <li>-->
+                                   <!--   <a href="button.html">
                                         <i class="fab fa-flickr"></i>Button</a>
                                 </li>
                                 <li>
@@ -195,7 +199,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul>-->
                 </nav>
             </div>
         </aside>
