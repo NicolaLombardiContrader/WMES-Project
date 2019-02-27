@@ -4,6 +4,9 @@ package it.contrader.wmesspring.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import it.contrader.wmesspring.converter.ConverterProjectTemplate;
 import it.contrader.wmesspring.converter.ConverterUser;
 import it.contrader.wmesspring.dao.ProjectTemplateRepository;
@@ -11,10 +14,12 @@ import it.contrader.wmesspring.dto.ProjectTemplateDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.model.ProjectTemplate;
 
+@Service
 public class ProjectTemplateService {
 	
 	private final ProjectTemplateRepository projectTemplateRepository;
 
+	@Autowired
 	public ProjectTemplateService(ProjectTemplateRepository projectTemplateRepository) {
 		this.projectTemplateRepository = projectTemplateRepository;
 	}
