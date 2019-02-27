@@ -68,9 +68,9 @@ public class HomeController {
 	
 	@RequestMapping(value = "/homeBO", method = RequestMethod.GET)
 	public String clientManagement(HttpServletRequest request) {
-		List<ClientDTO> allClient = this.clientService.getListaClientDTO();
-		request.setAttribute("allClientDTO", allClient);
-		request.setAttribute("clientDTOCount", allClient.size());
+		//List<ClientDTO> allClient = this.clientService.getListaClientDTO();
+		//request.setAttribute("allClientDTO", allClient);
+		//request.setAttribute("clientDTOCount", allClient.size());
 		return "homeBO";
 	}
 

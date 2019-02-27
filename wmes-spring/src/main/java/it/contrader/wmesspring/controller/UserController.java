@@ -47,11 +47,11 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/crea", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
 		visualUser(request);
 		request.setAttribute("option", "insert");
-		return "creaUser";
+		return "insertUser";
 	}
 
 	@RequestMapping(value = "/cercaUser", method = RequestMethod.GET)
