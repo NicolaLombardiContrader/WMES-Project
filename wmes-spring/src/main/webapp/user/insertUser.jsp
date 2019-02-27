@@ -57,10 +57,10 @@
 					<ul class="list-unstyled navbar__list">
 						<li><a href="/Home/homeAdmin"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
-						
+
 						<li><a href="/User/userManagement"> <i class="far fa-user"></i>Users
 						</a></li>
-						
+
 					</ul>
 				</nav>
 			</div>
@@ -108,97 +108,98 @@
 				</div>
 			</section>
 			<!-- END BREADCRUMB-->
-                        <div class="login-form">
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Username">
-                                </div>
-                               
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <label>UserType</label>
-                                    <input class="au-input au-input--full" type="text" name="usertype" placeholder="UserType">
-                                </div>
-                                <div class="login-checkbox">
-                                </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">ADD</button>
 
-			<section>
-				<div class="section__content section__content--p30">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-xl-8"></div>
-							<div class="col-xl-4"></div>
-						</div>
+			<div class="login-form">
+				<form action="/User/insert" method="post">
+					<div class="form-group">
+						<label>Username</label> <input class="au-input au-input--full" type="text" name="user_user" placeholder="Username">
 					</div>
-				</div>
-			</section>
 
-			<section>
-				<div class="section__content section__content--p30">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-xl-6"></div>
-							<div class="col-xl-6">
-								
+					<div class="form-group">
+						<label>Password</label> <input class="au-input au-input--full" type="password" name="user_pass" placeholder="Password">
+					</div>
+					
+					<div class="form-group">
+						<label>UserType</label> 
+						<select class="form-control" name="user_type">
+							<option value="admin">Admin</option>
+							<option value="bo">Business Owner</option>
+						</select>
+						<!-- <input class="au-input au-input--full" type="text" name="usertype" placeholder="UserType">
+ -->
+					</div>
+					<div class="login-checkbox"></div>
+					<button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">ADD</button>
+
+					<section>
+						<div class="section__content section__content--p30">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-xl-8"></div>
+									<div class="col-xl-4"></div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</section>
+					</section>
 
-			<section>
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="copyright">
-								<p>Copyright © 2019 Wmes. All rights reserved. Template by Wmes Team</p>
+					<section>
+						<div class="section__content section__content--p30">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-xl-6"></div>
+									<div class="col-xl-6"></div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			</section>
-			<!-- END PAGE CONTAINER-->
+					</section>
+
+					<section>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="copyright">
+										<p>Copyright © 2019 Wmes. All rights reserved. Template by Wmes Team</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- END PAGE CONTAINER-->
+			</div>
+
 		</div>
 
-	</div>
+		<!-- Jquery JS-->
+		<script src="/vendor/jquery-3.2.1.min.js"></script>
+		<!-- Bootstrap JS-->
+		<script src="/vendor/bootstrap-4.1/popper.min.js"></script>
+		<script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+		<!-- Vendor JS       -->
+		<script src="/vendor/slick/slick.min.js">
+			
+		</script>
+		<script src="/vendor/wow/wow.min.js"></script>
+		<script src="/vendor/animsition/animsition.min.js"></script>
+		<script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+			
+		</script>
+		<script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
+		<script src="/vendor/counter-up/jquery.counterup.min.js">
+			
+		</script>
+		<script src="/vendor/circle-progress/circle-progress.min.js"></script>
+		<script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+		<script src="/vendor/chartjs/Chart.bundle.min.js"></script>
+		<script src="/vendor/select2/select2.min.js">
+			
+		</script>
+		<script src="/vendor/vector-map/jquery.vmap.js"></script>
+		<script src="/vendor/vector-map/jquery.vmap.min.js"></script>
+		<script src="/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+		<script src="/vendor/vector-map/jquery.vmap.world.js"></script>
 
-	<!-- Jquery JS-->
-	<script src="/vendor/jquery-3.2.1.min.js"></script>
-	<!-- Bootstrap JS-->
-	<script src="/vendor/bootstrap-4.1/popper.min.js"></script>
-	<script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-	<!-- Vendor JS       -->
-	<script src="/vendor/slick/slick.min.js">
-		
-	</script>
-	<script src="/vendor/wow/wow.min.js"></script>
-	<script src="/vendor/animsition/animsition.min.js"></script>
-	<script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-		
-	</script>
-	<script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
-	<script src="/vendor/counter-up/jquery.counterup.min.js">
-		
-	</script>
-	<script src="/vendor/circle-progress/circle-progress.min.js"></script>
-	<script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-	<script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-	<script src="/vendor/select2/select2.min.js">
-		
-	</script>
-	<script src="/vendor/vector-map/jquery.vmap.js"></script>
-	<script src="/vendor/vector-map/jquery.vmap.min.js"></script>
-	<script src="/vendor/vector-map/jquery.vmap.sampledata.js"></script>
-	<script src="/vendor/vector-map/jquery.vmap.world.js"></script>
-
-	<!-- Main JS-->
-	<script src="/js/main.js"></script>
-
+		<!-- Main JS-->
+		<script src="/js/main.js"></script>
 </body>
 
 </html>

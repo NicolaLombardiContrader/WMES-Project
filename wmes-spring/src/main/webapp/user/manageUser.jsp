@@ -154,12 +154,12 @@
 													<td>
 														<div class="table-data-feature">
 
-															<button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+															<a href="/User/updateRedirect?id=<%=user.getUserId()%>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
 																<i class="zmdi zmdi-edit"></i>
-															</button>
-															<button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+															</a>
+															<a href="/User/delete?id=<%=user.getUserId()%>" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
 																<i class="zmdi zmdi-delete"></i>
-															</button>
+															</a>
 
 														</div>
 													</td>

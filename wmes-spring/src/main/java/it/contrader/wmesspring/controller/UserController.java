@@ -47,7 +47,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insert(HttpServletRequest request) {
+	public String insertRedirect(HttpServletRequest request) {
 		return "user/insertUser";
 	}
 
@@ -62,7 +62,7 @@ public class UserController {
 		return "user/updateUser";
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(HttpServletRequest request) {
 		Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
 		String usernameUpdate = request.getParameter("user_user");
@@ -88,16 +88,16 @@ public class UserController {
 		List<UserDTO> allUser = this.userService.findUserDTOByUserUser(content);
 		request.setAttribute("allUserDTO", allUser);
 
-		return "homeUser";
+		return "user/manageUser";
 
 	}
 
 	// TODO da modificare nella view ruolo con usertype
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insertUser(HttpServletRequest request) {
-		String username = request.getParameter("username").toString();
-		String password = request.getParameter("password").toString();
-		String userType = request.getParameter("usertype").toString();
+	public String insert(HttpServletRequest request) {
+		String username = request.getParameter("user_user").toString();
+		String password = request.getParameter("user_pass").toString();
+		String userType = request.getParameter("user_type").toString();
 
 		// UserDTO userObj = new UserDTO(0, username, password, ruolo,"");
 		UserDTO userObj = new UserDTO();
@@ -107,7 +107,7 @@ public class UserController {
 		userService.insertUser(userObj);
 
 		visualUser(request);
-		return "homeUser";
+		return "user/manageUser";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
