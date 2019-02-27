@@ -116,13 +116,4 @@ public class OrderController {
 			return "order/manageOrder";
 		}
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
 }
