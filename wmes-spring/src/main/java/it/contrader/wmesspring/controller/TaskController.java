@@ -37,7 +37,7 @@ public class TaskController {
 	@RequestMapping(value = "/taskManagement", method = RequestMethod.GET)
 	public String taskManagement(HttpServletRequest request) {
 		visualTask(request);
-		return "homeTask";
+		return "task/manageTask";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)

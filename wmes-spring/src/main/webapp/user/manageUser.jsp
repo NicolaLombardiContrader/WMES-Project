@@ -1,50 +1,45 @@
-<%@ include file="/header.jsp"%>
-
-
+<%@ include file="../header.jsp"%>
+<%
+	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUserDTO");
+%>
+<%!private String convertUserType(String userType) {
+		if (userType.equals("admin"))
+			return "Admin";
+		else
+			return "Business Owner";
+	}%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <!-- Required meta tags-->
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="au theme template">
 <meta name="author" content="Hau Nguyen">
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Dashboard 2</title>
+<title>User Management</title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
-<link href="/vendor/font-awesome-4.7/css/font-awesome.min.css"
-	rel="stylesheet" media="all">
-<link href="/vendor/font-awesome-5/css/fontawesome-all.min.css"
-	rel="stylesheet" media="all">
-<link href="/vendor/mdi-font/css/material-design-iconic-font.min.css"
-	rel="stylesheet" media="all">
+<link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+<link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+<link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
 <!-- Bootstrap CSS-->
-<link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet"
-	media="all">
+<link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
 <!-- Vendor CSS-->
-<link href="/vendor/animsition/animsition.min.css" rel="stylesheet"
-	media="all">
-<link
-	href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
-	rel="stylesheet" media="all">
+<link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+<link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
 <link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
-<link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet"
-	media="all">
+<link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
 <link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
-<link href="/vendor/select2/select2.min.css" rel="stylesheet"
-	media="all">
-<link href="/vendor/perfect-scrollbar/perfect-scrollbar.css"
-	rel="stylesheet" media="all">
-<link href="/vendor/vector-map/jqvmap.min.css" rel="stylesheet"
-	media="all">
+<link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+<link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+<link href="/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
 
 <!-- Main CSS-->
 <link href="/css/theme.css" rel="stylesheet" media="all">
@@ -56,8 +51,7 @@
 		<!-- MENU SIDEBAR-->
 		<aside class="menu-sidebar2">
 			<div class="logo">
-				<a href="#"> <img src="/images/icon/wmeslogo.png"
-					alt="Cool Admin" />
+				<a href="#"> <img src="/images/icon/wmeslogo.png" alt="Cool Admin" />
 				</a>
 			</div>
 			<div class="menu-sidebar2__content js-scrollbar1">
@@ -70,7 +64,7 @@
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="Dashboard.html"> <i class="fas fa-chart-bar"></i>Dashboard
+						<li><a href="/Home/homeAdmin"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
 						<!--  <li class="active has-sub">
                             <a class="js-arrow" href="#">
@@ -98,8 +92,7 @@
                                 </li>
                             </ul>
                         </li>-->
-						<li><a href="/User/userManagement"> <i
-								class="far fa-user"></i>Users
+						<li><a href="/User/userManagement"> <i class="far fa-user"></i>Users
 						</a></li>
 						<!--   <li>
                             <a href="#">
@@ -206,8 +199,8 @@
                                         <i class="fas fa-font"></i>Typography</a>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>-->
+                        </li>-->
+					</ul>
 				</nav>
 			</div>
 		</aside>
@@ -219,26 +212,13 @@
 			<header class="header-desktop2">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-					
-							<div class="logo d-block d-lg-none">
-								<a href="#"> <img src="/images/icon/logo-white.png"
-									alt="CoolAdmin" />
-								</a>
-							</div>
-							<div class="header-button2">
-								<div class="header-button-item js-item-menu">
-									<i class="zmdi zmdi-search"></i>
-									<div class="search-dropdown js-dropdown">
-										<form action="">
-											<input class="au-input au-input--full au-input--h65"
-												type="text" placeholder="Search for datas &amp; reports..." />
-											<span class="search-dropdown__icon"> <i
-												class="zmdi zmdi-search"></i>
-											</span>
-										</form>
-									</div>
-								</div>
-								<!--  <div class="header-button-item has-noti js-item-menu">
+
+						<div class="logo d-block d-lg-none">
+							<a href="#"> <img src="/images/icon/logo-white.png" alt="CoolAdmin" />
+							</a>
+						</div>
+
+						<!--  <div class="header-button-item has-noti js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
                                     <div class="notifi-dropdown js-dropdown">
                                         <div class="notifi__title">
@@ -313,8 +293,8 @@
                                         </div>
                                     </div>
                                 </div>-->
-							</div>
-					
+
+
 					</div>
 				</div>
 			</header>
@@ -331,10 +311,9 @@
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-											<li class="list-inline-item active"><a href="#">Home</a>
-											</li>
+											<li class="list-inline-item active"><a href="/Home/homeAdmin">Dashboard</a></li>
 											<li class="list-inline-item seprate"><span>/</span></li>
-											<li class="list-inline-item">Dashboard</li>
+											<li class="list-inline-item">User Management</li>
 										</ul>
 									</div>
 								</div>
@@ -350,11 +329,11 @@
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-lg-8">
+							<div class="col-lg-12">
 
 								<!-- USER TABLE -->
-                                <h3 class="title-5 m-b-35">data table</h3>
-                                <div class="table-data__tool">
+								<h3 class="title-5 m-b-35">User Table</h3>
+								<!--   <div class="table-data__tool">
                                     <div class="table-data__tool-left">
                                         <div class="rs-select2--light rs-select2--md">
                                             <select class="js-select2" name="property">
@@ -374,11 +353,12 @@
                                         </div>
                                         <button class="au-btn-filter">
                                             <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                    </div>
-                                    <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>add item</button>
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                    </div>-->
+								<div class="table-data__tool-right">
+									<a href="/User/insertUser" class="au-btn au-btn-icon au-btn--green au-btn--small">
+										<i class="zmdi zmdi-plus"></i>ADD USER
+									</a>
+									<!--    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                             <select class="js-select2" name="type">
                                                 <option selected="selected">Export</option>
                                                 <option value="">Option 1</option>
@@ -387,173 +367,49 @@
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </th>
-                                                <th>name</th>
-                                                <th>email</th>
-                                                <th>description</th>
-                                                <th>date</th>
-                                                <th>status</th>
-                                                <th>price</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
-                                                <td>Lori Lynch</td>
-                                                <td>
-                                                    <span class="block-email">lori@example.com</span>
-                                                </td>
-                                                <td class="desc">Samsung S8 Black</td>
-                                                <td>2018-09-27 02:12</td>
-                                                <td>
-                                                    <span class="status--process">Processed</span>
-                                                </td>
-                                                <td>$679.00</td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="spacer"></tr>
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
-                                                <td>Lori Lynch</td>
-                                                <td>
-                                                    <span class="block-email">john@example.com</span>
-                                                </td>
-                                                <td class="desc">iPhone X 64Gb Grey</td>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>
-                                                    <span class="status--process">Processed</span>
-                                                </td>
-                                                <td>$999.00</td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="spacer"></tr>
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
-                                                <td>Lori Lynch</td>
-                                                <td>
-                                                    <span class="block-email">lyn@example.com</span>
-                                                </td>
-                                                <td class="desc">iPhone X 256Gb Black</td>
-                                                <td>2018-09-25 19:03</td>
-                                                <td>
-                                                    <span class="status--denied">Denied</span>
-                                                </td>
-                                                <td>$1199.00</td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="spacer"></tr>
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
-                                                <td>Lori Lynch</td>
-                                                <td>
-                                                    <span class="block-email">doe@example.com</span>
-                                                </td>
-                                                <td class="desc">Camera C430W 4k</td>
-                                                <td>2018-09-24 19:10</td>
-                                                <td>
-                                                    <span class="status--process">Processed</span>
-                                                </td>
-                                                <td>$699.00</td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- END USER TABLE -->
-							</div>
+                                </div>-->
+									<div class="table-responsive table-responsive-data2">
+										<table class="table table-data2">
+											<thead>
+												<tr>
+													<th>Username</th>
+													<th>Role</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<%
+													for (UserDTO user : allUser) {
+												%>
 
-							<!--  <div class="col-4">
+												<tr class="tr-shadow">
+
+													<td><%=user.getUserUser()%></td>
+													<td><%=convertUserType(user.getUserType())%></td>
+													<td>
+														<div class="table-data-feature">
+
+															<button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+																<i class="zmdi zmdi-edit"></i>
+															</button>
+															<button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+																<i class="zmdi zmdi-delete"></i>
+															</button>
+
+														</div>
+													</td>
+												</tr>
+
+												<%
+													}
+												%>
+											</tbody>
+										</table>
+									</div>
+									<!-- END USER TABLE -->
+								</div>
+
+								<!--  <div class="col-4">
 
 								<div class="row">
 									<div class="col-md-6 col-lg-12">
@@ -571,10 +427,10 @@
 
 							</div>-->
 
-						</div>
+							</div>
 
+						</div>
 					</div>
-				</div>
 			</section>
 			<!-- END STATISTIC-->
 
@@ -671,8 +527,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="copyright">
-								<p>Copyright © 2019 Wmes. All rights reserved. Template by
-									Wmes Team</p>
+								<p>Copyright © 2019 Wmes. All rights reserved. Template by Wmes Team</p>
 							</div>
 						</div>
 					</div>
@@ -694,8 +549,7 @@
 	</script>
 	<script src="/vendor/wow/wow.min.js"></script>
 	<script src="/vendor/animsition/animsition.min.js"></script>
-	<script
-		src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+	<script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
 		
 	</script>
 	<script src="/vendor/counter-up/jquery.waypoints.min.js"></script>

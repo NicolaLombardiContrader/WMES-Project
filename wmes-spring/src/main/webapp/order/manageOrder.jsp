@@ -14,7 +14,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Dashboard 2</title>
+<title>Order Management</title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
@@ -63,9 +63,9 @@
 			<div class="menu-sidebar2__content js-scrollbar1">
 				<div class="account2">
 					<div class="image img-cir img-120">
-						<img src="/images/icon/avatarAdmin.jpg" alt="Admin" />
+						<img src="/images/icon/avatarBo.jpg" alt="Admin" />
 					</div>
-					<h4 class="name">Admin</h4>
+					<h4 class="name">Business Owner</h4>
 					<a href="/User/logout">Sign out</a>
 				</div>
 				<nav class="navbar-sidebar2">
@@ -206,8 +206,8 @@
                                         <i class="fas fa-font"></i>Typography</a>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>-->
+                        </li>-->
+                    </ul>
 				</nav>
 			</div>
 		</aside>
@@ -225,19 +225,7 @@
 									alt="CoolAdmin" />
 								</a>
 							</div>
-							<div class="header-button2">
-								<div class="header-button-item js-item-menu">
-									<i class="zmdi zmdi-search"></i>
-									<div class="search-dropdown js-dropdown">
-										<form action="">
-											<input class="au-input au-input--full au-input--h65"
-												type="text" placeholder="Search for datas &amp; reports..." />
-											<span class="search-dropdown__icon"> <i
-												class="zmdi zmdi-search"></i>
-											</span>
-										</form>
-									</div>
-								</div>
+							
 								<!--  <div class="header-button-item has-noti js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
                                     <div class="notifi-dropdown js-dropdown">
@@ -313,7 +301,7 @@
                                         </div>
                                     </div>
                                 </div>-->
-							</div>
+						
 					
 					</div>
 				</div>
@@ -331,10 +319,10 @@
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-											<li class="list-inline-item active"><a href="#">Home</a>
+											<li class="list-inline-item active"><a href="/homeAdmin.jsp">Dashboard</a>
 											</li>
 											<li class="list-inline-item seprate"><span>/</span></li>
-											<li class="list-inline-item">Dashboard</li>
+											<li class="list-inline-item">User Management</li>
 										</ul>
 									</div>
 								</div>
