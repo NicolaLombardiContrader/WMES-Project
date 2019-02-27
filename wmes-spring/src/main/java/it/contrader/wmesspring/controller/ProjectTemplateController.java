@@ -10,24 +10,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.wmesspring.dto.ClientDTO;
 import it.contrader.wmesspring.dto.OrderDTO;
+import it.contrader.wmesspring.dto.ProjectDTO;
 import it.contrader.wmesspring.dto.ProjectTemplateDTO;
+import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.OrderService;
 import it.contrader.wmesspring.service.ProjectTemplateService;
 
 @Controller
 @RequestMapping("/ProjectTemplate")
 public class ProjectTemplateController {
-
-	
-	/*
-	 * private int projectId;
-	 * 
-	 * private String projectName;
-	 * 
-	 * private UserDTO userDTO;
-	 */
-	
 
 	private final ProjectTemplateService projectTemplateService;
 	private HttpSession session;
@@ -48,4 +41,68 @@ public class ProjectTemplateController {
 		visualProjectTemplate(request);
 		return "projectTemplate/manageProjectTemplate";
 	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("id", id);
+		this.projectTemplateService.deleteProjectTemplateById(id);
+		visualProjectTemplate(request);
+		return "homeProjectTemplate";	
+
+	}
+
+	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
+	public String insert(HttpServletRequest request) {
+		return "projectTemplate/insertProjectTemplate";
+	}	
+	
+	
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	public String insertProjectTemplate(HttpServletRequest request) {
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		String projectTemplateProjectName = request.getParameter("project_name").toString();
+		
+		
+		ProjectTemplateDTO projectTemplateObj = new ProjectTemplateDTO();
+		projectTemplateObj.setProjectName(projectTemplateProjectName);
+		projectTemplateObj.setUserDTO(userLogged);
+		projectTemplateService.insertProjectTemplate(projectTemplateObj);
+		visualProjectTemplate(request);
+		 
+
+		return "projectTemplate/insertProjectTemplate";
+	}
+	
+	
+	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
+	public String updateRedirect(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		ProjectTemplateDTO projectTemplateUpdate = new ProjectTemplateDTO();
+
+		projectTemplateUpdate = this.projectTemplateService.getProjectTemplateDTOById(id);
+		request.setAttribute("projectTemplateUpdate", projectTemplateUpdate);
+		return "projectTemplate/updateOprojectTemplate";
+	}		
+		
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(HttpServletRequest request) {
+		Integer idUpdate = Integer.parseInt(request.getParameter("project_id"));
+		
+		String projectTemplateProjectName = request.getParameter("project_name");
+		
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+
+		ProjectTemplateDTO projectTemplate = new ProjectTemplateDTO();
+		projectTemplate.setUserDTO(userLogged);
+
+		projectTemplate.setProjectName(projectTemplateProjectName);
+		projectTemplate.setProjectId(idUpdate);
+
+		projectTemplateService.updateProjectTemplate(projectTemplate);
+		visualProjectTemplate(request);
+		return "projectTemplate/manageProjectTemplate";
+	}
+	
+	
 }
