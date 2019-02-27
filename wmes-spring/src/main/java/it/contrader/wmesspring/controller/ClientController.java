@@ -26,7 +26,7 @@ public class ClientController {
 	@Autowired
 	public ClientController(ClientService clientService) {
 		this.clientService = clientService;
-		this.userLogged = userLogged;
+		this.userLogged = (UserDTO) session.getAttribute("utente");
 	}
 
 	private void visualClient(HttpServletRequest request) {
@@ -76,7 +76,7 @@ public class ClientController {
 		String ClientName = request.getParameter("ClientName").toString();
 
 		ClientDTO clientObj = new ClientDTO();
-		clientObj.setUserDTO(UserId);
+		clientObj.setUserDTO(userLogged);
 		clientObj.setClientName(ClientName);
 		clientService.insertClient(clientObj);
 
@@ -84,40 +84,4 @@ public class ClientController {
 		return "homeClient";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginControl(HttpServletRequest request) {
-
-		session = request.getSession();
-		final String UseriId = request.getParameter("UserId");
-		final String ClientName = request.getParameter("ClientName");
-		final ClientDTO clientDTO = clientService.getUserByClientClientAndUserPass(userLogged, ClientName);
-//		final ClientDTO clientDTO = clientService.getClientDTOById();
-
-		
-		if (!StringUtils.isEmpty(userType)) {
-			
-			session.setAttribute("utente", clientDTO);
-			
-			/* 
-			 if (userType.equals("admin")) {
-				return "home";
-			} else if (userType.equals("bo")) {
-				return "home";
-			}
-			*/
-			switch (userType.toLowerCase()) {
-			case "admin":
-				return "homeAdmin";
-			case "bo":
-				return "homeBO";
-			case "resource":
-				return "homeResource";
-			default:
-				return "index";
-			}
-			
-			
-		}
-		return "index";
-	}
 }

@@ -26,6 +26,7 @@ public class HomeController {
 
 	private final UserService userService;
 	private final ClientService clientService;
+	private final TaskService taskService;
 	/*
 	private final ClientService clientService;
 	private final OrderService orderService;
@@ -37,9 +38,10 @@ public class HomeController {
 	private HttpSession session;
 
 	@Autowired
-	HomeController(UserService userService, ClientService clientService) {
+	HomeController(UserService userService, ClientService clientService, TaskService taskService) {
 		this.userService=userService;
 		this.clientService=clientService;
+		this.taskService=taskService;
 	}
 	/*public HomeController(UserService userService, ClientService clientService, OrderService orderService,
 			TaskService taskService, ProjectService projectService, ProjectTemplateService projectTemplateService,
@@ -71,11 +73,13 @@ public class HomeController {
 		request.setAttribute("clientDTOCount", allClient.size());
 		return "homeBO";
 	}
-/*
+
 	@RequestMapping(value = "/homeResource", method = RequestMethod.GET)
 	public String orderManagement(HttpServletRequest request) {
-		// visualUser(request);
+		List<TaskDTO> allTask = this.taskService.getListaTaskDTO();
+		request.setAttribute("allTaskDTO", allTask);
+		request.setAttribute("taskDTOCount", allTask.size());
 		return "homeResource";
 	}
-*/
+
 }
