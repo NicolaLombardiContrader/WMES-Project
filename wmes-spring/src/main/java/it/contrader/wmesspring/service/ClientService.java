@@ -3,6 +3,9 @@ package it.contrader.wmesspring.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import it.contrader.wmesspring.converter.ConverterClient;
 import it.contrader.wmesspring.converter.ConverterUser;
 import it.contrader.wmesspring.dao.ClientRepository;
@@ -11,10 +14,13 @@ import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.model.Client;
 import it.contrader.wmesspring.model.User;
 
+@Service
 public class ClientService {
 
 	private final ClientRepository clientRepository;
 	
+	@Autowired
+
 	public ClientService(ClientRepository clientRepository) {
 		this.clientRepository = clientRepository;
 	}
