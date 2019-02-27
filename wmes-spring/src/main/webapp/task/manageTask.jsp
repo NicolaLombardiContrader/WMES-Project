@@ -1,6 +1,22 @@
-<%@ include file="/header.jsp"%>
+<%@ include file="../header.jsp"%>
+<%
+	List<TaskDTO> allTask = (List<TaskDTO>) request.getAttribute("allTaskDTO");
+%>
+<%!private String convertState(int taskState) {
 
+		switch (taskState) {
 
+		case 0:
+			return "Pending";
+		case 1:
+			return "In Progress";
+		case 2:
+			return "Completed";
+		default:
+			return "Pending";
+		}
+
+	}%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,27 +88,27 @@
 					<ul class="list-unstyled navbar__list">
 						<li><a href="/Home/homeBO"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
-						
-							<li><a href="/Client/clientManagement"> <i
+
+						<li><a href="/Client/clientManagement"> <i
 								class="far fa-user"></i>Clients
 						</a></li>
 						<li><a href="/Resource/resourceManagement"> <i
 								class="far fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i
-								class="fas fa-boxes"></i>Orders 
+								class="fas fa-boxes"></i>Orders
 						</a></li>
 						<li><a href="/Project/projectManagement"> <i
-								class="fas fa-sitemap"></i>Projects 
+								class="fas fa-sitemap"></i>Projects
 						</a></li>
-						<li><a href="/ProjectTemplate/projectTemplateManagement"> <i
-								class="fas fa-chart-pie"></i>Project Templates 
+						<li><a href="/ProjectTemplate/projectTemplateManagement">
+								<i class="fas fa-chart-pie"></i>Project Templates
 						</a></li>
 						<li><a href="/Task/taskManagement"> <i
-								class="fas fa-tasks"></i>Tasks  
+								class="fas fa-tasks"></i>Tasks
 						</a></li>
-						
-                    </ul>
+
+					</ul>
 				</nav>
 			</div>
 		</aside>
@@ -104,14 +120,14 @@
 			<header class="header-desktop2">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-					
-							<div class="logo d-block d-lg-none">
-								<a href="#"> <img src="/images/icon/logo-white.png"
-									alt="CoolAdmin" />
-								</a>
-							</div>
-							
-					
+
+						<div class="logo d-block d-lg-none">
+							<a href="#"> <img src="/images/icon/logo-white.png"
+								alt="CoolAdmin" />
+							</a>
+						</div>
+
+
 					</div>
 				</div>
 			</header>
@@ -128,8 +144,8 @@
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-											<li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a>
-											</li>
+											<li class="list-inline-item active"><a
+												href="/Home/homeBO">Dashboard</a></li>
 											<li class="list-inline-item seprate"><span>/</span></li>
 											<li class="list-inline-item">Task Management</li>
 										</ul>
@@ -150,72 +166,71 @@
 							<div class="col-lg-12">
 
 								<!-- TASK TABLE -->
-                                <h3 class="title-5 m-b-35">task table</h3>
-                               
-                                    <div class="table-data__tool-right">
-                                        <a href="/Task/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small">
-										<i class="zmdi zmdi-plus"></i>ADD TASK
+								<h3 class="title-5 m-b-35">task table</h3>
+
+								<div class="table-data__tool-right">
+									<a href="/Task/insertRedirect"
+										class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
+										class="zmdi zmdi-plus"></i>ADD TASK
 									</a>
-                                <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                   
-                                                </th>
-                                                <th>Description</th>
-			                                    <th>Action</th>
-			                                    <th>Input</th>
-			                                    <th>Output</th>
-			                                    <th>Resource</th>
-			                                    <th>Time</th>
-			                                    <th>State</th>
-                                              
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>Lori Lynch</td>
-                                                <td>
-                                                    <span class="block-email">lori@example.com</span>
-                                                </td>
-                                                <td class="desc">Samsung S8 Black</td>
-                                                <td>2018-09-27 02:12</td>
-                                                <td>
-                                                    <span class="status--process">Processed</span>
-                                                </td>
-                                                <td>$679.00</td>
-                                                <td>
-                                                    <span class="status--process">Processed</span>
-                                                </td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                     
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            
-                                        
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- END USER TABLE -->
+									<div class="table-responsive table-responsive-data2">
+										<table class="table table-data2">
+											<thead>
+												<tr>
+													<th></th>
+													<th>Description</th>
+													<th>Action</th>
+													<th>Input</th>
+													<th>Output</th>
+													<th>Resource</th>
+													<th>Time</th>
+													<th>State</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<%
+													for (TaskDTO task : allTask) {
+												%>
+
+												<tr class="tr-shadow">
+
+													<td><%=task.getTaskDescription()%></td>
+													<td><%=task.getTaskAction()%></td>
+													<td><%=task.getTaskInput()%></td>
+													<td><%=task.getTaskOutput()%></td>
+													<td><%=task.getResourceDTO().getResourceName()%></td>
+													<td><%=task.getTaskTime()%></td>
+													<td><%=convertState(task.getTaskState())%></td>
+													<td>
+														<div class="table-data-feature">
+
+															<a href="/Task/updateRedirect?id=<%=task.getUserDTO().getUserId()%>"
+																class="item" data-toggle="tooltip" data-placement="top"
+																title="Edit"> <i class="zmdi zmdi-edit"></i>
+															</a> <a href="/Task/delete?id=<%=task.getUserDTO().getUserId()%>"
+																class="item" data-toggle="tooltip" data-placement="top"
+																title="Delete"> <i class="zmdi zmdi-delete"></i>
+															</a>
+
+														</div>
+													</td>
+												</tr>
+
+												<%
+													}
+												%>
+
+											</tbody>
+										</table>
+									</div>
+									<!-- END USER TABLE -->
+								</div>
+
 							</div>
 
 						</div>
-
 					</div>
-				</div>
 			</section>
 			<!-- END STATISTIC-->
 
@@ -235,9 +250,7 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xl-6"></div>
-							<div class="col-xl-6">
-								
-							</div>
+							<div class="col-xl-6"></div>
 						</div>
 					</div>
 				</div>
@@ -248,7 +261,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="copyright">
-								<p>Copyright © 2019 Wmes. All rights reserved. Template by Wmes Team</p>
+								<p>Copyright © 2019 Wmes. All rights reserved. Template by
+									Wmes Team</p>
 							</div>
 						</div>
 					</div>
@@ -295,4 +309,5 @@
 </body>
 
 </html>
-<!-- end document--><!-- end document-->
+<!-- end document-->
+<!-- end document-->

@@ -60,9 +60,8 @@ public class TaskController {
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insert(HttpServletRequest request) {
 
-		int resourceId = Integer.parseInt(request.getParameter("resource_id"));
+		
 		ResourceDTO resourceDTO = new ResourceDTO();
-		resourceDTO.setResourceId(resourceId);
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 
 		String taskAction = request.getParameter("task_action").toString();
