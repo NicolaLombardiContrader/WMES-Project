@@ -43,26 +43,43 @@ public class UserController {
 		request.setAttribute("id", id);
 		this.userService.deleteUserById(id);
 		visualUser(request);
-		return "homeUser";
-
+		return "user/manageUser";
 	}
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
 		return "user/insertUser";
 	}
-	
+
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		UserDTO userUpdate = new UserDTO();
-		//userUpdate.setUserId(id);
+		// userUpdate.setUserId(id);
 
 		userUpdate = this.userService.getUserDTOById(id);
 		request.setAttribute("userUpdate", userUpdate);
 		return "user/updateUser";
 	}
-	
+
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(HttpServletRequest request) {
+		Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
+		String usernameUpdate = request.getParameter("user_user");
+		String passwordUpdate = request.getParameter("user_pass");
+		String usertypeUpdate = request.getParameter("user_type");
+		
+		UserDTO user = new UserDTO();
+		user.setUserUser(usernameUpdate);
+		user.setUserPass(passwordUpdate);
+		user.setUserType(usertypeUpdate);
+		user.setUserId(idUpdate);
+
+		userService.updateUser(user);
+		visualUser(request);
+		return "user/manageUser";
+	}
+
 	@RequestMapping(value = "/cercaUser", method = RequestMethod.GET)
 	public String cercaUser(HttpServletRequest request) {
 
@@ -102,16 +119,13 @@ public class UserController {
 		final UserDTO userDTO = userService.getUserByUserUserAndUserPass(username, password);
 		final String userType = userDTO.getUserType();
 		if (!StringUtils.isEmpty(userType)) {
-			
+
 			session.setAttribute("utente", userDTO);
-			
-			/* 
-			 if (userType.equals("admin")) {
-				return "home";
-			} else if (userType.equals("bo")) {
-				return "home";
-			}
-			*/
+
+			/*
+			 * if (userType.equals("admin")) { return "home"; } else if
+			 * (userType.equals("bo")) { return "home"; }
+			 */
 			switch (userType.toLowerCase()) {
 			case "admin":
 				return "redirect:/Home/homeAdmin";
@@ -122,13 +136,12 @@ public class UserController {
 			default:
 				return "index";
 			}
-			
-			
+
 		}
 		return "index";
 	}
-	
-	@RequestMapping(value="/logout", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logOut(HttpServletRequest request) {
 		request.getSession().invalidate();
 		return "index";

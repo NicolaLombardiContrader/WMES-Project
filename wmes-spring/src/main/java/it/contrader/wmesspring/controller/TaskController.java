@@ -46,87 +46,118 @@ public class TaskController {
 		request.setAttribute("id", id);
 		this.taskService.deleteTaskById(id);
 		visualTask(request);
-		return "homeTask";
+		return "task/manageTask";
 
 	}
 
-	@RequestMapping(value = "/crea", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
+	public String insertRedirect(HttpServletRequest request) {
+		// visualTask(request);
+		// request.setAttribute("option", "insert");
+		return "task/insertTask";
+	}
+
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insert(HttpServletRequest request) {
+
+		int resourceId = Integer.parseInt(request.getParameter("resource_id"));
+		ResourceDTO resourceDTO = new ResourceDTO();
+		resourceDTO.setResourceId(resourceId);
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+
+		String taskAction = request.getParameter("task_action").toString();
+		String taskDescription = request.getParameter("task_description").toString();
+		String taskInput = request.getParameter("task_input").toString();
+		String taskOutput = request.getParameter("task_output").toString();
+		int taskTime = Integer.parseInt(request.getParameter("task_time"));
+		int taskState = Integer.parseInt(request.getParameter("task_state"));
+
+		TaskDTO taskObj = new TaskDTO();
+		taskObj.setUserDTO(userLogged);
+		taskObj.setResourceDTO(resourceDTO);
+		taskObj.setTaskAction(taskAction);
+		taskObj.setTaskDescription(taskDescription);
+		taskObj.setTaskInput(taskInput);
+		taskObj.setTaskOutput(taskOutput);
+		taskObj.setTaskTime(taskTime);
+		taskObj.setTaskState(taskState);
+		taskService.insertTask(taskObj);
+
 		visualTask(request);
-		request.setAttribute("option", "insert");
-		return "creaTask";
+		return "task/manageTask";
 	}
+	
+	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
+	public String updateRedirect(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		TaskDTO taskUpdate = new TaskDTO();
+		//userUpdate.setUserId(id);
 
-	//@RequestMapping(value = "/cercaTask", method = RequestMethod.GET)
-	//public String cercaTask(HttpServletRequest request) {
+		taskUpdate = this.taskService.getTaskDTOById(id);
+		request.setAttribute("taskUpdate", taskUpdate);
+		return "task/updateTask";
+	}
+	
+	
+	// @RequestMapping(value = "/cercaTask", method = RequestMethod.GET)
+	// public String cercaTask(HttpServletRequest request) {
 
-		//final String content = request.getParameter("search");
+	// final String content = request.getParameter("search");
 
-		//List<TaskDTO> allTask = this.taskService.findTaskDTOByUser(content);
-		//request.setAttribute("allTaskDTO", allTask);
+	// List<TaskDTO> allTask = this.taskService.findTaskDTOByUser(content);
+	// request.setAttribute("allTaskDTO", allTask);
 
-		//return "homeTask";
+	// return "homeTask";
 
-	//}
+	// }
 
 	// TODO da modificare nella view ruolo con usertype
-	//@RequestMapping(value = "/creaTask", method = RequestMethod.POST)
-	//public String insertTask(HttpServletRequest request) {
-	
-	//	int userId = ?
-	//  int resourceId = ?
-	//	String taskAction = request.getParameter("username").toString();
-	//	String taskDescription = request.getParameter("password").toString();
-	//	String taskInput = request.getParameter("usertype").toString();
-	//	String taskOutput = request.getParameter("usertype").toString();
-	//	int taskTime = request.getParameter("usertype").toString();
-    //	int taskState = request.getParameter("usertype").toString();
-		//TaskDTO taskObj = new TaskDTO(0, username, password, ruolo,"");
-		//TaskDTO taskObj = new TaskDTO();
-		//userObj.setUserUser(username);
-		//userObj.setUserPass(password);
-		//userObj.setUserType(userType);
-		//userService.insertUser(userObj);
+	// @RequestMapping(value = "/creaTask", method = RequestMethod.POST)
+	// public String insertTask(HttpServletRequest request) {
 
-		//visualUser(request);
-		//return "homeUser";
-	//}
+	// int userId = ?
+	// int resourceId = ?
+	// String taskAction = request.getParameter("username").toString();
+	// String taskDescription = request.getParameter("password").toString();
+	// String taskInput = request.getParameter("usertype").toString();
+	// String taskOutput = request.getParameter("usertype").toString();
+	// int taskTime = request.getParameter("usertype").toString();
+	// int taskState = request.getParameter("usertype").toString();
+	// TaskDTO taskObj = new TaskDTO(0, username, password, ruolo,"");
+	// TaskDTO taskObj = new TaskDTO();
+	// userObj.setUserUser(username);
+	// userObj.setUserPass(password);
+	// userObj.setUserType(userType);
+	// userService.insertUser(userObj);
 
-	/*@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginControl(HttpServletRequest request) {
+	// visualUser(request);
+	// return "homeUser";
+	// }
 
-		session = request.getSession();
-		final String username = request.getParameter("username");
-		final String password = request.getParameter("password");
-		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
-		final String userType = userDTO.getUserType();
-		if (!StringUtils.isEmpty(userType)) {
-			
-			session.setAttribute("utente", userDTO);
-			
-			
-			 //if (userType.equals("admin")) {
-				//return "home";
-			//} else if (userType.equals("bo")) {
-				//return "home";
-			//}
-			
-			switch (userType.toLowerCase()) {
-			case "admin":
-				return "homeAdmin";
-			case "bo":
-				return "bo";
-			case "resource":
-				return "resource";
-			default:
-				return "index";
-			}
-			
-			
-		}
-
-		return "index";
-	}
-	
-*/	
+	/*
+	 * @RequestMapping(value = "/login", method = RequestMethod.POST) public String
+	 * loginControl(HttpServletRequest request) {
+	 * 
+	 * session = request.getSession(); final String username =
+	 * request.getParameter("username"); final String password =
+	 * request.getParameter("password"); final UserDTO userDTO =
+	 * userService.getByUsernameAndPassword(username, password); final String
+	 * userType = userDTO.getUserType(); if (!StringUtils.isEmpty(userType)) {
+	 * 
+	 * session.setAttribute("utente", userDTO);
+	 * 
+	 * 
+	 * //if (userType.equals("admin")) { //return "home"; //} else if
+	 * (userType.equals("bo")) { //return "home"; //}
+	 * 
+	 * switch (userType.toLowerCase()) { case "admin": return "homeAdmin"; case
+	 * "bo": return "bo"; case "resource": return "resource"; default: return
+	 * "index"; }
+	 * 
+	 * 
+	 * }
+	 * 
+	 * return "index"; }
+	 * 
+	 */
 }
