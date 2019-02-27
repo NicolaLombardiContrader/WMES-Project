@@ -105,11 +105,11 @@ public class UserController {
 			*/
 			switch (userType.toLowerCase()) {
 			case "admin":
-				return "homeAdmin";
+				return "redirect:/Home/homeAdmin";
 			case "bo":
-				return "homeBO";
+				return "redirect:/Home/homeBO";
 			case "resource":
-				return "homeResource";
+				return "redirect:/Home/homeResource";
 			default:
 				return "index";
 			}
