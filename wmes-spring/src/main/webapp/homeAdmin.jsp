@@ -14,7 +14,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Dashboard 2</title>
+<title>Admin Dashboard</title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
@@ -226,19 +226,8 @@
 									alt="CoolAdmin" />
 								</a>
 							</div>
-							<div class="header-button2">
-								<div class="header-button-item js-item-menu">
-									<i class="zmdi zmdi-search"></i>
-									<div class="search-dropdown js-dropdown">
-										<form action="">
-											<input class="au-input au-input--full au-input--h65"
-												type="text" placeholder="Search for datas &amp; reports..." />
-											<span class="search-dropdown__icon"> <i
-												class="zmdi zmdi-search"></i>
-											</span>
-										</form>
-									</div>
-								</div>
+							
+								
 								<!--  <div class="header-button-item has-noti js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
                                     <div class="notifi-dropdown js-dropdown">
@@ -314,7 +303,7 @@
                                         </div>
                                     </div>
                                 </div>-->
-							</div>
+							
 					
 					</div>
 				</div>
@@ -332,9 +321,7 @@
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-											<li class="list-inline-item active"><a href="#">Home</a>
-											</li>
-											<li class="list-inline-item seprate"><span>/</span></li>
+										
 											<li class="list-inline-item">Dashboard</li>
 										</ul>
 									</div>
