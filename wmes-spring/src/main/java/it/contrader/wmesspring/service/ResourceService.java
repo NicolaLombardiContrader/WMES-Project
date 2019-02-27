@@ -25,7 +25,6 @@ public class ResourceService {
 
 	public List<ResourceDTO> getListaResourceDTO() {
 		return ConverterResource.toListDTO((List<Resource>) resourceRepository.findAll());
-
 	}
 
 	public ResourceDTO getResourceDTOById(Integer id) {

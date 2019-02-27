@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.dto.ResourceDTO;
-import it.contrader.wmesspring.service.UserService;
+import it.contrader.wmesspring.service.ResourceService;
 import it.contrader.wmesspring.service.TaskService;
 //import it.contrader.wmesspring.service.ResourceService;
 import java.util.List;
@@ -22,11 +22,13 @@ import java.util.List;
 public class TaskController {
 
 	private final TaskService taskService;
+	private final ResourceService resourceService;
 	private HttpSession session;
 
 	@Autowired
-	public TaskController(TaskService taskService) {
+	public TaskController(TaskService taskService, ResourceService resourceService) {
 		this.taskService = taskService;
+		this.resourceService=resourceService;
 	}
 
 	private void visualTask(HttpServletRequest request) {
@@ -51,29 +53,35 @@ public class TaskController {
 	}
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insertRedirect(HttpServletRequest request) {
+	public String insertRedirect(HttpServletRequest request, HttpSession session) {
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		List<ResourceDTO> resourceList = resourceService.findResourceDTOByUser(userLogged);
+		request.setAttribute("resourceList", resourceList);
 		// visualTask(request);
 		// request.setAttribute("option", "insert");
 		return "task/insertTask";
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insert(HttpServletRequest request) {
+	public String insert(HttpServletRequest request, HttpSession session) {
 
 		
-		ResourceDTO resourceDTO = new ResourceDTO();
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
-
+		ResourceDTO resourceInsertDTO = new ResourceDTO();
+		
 		String taskAction = request.getParameter("task_action").toString();
 		String taskDescription = request.getParameter("task_description").toString();
 		String taskInput = request.getParameter("task_input").toString();
 		String taskOutput = request.getParameter("task_output").toString();
 		int taskTime = Integer.parseInt(request.getParameter("task_time"));
 		int taskState = Integer.parseInt(request.getParameter("task_state"));
-
+		int resourceInsertId = Integer.parseInt(request.getParameter("resource_id"));
+		resourceInsertDTO.setResourceId(resourceInsertId);
+		
+		
 		TaskDTO taskObj = new TaskDTO();
 		taskObj.setUserDTO(userLogged);
-		taskObj.setResourceDTO(resourceDTO);
+		taskObj.setResourceDTO(resourceInsertDTO);
 		taskObj.setTaskAction(taskAction);
 		taskObj.setTaskDescription(taskDescription);
 		taskObj.setTaskInput(taskInput);

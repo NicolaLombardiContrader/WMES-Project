@@ -1,4 +1,7 @@
 <%@ include file="../header.jsp"%>
+<% 
+List<ResourceDTO> resourceList = (List<ResourceDTO>) request.getAttribute("resourceList");
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,7 +165,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Resource</label>
-                                    <input class="au-input au-input--full" type="text" name="task_resource" placeholder="Resource">
+                                    <select class="form-control"
+										name="resource_id">
+										<% for (ResourceDTO  resourceDTO : resourceList) { %>
+										<option value="<%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%></option>
+										<% } %>
+									</select>
                                 </div>
                                 <div class="form-group">
                                     <label>Time</label>
