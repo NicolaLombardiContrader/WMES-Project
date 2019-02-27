@@ -55,7 +55,7 @@
                     </div>
                     <h4 class="name">Admin</h4>
                     <a href="#">Sign out</a>
-                </div>
+                </div> 
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
                     <li>
