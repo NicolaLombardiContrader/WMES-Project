@@ -49,7 +49,7 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 	
-	public List<UserDTO> findUserDTOByUsername(String username) {
+	public List<UserDTO> findUserDTOByUserUser(String username) {
 		
 		final List<User> list = userRepository.findAllByUserUser(username);
 		final List<UserDTO> userDTOs = new ArrayList<>();
