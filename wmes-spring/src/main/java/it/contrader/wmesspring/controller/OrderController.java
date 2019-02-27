@@ -44,7 +44,7 @@ public class OrderController {
 		@RequestMapping(value = "orderManagement", method = RequestMethod.GET)
 		public String userManagement(HttpServletRequest request) {
 			visualOrder(request);
-			return "order/managmentOrder";
+			return "order/manageOrder";
 		}		
 		
 		
@@ -81,26 +81,6 @@ public class OrderController {
 //			orderObj.setClientDTO(clientid);
 			orderService.insertOrder(orderObj);
 			visualOrder(request);
-			
-			
-/*			@RequestMapping(value = "/creaProject", method = RequestMethod.POST)
-			public String insertProject(HttpServletRequest request) {
-				String projectname = request.getParameter("projectname").toString();
-				int projectStatus = 0;
-				
-
-				
-				ProjectDTO projectObj = new ProjectDTO();
-				projectObj.setProjectName(projectname);
-				projectObj.setProjectStatus(projectStatus);
-				projectObj.setUserDTO(userLogged);
-				projectObj.setProjectStatus(0);
-				projectService.insertProject(projectObj);
-
-				visualProject(request);
-				return "homeProject";
-			}*/
-			
 			
 
 			return "order/insertOrder";
