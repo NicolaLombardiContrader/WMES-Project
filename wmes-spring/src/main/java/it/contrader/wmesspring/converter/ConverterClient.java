@@ -28,13 +28,7 @@ public class ConverterClient {
 				
 				List<Order> orderList= client.getOrders();
 				List<OrderDTO> orderListDTO= new ArrayList<OrderDTO>();
-				
-				for (Order order: orderList) {
-					orderListDTO.add(ConverterOrder.toDTO(order));
-				}
-				
-				clientDTO.setOrdersDTO(orderListDTO);
-				
+	
 				
 			}
 		
@@ -55,12 +49,7 @@ public class ConverterClient {
 			
 			List<OrderDTO> orderListDTO= clientDTO.getOrdersDTO();
 			List<Order> orderList= new ArrayList<Order>();
-			
-			for (OrderDTO orderDTO: orderListDTO) {
-				orderList.add(ConverterOrder.toEntity(orderDTO));
-			}
-		
-			client.setOrders(orderList); 
+	
 			
 		}
 		return client;	
