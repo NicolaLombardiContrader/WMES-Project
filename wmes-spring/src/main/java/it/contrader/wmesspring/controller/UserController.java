@@ -49,11 +49,20 @@ public class UserController {
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 	public String insert(HttpServletRequest request) {
-		visualUser(request);
-		request.setAttribute("option", "insert");
-		return "insertUser";
+		return "user/insertUser";
 	}
+	
+	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
+	public String updateRedirect(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		UserDTO userUpdate = new UserDTO();
+		//userUpdate.setUserId(id);
 
+		userUpdate = this.userService.getUserDTOById(id);
+		request.setAttribute("userUpdate", userUpdate);
+		return "user/updateUser";
+	}
+	
 	@RequestMapping(value = "/cercaUser", method = RequestMethod.GET)
 	public String cercaUser(HttpServletRequest request) {
 
@@ -67,7 +76,7 @@ public class UserController {
 	}
 
 	// TODO da modificare nella view ruolo con usertype
-	@RequestMapping(value = "/creaUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertUser(HttpServletRequest request) {
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();

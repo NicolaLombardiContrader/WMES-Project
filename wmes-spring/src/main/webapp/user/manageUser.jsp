@@ -355,7 +355,7 @@
                                             <i class="zmdi zmdi-filter-list"></i>filters</button>
                                     </div>-->
 								<div class="table-data__tool-right">
-									<a href="/User/insertUser" class="au-btn au-btn-icon au-btn--green au-btn--small">
+									<a href="/User/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small">
 										<i class="zmdi zmdi-plus"></i>ADD USER
 									</a>
 									<!--    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
