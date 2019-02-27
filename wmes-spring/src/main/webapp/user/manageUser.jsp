@@ -1,9 +1,8 @@
-<%@ include file="/header.jsp"%>
+<%@ include file="../header.jsp"%>
 <%
 	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUserDTO");
 %>
-<%!
-private String convertUsertype(String userType) {
+<%!private String convertUserType(String userType) {
 		if (userType.equals("admin"))
 			return "Admin";
 		else
@@ -371,10 +370,11 @@ private String convertUsertype(String userType) {
                                         <button class="au-btn-filter">
                                             <i class="zmdi zmdi-filter-list"></i>filters</button>
                                     </div>-->
-                                    <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>ADD USER</button>
-                                      <!--    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+								<div class="table-data__tool-right">
+									<button class="au-btn au-btn-icon au-btn--green au-btn--small">
+										<i class="zmdi zmdi-plus"></i>ADD USER
+									</button>
+									<!--    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                             <select class="js-select2" name="type">
                                                 <option selected="selected">Export</option>
                                                 <option value="">Option 1</option>
@@ -384,56 +384,50 @@ private String convertUsertype(String userType) {
                                         </div>
                                     </div>
                                 </div>-->
-								<div class="table-responsive table-responsive-data2">
-									<table class="table table-data2">
-										<thead>
-											<tr>
-												<th>
-													<!--  <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label> -->
-												</th>
-												<th>Username</th>
-												<th>Role</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-										<%
-		                               	for (UserDTO user : allUser) {
-		                                %>
-		                                   
-											<tr class="tr-shadow">
-											
-											<td><%=user.getUserUser()%></td>
-											<td><%=convertUserType(user.getUserType())%></td>
-											<td>
-													<div class="table-data-feature">
+									<div class="table-responsive table-responsive-data2">
+										<table class="table table-data2">
+											<thead>
+												<tr>
+													<th>Username</th>
+													<th>Role</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<%
+													for (UserDTO user : allUser) {
+												%>
 
-														<button class="item" data-toggle="tooltip"
-															data-placement="top" title="Edit">
-															<i class="zmdi zmdi-edit"></i>
-														</button>
-														<button class="item" data-toggle="tooltip"
-															data-placement="top" title="Delete">
-															<i class="zmdi zmdi-delete"></i>
-														</button>
+												<tr class="tr-shadow">
 
-													</div>
-												</td>
-											</tr>
-											
-											<%
-		                                      	}
-		                                    %>
-										</tbody>
-									</table>
+													<td><%=user.getUserUser()%></td>
+													<td><%=convertUserType(user.getUserType())%></td>
+													<td>
+														<div class="table-data-feature">
+
+															<button class="item" data-toggle="tooltip"
+																data-placement="top" title="Edit">
+																<i class="zmdi zmdi-edit"></i>
+															</button>
+															<button class="item" data-toggle="tooltip"
+																data-placement="top" title="Delete">
+																<i class="zmdi zmdi-delete"></i>
+															</button>
+
+														</div>
+													</td>
+												</tr>
+
+												<%
+													}
+												%>
+											</tbody>
+										</table>
+									</div>
+									<!-- END USER TABLE -->
 								</div>
-								<!-- END USER TABLE -->
-							</div>
 
-							<!--  <div class="col-4">
+								<!--  <div class="col-4">
 
 								<div class="row">
 									<div class="col-md-6 col-lg-12">
@@ -451,10 +445,10 @@ private String convertUsertype(String userType) {
 
 							</div>-->
 
-						</div>
+							</div>
 
+						</div>
 					</div>
-				</div>
 			</section>
 			<!-- END STATISTIC-->
 
