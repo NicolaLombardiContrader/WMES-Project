@@ -85,11 +85,8 @@ public class ClientController {
 	public String update(HttpServletRequest request) {
 		
 		Integer idUpdate = Integer.parseInt(request.getParameter("order_id"));
-
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
-
 		String clientName = request.getParameter("client_name").toString();
-
 		
 		ClientDTO client = new ClientDTO();
 		client.setClientName(clientName);
