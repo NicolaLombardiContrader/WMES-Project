@@ -95,13 +95,18 @@ public class TaskController {
 	}
 	
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
-	public String updateRedirect(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
+	public String updateRedirect(HttpServletRequest request, HttpSession session) {
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		TaskDTO taskUpdate = new TaskDTO();
-		//userUpdate.setUserId(id);
-
+		List<ResourceDTO> resourceList = resourceService.findResourceDTOByUser(userLogged);
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		
 		taskUpdate = this.taskService.getTaskDTOById(id);
+		
 		request.setAttribute("taskUpdate", taskUpdate);
+		request.setAttribute("resourceList", resourceList);
+		
 		return "task/updateTask";
 	}
 	
