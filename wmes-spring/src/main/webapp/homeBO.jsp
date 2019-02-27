@@ -98,6 +98,7 @@
                                 </li>
                             </ul>
                         </li>-->
+                      
 						<li><a href="/Client/clientManagement"> <i
 								class="far fa-user"></i>Clients
 						</a></li>
@@ -105,16 +106,16 @@
 								class="far fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i
-								class="far fa-user"></i>Orders
+								class="fas fa-boxes"></i>Orders 
 						</a></li>
 						<li><a href="/Project/projectManagement"> <i
-								class="far fa-user"></i>Projects
+								class="fas fa-sitemap"></i>Projects 
 						</a></li>
 						<li><a href="/ProjectTemplate/projectTemplateManagement"> <i
-								class="far fa-user"></i>Project Templates
+								class="fas fa-chart-pie"></i>Project Templates 
 						</a></li>
 						<li><a href="/Task/taskManagement"> <i
-								class="far fa-user"></i>Tasks
+								class="fas fa-tasks"></i>Tasks  
 						</a></li>
 						<!--   <li>
                             <a href="#">
@@ -221,8 +222,8 @@
                                         <i class="fas fa-font"></i>Typography</a>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>-->
+                        </li>-->
+                    </ul>
 				</nav>
 			</div>
 		</aside>

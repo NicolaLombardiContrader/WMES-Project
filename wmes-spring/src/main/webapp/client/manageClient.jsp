@@ -70,7 +70,7 @@
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="Dashboard.html"> <i class="fas fa-chart-bar"></i>Dashboard
+						<li><a href="/Home/homeBO"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
 						<!--  <li class="active has-sub">
                             <a class="js-arrow" href="#">
@@ -98,8 +98,8 @@
                                 </li>
                             </ul>
                         </li>-->
-						<li><a href="/User/userManagement"> <i
-								class="far fa-user"></i>Users
+						<li><a href="/Client/clientManagement"> <i
+								class="far fa-user"></i>Clients
 						</a></li>
 						<!--   <li>
                             <a href="#">
@@ -319,10 +319,10 @@
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-											<li class="list-inline-item active"><a href="/homeAdmin.jsp">Dashboard</a>
+											<li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a>
 											</li>
 											<li class="list-inline-item seprate"><span>/</span></li>
-											<li class="list-inline-item">User Management</li>
+											<li class="list-inline-item">Client Management</li>
 										</ul>
 									</div>
 								</div>
