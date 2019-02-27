@@ -112,7 +112,7 @@
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
 											<li class="list-inline-item active"><a href="/Home/homeAdmin">Dashboard</a></li>
 											<li class="list-inline-item seprate"><span>/</span></li>
-											<li class="list-inline-item">Insert User</li>
+											<li class="list-inline-item">Edit User</li>
 										</ul>
 									</div>
 								</div>
@@ -123,7 +123,11 @@
 			</section>
 			<!-- END BREADCRUMB-->
 
-			<div class="login-form">
+			<section>
+				<div class="col-lg-6 center-block">
+					<div class="card">
+						<div class="card-header">EDIT USER</div>
+						<div class="card-body card-block">
 				<form action="/User/update" method="post">
 				<input type="hidden" name="user_id" value="<%=updateUser.getUserId()%>" />
 					<div class="form-group">
@@ -144,8 +148,13 @@
  -->
 					</div>
 					<div class="login-checkbox"></div>
-					<button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">UPDATE</button>
+					<button type="submit" class="btn btn-secondary btn-sm">Update</button>
+				</form>
+						</div>
 
+					</div>
+				</div>
+			</section>
 					<section>
 						<div class="section__content section__content--p30">
 							<div class="container-fluid">
