@@ -35,7 +35,7 @@ public class ClientController {
 	@RequestMapping(value = "/clientManagement", method = RequestMethod.GET)
 	public String clientManagement(HttpServletRequest request) {
 		visualClient(request);
-		return "homeClient";
+		return "client/manageClient";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
