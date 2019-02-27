@@ -108,7 +108,6 @@ public class OrderController {
 			order.setUserDTO(userLogged);
 			order.setClientDTO(updateClientDTO);
 
-//			INSERIRE INSERIRE IDCLIENT AIUTOOOO
 			
 			orderService.updateOrder(order);
 			visualOrder(request);
