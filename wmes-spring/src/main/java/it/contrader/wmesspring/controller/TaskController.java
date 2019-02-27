@@ -70,14 +70,19 @@ public class TaskController {
 	//}
 
 	// TODO da modificare nella view ruolo con usertype
-	//@RequestMapping(value = "/creaUser", method = RequestMethod.POST)
-	//public String insertUser(HttpServletRequest request) {
-	//	String username = request.getParameter("username").toString();
-	//	String password = request.getParameter("password").toString();
-	//	String userType = request.getParameter("usertype").toString();
-
-		// UserDTO userObj = new UserDTO(0, username, password, ruolo,"");
-		//UserDTO userObj = new UserDTO();
+	//@RequestMapping(value = "/creaTask", method = RequestMethod.POST)
+	//public String insertTask(HttpServletRequest request) {
+	
+	//	int userId = ?
+	//  int resourceId = ?
+	//	String taskAction = request.getParameter("username").toString();
+	//	String taskDescription = request.getParameter("password").toString();
+	//	String taskInput = request.getParameter("usertype").toString();
+	//	String taskOutput = request.getParameter("usertype").toString();
+	//	int taskTime = request.getParameter("usertype").toString();
+    //	int taskState = request.getParameter("usertype").toString();
+		//TaskDTO taskObj = new TaskDTO(0, username, password, ruolo,"");
+		//TaskDTO taskObj = new TaskDTO();
 		//userObj.setUserUser(username);
 		//userObj.setUserPass(password);
 		//userObj.setUserType(userType);
