@@ -19,13 +19,11 @@ public class ProjectController {
 	
 	private final ProjectService projectService;
 	private HttpSession session;
-	private UserDTO userLogged;
 	
 	
 	@Autowired
 	public ProjectController(ProjectService projectService) {
 		this.projectService = projectService;
-		this.userLogged = (UserDTO) session.getAttribute("utente");
 	}
 
 	
@@ -61,6 +59,7 @@ public class ProjectController {
 	
 		@RequestMapping(value = "/creaProject", method = RequestMethod.POST)
 		public String insertProject(HttpServletRequest request) {
+			UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 			String projectname = request.getParameter("projectname").toString();
 			int projectStatus = 0;
 			

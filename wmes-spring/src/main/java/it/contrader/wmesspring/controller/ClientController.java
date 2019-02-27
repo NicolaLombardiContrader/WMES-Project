@@ -21,12 +21,10 @@ public class ClientController {
 
 	private final ClientService clientService;
 	private HttpSession session;
-	private UserDTO userLogged;
 	
 	@Autowired
 	public ClientController(ClientService clientService) {
 		this.clientService = clientService;
-		this.userLogged = (UserDTO) session.getAttribute("utente");
 	}
 
 	private void visualClient(HttpServletRequest request) {
@@ -74,7 +72,8 @@ public class ClientController {
 	public String insertClient(HttpServletRequest request) {
 		String UserId = request.getParameter("UserId").toString();
 		String ClientName = request.getParameter("ClientName").toString();
-
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		
 		ClientDTO clientObj = new ClientDTO();
 		clientObj.setUserDTO(userLogged);
 		clientObj.setClientName(ClientName);
