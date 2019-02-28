@@ -54,7 +54,7 @@ public class ResourceController {
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insertResource(HttpServletRequest request) {
+	public String insert(HttpServletRequest request,HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		
 		String resourceName = request.getParameter("resource_name");
@@ -70,7 +70,7 @@ public class ResourceController {
 		visualResource(request);
 		 
 
-		return "resource/insertResource";
+		return "resource/manageResource";
 	}
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {

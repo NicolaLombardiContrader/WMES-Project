@@ -1,6 +1,4 @@
-<%@ include file="/header.jsp"%>
-
-
+<%@ include file="../header.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +12,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Resource Management</title>
+<title>Insert Resource</title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
@@ -72,7 +70,6 @@
 					<ul class="list-unstyled navbar__list">
 						<li><a href="/Home/homeBO"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
-						
 						<li><a href="/Client/clientManagement"> <i
 								class="far fa-user"></i>Clients
 						</a></li>
@@ -80,18 +77,19 @@
 								class="far fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i
-								class="fas fa-boxes"></i>Orders 
+								class="fas fa-boxes"></i>Orders
 						</a></li>
 						<li><a href="/Project/projectManagement"> <i
-								class="fas fa-sitemap"></i>Projects 
+								class="fas fa-sitemap"></i>Projects
 						</a></li>
-						<li><a href="/ProjectTemplate/projectTemplateManagement"> <i
-								class="fas fa-chart-pie"></i>Project Templates 
+						<li><a href="/ProjectTemplate/projectTemplateManagement">
+								<i class="fas fa-chart-pie"></i>Project Templates
 						</a></li>
 						<li><a href="/Task/taskManagement"> <i
-								class="fas fa-tasks"></i>Tasks  
+								class="fas fa-tasks"></i>Tasks
 						</a></li>
-                    </ul>
+
+					</ul>
 				</nav>
 			</div>
 		</aside>
@@ -103,14 +101,14 @@
 			<header class="header-desktop2">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-					
-							<div class="logo d-block d-lg-none">
-								<a href="#"> <img src="/images/icon/logo-white.png"
-									alt="CoolAdmin" />
-								</a>
-							</div>
-							
-								
+
+						<div class="logo d-block d-lg-none">
+							<a href="#"> <img src="/images/icon/logo-white.png"
+								alt="CoolAdmin" />
+							</a>
+						</div>
+
+
 					</div>
 				</div>
 			</header>
@@ -122,15 +120,15 @@
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-8">
 								<div class="au-breadcrumb-content">
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-											<li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a>
-											</li>
+											<li class="list-inline-item active"><a
+												href="/Home/homeBO">Dashboard</a></li>
 											<li class="list-inline-item seprate"><span>/</span></li>
-											<li class="list-inline-item">Resource Management</li>
+											<li class="list-inline-item">Insert Resource</li>
 										</ul>
 									</div>
 								</div>
@@ -141,65 +139,37 @@
 			</section>
 			<!-- END BREADCRUMB-->
 
-			<!-- STATISTIC-->
-			<section class="statistic">
-				<div class="section__content section__content--p30">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-lg-12">
+			<!-- START statistic -->
+			<section>
+				<div class="col-lg-6 center-block">
+					<div class="card">
+						<div class="card-header">NEW RESOURCE</div>
+						<div class="card-body card-block">
+							<form action="/Resource/insert" method="post">
+								<div class="form-group">
+									<label>Name</label> <input class="au-input au-input--full"
+										type="text" name="resource_name" placeholder="Name">
+								</div>
+								<div class="form-group">
+									<label>Username</label> <input class="au-input au-input--full"
+										type="text" name="resource_username" placeholder="Username">
+								</div>
 
-								<!-- RESOURCE TABLE -->
-                                <h3 class="title-5 m-b-35">resource table</h3>
-                                
-                                    <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>add resource</button>
-                                        
-                                <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
-                                        <thead>
-                                            <tr>
-                                             
-                                                <th>Client Name</th>
-                                                 <th>Username</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="tr-shadow">
-                                              
-                                                <td>Lori Lynch</td>
-                                                <td class="desc">Samsung S8 Black</td>
-                                                
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                     
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                           
-                                           
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- END RESOURCE TABLE -->
-							</div>
+								<div class="form-group">
+									<label>Password</label> <input class="au-input au-input--full"
+										type="text" name="resource_pass" placeholder="Password">
+								</div>
 
-						
+
+								<div class="login-checkbox"></div>
+								<button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+							</form>
 						</div>
 
 					</div>
 				</div>
 			</section>
-			<!-- END STATISTIC-->
-
+			<!-- END Statistic -->
 			<section>
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
@@ -216,9 +186,7 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xl-6"></div>
-							<div class="col-xl-6">
-								
-							</div>
+							<div class="col-xl-6"></div>
 						</div>
 					</div>
 				</div>
@@ -238,7 +206,6 @@
 			</section>
 			<!-- END PAGE CONTAINER-->
 		</div>
-
 	</div>
 
 	<!-- Jquery JS-->
@@ -273,7 +240,6 @@
 
 	<!-- Main JS-->
 	<script src="/js/main.js"></script>
-
 </body>
 
 </html>
