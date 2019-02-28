@@ -1,5 +1,7 @@
 <%@ include file="../header.jsp"%>
-
+<%
+	List<OrderDTO> allOrder = (List<OrderDTO>) request.getAttribute("allOrderDTO");
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -152,41 +154,49 @@
                                 <h3 class="title-5 m-b-35">order table</h3>
                                 
                                     <div class="table-data__tool-right">
-                                        <a href="/Order/insert" class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>add order</a>
+                                        <a href="/Order/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="zmdi zmdi-plus"></i>ADD ORDER</a>
                                         
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
-                                                
-                                             <th>ClientName</th>
+                                             <th>UserId</th>   
+                                             <th>ClientId</th>
 			                                 <th>Description</th>
-                                                <th></th>
+                                             <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="tr-shadow">
-                                               
-                                                <td>Lori Lynch</td>
-                                                <td class="desc">Samsung S8 Black</td>
-                                                
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                        
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                          
-                                            
-                                        </tbody>
+												<%
+													for (OrderDTO order : allOrder) {
+												%>
+
+												<tr class="tr-shadow">
+
+													<td><%=order.getUserDTO().getUserId()%></td>
+													<td><%=order.getClientDTO().getClientId()%></td>
+													<td><%=order.getOrderDescription()%></td>
+													<td>
+														<div class="table-data-feature">
+
+															<a href="/Order/updateRedirect?id=<%=order.getOrderId()%>"
+																class="item" data-toggle="tooltip" data-placement="top"
+																title="Edit"> <i class="zmdi zmdi-edit"></i>
+															</a> <a href="/Order/delete?id=<%=order.getOrderId()%>"
+																class="item" data-toggle="tooltip" data-placement="top"
+																title="Delete"> <i class="zmdi zmdi-delete"></i>
+															</a>
+
+														</div>
+													</td>
+												</tr>
+
+												<%
+													}
+												%>
+
+											</tbody>
                                     </table>
                                 </div>
                                 <!-- END USER TABLE -->
