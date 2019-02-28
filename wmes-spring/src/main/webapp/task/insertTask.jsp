@@ -178,7 +178,13 @@ List<ResourceDTO> resourceList = (List<ResourceDTO>) request.getAttribute("resou
                                 </div>
                                 <div class="form-group">
                                     <label>State</label>
-                                    <input class="au-input au-input--full" type="number" name="task_state" placeholder="State">
+                                    <select class="au-input au-input--full" type="radio" name="task_state" placeholder="State">
+                                    <option value="0"> Pending</option>
+                                    <option value="1"> In progress</option>
+                                    <option value="2"> Completed</option>
+                                	</select> 
+                                
+                                
                                 </div>
 								<div class="form-actions form-group">
 									<button type="submit" class="btn btn-secondary btn-sm">Submit</button>
