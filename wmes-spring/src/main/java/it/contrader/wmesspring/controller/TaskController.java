@@ -110,6 +110,30 @@ public class TaskController {
 		return "task/updateTask";
 	}
 	
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(HttpServletRequest request) {
+		Integer idUpdate = Integer.parseInt(request.getParameter("task_id"));
+		String actionUpdate = request.getParameter("task_action");
+		String descriptionUpdate = request.getParameter("task_description");
+		String inputUpdate = request.getParameter("task_input");
+		String outputUpdate = request.getParameter("task_output");
+		Integer stateUpdate = Integer.parseInt(request.getParameter("task_state"));
+		Integer timeUpdate = Integer.parseInt(request.getParameter("task_time"));
+		
+		TaskDTO task = new TaskDTO();
+		task.setTaskId(idUpdate);
+		task.setTaskAction(actionUpdate);
+		task.setTaskDescription(descriptionUpdate);
+		task.setTaskInput(inputUpdate);
+		task.setTaskOutput(outputUpdate);
+		task.setTaskState(stateUpdate);
+		task.setTaskTime(timeUpdate);
+		
+
+		taskService.updateTask(task);
+		visualTask(request);
+		return "task/manageTask";
+	}
 	
 	// @RequestMapping(value = "/cercaTask", method = RequestMethod.GET)
 	// public String cercaTask(HttpServletRequest request) {
