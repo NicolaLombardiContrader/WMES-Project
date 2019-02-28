@@ -177,7 +177,6 @@
 										<table class="table table-data2">
 											<thead>
 												<tr>
-													<th></th>
 													<th>Description</th>
 													<th>Action</th>
 													<th>Input</th>
@@ -185,7 +184,7 @@
 													<th>Resource</th>
 													<th>Time</th>
 													<th>State</th>
-
+													<th></th>
 												</tr>
 											</thead>
 											<tbody>
@@ -205,10 +204,10 @@
 													<td>
 														<div class="table-data-feature">
 
-															<a href="/Task/updateRedirect?id=<%=task.getUserDTO().getUserId()%>"
+															<a href="/Task/updateRedirect?id=<%=task.getTaskId()%>"
 																class="item" data-toggle="tooltip" data-placement="top"
 																title="Edit"> <i class="zmdi zmdi-edit"></i>
-															</a> <a href="/Task/delete?id=<%=task.getUserDTO().getUserId()%>"
+															</a> <a href="/Task/delete?id=<%=task.getTaskId()%>"
 																class="item" data-toggle="tooltip" data-placement="top"
 																title="Delete"> <i class="zmdi zmdi-delete"></i>
 															</a>

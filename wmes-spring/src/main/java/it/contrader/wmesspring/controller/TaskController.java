@@ -111,7 +111,7 @@ public class TaskController {
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(HttpServletRequest request) {
+	public String update(HttpServletRequest request, HttpSession session) {
 		Integer idUpdate = Integer.parseInt(request.getParameter("task_id"));
 		String actionUpdate = request.getParameter("task_action");
 		String descriptionUpdate = request.getParameter("task_description");
@@ -119,6 +119,11 @@ public class TaskController {
 		String outputUpdate = request.getParameter("task_output");
 		Integer stateUpdate = Integer.parseInt(request.getParameter("task_state"));
 		Integer timeUpdate = Integer.parseInt(request.getParameter("task_time"));
+		Integer resourceUpdateId = Integer.parseInt(request.getParameter("resource_id"));
+		ResourceDTO resourceUpdateDTO = new ResourceDTO();
+		resourceUpdateDTO.setResourceId(resourceUpdateId);
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		
 		
 		TaskDTO task = new TaskDTO();
 		task.setTaskId(idUpdate);
@@ -128,6 +133,8 @@ public class TaskController {
 		task.setTaskOutput(outputUpdate);
 		task.setTaskState(stateUpdate);
 		task.setTaskTime(timeUpdate);
+		task.setResourceDTO(resourceUpdateDTO);
+		task.setUserDTO(userLogged);
 		
 
 		taskService.updateTask(task);
