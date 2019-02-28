@@ -20,7 +20,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Insert User</title>
+<title>Update Task</title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
@@ -35,7 +35,7 @@
 <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet"
 	media="all">
 
-<!-- Vendor CSS-->
+<!-- Vendor CSS--> 
 <link href="/vendor/animsition/animsition.min.css" rel="stylesheet"
 	media="all">
 <link
@@ -69,32 +69,17 @@
 			<div class="menu-sidebar2__content js-scrollbar1">
 				<div class="account2">
 					<div class="image img-cir img-120">
-						<img src="/images/icon/avatarAdmin.jpg" alt="Admin" />
+						<img src="/images/icon/avatarBo.jpg" alt="Resource" />
 					</div>
-					<h4 class="name">Admin</h4>
-					<a href="/User/logout">Sign out</a>
+					<h4 class="name">Resource</h4>
+					<a href="/Resource/logout">Sign out</a>
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="/Home/homeAdmin"> <i
+						<li><a href="/Home/homeResource"> <i
 								class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
 
-						<li><a href="/Client/clientManagement"> <i
-								class="far fa-user"></i>Clients
-						</a></li>
-						<li><a href="/Resource/resourceManagement"> <i
-								class="far fa-user"></i>Resources
-						</a></li>
-						<li><a href="/Order/orderManagement"> <i
-								class="fas fa-boxes"></i>Orders
-						</a></li>
-						<li><a href="/Project/projectManagement"> <i
-								class="fas fa-sitemap"></i>Projects
-						</a></li>
-						<li><a href="/ProjectTemplate/projectTemplateManagement">
-								<i class="fas fa-chart-pie"></i>Project Templates
-						</a></li>
 						<li><a href="/Task/taskManagement"> <i
 								class="fas fa-tasks"></i>Tasks
 						</a></li>
@@ -139,7 +124,7 @@
 											<li class="list-inline-item active"><a
 												href="/Home/homeAdmin">Dashboard</a></li>
 											<li class="list-inline-item seprate"><span>/</span></li>
-											<li class="list-inline-item">Edit User</li>
+											<li class="list-inline-item">Edit Task</li>
 										</ul>
 									</div>
 								</div>
@@ -168,19 +153,19 @@
 								<div class="form-group">
 									<label>Action</label> <input class="au-input au-input--full"
 										type="text" name="task_action" placeholder="Action"
-										value="<%=updateTask.getTaskAction()%>">
+										value="<%=updateTask.getTaskAction()%>" readonly>
 								</div>
 
 								<div class="form-group">
 									<label>Input</label> <input class="au-input au-input--full"
 										type="text" name="task_input" placeholder="Input"
-										value="<%=updateTask.getTaskInput()%>">
+										value="<%=updateTask.getTaskInput()%>" readonly>
 								</div>
 
 								<div class="form-group">
 									<label>Output</label> <input class="au-input au-input--full"
 										type="text" name="task_output" placeholder="Output"
-										value="<%=updateTask.getTaskOutput()%>">
+										value="<%=updateTask.getTaskOutput()%>" readonly>
 								</div>
 
 								<div class="form-group">
@@ -192,11 +177,11 @@
 												if (resourceDTO.getResourceId() == updateTask.getResourceDTO().getResourceId()) {
 										%>
 										<option <%=selected%>
-											value="<%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%></option>
+											value="<%=resourceDTO.getResourceId()%>" readonly><%=resourceDTO.getResourceName()%></option>
 										<%
 											} else {
 										%>
-										<option value="<%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%></option>
+										<option value="<%=resourceDTO.getResourceId()%>" readonly><%=resourceDTO.getResourceName()%></option>
 										<%
 											}
 											}
