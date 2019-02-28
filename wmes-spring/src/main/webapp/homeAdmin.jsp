@@ -160,9 +160,7 @@
 										<table class="table">
 											<thead>
 												<tr>
-													<td><label class="au-checkbox"> <input
-															type="checkbox"> <span class="au-checkmark"></span>
-													</label></td>
+												
 													<td>name</td>
 													<td>role</td>
 													<td>type</td>
@@ -171,14 +169,11 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td><label class="au-checkbox"> <input
-															type="checkbox"> <span class="au-checkmark"></span>
-													</label></td>
+											
 													<td>
 														<div class="table-data__info">
 															<h6>lori lynch</h6>
-															<span> <a href="#">johndoe@gmail.com</a>
-															</span>
+														
 														</div>
 													</td>
 													<td><span class="role admin">admin</span></td>
@@ -192,23 +187,17 @@
 															<div class="dropDownSelect2"></div>
 														</div>
 													</td>
-													<td><span class="more"> <i
-															class="zmdi zmdi-more"></i>
-													</span></td>
+												
 												</tr>
 												<tr>
-													<td><label class="au-checkbox"> <input
-															type="checkbox" checked="checked"> <span
-															class="au-checkmark"></span>
-													</label></td>
+												
 													<td>
 														<div class="table-data__info">
 															<h6>lori lynch</h6>
-															<span> <a href="#">johndoe@gmail.com</a>
-															</span>
+														
 														</div>
 													</td>
-													<td><span class="role user">user</span></td>
+													<td><span class="role user">Business Owner</span></td>
 													<td>
 														<div class="rs-select2--trans rs-select2--sm">
 															<select class="js-select2" name="property">
@@ -219,22 +208,17 @@
 															<div class="dropDownSelect2"></div>
 														</div>
 													</td>
-													<td><span class="more"> <i
-															class="zmdi zmdi-more"></i>
-													</span></td>
+													
 												</tr>
 												<tr>
-													<td><label class="au-checkbox"> <input
-															type="checkbox"> <span class="au-checkmark"></span>
-													</label></td>
+												
 													<td>
 														<div class="table-data__info">
 															<h6>lori lynch</h6>
-															<span> <a href="#">johndoe@gmail.com</a>
-															</span>
+															
 														</div>
 													</td>
-													<td><span class="role user">user</span></td>
+													<td><span class="role user">Business Owner</span></td>
 													<td>
 														<div class="rs-select2--trans rs-select2--sm">
 															<select class="js-select2" name="property">
@@ -245,36 +229,8 @@
 															<div class="dropDownSelect2"></div>
 														</div>
 													</td>
-													<td><span class="more"> <i
-															class="zmdi zmdi-more"></i>
-													</span></td>
-												</tr>
-												<tr>
-													<td><label class="au-checkbox"> <input
-															type="checkbox"> <span class="au-checkmark"></span>
-													</label></td>
-													<td>
-														<div class="table-data__info">
-															<h6>lori lynch</h6>
-															<span> <a href="#">johndoe@gmail.com</a>
-															</span>
-														</div>
-													</td>
-													<td><span class="role member">member</span></td>
-													<td>
-														<div class="rs-select2--trans rs-select2--sm">
-															<select class="js-select2" name="property">
-																<option selected="selected">Full Control</option>
-																<option value="">Post</option>
-																<option value="">Watch</option>
-															</select>
-															<div class="dropDownSelect2"></div>
-														</div>
-													</td>
-													<td><span class="more"> <i
-															class="zmdi zmdi-more"></i>
-													</span></td>
-												</tr>
+													
+												</tr>										
 											</tbody>
 										</table>
 									</div>
