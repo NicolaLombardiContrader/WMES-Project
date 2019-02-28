@@ -68,7 +68,7 @@ public class ClientController {
 		visualClient(request);
 		 
 
-		return "client/insertClient";
+		return "client/manageClient";
 	}
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {

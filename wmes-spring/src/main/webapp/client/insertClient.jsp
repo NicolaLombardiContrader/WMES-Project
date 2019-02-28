@@ -1,4 +1,8 @@
 <%@ include file="../header.jsp"%>
+<%
+List<ClientDTO> clientList = (List<ClientDTO>) request.getAttribute("ClientList");
+%>
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -139,9 +143,9 @@
 							
 							
 								<div class="form-group">
-									<label>Client Name</label> <input
-										class="au-input au-input--full" type="text" name="client_name"
-										placeholder="ClientName"><br>
+									<label>ClientName</label> <input class="au-input au-input--full" 
+									type="text" name="client_name" placeholder="ClientName">
+									
 								</div>
 
 								</select>
