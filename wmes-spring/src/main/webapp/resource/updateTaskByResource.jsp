@@ -35,7 +35,7 @@
 <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet"
 	media="all">
 
-<!-- Vendor CSS-->
+<!-- Vendor CSS--> 
 <link href="/vendor/animsition/animsition.min.css" rel="stylesheet"
 	media="all">
 <link
