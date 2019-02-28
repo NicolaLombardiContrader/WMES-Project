@@ -51,7 +51,7 @@
 		<!-- MENU SIDEBAR-->
 		<aside class="menu-sidebar2">
 			<div class="logo">
-				<a href="#"> <img src="/images/icon/wmeslogo.png" alt="Cool Admin" />
+				<a href="#"> <img src="/images/icon/wmeslogo2.png" alt="Cool Admin" />
 				</a>
 			</div>
 			<div class="menu-sidebar2__content js-scrollbar1">

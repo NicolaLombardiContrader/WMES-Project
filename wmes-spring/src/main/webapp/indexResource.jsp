@@ -45,7 +45,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="/images/icon/WMES.jpg" alt="CoolAdmin">
+                                <img src="/images/icon/WMES1.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
