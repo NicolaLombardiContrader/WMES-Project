@@ -67,7 +67,7 @@ public class HomeController {
 
 	
 	@RequestMapping(value = "/homeBO", method = RequestMethod.GET)
-	public String clientManagement(HttpServletRequest request) {
+	public String homeBO(HttpServletRequest request) {
 		//List<ClientDTO> allClient = this.clientService.getListaClientDTO();
 		//request.setAttribute("allClientDTO", allClient);
 		//request.setAttribute("clientDTOCount", allClient.size());
@@ -75,7 +75,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/homeResource", method = RequestMethod.GET)
-	public String orderManagement(HttpServletRequest request) {
+	public String homeResource(HttpServletRequest request) {
 		List<TaskDTO> allTask = this.taskService.getListaTaskDTO();
 		request.setAttribute("allTaskDTO", allTask);
 		request.setAttribute("taskDTOCount", allTask.size());

@@ -13,6 +13,8 @@ public interface ResourceRepository extends CrudRepository<Resource, Integer> {
 	public List<Resource> findAllByUser(User user);
 	
 	
+	public Resource findResourceByResourceUsernameAndResourcePass(String username,String password);
+	
 	
 
 }

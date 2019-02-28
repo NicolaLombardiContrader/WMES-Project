@@ -131,8 +131,6 @@ public class UserController {
 				return "redirect:/Home/homeAdmin";
 			case "bo":
 				return "redirect:/Home/homeBO";
-			case "resource":
-				return "redirect:/Home/homeResource";
 			default:
 				return "index";
 			}

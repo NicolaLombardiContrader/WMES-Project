@@ -106,4 +106,29 @@ public class ResourceController {
 		
 		return "resource/manageResource";
 	}
+	
+	// Resource Login
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(HttpServletRequest request) {
+
+		session = request.getSession();
+		final String resourceName = request.getParameter("resource_name");
+		final String resourcePass = request.getParameter("resource_pass");
+		final ResourceDTO resourceDTO = resourceService.findResourceByResourceUsernameAndResourcePass(resourceName,
+				resourcePass);
+
+		if (!StringUtils.isEmpty(resourceDTO)) {
+
+			session.setAttribute("resourceLogged", resourceDTO);
+
+			/*
+			 * if (userType.equals("admin")) { return "home"; } else if
+			 * (userType.equals("bo")) { return "home"; }
+			 */
+			return "redirect:/Home/homeResource";
+		}
+
+		return "indexResource";
+	}
+	
 }

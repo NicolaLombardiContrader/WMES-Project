@@ -12,6 +12,7 @@ import it.contrader.wmesspring.dao.ResourceRepository;
 import it.contrader.wmesspring.dto.ResourceDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.model.Resource;
+import it.contrader.wmesspring.model.User;
 
 @Service
 public class ResourceService {
@@ -51,6 +52,13 @@ public class ResourceService {
 		final List<ResourceDTO> listResourceDTO = new ArrayList<>();
 		listResource.forEach(i -> listResourceDTO.add(ConverterResource.toDTO(i)));
 		return listResourceDTO;
+	}
+	
+	public ResourceDTO findResourceByResourceUsernameAndResourcePass(String username, String password) {
+
+		final Resource resource = resourceRepository.findResourceByResourceUsernameAndResourcePass(username, password);
+
+		return ConverterResource.toDTO(resource);
 	}
 
 }
