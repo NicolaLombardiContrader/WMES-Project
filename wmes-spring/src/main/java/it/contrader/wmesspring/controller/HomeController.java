@@ -76,10 +76,10 @@ public class HomeController {
 
 	@RequestMapping(value = "/homeResource", method = RequestMethod.GET)
 	public String homeResource(HttpServletRequest request) {
-		List<TaskDTO> allTask = this.taskService.getListaTaskDTO();
-		request.setAttribute("allTaskDTO", allTask);
-		request.setAttribute("taskDTOCount", allTask.size());
-		return "homeResource";
+		//List<TaskDTO> allTask = this.taskService.getListaTaskDTO();
+		//request.setAttribute("allTaskDTO", allTask);
+		//request.setAttribute("taskDTOCount", allTask.size());
+		return "resource/updateTaskbyResource";
 	}
 
 }
