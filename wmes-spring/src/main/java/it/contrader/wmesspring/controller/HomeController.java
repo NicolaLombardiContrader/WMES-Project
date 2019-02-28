@@ -79,7 +79,7 @@ public class HomeController {
 		//List<TaskDTO> allTask = this.taskService.getListaTaskDTO();
 		//request.setAttribute("allTaskDTO", allTask);
 		//request.setAttribute("taskDTOCount", allTask.size());
-		return "resource/updateTaskbyResource";
+		return "resource/updateTaskByResource";
 	}
 
 }
