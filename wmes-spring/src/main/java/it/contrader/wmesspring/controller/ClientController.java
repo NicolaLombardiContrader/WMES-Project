@@ -41,11 +41,11 @@ public class ClientController {
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
-		int Id = Integer.parseInt(request.getParameter("Id"));
-		request.setAttribute("Id", Id);
-		this.clientService.deleteClientById(Id);
+		int id = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("id", id);
+		this.clientService.deleteClientById(id);
 		visualClient(request);
-		return "homeClient";
+		return "client/manageClient";
 
 	}
 
