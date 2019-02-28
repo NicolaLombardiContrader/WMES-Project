@@ -103,7 +103,7 @@ body {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.625;
-    color: #666;
+    color: #ff0000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -322,7 +322,7 @@ section {
 }
 
 .page-content--bge5 {
-    background: #e5e5e5;
+    background: #fff;
     height: 100vh;
 }
 
@@ -478,7 +478,8 @@ section {
 }
 
 .au-btn--green {
-    background: #63c76a;
+   
+    background: #dc3545;
 }
 
 .au-btn--green:hover {
@@ -703,7 +704,7 @@ section {
 /* ----- Input ----- */
 .au-input {
     line-height: 43px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #dc3545;
     font-size: 14px;
     color: #666;
     padding: 0 17px;
