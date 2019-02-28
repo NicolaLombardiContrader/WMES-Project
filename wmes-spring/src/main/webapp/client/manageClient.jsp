@@ -1,6 +1,12 @@
 <%@ include file="../header.jsp"%>
 
 
+<%
+	List<ClientDTO> allClient = (List<ClientDTO>) request.getAttribute("allClientDTO");
+%>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -153,7 +159,7 @@
                                 <h3 class="title-5 m-b-35">client table</h3>
                                 
                                     <div class="table-data__tool-right">
-                                        <a href="/Client/insert" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <a href="/Client/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small">
                                             <i class="zmdi zmdi-plus"></i>ADD CLIENT
                                             </a>
                                 
@@ -167,26 +173,34 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                           
+                                           
+ 										<%										
+ 											for (ClientDTO client : allClient) {
+												%> 
+                                                                                      
                                             <tr class="tr-shadow">
-                                                
-                                                
-                                                <td>Lori Lynch</td>
-                                                
+                                                                                             
+                                                 <td><%=client.getClientName()%></td>
+                                                                                             
                                                 <td>
                                                  
                                                     <div class="table-data-feature">
                                                        
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <a href="/Client/updateRedirect?id=<%=client.getClientId()%>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        </a>
+                                                        <a href="/Client/delete?id=<%=client.getClientId()%>" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
-                                                        </button>
+                                                        </a>
                                                         
                                                
                                                     </div>
                                                 </td>
                                             </tr>
+                                            												<%
+													}
+												%>
                                         </tbody>
                                     </table>
                                 </div>
