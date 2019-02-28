@@ -129,7 +129,7 @@
 						<div class="card-header">EDIT CLIENT</div>
 						<div class="card-body card-block">
 				<form action="/Client/update" method="post">
-				<input type="hidden" name="user_id" value="<%=updateClient.getClientId()%>" />
+				<input type="hidden" name="client_id" value="<%=updateClient.getClientId()%>" />
 					<div class="form-group">
 						<label>Client Name</label> <input class="au-input au-input--full" type="text" name="client_name" placeholder="ClientName" value="<%=updateClient.getClientName()%>">
 					</div>

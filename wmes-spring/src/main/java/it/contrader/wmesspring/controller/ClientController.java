@@ -87,12 +87,12 @@ public class ClientController {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		String clientName = request.getParameter("client_name");
 		
-		ClientDTO client = new ClientDTO();
-		client.setClientName(clientName);
-		client.setUserDTO(userLogged);
-		client.setClientId(idUpdate);
+		ClientDTO clientUpdateDTO = new ClientDTO();
+		clientUpdateDTO.setClientName(clientName);
+		clientUpdateDTO.setUserDTO(userLogged);
+		clientUpdateDTO.setClientId(idUpdate);
 		
-		clientService.updateClient(client);
+		clientService.updateClient(clientUpdateDTO);
 		visualClient(request);
 		
 		return "client/manageClient";
