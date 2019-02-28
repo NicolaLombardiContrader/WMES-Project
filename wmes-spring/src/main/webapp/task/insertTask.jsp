@@ -184,7 +184,6 @@ List<ResourceDTO> resourceList = (List<ResourceDTO>) request.getAttribute("resou
                                     <option value="2"> Completed</option>
                                 	</select> 
                                 
-                                
                                 </div>
 								<div class="form-actions form-group">
 									<button type="submit" class="btn btn-secondary btn-sm">Submit</button>
