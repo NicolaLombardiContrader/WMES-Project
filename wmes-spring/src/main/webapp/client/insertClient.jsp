@@ -12,7 +12,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Insert Client</title>
+<title>Insert User</title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
@@ -61,22 +61,19 @@
 			<div class="menu-sidebar2__content js-scrollbar1">
 				<div class="account2">
 					<div class="image img-cir img-120">
-						<img src="/images/icon/avatarBo.jpg" alt="Client" />
+						<img src="/images/icon/avatarAdmin.jpg" alt="Admin" />
 					</div>
-					<h4 class="name">Admin</h4>
-					
-					<!-- 					DA VEDERE				-->
-					
-					<a href="/User/logout">Sign out</a>
+					<h4 class="name">Client</h4>
+					<a href="/Client/logout">Sign out</a>
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="/Home/homeAdmin"> <i
+						<li><a href="/Home/homeBO"> <i
 								class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
 
-						<li><a href="/User/userManagement"> <i
-								class="far fa-user"></i>Users
+						<li><a href="/Client/clientManagement"> <i
+								class="far fa-user"></i>Client
 						</a></li>
 
 					</ul>
@@ -116,7 +113,7 @@
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
 											<li class="list-inline-item active"><a
-												href="/Home/homeClient">Dashboard</a></li>
+												href="/Home/homeBO">Dashboard</a></li>
 											<li class="list-inline-item seprate"><span>/</span></li>
 											<li class="list-inline-item">Insert Client</li>
 										</ul>
@@ -133,65 +130,63 @@
 			<section>
 				<div class="col-lg-6 center-block">
 					<div class="card">
-						<div class="card-header">NEW CLIENT</div>
+						<div class="card-header">NEW clientttttt</div>
 						<div class="card-body card-block">
 							<form action="/Client/insert" method="post">
-							
-							
+								
+								
+								
 								<div class="form-group">
-									<label>Client Name</label> <input
-										class="au-input au-input--full" type="text" name="client_name"
-										placeholder="ClientName"><br>
+									<label>Client name</label> <input class="au-input au-input--full"
+										type="text" name="client_name" placeholder="Clientname">
 								</div>
 
-								</select>
-
+								
+								<div class="login-checkbox"></div>
+								<button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+							</form>
 						</div>
-						<div class="login-checkbox"></div>
-						<button type="submit" class="btn btn-secondary btn-sm">Submit</button>
-						</form>
-					</div>
 
+					</div>
 				</div>
+			</section>
+			<!-- END Statistic -->
+			<section>
+				<div class="section__content section__content--p30">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xl-8"></div>
+							<div class="col-xl-4"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="section__content section__content--p30">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xl-6"></div>
+							<div class="col-xl-6"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="copyright">
+								<p>Copyright © 2019 Wmes. All rights reserved. Template by
+									Wmes Team</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- END PAGE CONTAINER-->
 		</div>
-		</section>
-		<!-- END Statistic -->
-		<section>
-			<div class="section__content section__content--p30">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xl-8"></div>
-						<div class="col-xl-4"></div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section>
-			<div class="section__content section__content--p30">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xl-6"></div>
-						<div class="col-xl-6"></div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section>
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="copyright">
-							<p>Copyright © 2019 Wmes. All rights reserved. Template by
-								Wmes Team</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- END PAGE CONTAINER-->
-	</div>
 	</div>
 
 	<!-- Jquery JS-->
@@ -229,4 +224,3 @@
 </body>
 
 </html>
-<!-- end document-->
