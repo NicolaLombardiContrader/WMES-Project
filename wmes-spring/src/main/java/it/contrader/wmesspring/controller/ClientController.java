@@ -96,7 +96,7 @@ public class ClientController {
 		visualClient(request);
 		
 		
-		return "client/manageClientclientclient";
+		return "client/manageClient";
 	}
 	
 }
