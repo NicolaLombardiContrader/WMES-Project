@@ -32,7 +32,7 @@ public class ProjectController {
 	@RequestMapping(value = "/projectManagement", method = RequestMethod.GET)
 	public String prjectManagement(HttpServletRequest request) {
 		visualProject(request);
-		return "homeProject";
+		return "project/manageProject";
 	}
 
 	// Delete
@@ -42,7 +42,7 @@ public class ProjectController {
 		request.setAttribute("id", id);
 		this.projectService.deleteProjectById(id);
 		visualProject(request);
-		return "homeProject";
+		return "project/manageProject";
 
 	}
 
@@ -68,7 +68,7 @@ public class ProjectController {
 		project.setProjectName(projectNameUpdate);
 		project.setProjectStatus(projectStatusUpdate);
 		project.setProjectId(idProject);
-//TODO list task
+		//TODO list task
 		projectService.updateProject(project);
 		visualProject(request);
 		return "project/manageProject";
@@ -86,8 +86,7 @@ public class ProjectController {
 
 		visualProject(request);
 		return "project/manageProject";
-		
+
 	}
-	
 
 }
