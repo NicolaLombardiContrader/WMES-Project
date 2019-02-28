@@ -50,12 +50,12 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insert(HttpServletRequest request) {
+	public String insertRedirect(HttpServletRequest request) {
 		return "client/insertClient";
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insertClient(HttpServletRequest request) {
+	public String insert(HttpServletRequest request,HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		
 		String clientName = request.getParameter("client_name").toString();
@@ -68,7 +68,7 @@ public class ClientController {
 		visualClient(request);
 		 
 
-		return "client/insertClient";
+		return "client/manageClient";
 	}
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {

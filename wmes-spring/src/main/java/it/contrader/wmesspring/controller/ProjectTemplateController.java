@@ -32,8 +32,8 @@ public class ProjectTemplateController {
 	}
 
 	private void visualProjectTemplate(HttpServletRequest request) {
-		List<ProjectTemplateDTO> allUser = this.projectTemplateService.getListaProjectTemplateDTO();
-		request.setAttribute("allUserDTO", allUser);
+		List<ProjectTemplateDTO> allProjectTemplate = this.projectTemplateService.getListaProjectTemplateDTO();
+		request.setAttribute("allProjectTemplateDTO", allProjectTemplate);
 	}
 
 	@RequestMapping(value = "projectTemplateManagement", method = RequestMethod.GET)
@@ -48,8 +48,8 @@ public class ProjectTemplateController {
 		request.setAttribute("id", id);
 		this.projectTemplateService.deleteProjectTemplateById(id);
 		visualProjectTemplate(request);
-		return "homeProjectTemplate";	
-
+		return "projectTemplate/manageProjectTemplate";	
+ 
 	}
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
@@ -71,7 +71,7 @@ public class ProjectTemplateController {
 		visualProjectTemplate(request);
 		 
 
-		return "projectTemplate/insertProjectTemplate";
+		return "projectTemplate/manageProjectTemplate";
 	}
 	
 	
@@ -82,20 +82,19 @@ public class ProjectTemplateController {
 
 		projectTemplateUpdate = this.projectTemplateService.getProjectTemplateDTOById(id);
 		request.setAttribute("projectTemplateUpdate", projectTemplateUpdate);
-		return "projectTemplate/updateOprojectTemplate";
+		return "projectTemplate/updateProjectTemplate";
 	}		
 		
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public String update(HttpServletRequest request) {
-		Integer idUpdate = Integer.parseInt(request.getParameter("project_id"));
-		
-		String projectTemplateProjectName = request.getParameter("project_name");
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(HttpServletRequest request, HttpSession session) {
 		
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		Integer idUpdate = Integer.parseInt(request.getParameter("project_id"));
+		String projectTemplateProjectName = request.getParameter("project_name");
+
 
 		ProjectTemplateDTO projectTemplate = new ProjectTemplateDTO();
 		projectTemplate.setUserDTO(userLogged);
-
 		projectTemplate.setProjectName(projectTemplateProjectName);
 		projectTemplate.setProjectId(idUpdate);
 
