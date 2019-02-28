@@ -322,7 +322,7 @@ section {
 }
 
 .page-content--bge5 {
-    background: #fff;
+    background-image: url("/images/wallpaper1.png");
     height: 100vh;
 }
 
@@ -375,7 +375,7 @@ section {
 }
 
 .login-content {
-    background: #fff;
+    background: rgba(0, 0, 0, 0.1);
     padding: 30px 30px 20px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
