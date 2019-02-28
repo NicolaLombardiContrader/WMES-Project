@@ -1,4 +1,4 @@
-<%@ include file="/header.jsp"%>
+<%@ include file="../header.jsp"%>
 
 
 <!DOCTYPE html>
@@ -152,8 +152,8 @@
                                 <h3 class="title-5 m-b-35">order table</h3>
                                 
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>add order</button>
+                                        <a href="/Order/insert" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="zmdi zmdi-plus"></i>add order</a>
                                         
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
