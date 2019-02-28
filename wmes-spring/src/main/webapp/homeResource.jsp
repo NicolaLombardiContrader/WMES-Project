@@ -87,12 +87,13 @@
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="Dashboard.html"> <i class="fas fa-chart-bar"></i>Dashboard
+						<li><a href="/Home/homeResource"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
-
+						<!-- 
 						<li><a href="/Task/taskManagement"> <i
 								class="fas fa-tasks"></i>Tasks
 						</a></li>
+						-->
 
 					</ul>
 				</nav>
@@ -152,13 +153,15 @@
 							<div class="col-lg-12">
 
 								<!-- TASK TABLE -->
-								<h3 class="title-5 m-b-35">task table</h3>
+								<h3 class="title-5 m-b-35">Tasks</h3>
 
 								<div class="table-data__tool-right">
+									<!--  
 									<a href="/Task/insertRedirect"
 										class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
 										class="zmdi zmdi-plus"></i>ADD TASK
 									</a>
+									-->
 									<div class="table-responsive table-responsive-data2">
 										<table class="table table-data2">
 											<thead>
@@ -190,12 +193,9 @@
 													<td>
 														<div class="table-data-feature">
 
-															<a href="/Task/updateRedirect?id=<%=task.getTaskId()%>"
+															<a href="/Resource/updateTaskRedirect?id=<%=task.getTaskId()%>"
 																class="item" data-toggle="tooltip" data-placement="top"
 																title="Edit"> <i class="zmdi zmdi-edit"></i>
-															</a> <a href="/Task/delete?id=<%=task.getTaskId()%>"
-																class="item" data-toggle="tooltip" data-placement="top"
-																title="Delete"> <i class="zmdi zmdi-delete"></i>
 															</a>
 
 														</div>
