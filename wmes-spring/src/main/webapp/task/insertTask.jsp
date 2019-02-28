@@ -171,7 +171,7 @@ List<ResourceDTO> resourceList = (List<ResourceDTO>) request.getAttribute("resou
 										<option value="<%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%></option>
 										<% } %>
 									</select>
-                                </div>
+                                </div> 
                                 <div class="form-group">
                                     <label>Time</label>
                                     <input class="au-input au-input--full" type="number" name="task_time" placeholder="Time">
