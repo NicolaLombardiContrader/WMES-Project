@@ -15,8 +15,8 @@ public class ConverterResource {
 
 			resourceDTO.setResourceId(resource.getResourceId());
 			resourceDTO.setUserDTO(ConverterUser.toDTO(resource.getUser()));
-			resourceDTO.setResourceUsername(resourceDTO.getResourceUsername());
-			resourceDTO.setResourcePass(resourceDTO.getResourcePass());
+			resourceDTO.setResourceUsername(resource.getResourceUsername());
+			resourceDTO.setResourcePass(resource.getResourcePass());
 			resourceDTO.setResourceName(resource.getResourceName());
 
 		}
@@ -31,7 +31,7 @@ public class ConverterResource {
 			resource.setUser(ConverterUser.toEntity(resourceDTO.getUserDTO()));
 			resource.setResourceUsername(resourceDTO.getResourceUsername());
 			resource.setResourcePass(resourceDTO.getResourcePass());
-			resource.setResourceName(resource.getResourceName());
+			resource.setResourceName(resourceDTO.getResourceName());
 		}
 		return resource;
 	}

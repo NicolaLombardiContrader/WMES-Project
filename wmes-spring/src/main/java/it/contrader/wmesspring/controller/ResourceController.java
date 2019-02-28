@@ -40,9 +40,9 @@ public class ResourceController {
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
-		int Id = Integer.parseInt(request.getParameter("Id"));
-		request.setAttribute("Id", Id);
-		this.resourceService.deleteResourceById(Id);
+		int deleteResourceId = Integer.parseInt(request.getParameter("id"));
+		//request.setAttribute("id", Id);
+		this.resourceService.deleteResourceById(deleteResourceId);
 		visualResource(request);
 		return "resource/manageResource";
 
@@ -74,10 +74,10 @@ public class ResourceController {
 	}
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public String updateRedirect(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
+		int resourceUpdateId = Integer.parseInt(request.getParameter("id"));
 		ResourceDTO resourceUpdate = new ResourceDTO();
 
-		resourceUpdate = this.resourceService.getResourceDTOById(id);
+		resourceUpdate = this.resourceService.getResourceDTOById(resourceUpdateId);
 		request.setAttribute("resourceUpdate", resourceUpdate);
 		return "resource/updateResource";
 	}		
