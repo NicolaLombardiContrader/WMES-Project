@@ -27,6 +27,8 @@ public class HomeController {
 	private final UserService userService;
 	private final ClientService clientService;
 	private final TaskService taskService;
+	private final ResourceService resourceService;
+	
 	/*
 	private final ClientService clientService;
 	private final OrderService orderService;
@@ -38,10 +40,11 @@ public class HomeController {
 	private HttpSession session;
 
 	@Autowired
-	HomeController(UserService userService, ClientService clientService, TaskService taskService) {
+	HomeController(UserService userService, ClientService clientService, TaskService taskService, ResourceService resourceService) {
 		this.userService=userService;
 		this.clientService=clientService;
 		this.taskService=taskService;
+		this.resourceService = resourceService;
 	}
 	/*public HomeController(UserService userService, ClientService clientService, OrderService orderService,
 			TaskService taskService, ProjectService projectService, ProjectTemplateService projectTemplateService,
@@ -75,11 +78,15 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/homeResource", method = RequestMethod.GET)
-	public String homeResource(HttpServletRequest request) {
-		//List<TaskDTO> allTask = this.taskService.getListaTaskDTO();
+	public String homeResource(HttpServletRequest request, HttpSession session) {
+		ResourceDTO resourceDTO =(ResourceDTO) session.getAttribute("resourceLogged");
+		List<TaskDTO> allTask = this.resourceService.findTaskDTOByResource(resourceDTO);
+		
+		
+		request.setAttribute("allTaskDTO", allTask);
 		//request.setAttribute("allTaskDTO", allTask);
 		//request.setAttribute("taskDTOCount", allTask.size());
-		return "resource/updateTaskByResource";
+		return "homeResource";
 	}
 
 }
