@@ -78,7 +78,7 @@
 			<div class="menu-sidebar2__content js-scrollbar1">
 				<div class="account2">
 					<div class="image img-cir img-120">
-						<img src="/images/icon/avatarResource.jpg" alt="Resource" />
+						<img src="/images/icon/avatarResource.png" alt="Resource" />
 					</div>
 					<h4 class="name">Resource</h4>
 					<a href="/Resource/logout">Sign out</a>
