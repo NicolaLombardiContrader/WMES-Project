@@ -58,21 +58,21 @@ public class OrderController {
 		@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 		public String insert(HttpServletRequest request, HttpSession session) {
 			UserDTO userLogged = (UserDTO) session.getAttribute("utente");
-			List<OrderDTO> orderList = orderService.findClientDTOByUser(userLogged);
-			request.setAttribute("resourceList", orderList);
+			List<ClientDTO> clientList = orderService.findClientDTOByUser(userLogged);
+			request.setAttribute("clientList", clientList);
 			return "order/insertOrder";
 		}
 		
 		@RequestMapping(value = "/insert", method = RequestMethod.POST)
 		public String insertOrder(HttpServletRequest request, HttpSession session) {
 			UserDTO userLogged = (UserDTO) session.getAttribute("utente");
-			int clientId= Integer.parseInt(request.getParameter("client_id"));
+			int clientInsertId = Integer.parseInt(request.getParameter("client_id").toString());
 			String orderDescription = request.getParameter("order_description").toString();
 			
 			
 			ClientDTO insertClientDTO = new ClientDTO();
-			insertClientDTO.setClientId(clientId);
-
+			insertClientDTO.setClientId(clientInsertId);
+			
 			OrderDTO orderObj = new OrderDTO();
 			orderObj.setOrderDescription(orderDescription);
 			orderObj.setUserDTO(userLogged);
@@ -81,42 +81,43 @@ public class OrderController {
 			visualOrder(request);
 			 
 
-			return "order/insertOrder";
+			return "order/manageOrder";
 		}
 		
 		@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 		public String updateRedirect(HttpServletRequest request, HttpSession session) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			
 			UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 			OrderDTO orderUpdate = new OrderDTO();
-			List<OrderDTO> orderList = orderService.findClientDTOByUser(userLogged);
-			int id = Integer.parseInt(request.getParameter("id"));
+			List<ClientDTO> clientList = orderService.findClientDTOByUser(userLogged);
 			orderUpdate = this.orderService.getOrderDTOById(id);
+			
 			request.setAttribute("orderUpdate", orderUpdate);
-			request.setAttribute("orderList", orderList);
+			request.setAttribute("clientList", clientList);
 			return "order/updateOrder";
 		}		
 		
 
-		@RequestMapping(value = "/update", method = RequestMethod.GET)
+		@RequestMapping(value = "/update", method = RequestMethod.POST)
 		public String update(HttpServletRequest request, HttpSession session) {
 			
-			Integer idUpdate = Integer.parseInt(request.getParameter("order_id"));
+			Integer orderIdUpdate = Integer.parseInt(request.getParameter("order_id"));
 
 			UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 
 			String orderDescription = request.getParameter("order_description").toString();
 			int clientId= Integer.parseInt(request.getParameter("client_id"));
 
-
 			ClientDTO updateClientDTO = new ClientDTO();
 			updateClientDTO.setClientId(clientId);
 			
 			OrderDTO order = new OrderDTO();
+			order.setOrderId(orderIdUpdate);
 			order.setOrderDescription(orderDescription);
 			order.setUserDTO(userLogged);
 			order.setClientDTO(updateClientDTO);
 
-			
 			orderService.updateOrder(order);
 			visualOrder(request);
 			

@@ -161,8 +161,7 @@
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
-                                             <th>UserId</th>   
-                                             <th>ClientId</th>
+                                             <th>Client Name</th>
 			                                 <th>Description</th>
                                              <th></th>
                                             </tr>
@@ -174,8 +173,7 @@
 
 												<tr class="tr-shadow">
 
-													<td><%=order.getUserDTO().getUserId()%></td>
-													<td><%=order.getClientDTO().getClientId()%></td>
+													<td><%=order.getClientDTO().getClientName()%></td>
 													<td><%=order.getOrderDescription()%></td>
 													<td>
 														<div class="table-data-feature">

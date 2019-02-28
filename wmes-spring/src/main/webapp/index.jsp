@@ -3,6 +3,7 @@
 
 <html lang="en">
 <head>
+
 <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,7 +46,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="/images/icon/WMES.jpg" alt="CoolAdmin">
+                                <img src="/images/icon/WMES2.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
