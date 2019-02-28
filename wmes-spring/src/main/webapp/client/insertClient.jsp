@@ -130,7 +130,7 @@
 			<section>
 				<div class="col-lg-6 center-block">
 					<div class="card">
-						<div class="card-header">NEW clientttttt</div>
+						<div class="card-header">NEW CLIENT</div>
 						<div class="card-body card-block">
 							<form action="/Client/insert" method="post">
 								
