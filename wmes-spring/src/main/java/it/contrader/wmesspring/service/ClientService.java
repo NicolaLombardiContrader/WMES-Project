@@ -35,7 +35,6 @@ public class ClientService {
 	}
 
 	
-
 	public boolean insertClient(ClientDTO clientDTO) {
 		return clientRepository.save(ConverterClient.toEntity(clientDTO)) != null;
 	}
@@ -47,8 +46,7 @@ public class ClientService {
 	public void deleteClientById(Integer id) {
 		clientRepository.deleteById(id);
 	}
-	
-	
+
 	
 	public List<ClientDTO> findClientDTOByUser( UserDTO userDTO) {
 		
@@ -58,15 +56,3 @@ public class ClientService {
 		return listClientDTO;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
