@@ -25,7 +25,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Insert User</title>
+<title>Update User</title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
