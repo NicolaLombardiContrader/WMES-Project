@@ -83,10 +83,10 @@ public class ResourceController {
 	}		
 	
 
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public String update(HttpServletRequest request) {
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(HttpServletRequest request, HttpSession session) {
 		
-		Integer idUpdate = Integer.parseInt(request.getParameter("resource_id"));
+		Integer resourceIdUpdate = Integer.parseInt(request.getParameter("resource_id"));
 
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 
@@ -99,7 +99,7 @@ public class ResourceController {
 		resourceUpdateDTO.setResourceName(resourceName);
 		resourceUpdateDTO.setResourceUsername(resourceUsername);
 		resourceUpdateDTO.setResourcePass(resourcePass);
-		
+		resourceUpdateDTO.setResourceId(resourceIdUpdate);
 		resourceService.updateResource(resourceUpdateDTO);
 		visualResource(request);
 		

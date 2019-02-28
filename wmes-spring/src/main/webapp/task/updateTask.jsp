@@ -80,9 +80,25 @@
 								class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
 
-						<li><a href="/User/userManagement"> <i
-								class="far fa-user"></i>Users
+						<li><a href="/Client/clientManagement"> <i
+								class="far fa-user"></i>Clients
 						</a></li>
+						<li><a href="/Resource/resourceManagement"> <i
+								class="far fa-user"></i>Resources
+						</a></li>
+						<li><a href="/Order/orderManagement"> <i
+								class="fas fa-boxes"></i>Orders
+						</a></li>
+						<li><a href="/Project/projectManagement"> <i
+								class="fas fa-sitemap"></i>Projects
+						</a></li>
+						<li><a href="/ProjectTemplate/projectTemplateManagement">
+								<i class="fas fa-chart-pie"></i>Project Templates
+						</a></li>
+						<li><a href="/Task/taskManagement"> <i
+								class="fas fa-tasks"></i>Tasks
+						</a></li>
+
 
 					</ul>
 				</nav>
