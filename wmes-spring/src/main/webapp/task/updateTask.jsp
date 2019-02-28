@@ -20,7 +20,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Insert User</title>
+<title>Update Task</title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
@@ -69,14 +69,14 @@
 			<div class="menu-sidebar2__content js-scrollbar1">
 				<div class="account2">
 					<div class="image img-cir img-120">
-						<img src="/images/icon/avatarAdmin.jpg" alt="Admin" />
+						<img src="/images/icon/avatarBo.jpg" alt="Business Owner" />
 					</div>
-					<h4 class="name">Admin</h4>
+					<h4 class="name">Business Owner</h4>
 					<a href="/User/logout">Sign out</a>
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="/Home/homeAdmin"> <i
+						<li><a href="/Home/homeBO"> <i
 								class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
 
@@ -137,9 +137,9 @@
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
 											<li class="list-inline-item active"><a
-												href="/Home/homeAdmin">Dashboard</a></li>
+												href="/Home/homeBO">Dashboard</a></li>
 											<li class="list-inline-item seprate"><span>/</span></li>
-											<li class="list-inline-item">Edit User</li>
+											<li class="list-inline-item">Edit Task</li>
 										</ul>
 									</div>
 								</div>
