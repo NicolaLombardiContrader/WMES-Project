@@ -81,16 +81,17 @@ public class ClientController {
 	}		
 	
 
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(HttpServletRequest request) {
 		
-		Integer idUpdate = Integer.parseInt(request.getParameter("order_id"));
-		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
-		String clientName = request.getParameter("client_name").toString();
+		Integer idUpdate = Integer.parseInt(request.getParameter("client_id"));
+	//	UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		String clientName = request.getParameter("client_name");
 		
 		ClientDTO client = new ClientDTO();
 		client.setClientName(clientName);
-		client.setUserDTO(userLogged);
+//		client.setUserDTO(userLogged);
+		client.setClientId(idUpdate);
 		
 		clientService.updateClient(client);
 		visualClient(request);
