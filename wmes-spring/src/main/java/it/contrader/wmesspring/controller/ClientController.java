@@ -81,7 +81,7 @@ public class ClientController {
 	}		
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(HttpServletRequest request) {
+	public String update(HttpServletRequest request, HttpSession session) {
 		
 		Integer idUpdate = Integer.parseInt(request.getParameter("client_id"));
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
