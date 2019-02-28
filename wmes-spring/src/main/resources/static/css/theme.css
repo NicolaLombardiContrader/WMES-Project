@@ -2132,7 +2132,7 @@ section {
     -moz-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background: #365cad;
+    background: #aaa;
     padding: 0 35px;
 }
 
@@ -2291,7 +2291,7 @@ section {
 
 .header-desktop2 {
     height: 75px;
-    background: #4272d7;
+    background: #dc3545;;
     position: fixed;
     z-index: 1001;
     top: 0;
