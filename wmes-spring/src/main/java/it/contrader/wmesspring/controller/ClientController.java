@@ -80,17 +80,16 @@ public class ClientController {
 		return "client/updateClient";
 	}		
 	
-
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(HttpServletRequest request) {
 		
 		Integer idUpdate = Integer.parseInt(request.getParameter("client_id"));
-	//	UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		String clientName = request.getParameter("client_name");
 		
 		ClientDTO client = new ClientDTO();
 		client.setClientName(clientName);
-//		client.setUserDTO(userLogged);
+		client.setUserDTO(userLogged);
 		client.setClientId(idUpdate);
 		
 		clientService.updateClient(client);
