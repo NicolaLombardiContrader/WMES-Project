@@ -153,8 +153,9 @@
                                 <h3 class="title-5 m-b-35">client table</h3>
                                 
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>add client</button>
+                                        <a href="/Client/insert" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="zmdi zmdi-plus"></i>ADD CLIENT
+                                            </a>
                                 
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
