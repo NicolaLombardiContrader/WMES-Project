@@ -95,7 +95,6 @@ public class ClientController {
 		clientService.updateClient(client);
 		visualClient(request);
 		
-		
 		return "client/manageClient";
 	}
 	
