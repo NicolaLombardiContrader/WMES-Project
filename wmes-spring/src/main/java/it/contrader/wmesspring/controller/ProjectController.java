@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import it.contrader.wmesspring.dto.ProjectDTO;
+import it.contrader.wmesspring.dto.ProjectTemplateDTO;
 import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ProjectService;
@@ -38,7 +39,7 @@ public class ProjectController {
 	}
 
 	// Delete
-	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		request.setAttribute("id", id);
@@ -49,28 +50,40 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
-	public String updateRedirect(HttpServletRequest request) {
+	public String updateRedirect(HttpServletRequest request, HttpSession session) {
 		int id = Integer.parseInt(request.getParameter("id"));
-		ProjectDTO projectUpdate = new ProjectDTO();
-		projectUpdate = this.projectService.getProjectDTOById(id);
+		UserDTO userDTO = (UserDTO) session.getAttribute("utente");
+
+		ProjectDTO projectUpdate = this.projectService.getProjectDTOById(id);
+		List<TaskDTO> taskList = projectService.findTaskDTOByUser(userDTO);
+
+		request.setAttribute("taskList", taskList);
 		request.setAttribute("projectUpdate", projectUpdate);
+
 		return "project/updateProject";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(HttpServletRequest request) {
-		Integer idProject = Integer.parseInt(request.getParameter("project_id"));
-		String projectNameUpdate = request.getParameter("project_name");
-		int projectStatusUpdate = Integer.parseInt(request.getParameter("project_status"));
+	public String update(HttpServletRequest request, HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		Integer idUpdate = Integer.parseInt(request.getParameter("project_id"));
+		int projectStatus = Integer.parseInt(request.getParameter("project_status"));
+		String projectProjectName = request.getParameter("project_name");
+
+		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
+		String taskListString[] = (String[]) request.getParameterValues("taskList");
+		for (String taskString : taskListString) {
+			TaskDTO taskDTO = new TaskDTO();
+			taskDTO.setTaskId(Integer.parseInt(taskString));
+			taskList.add(taskDTO);
+		}
 
 		ProjectDTO project = new ProjectDTO();
 		project.setUserDTO(userLogged);
-
-		project.setProjectName(projectNameUpdate);
-		project.setProjectStatus(projectStatusUpdate);
-		project.setProjectId(idProject);
-		//TODO list task
+		project.setProjectId(idUpdate);
+		project.setProjectName(projectProjectName);
+		project.setTasksDTO(taskList);
+		project.setProjectStatus(projectStatus);
 		projectService.updateProject(project);
 		visualProject(request);
 		return "project/manageProject";

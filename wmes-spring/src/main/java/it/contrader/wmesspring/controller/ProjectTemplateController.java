@@ -20,6 +20,7 @@ import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.OrderService;
 import it.contrader.wmesspring.service.ProjectService;
 import it.contrader.wmesspring.service.ProjectTemplateService;
+import it.contrader.wmesspring.service.TaskService;
 
 @Controller
 @RequestMapping("/ProjectTemplate")
@@ -27,9 +28,12 @@ public class ProjectTemplateController {
 
 	private final ProjectTemplateService projectTemplateService;
 	private HttpSession session;
-	
+
 	@Autowired
 	private ProjectService projectService;
+
+	@Autowired
+	private TaskService taskService;
 
 	@Autowired
 	public ProjectTemplateController(ProjectTemplateService projectTemplateService) {
@@ -129,22 +133,36 @@ public class ProjectTemplateController {
 		visualProjectTemplate(request);
 		return "projectTemplate/manageProjectTemplate";
 	}
-	
+
 	@RequestMapping(value = "/clone", method = RequestMethod.GET)
 	public String clone(HttpServletRequest request, HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		Integer projectTemplateId = Integer.parseInt(request.getParameter("id"));
 		ProjectTemplateDTO projectTemplate = projectTemplateService.getProjectTemplateDTOById(projectTemplateId);
-		
+		 
+		/*
+		 * List<TaskDTO> taskList = new ArrayList<TaskDTO>(); List<TaskDTO>
+		 * taskListProjectTemplate = projectTemplate.getTasksDTO(); for (TaskDTO
+		 * taskDTOTemplate: taskListProjectTemplate) { TaskDTO taskDTOProject = new
+		 * TaskDTO(); taskDTOProject.setUserDTO(taskDTOTemplate.getUserDTO());
+		 * taskDTOProject.setTaskDescription(taskDTOTemplate.getTaskDescription()+
+		 * "_fromTP"); taskDTOProject.setTaskAction(taskDTOTemplate.getTaskAction());
+		 * taskDTOProject.setTaskInput(taskDTOTemplate.getTaskInput());
+		 * taskDTOProject.setTaskOutput(taskDTOTemplate.getTaskOutput());
+		 * taskDTOProject.setTaskState(taskDTOTemplate.getTaskState());
+		 * taskDTOProject.setTaskTime(taskDTOTemplate.getTaskTime());
+		 * taskDTOProject.setResourceDTO(taskDTOTemplate.getResourceDTO());
+		 * //taskService.insertTask(taskDTOProject); taskList.add(taskDTOProject); }
+		 */
 		ProjectDTO projectDTO = new ProjectDTO();
-		projectDTO.setProjectName(projectTemplate.getProjectName()+"_new");
+		projectDTO.setProjectName(projectTemplate.getProjectName() + "_fromTP");
 		projectDTO.setProjectStatus(0);
 		projectDTO.setTasksDTO(projectTemplate.getTasksDTO());
+		//projectDTO.setTasksDTO(taskList);
 		projectDTO.setUserDTO(userLogged);
-		
 
 		projectService.insertProject(projectDTO);
-		//visualProjectTemplate(request);
+		// visualProjectTemplate(request);
 
 		return "redirect:/Project/projectManagement";
 	}

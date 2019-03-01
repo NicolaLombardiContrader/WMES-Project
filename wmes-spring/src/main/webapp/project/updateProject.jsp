@@ -3,9 +3,18 @@
 <%
 	ProjectDTO updateProject = (ProjectDTO) request.getAttribute("projectUpdate");
 	List<TaskDTO> taskList = (List<TaskDTO>) request.getAttribute("taskList");
-	
 %>
-
+<%!private String convertProjectStatus(int projectStatusInt) {
+		switch (projectStatusInt) {
+			case 0 :
+				return "Pending";
+			case 1 :
+				return "In progress";
+			case 2 :
+				return "Completed";
+		}
+		return "";
+	}%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +28,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Update Project </title>
+<title>Update Project</title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
@@ -137,8 +146,26 @@
 								<div class="form-group">
 									<label>Name</label> <input class="au-input au-input--full" type="text" name="project_name" placeholder="Name"
 										value="<%=updateProject.getProjectName()%>">
-										<label>Status</label> <input class="au-input au-input--full" type="text" name="project_status" placeholder="Status"
-										value="<%=updateProject.getProjectStatus()%>">
+								</div>
+								
+								<div class="form-group">
+									<label>Status</label> <select class="form-control" name="project_status">
+										<%
+											for (int i = 0; i <= 2; i++) {
+
+												if (updateProject.getProjectStatus() == i) {
+										%>
+										<option selected="selected" value="<%=i%>"><%=convertProjectStatus(i)%></option>
+										<%
+											} else {
+										%>
+										<option value="<%=i%>"><%=convertProjectStatus(i)%></option>
+										<%
+											}
+											}
+										%>
+									</select>
+
 								</div>
 								<div class="form-group">
 									<label>Task list</label>
@@ -148,15 +175,12 @@
 											boolean selected = false;
 											for (TaskDTO taskDTO : taskList) {
 												selected = false;
-												for (TaskDTO TaskDTOProject : updateProject.getTasksDTO()) {
+												for (TaskDTO TaskDTOProjectTemplate : updateProject.getTasksDTO()) {
 
-													if (taskDTO.getTaskId() == TaskDTOProject.getTaskId()) {
+													if (taskDTO.getTaskId() == TaskDTOProjectTemplate.getTaskId()) {
 														selected = true;
 										%>
-										<option selected="selected" value="
-										<%=taskDTO.getTaskId()%>">
-										<%=taskDTO.getTaskDescription()%>
-										</option>
+										<option selected="selected" value="<%=taskDTO.getTaskId()%>"><%=taskDTO.getTaskDescription()%></option>
 										<%
 											}
 												}
@@ -164,10 +188,7 @@
 												if (!selected) {
 										%>
 
-										<option value="
-										<%=taskDTO.getTaskId()%>">
-										<%=taskDTO.getTaskDescription()%>
-										</option>
+										<option value="<%=taskDTO.getTaskId()%>"><%=taskDTO.getTaskDescription()%></option>
 										<%
 											}
 											}
