@@ -18,6 +18,7 @@ import it.contrader.wmesspring.dto.ProjectTemplateDTO;
 import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.OrderService;
+import it.contrader.wmesspring.service.ProjectService;
 import it.contrader.wmesspring.service.ProjectTemplateService;
 
 @Controller
@@ -26,6 +27,9 @@ public class ProjectTemplateController {
 
 	private final ProjectTemplateService projectTemplateService;
 	private HttpSession session;
+	
+	@Autowired
+	private ProjectService projectService;
 
 	@Autowired
 	public ProjectTemplateController(ProjectTemplateService projectTemplateService) {
@@ -124,6 +128,25 @@ public class ProjectTemplateController {
 		projectTemplateService.updateProjectTemplate(projectTemplate);
 		visualProjectTemplate(request);
 		return "projectTemplate/manageProjectTemplate";
+	}
+	
+	@RequestMapping(value = "/clone", method = RequestMethod.GET)
+	public String clone(HttpServletRequest request, HttpSession session) {
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		Integer projectTemplateId = Integer.parseInt(request.getParameter("id"));
+		ProjectTemplateDTO projectTemplate = projectTemplateService.getProjectTemplateDTOById(projectTemplateId);
+		
+		ProjectDTO projectDTO = new ProjectDTO();
+		projectDTO.setProjectName(projectTemplate.getProjectName()+"_new");
+		projectDTO.setProjectStatus(0);
+		projectDTO.setTasksDTO(projectTemplate.getTasksDTO());
+		projectDTO.setUserDTO(userLogged);
+		
+
+		projectService.insertProject(projectDTO);
+		//visualProjectTemplate(request);
+
+		return "redirect:/Project/projectManagement";
 	}
 
 }

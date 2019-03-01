@@ -183,7 +183,9 @@
 															<a href="/ProjectTemplate/delete?id=<%=ProjectTemplate.getProjectId()%>" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
 																<i class="zmdi zmdi-delete"></i>
 															</a>
-
+															<a href="/ProjectTemplate/clone?id=<%=ProjectTemplate.getProjectId()%>" class="item" data-toggle="tooltip" data-placement="top" title="Clone in Projects">
+																<i class="far fa-clone"></i>
+															</a>
 														</div>
 													</td>
 												</tr>
