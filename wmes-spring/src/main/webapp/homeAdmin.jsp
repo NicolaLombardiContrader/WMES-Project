@@ -1,6 +1,6 @@
 <%@ include file="header.jsp"%>
 
- 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +62,8 @@
 			</div>
 			<div class="menu-sidebar2__content js-scrollbar1">
 				<div class="account2">
-					<div class="image img-cir img-120">
+					<div class="image img-cir img-120 ">
+					
 						<img src="/images/icon/avatarAdmin2.png" alt="Admin" />
 					</div>
 					<h4 class="name">Admin</h4>

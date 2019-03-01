@@ -146,7 +146,7 @@
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
 						<div class="row">
-						<div class="col-lg-8">
+						<div class="col-lg-10">
 								
 												<!-- TASK PROGRESS-->
 								<div class="task-progress">
@@ -154,63 +154,33 @@
 									<div class="au-skill-container">
 										<div class="au-progress">
 											<span class="au-progress__title">Web Design</span>
-											<div class="au-progress__bar">
-												<div class="au-progress__inner js-progressbar-simple"
-													role="progressbar" data-transitiongoal="90">
-													<span class="au-progress__value js-value"></span>
-												</div>
-											</div>
+											<div class="progress mb-2">
+											<div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
 										</div>
 										<div class="au-progress">
 											<span class="au-progress__title">HTML5/CSS3</span>
-											<div class="au-progress__bar">
-												<div class="au-progress__inner js-progressbar-simple"
-													role="progressbar" data-transitiongoal="85">
-													<span class="au-progress__value js-value"></span>
-												</div>
-											</div>
+										<div class="progress mb-2">
+											<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+										</div>
 										</div>
 										<div class="au-progress">
 											<span class="au-progress__title">WordPress</span>
-											<div class="au-progress__bar">
-												<div class="au-progress__inner js-progressbar-simple"
-													role="progressbar" data-transitiongoal="95">
-													<span class="au-progress__value js-value"></span>
-												</div>
-											</div>
+											<div class="progress mb-2">
+											<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+										</div>
 										</div>
 										<div class="au-progress">
 											<span class="au-progress__title">Support</span>
-											<div class="au-progress__bar">
-												<div class="au-progress__inner js-progressbar-simple"
-													role="progressbar" data-transitiongoal="95">
-													<span class="au-progress__value js-value"></span>
-												</div>
-											</div>
+											<div class="progress mb-2">
+											<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+										</div>
 										</div>
 									</div>
 								</div>
-								<!-- END TASK PROGRESS-->
 								
 							</div>
-							
-							<div class="col-4">
-								
-										<div class="row">
-							<div class="col-md-6 col-lg-12">
-								<div class="statistic__item">
-									<h2 class="number">10,368</h2>
-									<span class="desc">Projects</span>
-									<div class="icon">
-										<i class="zmdi zmdi-account-o"></i>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-lg-12"></div>
-						</div>
-									
-								
-							</div>
+							<!-- END TASK PROGRESS-->
+					
 							
 						</div>
 				
