@@ -57,7 +57,7 @@
 		<aside class="menu-sidebar2">
 			<div class="logo">
 				<a href="#"> <img src="/images/icon/wmeslogo2.png"
-					alt="Cool Admin" />
+					alt="Wmes" />
 				</a>
 			</div>
 			<div class="menu-sidebar2__content js-scrollbar1">
@@ -91,8 +91,8 @@
 					<div class="container-fluid">
 					
 							<div class="logo d-block d-lg-none">
-								<a href="#"> <img src="/images/icon/logo-white.png"
-									alt="CoolAdmin" />
+								<a href="#"> <img src="/images/icon/wmeslogo2.png"
+									alt="Wmes" />
 								</a>
 							</div>
 							
