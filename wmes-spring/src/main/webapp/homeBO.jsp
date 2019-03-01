@@ -153,26 +153,32 @@
 									<h3 class="title-3">Project Progress</h3>
 									<div class="au-skill-container">
 										<div class="au-progress">
-											<span class="au-progress__title">Web Design</span>
+											<span class="au-progress__title">Project Initiation</span>
 											<div class="progress mb-2">
-											<div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+											<div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
 										</div>
 										<div class="au-progress">
-											<span class="au-progress__title">HTML5/CSS3</span>
+											<span class="au-progress__title">Project Planning</span>
 										<div class="progress mb-2">
-											<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+											<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
 										</div>
 										</div>
 										<div class="au-progress">
-											<span class="au-progress__title">WordPress</span>
+											<span class="au-progress__title">Project Execution</span>
 											<div class="progress mb-2">
-											<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+											<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
 										</div>
 										</div>
 										<div class="au-progress">
-											<span class="au-progress__title">Support</span>
+											<span class="au-progress__title">Project Monitoring and Control</span>
 											<div class="progress mb-2">
 											<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+										</div>
+										</div>
+											<div class="au-progress">
+											<span class="au-progress__title">Project Closure</span>
+											<div class="progress mb-2">
+											<div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
 										</div>
 										</div>
 									</div>
