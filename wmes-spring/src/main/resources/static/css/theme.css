@@ -2199,7 +2199,7 @@ section {
     height: -webkit-calc(100vh - 75px);
     height: -moz-calc(100vh - 75px);
     height: calc(100vh - 75px);
-    border-right: 1px solid #e5e5e5;
+    border-right: 1px solid #dc3545;
     position: relative;
 }
 
