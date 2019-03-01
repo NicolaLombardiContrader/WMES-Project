@@ -36,7 +36,7 @@ public class ProjectController {
 	}
 
 	// Delete
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String delete(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		request.setAttribute("id", id);
@@ -55,7 +55,7 @@ public class ProjectController {
 		return "project/updateProject";
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(HttpServletRequest request) {
 		Integer idProject = Integer.parseInt(request.getParameter("project_id"));
 		String projectNameUpdate = request.getParameter("project_name");
@@ -74,6 +74,11 @@ public class ProjectController {
 		return "project/manageProject";
 	}
 
+	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
+	public String insert(HttpServletRequest request) {
+		return "project/insertProject";
+	}	
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertProject(HttpServletRequest request) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
