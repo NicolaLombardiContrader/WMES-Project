@@ -11,6 +11,7 @@ import it.contrader.wmesspring.converter.ConverterProjectTemplate;
 import it.contrader.wmesspring.converter.ConverterUser;
 import it.contrader.wmesspring.dao.ProjectTemplateRepository;
 import it.contrader.wmesspring.dto.ProjectTemplateDTO;
+import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.model.ProjectTemplate;
 
@@ -18,7 +19,10 @@ import it.contrader.wmesspring.model.ProjectTemplate;
 public class ProjectTemplateService {
 	
 	private final ProjectTemplateRepository projectTemplateRepository;
-
+	
+	@Autowired
+	private TaskService taskService;
+	
 	@Autowired
 	public ProjectTemplateService(ProjectTemplateRepository projectTemplateRepository) {
 		this.projectTemplateRepository = projectTemplateRepository;
@@ -53,6 +57,12 @@ public class ProjectTemplateService {
 		final List<ProjectTemplateDTO> listProjectTemplateDTO = new ArrayList<>();
 		listProjectTemplate.forEach(i -> listProjectTemplateDTO.add(ConverterProjectTemplate.toDTO(i)));
 		return listProjectTemplateDTO;
+	}
+	
+	public List<TaskDTO> findTaskDTOByUser(UserDTO userDTO) {
+		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
+		taskService.findTaskDTOByUser(ConverterUser.toEntity(userDTO));
+		return taskList;
 	}
 
 }

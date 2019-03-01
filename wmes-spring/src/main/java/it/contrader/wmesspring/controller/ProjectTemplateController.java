@@ -1,5 +1,6 @@
 package it.contrader.wmesspring.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import it.contrader.wmesspring.dto.ClientDTO;
 import it.contrader.wmesspring.dto.OrderDTO;
 import it.contrader.wmesspring.dto.ProjectDTO;
 import it.contrader.wmesspring.dto.ProjectTemplateDTO;
+import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.OrderService;
 import it.contrader.wmesspring.service.ProjectTemplateService;
@@ -53,20 +55,34 @@ public class ProjectTemplateController {
 	}
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insert(HttpServletRequest request) {
+	public String insert(HttpServletRequest request, HttpSession session) {
+		UserDTO userDTO = (UserDTO) session.getAttribute("utente");
+		List<TaskDTO> taskList = projectTemplateService.findTaskDTOByUser(userDTO);
+		request.setAttribute("taskList", taskList);
 		return "projectTemplate/insertProjectTemplate";
 	}	
 	
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insertProjectTemplate(HttpServletRequest request) {
+	public String insertProjectTemplate(HttpServletRequest request, HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		String projectTemplateProjectName = request.getParameter("project_name").toString();
+		
+		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
+		String taskListString[] =(String []) request.getParameterValues("taskList");
+		
+		for(String taskString : taskListString) {
+			TaskDTO taskDTO=new TaskDTO();
+			taskDTO.setTaskId(Integer.parseInt(taskString));
+			taskList.add(taskDTO);
+		}
 		
 		
 		ProjectTemplateDTO projectTemplateObj = new ProjectTemplateDTO();
 		projectTemplateObj.setProjectName(projectTemplateProjectName);
 		projectTemplateObj.setUserDTO(userLogged);
+		projectTemplateObj.setTasksDTO(taskList);
+		
 		projectTemplateService.insertProjectTemplate(projectTemplateObj);
 		visualProjectTemplate(request);
 		 

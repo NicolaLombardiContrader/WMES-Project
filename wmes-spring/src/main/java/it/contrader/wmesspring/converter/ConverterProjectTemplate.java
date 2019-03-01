@@ -45,7 +45,7 @@ public class ConverterProjectTemplate {
 			
 			projectTemplate.setProjectId(projectTemplateDTO.getProjectId());
 			projectTemplate.setUser(ConverterUser.toEntity(projectTemplateDTO.getUserDTO()));
-			projectTemplate.setProjectName(projectTemplate.getProjectName());
+			projectTemplate.setProjectName(projectTemplateDTO.getProjectName());
 			
 			
 			List<TaskDTO> taskListDTO = projectTemplateDTO.getTasksDTO();
