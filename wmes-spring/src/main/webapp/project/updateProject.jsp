@@ -19,7 +19,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Update Project Template</title>
+<title>Update Project </title>
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
@@ -137,7 +137,7 @@
 								<div class="form-group">
 									<label>Name</label> <input class="au-input au-input--full" type="text" name="project_name" placeholder="Name"
 										value="<%=updateProject.getProjectName()%>">
-										<label>Project Status</label> <input class="au-input au-input--full" type="text" name="project_Status" placeholder="Project Status"
+										<label>Status</label> <input class="au-input au-input--full" type="text" name="project_status" placeholder="Status"
 										value="<%=updateProject.getProjectStatus()%>">
 								</div>
 								<div class="form-group">
