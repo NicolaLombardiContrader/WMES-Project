@@ -1,5 +1,6 @@
 package it.contrader.wmesspring.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import it.contrader.wmesspring.dto.ProjectDTO;
+import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ProjectService;
 
@@ -83,11 +85,23 @@ public class ProjectController {
 	public String insertProject(HttpServletRequest request) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		String projectname = request.getParameter("project_name").toString();
+		
+		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
+		String taskListString[] =(String []) request.getParameterValues("taskList");
+		
+		for(String taskString : taskListString) {
+			TaskDTO taskDTO=new TaskDTO();
+			taskDTO.setTaskId(Integer.parseInt(taskString));
+			taskList.add(taskDTO);
+		}
+		
+		
 		ProjectDTO projectObj = new ProjectDTO();
 		projectObj.setProjectName(projectname);
 		projectObj.setUserDTO(userLogged);
 		projectObj.setProjectStatus(0);
 		projectService.insertProject(projectObj);
+		projectObj.setTasksDTO(taskList);
 
 		visualProject(request);
 		return "project/manageProject";
