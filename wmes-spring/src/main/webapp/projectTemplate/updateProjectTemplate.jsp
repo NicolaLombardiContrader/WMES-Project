@@ -1,7 +1,9 @@
 <%@ include file="../header.jsp"%>
 
 <%
-	ProjectTemplateDTO updateProjectTemplate = (ProjectTemplateDTO) request.getAttribute("ProjectTemplateUpdate");
+	ProjectTemplateDTO updateProjectTemplate = (ProjectTemplateDTO) request
+			.getAttribute("projectTemplateUpdate");
+	List<TaskDTO> taskList = (List<TaskDTO>) request.getAttribute("taskList");
 %>
 
 
@@ -63,24 +65,18 @@
 					<ul class="list-unstyled navbar__list">
 						<li><a href="/Home/homeBO"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
-						
-						<li><a href="/Client/clientManagement"> <i
-								class="far fa-user"></i>Clients
+
+						<li><a href="/Client/clientManagement"> <i class="far fa-user"></i>Clients
 						</a></li>
-						<li><a href="/Resource/resourceManagement"> <i
-								class="far fa-user"></i>Resources
+						<li><a href="/Resource/resourceManagement"> <i class="far fa-user"></i>Resources
 						</a></li>
-						<li><a href="/Order/orderManagement"> <i
-								class="fas fa-boxes"></i>Orders 
+						<li><a href="/Order/orderManagement"> <i class="fas fa-boxes"></i>Orders
 						</a></li>
-						<li><a href="/Project/projectManagement"> <i
-								class="fas fa-sitemap"></i>Projects 
+						<li><a href="/Project/projectManagement"> <i class="fas fa-sitemap"></i>Projects
 						</a></li>
-						<li><a href="/ProjectTemplate/projectTemplateManagement"> <i
-								class="fas fa-chart-pie"></i>Project Templates 
+						<li><a href="/ProjectTemplate/projectTemplateManagement"> <i class="fas fa-chart-pie"></i>Project Templates
 						</a></li>
-						<li><a href="/Task/taskManagement"> <i
-								class="fas fa-tasks"></i>Tasks  
+						<li><a href="/Task/taskManagement"> <i class="fas fa-tasks"></i>Tasks
 						</a></li>
 
 					</ul>
@@ -136,90 +132,117 @@
 					<div class="card">
 						<div class="card-header">EDIT TEMPLATE</div>
 						<div class="card-body card-block">
-				<form action="/ProjectTemplate/update" method="post">
-				<input type="hidden" name="project_id" value="<%=updateProjectTemplate.getProjectId()%>" />
-				<input type="hidden" name="user_id" value="<%=updateProjectTemplate.getUserDTO().getUserId()%>" />
-					<div class="form-group">
-						<label>Name</label> <input class="au-input au-input--full" type="text" name="project_name" placeholder="Name" value="<%=updateProjectTemplate.getProjectName()%>">
-					</div>
+							<form action="/ProjectTemplate/update" method="post">
+								<input type="hidden" name="project_id" value="<%=updateProjectTemplate.getProjectId()%>" />
+								<div class="form-group">
+									<label>Name</label> <input class="au-input au-input--full" type="text" name="project_name" placeholder="Name"
+										value="<%=updateProjectTemplate.getProjectName()%>">
+								</div>
+								<div class="form-group">
+									<label>Task list</label>
+									<br />
+									<select class="custom-select" name="taskList" multiple="multiple">
+										<%
+											boolean selected = false;
+											for (TaskDTO taskDTO : taskList) {
+												selected = false;
+												for (TaskDTO TaskDTOProjectTemplate : updateProjectTemplate.getTasksDTO()) {
 
-					<div class="login-checkbox"></div>
-					<button type="submit" class="btn btn-secondary btn-sm">Update</button>
-				</form>
+													if (taskDTO.getTaskId() == TaskDTOProjectTemplate.getTaskId()) {
+														selected = true;
+										%>
+										<option selected="selected" value="<%=taskDTO.getTaskId()%>"><%=taskDTO.getTaskDescription()%></option>
+										<%
+											}
+												}
+
+												if (!selected) {
+										%>
+
+										<option value="<%=taskDTO.getTaskId()%>"><%=taskDTO.getTaskDescription()%></option>
+										<%
+											}
+											}
+										%>
+									</select>
+								</div>
+								<div class="login-checkbox"></div>
+								<button type="submit" class="btn btn-secondary btn-sm">Update</button>
+							</form>
 						</div>
 
 					</div>
 				</div>
 			</section>
-					<section>
-						<div class="section__content section__content--p30">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-xl-8"></div>
-									<div class="col-xl-4"></div>
-								</div>
+			<section>
+				<div class="section__content section__content--p30">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xl-8"></div>
+							<div class="col-xl-4"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="section__content section__content--p30">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xl-6"></div>
+							<div class="col-xl-6"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="copyright">
+								<p>Copyright © 2019 Wmes. All rights reserved. Template by Wmes Team</p>
 							</div>
 						</div>
-					</section>
-
-					<section>
-						<div class="section__content section__content--p30">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-xl-6"></div>
-									<div class="col-xl-6"></div>
-								</div>
-							</div>
-						</div>
-					</section>
-
-					<section>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="copyright">
-										<p>Copyright © 2019 Wmes. All rights reserved. Template by Wmes Team</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<!-- END PAGE CONTAINER-->
-			</div>
-
+					</div>
+				</div>
+			</section>
+			<!-- END PAGE CONTAINER-->
 		</div>
 
-		<!-- Jquery JS-->
-		<script src="/vendor/jquery-3.2.1.min.js"></script>
-		<!-- Bootstrap JS-->
-		<script src="/vendor/bootstrap-4.1/popper.min.js"></script>
-		<script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-		<!-- Vendor JS       -->
-		<script src="/vendor/slick/slick.min.js">
-			
-		</script>
-		<script src="/vendor/wow/wow.min.js"></script>
-		<script src="/vendor/animsition/animsition.min.js"></script>
-		<script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-			
-		</script>
-		<script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
-		<script src="/vendor/counter-up/jquery.counterup.min.js">
-			
-		</script>
-		<script src="/vendor/circle-progress/circle-progress.min.js"></script>
-		<script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-		<script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-		<script src="/vendor/select2/select2.min.js">
-			
-		</script>
-		<script src="/vendor/vector-map/jquery.vmap.js"></script>
-		<script src="/vendor/vector-map/jquery.vmap.min.js"></script>
-		<script src="/vendor/vector-map/jquery.vmap.sampledata.js"></script>
-		<script src="/vendor/vector-map/jquery.vmap.world.js"></script>
+	</div>
 
-		<!-- Main JS-->
-		<script src="/js/main.js"></script>
+	<!-- Jquery JS-->
+	<script src="/vendor/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap JS-->
+	<script src="/vendor/bootstrap-4.1/popper.min.js"></script>
+	<script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+	<!-- Vendor JS       -->
+	<script src="/vendor/slick/slick.min.js">
+		
+	</script>
+	<script src="/vendor/wow/wow.min.js"></script>
+	<script src="/vendor/animsition/animsition.min.js"></script>
+	<script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+		
+	</script>
+	<script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
+	<script src="/vendor/counter-up/jquery.counterup.min.js">
+		
+	</script>
+	<script src="/vendor/circle-progress/circle-progress.min.js"></script>
+	<script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+	<script src="/vendor/chartjs/Chart.bundle.min.js"></script>
+	<script src="/vendor/select2/select2.min.js">
+		
+	</script>
+	<script src="/vendor/vector-map/jquery.vmap.js"></script>
+	<script src="/vendor/vector-map/jquery.vmap.min.js"></script>
+	<script src="/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+	<script src="/vendor/vector-map/jquery.vmap.world.js"></script>
+
+	<!-- Main JS-->
+	<script src="/js/main.js"></script>
 </body>
 
 </html>

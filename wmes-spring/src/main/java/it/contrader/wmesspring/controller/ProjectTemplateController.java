@@ -27,7 +27,6 @@ public class ProjectTemplateController {
 	private final ProjectTemplateService projectTemplateService;
 	private HttpSession session;
 
-	
 	@Autowired
 	public ProjectTemplateController(ProjectTemplateService projectTemplateService) {
 		this.projectTemplateService = projectTemplateService;
@@ -43,15 +42,15 @@ public class ProjectTemplateController {
 		visualProjectTemplate(request);
 		return "projectTemplate/manageProjectTemplate";
 	}
-	
+
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		request.setAttribute("id", id);
 		this.projectTemplateService.deleteProjectTemplateById(id);
 		visualProjectTemplate(request);
-		return "projectTemplate/manageProjectTemplate";	
- 
+		return "projectTemplate/manageProjectTemplate";
+
 	}
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
@@ -60,64 +59,71 @@ public class ProjectTemplateController {
 		List<TaskDTO> taskList = projectTemplateService.findTaskDTOByUser(userDTO);
 		request.setAttribute("taskList", taskList);
 		return "projectTemplate/insertProjectTemplate";
-	}	
-	
-	
+	}
+
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertProjectTemplate(HttpServletRequest request, HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		String projectTemplateProjectName = request.getParameter("project_name").toString();
-		
+
 		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
-		String taskListString[] =(String []) request.getParameterValues("taskList");
-		
-		for(String taskString : taskListString) {
-			TaskDTO taskDTO=new TaskDTO();
+		String taskListString[] = (String[]) request.getParameterValues("taskList");
+
+		for (String taskString : taskListString) {
+			TaskDTO taskDTO = new TaskDTO();
 			taskDTO.setTaskId(Integer.parseInt(taskString));
 			taskList.add(taskDTO);
 		}
-		
-		
+
 		ProjectTemplateDTO projectTemplateObj = new ProjectTemplateDTO();
 		projectTemplateObj.setProjectName(projectTemplateProjectName);
 		projectTemplateObj.setUserDTO(userLogged);
 		projectTemplateObj.setTasksDTO(taskList);
-		
+
 		projectTemplateService.insertProjectTemplate(projectTemplateObj);
 		visualProjectTemplate(request);
-		 
 
 		return "projectTemplate/manageProjectTemplate";
 	}
-	
-	
-	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
-	public String updateRedirect(HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
-		ProjectTemplateDTO projectTemplateUpdate = new ProjectTemplateDTO();
 
-		projectTemplateUpdate = this.projectTemplateService.getProjectTemplateDTOById(id);
+	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
+	public String updateRedirect(HttpServletRequest request, HttpSession session) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		UserDTO userDTO = (UserDTO) session.getAttribute("utente");
+
+		ProjectTemplateDTO projectTemplateUpdate = this.projectTemplateService.getProjectTemplateDTOById(id);
+		List<TaskDTO> taskList = projectTemplateService.findTaskDTOByUser(userDTO);
+
+		request.setAttribute("taskList", taskList);
 		request.setAttribute("projectTemplateUpdate", projectTemplateUpdate);
+
 		return "projectTemplate/updateProjectTemplate";
-	}		
-		
+	}
+
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(HttpServletRequest request, HttpSession session) {
-		
+
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		Integer idUpdate = Integer.parseInt(request.getParameter("project_id"));
 		String projectTemplateProjectName = request.getParameter("project_name");
 
+		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
+		String taskListString[] = (String[]) request.getParameterValues("taskList");
+		for (String taskString : taskListString) {
+			TaskDTO taskDTO = new TaskDTO();
+			taskDTO.setTaskId(Integer.parseInt(taskString));
+			taskList.add(taskDTO);
+		}
 
 		ProjectTemplateDTO projectTemplate = new ProjectTemplateDTO();
 		projectTemplate.setUserDTO(userLogged);
-		projectTemplate.setProjectName(projectTemplateProjectName);
 		projectTemplate.setProjectId(idUpdate);
+		projectTemplate.setProjectName(projectTemplateProjectName);
+		projectTemplate.setTasksDTO(taskList);
 
 		projectTemplateService.updateProjectTemplate(projectTemplate);
 		visualProjectTemplate(request);
 		return "projectTemplate/manageProjectTemplate";
 	}
-	
-	
+
 }
