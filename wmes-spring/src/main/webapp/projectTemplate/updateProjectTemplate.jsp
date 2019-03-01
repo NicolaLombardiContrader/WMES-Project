@@ -66,9 +66,9 @@
 						<li><a href="/Home/homeBO"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
 
-						<li><a href="/Client/clientManagement"> <i class="far fa-user"></i>Clients
+						<li><a href="/Client/clientManagement"> <i class="fas fa-user"></i>Clients
 						</a></li>
-						<li><a href="/Resource/resourceManagement"> <i class="far fa-user"></i>Resources
+						<li><a href="/Resource/resourceManagement"> <i class="fas fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i class="fas fa-boxes"></i>Orders
 						</a></li>

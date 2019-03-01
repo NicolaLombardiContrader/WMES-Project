@@ -75,7 +75,7 @@
 						</a></li>
 					
 						<li><a href="/User/userManagement"> <i
-								class="far fa-user"></i>Users
+								class="fas fa-user"></i>Users
 						</a></li>
 						
                     </ul>

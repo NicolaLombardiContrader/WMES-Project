@@ -74,10 +74,10 @@
 						</a></li>
                       
 						<li><a href="/Client/clientManagement"> <i
-								class="far fa-user"></i>Clients
+								class="fas fa-user"></i>Clients
 						</a></li>
 						<li><a href="/Resource/resourceManagement"> <i
-								class="far fa-user"></i>Resources
+								class="fas fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i
 								class="fas fa-boxes"></i>Orders 
@@ -152,6 +152,15 @@
 								<div class="task-progress">
 									<h3 class="title-3">Project Progress</h3>
 									<div class="au-skill-container">
+									<div class="chart-info-right">
+                                            <div class="rs-select2--dark rs-select2--md m-r-10">
+                                                <select class="js-select2" name="property">
+                                                    <option selected="selected">Projects</option>
+                                                    <option value="">Project 1</option>
+                                                    <option value="">Project 2</option>
+                                                </select>
+                                                <div class="dropDownSelect2"></div>
+                                            </div>
 										<div class="au-progress">
 											<span class="au-progress__title">Project Initiation</span>
 											<div class="progress mb-2">

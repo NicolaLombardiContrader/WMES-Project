@@ -76,10 +76,10 @@
 						</a></li>
 						
 						<li><a href="/Client/clientManagement"> <i
-								class="far fa-user"></i>Clients
+								class="fas fa-user"></i>Clients
 						</a></li>
 						<li><a href="/Resource/resourceManagement"> <i
-								class="far fa-user"></i>Resources
+								class="fas fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i
 								class="fas fa-boxes"></i>Orders 

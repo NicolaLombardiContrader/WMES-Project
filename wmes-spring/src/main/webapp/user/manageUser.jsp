@@ -67,7 +67,7 @@
 						<li><a href="/Home/homeAdmin"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
 						
-						<li><a href="/User/userManagement"> <i class="far fa-user"></i>Users
+						<li><a href="/User/userManagement"> <i class="fas fa-user"></i>Users
 						</a></li>
 						
 					</ul>

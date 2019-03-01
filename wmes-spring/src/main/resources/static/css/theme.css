@@ -904,7 +904,7 @@ section {
     -moz-border-radius: 3px;
     border-radius: 3px;
     height: 40px;
-    background: #808080;
+    background: #dc3545;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -1041,7 +1041,7 @@ section {
 
 .rs-select2--border .select2-container--default .select2-selection--single {
     background: transparent;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #dc3545;
 }
 
 .rs-select2--border .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -2152,7 +2152,7 @@ section {
 }
 
 .account2 {
-    padding: 38px;
+    padding: 25px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
