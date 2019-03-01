@@ -137,6 +137,8 @@
 								<div class="form-group">
 									<label>Name</label> <input class="au-input au-input--full" type="text" name="project_name" placeholder="Name"
 										value="<%=updateProject.getProjectName()%>">
+										<label>Project Status</label> <input class="au-input au-input--full" type="text" name="project_Status" placeholder="Project Status"
+										value="<%=updateProject.getProjectStatus()%>">
 								</div>
 								<div class="form-group">
 									<label>Task list</label>
@@ -154,7 +156,6 @@
 										<option selected="selected" value="
 										<%=taskDTO.getTaskId()%>">
 										<%=taskDTO.getTaskDescription()%>
-										<%=taskDTO.getTaskState()%>
 										</option>
 										<%
 											}
@@ -166,7 +167,6 @@
 										<option value="
 										<%=taskDTO.getTaskId()%>">
 										<%=taskDTO.getTaskDescription()%>
-										<%=taskDTO.getTaskState()%>
 										</option>
 										<%
 											}
