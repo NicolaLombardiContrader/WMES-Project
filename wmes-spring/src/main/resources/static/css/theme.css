@@ -4974,7 +4974,7 @@ section {
 .statistic__item h2 {
     font-size: 36px;
     font-weight: 300;
-    color: #4272d7;
+    color: #dc3545;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {

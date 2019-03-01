@@ -172,7 +172,49 @@
 											
 													<td>
 														<div class="table-data__info">
-															<h6>lori lynch</h6>
+															<h6>Nicola</h6>
+														
+														</div>
+													</td>
+													<td><span class="role admin">admin</span></td>
+													<td>
+														<div class="rs-select2--trans rs-select2--sm">
+															<select class="js-select2" name="property">
+																<option selected="selected">Full Control</option>
+																<option value="">Post</option>
+																<option value="">Watch</option>
+															</select>
+															<div class="dropDownSelect2"></div>
+														</div>
+													</td>
+												
+												</tr>
+														<tr>
+											
+													<td>
+														<div class="table-data__info">
+															<h6>Antonio</h6>
+														
+														</div>
+													</td>
+													<td><span class="role admin">admin</span></td>
+													<td>
+														<div class="rs-select2--trans rs-select2--sm">
+															<select class="js-select2" name="property">
+																<option selected="selected">Full Control</option>
+																<option value="">Post</option>
+																<option value="">Watch</option>
+															</select>
+															<div class="dropDownSelect2"></div>
+														</div>
+													</td>
+												
+												</tr>
+														<tr>
+											
+													<td>
+														<div class="table-data__info">
+															<h6>Emilia</h6>
 														
 														</div>
 													</td>
@@ -193,7 +235,7 @@
 												
 													<td>
 														<div class="table-data__info">
-															<h6>lori lynch</h6>
+															<h6>Teresa</h6>
 														
 														</div>
 													</td>
@@ -214,7 +256,7 @@
 												
 													<td>
 														<div class="table-data__info">
-															<h6>lori lynch</h6>
+															<h6>Francesco</h6>
 															
 														</div>
 													</td>
@@ -230,7 +272,28 @@
 														</div>
 													</td>
 													
-												</tr>										
+												</tr>		
+												<tr>
+												
+													<td>
+														<div class="table-data__info">
+															<h6>Artem</h6>
+															
+														</div>
+													</td>
+													<td><span class="role user">Business Owner</span></td>
+													<td>
+														<div class="rs-select2--trans rs-select2--sm">
+															<select class="js-select2" name="property">
+																<option value="">Full Control</option>
+																<option value="" selected="selected">Post</option>
+																<option value="">Watch</option>
+															</select>
+															<div class="dropDownSelect2"></div>
+														</div>
+													</td>
+													
+												</tr>																		
 											</tbody>
 										</table>
 									</div>
@@ -246,7 +309,7 @@
 								<div class="row">
 									<div class="col-md-6 col-lg-12">
 										<div class="statistic__item">
-											<h2 class="number">10,368</h2>
+											<h2 class="number">6</h2>
 											<span class="desc">Users</span>
 											<div class="icon">
 												<i class="zmdi zmdi-account-o"></i>
