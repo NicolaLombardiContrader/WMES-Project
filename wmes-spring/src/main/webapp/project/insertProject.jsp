@@ -147,6 +147,16 @@
 									</select>
 								</div>
 								
+								 <div class="form-group">
+                                    <label>State</label>
+                                    <select class="au-input au-input--full" type="radio" name="project_status" placeholder="State">
+                                    <option value="0"> Pending</option>
+                                    <option value="1"> In progress</option>
+                                    <option value="2"> Completed</option>
+                                	</select> 
+                                
+                                </div>
+								
 								
 								
 								<div class="login-checkbox"></div>

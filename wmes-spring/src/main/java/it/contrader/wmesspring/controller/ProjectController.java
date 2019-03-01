@@ -77,12 +77,15 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insert(HttpServletRequest request) {
+	public String insert(HttpServletRequest request, HttpSession session) {
+		UserDTO userDTO = (UserDTO) session.getAttribute("utente");
+		List<TaskDTO> taskList = projectService.findTaskDTOByUser(userDTO);
+		request.setAttribute("taskList", taskList);
 		return "project/insertProject";
 	}	
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insertProject(HttpServletRequest request) {
+	public String insertProject(HttpServletRequest request, HttpSession session) {
 		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 		String projectname = request.getParameter("project_name").toString();
 		
@@ -95,15 +98,13 @@ public class ProjectController {
 			taskList.add(taskDTO);
 		}
 		
-		
-		
 		ProjectDTO projectObj = new ProjectDTO();
 		projectObj.setProjectName(projectname);
 		projectObj.setUserDTO(userLogged);
 		projectObj.setProjectStatus(0);
-		projectService.insertProject(projectObj);
 		projectObj.setTasksDTO(taskList);
-
+		
+		projectService.insertProject(projectObj);
 		visualProject(request);
 		return "project/manageProject";
 
