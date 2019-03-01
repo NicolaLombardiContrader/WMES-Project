@@ -133,7 +133,7 @@
 								<div class="form-group">
 									<label>Nome</label> <input class="au-input au-input--full" type="text" name="project_name" placeholder="Name">
 								</div>
-								
+
 								<div class="form-group">
 									<label>Task list</label>
 									<br />
@@ -147,19 +147,7 @@
 										%>
 									</select>
 								</div>
-								
-								 <div class="form-group">
-                                    <label>State</label>
-                                    <select class="au-input au-input--full" type="radio" name="project_status" placeholder="State">
-                                    <option value="0"> Pending</option>
-                                    <option value="1"> In progress</option>
-                                    <option value="2"> Completed</option>
-                                	</select> 
-                                
-                                </div>
-								
-								
-								
+
 								<div class="login-checkbox"></div>
 								<button type="submit" class="btn btn-secondary btn-sm">Submit</button>
 							</form>
