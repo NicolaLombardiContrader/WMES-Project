@@ -56,29 +56,29 @@
 		<!-- MENU SIDEBAR-->
 		<aside class="menu-sidebar2">
 			<div class="logo">
-				<a href="#"> <img src="/images/icon/wmeslogo2.png"
-					alt="Wmes" />
+				<a href="#"> <img src="/images/icon/wmeslogo2.png" alt="Wmes" />
 				</a>
 			</div>
 			<div class="menu-sidebar2__content js-scrollbar1">
 				<div class="account2">
 					<div class="image img-cir img-120 ">
-					
+
 						<img src="/images/icon/avatarAdmin2.png" alt="Admin" />
 					</div>
 					<h4 class="name">Admin</h4>
-					<a href="/User/logout">Sign out</a> 
+					<a href="/User/logout">Sign out</a>
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="/Home/homeAdmin"> <i class="fas fa-chart-bar"></i>Dashboard
+						<li><a href="/Home/homeAdmin"> <i
+								class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
-					
+
 						<li><a href="/User/userManagement"> <i
 								class="fas fa-user"></i>Users
 						</a></li>
-						
-                    </ul>
+
+					</ul>
 				</nav>
 			</div>
 		</aside>
@@ -90,13 +90,12 @@
 			<header class="header-desktop2">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-					
-							<div class="logo d-block d-lg-none">
-								<a href="#"> <img src="/images/icon/wmeslogo2.png"
-									alt="Wmes" />
-								</a>
-							</div>
-							
+
+						<div class="logo d-block d-lg-none">
+							<a href="#"> <img src="/images/icon/wmeslogo2.png" alt="Wmes" />
+							</a>
+						</div>
+
 					</div>
 				</div>
 			</header>
@@ -113,7 +112,7 @@
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-										
+
 											<li class="list-inline-item">Dashboard</li>
 										</ul>
 									</div>
@@ -161,7 +160,7 @@
 										<table class="table">
 											<thead>
 												<tr>
-												
+
 													<td>name</td>
 													<td>role</td>
 													<td>type</td>
@@ -170,11 +169,11 @@
 											</thead>
 											<tbody>
 												<tr>
-											
+
 													<td>
 														<div class="table-data__info">
 															<h6>Nicola</h6>
-														
+
 														</div>
 													</td>
 													<td><span class="role admin">admin</span></td>
@@ -188,14 +187,14 @@
 															<div class="dropDownSelect2"></div>
 														</div>
 													</td>
-												
+
 												</tr>
-														<tr>
-											
+												<tr>
+
 													<td>
 														<div class="table-data__info">
 															<h6>Antonio</h6>
-														
+
 														</div>
 													</td>
 													<td><span class="role admin">admin</span></td>
@@ -209,14 +208,14 @@
 															<div class="dropDownSelect2"></div>
 														</div>
 													</td>
-												
+
 												</tr>
-														<tr>
-											
+												<tr>
+
 													<td>
 														<div class="table-data__info">
 															<h6>Emilia</h6>
-														
+
 														</div>
 													</td>
 													<td><span class="role admin">admin</span></td>
@@ -230,14 +229,14 @@
 															<div class="dropDownSelect2"></div>
 														</div>
 													</td>
-												
+
 												</tr>
 												<tr>
-												
+
 													<td>
 														<div class="table-data__info">
 															<h6>Teresa</h6>
-														
+
 														</div>
 													</td>
 													<td><span class="role user">Business Owner</span></td>
@@ -251,14 +250,14 @@
 															<div class="dropDownSelect2"></div>
 														</div>
 													</td>
-													
+
 												</tr>
 												<tr>
-												
+
 													<td>
 														<div class="table-data__info">
 															<h6>Francesco</h6>
-															
+
 														</div>
 													</td>
 													<td><span class="role user">Business Owner</span></td>
@@ -272,14 +271,14 @@
 															<div class="dropDownSelect2"></div>
 														</div>
 													</td>
-													
-												</tr>		
+
+												</tr>
 												<tr>
-												
+
 													<td>
 														<div class="table-data__info">
 															<h6>Artem</h6>
-															
+
 														</div>
 													</td>
 													<td><span class="role user">Business Owner</span></td>
@@ -293,8 +292,8 @@
 															<div class="dropDownSelect2"></div>
 														</div>
 													</td>
-													
-												</tr>																		
+
+												</tr>
 											</tbody>
 										</table>
 									</div>
@@ -346,9 +345,7 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xl-6"></div>
-							<div class="col-xl-6">
-								
-							</div>
+							<div class="col-xl-6"></div>
 						</div>
 					</div>
 				</div>

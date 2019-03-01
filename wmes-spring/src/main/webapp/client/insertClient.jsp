@@ -68,10 +68,9 @@
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="/Home/homeBO"> <i
-								class="fas fa-chart-bar"></i>Dashboard
-								</a></li>
-						
+						<li><a href="/Home/homeBO"> <i class="fas fa-chart-bar"></i>Dashboard
+						</a></li>
+
 						<li><a href="/Client/clientManagement"> <i
 								class="fas fa-user"></i>Clients
 						</a></li>
@@ -79,16 +78,16 @@
 								class="fas fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i
-								class="fas fa-boxes"></i>Orders 
+								class="fas fa-boxes"></i>Orders
 						</a></li>
 						<li><a href="/Project/projectManagement"> <i
-								class="fas fa-sitemap"></i>Projects 
+								class="fas fa-sitemap"></i>Projects
 						</a></li>
-						<li><a href="/ProjectTemplate/projectTemplateManagement"> <i
-								class="fas fa-chart-pie"></i>Project Templates 
+						<li><a href="/ProjectTemplate/projectTemplateManagement">
+								<i class="fas fa-chart-pie"></i>Project Templates
 						</a></li>
 						<li><a href="/Task/taskManagement"> <i
-								class="fas fa-tasks"></i>Tasks  
+								class="fas fa-tasks"></i>Tasks
 						</a></li>
 
 					</ul>
@@ -148,15 +147,16 @@
 						<div class="card-header">NEW CLIENT</div>
 						<div class="card-body card-block">
 							<form action="/Client/insert" method="post">
-								
-								
-								
+
+
+
 								<div class="form-group">
-									<label>Client name</label> <input class="au-input au-input--full"
-										type="text" name="client_name" placeholder="Clientname">
+									<label>Client name</label> <input
+										class="au-input au-input--full" type="text" name="client_name"
+										placeholder="Clientname">
 								</div>
 
-								
+
 								<div class="login-checkbox"></div>
 								<button type="submit" class="btn btn-secondary btn-sm">Submit</button>
 							</form>

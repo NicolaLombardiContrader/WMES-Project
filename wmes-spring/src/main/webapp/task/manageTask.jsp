@@ -6,14 +6,14 @@
 
 		switch (taskState) {
 
-		case 0:
-			return "Pending";
-		case 1:
-			return "In Progress";
-		case 2:
-			return "Completed";
-		default:
-			return "Pending";
+			case 0 :
+				return "Pending";
+			case 1 :
+				return "In Progress";
+			case 2 :
+				return "Completed";
+			default :
+				return "Pending";
 		}
 
 	}%>

@@ -13,7 +13,8 @@
 <head>
 <!-- Required meta tags-->
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="au theme template">
 <meta name="author" content="Hau Nguyen">
 <meta name="keywords" content="au theme template">
@@ -23,22 +24,33 @@
 
 <!-- Fontfaces CSS-->
 <link href="/css/font-face.css" rel="stylesheet" media="all">
-<link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-<link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-<link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+<link href="/vendor/font-awesome-4.7/css/font-awesome.min.css"
+	rel="stylesheet" media="all">
+<link href="/vendor/font-awesome-5/css/fontawesome-all.min.css"
+	rel="stylesheet" media="all">
+<link href="/vendor/mdi-font/css/material-design-iconic-font.min.css"
+	rel="stylesheet" media="all">
 
 <!-- Bootstrap CSS-->
-<link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+<link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet"
+	media="all">
 
 <!-- Vendor CSS-->
-<link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-<link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+<link href="/vendor/animsition/animsition.min.css" rel="stylesheet"
+	media="all">
+<link
+	href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
+	rel="stylesheet" media="all">
 <link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
-<link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+<link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet"
+	media="all">
 <link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
-<link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-<link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-<link href="/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+<link href="/vendor/select2/select2.min.css" rel="stylesheet"
+	media="all">
+<link href="/vendor/perfect-scrollbar/perfect-scrollbar.css"
+	rel="stylesheet" media="all">
+<link href="/vendor/vector-map/jqvmap.min.css" rel="stylesheet"
+	media="all">
 
 <!-- Main CSS-->
 <link href="/css/theme.css" rel="stylesheet" media="all">
@@ -50,7 +62,8 @@
 		<!-- MENU SIDEBAR-->
 		<aside class="menu-sidebar2">
 			<div class="logo">
-				<a href="#"> <img src="/images/icon/wmeslogo2.png" alt="Cool Admin" />
+				<a href="#"> <img src="/images/icon/wmeslogo2.png"
+					alt="Cool Admin" />
 				</a>
 			</div>
 			<div class="menu-sidebar2__content js-scrollbar1">
@@ -63,9 +76,10 @@
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="/Home/homeAdmin"> <i class="fas fa-chart-bar"></i>Dashboard
-								</a></li>
-						
+						<li><a href="/Home/homeAdmin"> <i
+								class="fas fa-chart-bar"></i>Dashboard
+						</a></li>
+
 						<li><a href="/Client/clientManagement"> <i
 								class="fas fa-user"></i>Clients
 						</a></li>
@@ -73,16 +87,16 @@
 								class="fas fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i
-								class="fas fa-boxes"></i>Orders 
+								class="fas fa-boxes"></i>Orders
 						</a></li>
 						<li><a href="/Project/projectManagement"> <i
-								class="fas fa-sitemap"></i>Projects 
+								class="fas fa-sitemap"></i>Projects
 						</a></li>
-						<li><a href="/ProjectTemplate/projectTemplateManagement"> <i
-								class="fas fa-chart-pie"></i>Project Templates 
+						<li><a href="/ProjectTemplate/projectTemplateManagement">
+								<i class="fas fa-chart-pie"></i>Project Templates
 						</a></li>
 						<li><a href="/Task/taskManagement"> <i
-								class="fas fa-tasks"></i>Tasks  
+								class="fas fa-tasks"></i>Tasks
 						</a></li>
 
 					</ul>
@@ -99,7 +113,8 @@
 					<div class="container-fluid">
 
 						<div class="logo d-block d-lg-none">
-							<a href="#"> <img src="/images/icon/wmeslogo2.png" alt="CoolAdmin" />
+							<a href="#"> <img src="/images/icon/wmeslogo2.png"
+								alt="CoolAdmin" />
 							</a>
 						</div>
 
@@ -120,7 +135,8 @@
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-											<li class="list-inline-item active"><a href="/Home/homeAdmin">Dashboard</a></li>
+											<li class="list-inline-item active"><a
+												href="/Home/homeAdmin">Dashboard</a></li>
 											<li class="list-inline-item seprate"><span>/</span></li>
 											<li class="list-inline-item">Edit User</li>
 										</ul>
@@ -139,26 +155,36 @@
 						<div class="card-header">EDIT ORDER</div>
 						<div class="card-body card-block">
 							<form action="/Order/update" method="post">
-								<input type="hidden" name="order_id" value="<%=updateOrder.getOrderId()%>" />
-								
+								<input type="hidden" name="order_id"
+									value="<%=updateOrder.getOrderId()%>" />
+
 								<div class="form-group">
-									<label>Description</label> <input class="au-input au-input--full" type="text" name="order_description" placeholder="Description"
+									<label>Description</label> <input
+										class="au-input au-input--full" type="text"
+										name="order_description" placeholder="Description"
 										value="<%=updateOrder.getOrderDescription()%>">
 								</div>
-								
+
 								<div class="form-group">
-									<label>Client</label> 
-									<select class="form-control" name="client_id">
-									<% for (ClientDTO clientDTO: clientList) {
-										if (clientDTO.getClientId()==updateOrder.getClientDTO().getClientId()){
+									<label>Client</label> <select class="form-control"
+										name="client_id">
+										<%
+											for (ClientDTO clientDTO : clientList) {
+												if (clientDTO.getClientId() == updateOrder.getClientDTO().getClientId()) {
 										%>
-										<option selected="selected" value="<%=clientDTO.getClientId()%>"><%=clientDTO.getClientName()%></option>	
-										<% } else { %> 
+										<option selected="selected"
+											value="<%=clientDTO.getClientId()%>"><%=clientDTO.getClientName()%></option>
+										<%
+											} else {
+										%>
 										<option value="<%=clientDTO.getClientId()%>"><%=clientDTO.getClientName()%></option>
-									<% } } %>
+										<%
+											}
+											}
+										%>
 									</select>
 								</div>
-								
+
 
 								<div class="login-checkbox"></div>
 								<button type="submit" class="btn btn-secondary btn-sm">Update</button>
@@ -195,7 +221,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="copyright">
-								<p>Copyright © 2019 Wmes. All rights reserved. Template by Wmes Team</p>
+								<p>Copyright © 2019 Wmes. All rights reserved. Template by
+									Wmes Team</p>
 							</div>
 						</div>
 					</div>
@@ -217,7 +244,8 @@
 	</script>
 	<script src="/vendor/wow/wow.min.js"></script>
 	<script src="/vendor/animsition/animsition.min.js"></script>
-	<script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+	<script
+		src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
 		
 	</script>
 	<script src="/vendor/counter-up/jquery.waypoints.min.js"></script>

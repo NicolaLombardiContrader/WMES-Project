@@ -76,8 +76,7 @@
 				</div>
 				<nav class="navbar-sidebar2">
 					<ul class="list-unstyled navbar__list">
-						<li><a href="/Home/homeBO"> <i
-								class="fas fa-chart-bar"></i>Dashboard
+						<li><a href="/Home/homeBO"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
 
 						<li><a href="/Client/clientManagement"> <i
@@ -191,8 +190,7 @@
 
 												if (resourceDTO.getResourceId() == updateTask.getResourceDTO().getResourceId()) {
 										%>
-										<option <%=selected%>
-											value="<%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%></option>
+										<option <%=selected%> value="<%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%></option>
 										<%
 											} else {
 										%>

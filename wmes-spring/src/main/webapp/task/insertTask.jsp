@@ -1,6 +1,6 @@
 <%@ include file="../header.jsp"%>
-<% 
-List<ResourceDTO> resourceList = (List<ResourceDTO>) request.getAttribute("resourceList");
+<%
+	List<ResourceDTO> resourceList = (List<ResourceDTO>) request.getAttribute("resourceList");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,43 +148,47 @@ List<ResourceDTO> resourceList = (List<ResourceDTO>) request.getAttribute("resou
 						<div class="card-body card-block">
 							<form action="/Task/insert" method="post" class="">
 								<div class="form-group">
-                                    <label>Description</label>
-                                    <input class="au-input au-input--full" type="text" name="task_description" placeholder="Description">
-                                </div>
-                                <div class="form-group">
-                                    <label>Action</label>
-                                    <input class="au-input au-input--full" type="text" name="task_action" placeholder="Action">
-                                </div>
-                                <div class="form-group">
-                                    <label>Input</label>
-                                    <input class="au-input au-input--full" type="text" name="task_input" placeholder="Input">
-                                </div>
-                                <div class="form-group">
-                                    <label>Output</label>
-                                    <input class="au-input au-input--full" type="text" name="task_output" placeholder="Output">
-                                </div>
-                                <div class="form-group">
-                                    <label>Resource</label>
-                                    <select class="form-control"
+									<label>Description</label> <input
+										class="au-input au-input--full" type="text"
+										name="task_description" placeholder="Description">
+								</div>
+								<div class="form-group">
+									<label>Action</label> <input class="au-input au-input--full"
+										type="text" name="task_action" placeholder="Action">
+								</div>
+								<div class="form-group">
+									<label>Input</label> <input class="au-input au-input--full"
+										type="text" name="task_input" placeholder="Input">
+								</div>
+								<div class="form-group">
+									<label>Output</label> <input class="au-input au-input--full"
+										type="text" name="task_output" placeholder="Output">
+								</div>
+								<div class="form-group">
+									<label>Resource</label> <select class="form-control"
 										name="resource_id">
-										<% for (ResourceDTO  resourceDTO : resourceList) { %>
+										<%
+											for (ResourceDTO resourceDTO : resourceList) {
+										%>
 										<option value="<%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%></option>
-										<% } %>
+										<%
+											}
+										%>
 									</select>
-                                </div> 
-                                <div class="form-group">
-                                    <label>Time</label>
-                                    <input class="au-input au-input--full" type="number" name="task_time" placeholder="Time">
-                                </div>
-                                <div class="form-group">
-                                    <label>State</label>
-                                    <select class="au-input au-input--full" type="radio" name="task_state" placeholder="State">
-                                    <option value="0"> Pending</option>
-                                    <option value="1"> In progress</option>
-                                    <option value="2"> Completed</option>
-                                	</select> 
-                                
-                                </div>
+								</div>
+								<div class="form-group">
+									<label>Time</label> <input class="au-input au-input--full"
+										type="number" name="task_time" placeholder="Time">
+								</div>
+								<div class="form-group">
+									<label>State</label> <select class="au-input au-input--full"
+										type="radio" name="task_state" placeholder="State">
+										<option value="0">Pending</option>
+										<option value="1">In progress</option>
+										<option value="2">Completed</option>
+									</select>
+
+								</div>
 								<div class="form-actions form-group">
 									<button type="submit" class="btn btn-secondary btn-sm">Submit</button>
 								</div>

@@ -72,7 +72,7 @@
 					<ul class="list-unstyled navbar__list">
 						<li><a href="/Home/homeBO"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
-                      
+
 						<li><a href="/Client/clientManagement"> <i
 								class="fas fa-user"></i>Clients
 						</a></li>
@@ -80,19 +80,19 @@
 								class="fas fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i
-								class="fas fa-boxes"></i>Orders 
+								class="fas fa-boxes"></i>Orders
 						</a></li>
 						<li><a href="/Project/projectManagement"> <i
-								class="fas fa-sitemap"></i>Projects 
+								class="fas fa-sitemap"></i>Projects
 						</a></li>
-						<li><a href="/ProjectTemplate/projectTemplateManagement"> <i
-								class="fas fa-chart-pie"></i>Project Templates 
+						<li><a href="/ProjectTemplate/projectTemplateManagement">
+								<i class="fas fa-chart-pie"></i>Project Templates
 						</a></li>
 						<li><a href="/Task/taskManagement"> <i
-								class="fas fa-tasks"></i>Tasks  
+								class="fas fa-tasks"></i>Tasks
 						</a></li>
-						
-                    </ul>
+
+					</ul>
 				</nav>
 			</div>
 		</aside>
@@ -104,14 +104,13 @@
 			<header class="header-desktop2">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-						
-							<div class="logo d-block d-lg-none">
-								<a href="#"> <img src="/images/icon/wmeslogo2.png"
-									alt="Wmes" />
-								</a>
-							</div>
-					
-								
+
+						<div class="logo d-block d-lg-none">
+							<a href="#"> <img src="/images/icon/wmeslogo2.png" alt="Wmes" />
+							</a>
+						</div>
+
+
 					</div>
 				</div>
 			</header>
@@ -128,7 +127,7 @@
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-											
+
 											<li class="list-inline-item seprate"><span>/</span></li>
 											<li class="list-inline-item">Dashboard</li>
 										</ul>
@@ -146,61 +145,77 @@
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
 						<div class="row">
-						<div class="col-lg-10">
-								
-												<!-- TASK PROGRESS-->
+							<div class="col-lg-10">
+
+								<!-- TASK PROGRESS-->
 								<div class="task-progress">
 									<h3 class="title-3">Project Progress</h3>
 									<div class="au-skill-container">
-									<div class="chart-info-right">
-                                            <div class="rs-select2--dark rs-select2--md m-r-10">
-                                                <select class="js-select2" name="property">
-                                                    <option selected="selected">Projects</option>
-                                                    <option value="">Project 1</option>
-                                                    <option value="">Project 2</option>
-                                                </select>
-                                                <div class="dropDownSelect2"></div>
-                                            </div>
-										<div class="au-progress">
-											<span class="au-progress__title">Project Initiation</span>
-											<div class="progress mb-2">
-											<div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-										</div>
-										<div class="au-progress">
-											<span class="au-progress__title">Project Planning</span>
-										<div class="progress mb-2">
-											<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-										</div>
-										</div>
-										<div class="au-progress">
-											<span class="au-progress__title">Project Execution</span>
-											<div class="progress mb-2">
-											<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-										</div>
-										</div>
-										<div class="au-progress">
-											<span class="au-progress__title">Project Monitoring and Control</span>
-											<div class="progress mb-2">
-											<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
-										</div>
-										</div>
+										<div class="chart-info-right">
+											<div class="rs-select2--dark rs-select2--md m-r-10">
+												<select class="js-select2" name="property">
+													<option selected="selected">Projects</option>
+													<option value="">Project 1</option>
+													<option value="">Project 2</option>
+												</select>
+												<div class="dropDownSelect2"></div>
+											</div>
 											<div class="au-progress">
-											<span class="au-progress__title">Project Closure</span>
-											<div class="progress mb-2">
-											<div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+												<span class="au-progress__title">Project Initiation</span>
+												<div class="progress mb-2">
+													<div
+														class="progress-bar bg-secondary progress-bar-striped progress-bar-animated"
+														role="progressbar" style="width: 25%" aria-valuenow="25"
+														aria-valuemin="0" aria-valuemax="100">25%</div>
+												</div>
+												<div class="au-progress">
+													<span class="au-progress__title">Project Planning</span>
+													<div class="progress mb-2">
+														<div
+															class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
+															role="progressbar" style="width: 50%" aria-valuenow="50"
+															aria-valuemin="0" aria-valuemax="100">50%</div>
+													</div>
+												</div>
+												<div class="au-progress">
+													<span class="au-progress__title">Project Execution</span>
+													<div class="progress mb-2">
+														<div
+															class="progress-bar bg-info progress-bar-striped progress-bar-animated"
+															role="progressbar" style="width: 75%" aria-valuenow="75"
+															aria-valuemin="0" aria-valuemax="100">75%</div>
+													</div>
+												</div>
+												<div class="au-progress">
+													<span class="au-progress__title">Project Monitoring
+														and Control</span>
+													<div class="progress mb-2">
+														<div
+															class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+															role="progressbar" style="width: 90%" aria-valuenow="90"
+															aria-valuemin="0" aria-valuemax="100">90%</div>
+													</div>
+												</div>
+												<div class="au-progress">
+													<span class="au-progress__title">Project Closure</span>
+													<div class="progress mb-2">
+														<div
+															class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+															role="progressbar" style="width: 100%"
+															aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+													</div>
+												</div>
+											</div>
 										</div>
-										</div>
+
 									</div>
+									<!-- END TASK PROGRESS-->
+
+
 								</div>
-								
+
 							</div>
-							<!-- END TASK PROGRESS-->
-					
-							
 						</div>
-				
-					</div>
-				</div>
 			</section>
 			<!-- END STATISTIC-->
 
@@ -209,22 +224,21 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xl-8"></div>
-							<div class="col-xl-4">
-					
-							</div>
+							<div class="col-xl-4"></div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-		
+
 
 			<section>
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="copyright">
-								<p>Copyright © 2019 Wmes. All rights reserved. Template by Wmes Team</p>
+								<p>Copyright © 2019 Wmes. All rights reserved. Template by
+									Wmes Team</p>
 							</div>
 						</div>
 					</div>

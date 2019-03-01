@@ -78,7 +78,7 @@
 					<ul class="list-unstyled navbar__list">
 						<li><a href="/Home/homeBO"> <i class="fas fa-chart-bar"></i>Dashboard
 						</a></li>
-						
+
 						<li><a href="/Client/clientManagement"> <i
 								class="fas fa-user"></i>Clients
 						</a></li>
@@ -86,19 +86,19 @@
 								class="fas fa-user"></i>Resources
 						</a></li>
 						<li><a href="/Order/orderManagement"> <i
-								class="fas fa-boxes"></i>Orders 
+								class="fas fa-boxes"></i>Orders
 						</a></li>
 						<li><a href="/Project/projectManagement"> <i
-								class="fas fa-sitemap"></i>Projects 
+								class="fas fa-sitemap"></i>Projects
 						</a></li>
-						<li><a href="/ProjectTemplate/projectTemplateManagement"> <i
-								class="fas fa-chart-pie"></i>Project Templates 
+						<li><a href="/ProjectTemplate/projectTemplateManagement">
+								<i class="fas fa-chart-pie"></i>Project Templates
 						</a></li>
 						<li><a href="/Task/taskManagement"> <i
-								class="fas fa-tasks"></i>Tasks  
+								class="fas fa-tasks"></i>Tasks
 						</a></li>
-						
-                    </ul>
+
+					</ul>
 				</nav>
 			</div>
 		</aside>
@@ -110,14 +110,14 @@
 			<header class="header-desktop2">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-					
-							<div class="logo d-block d-lg-none">
-								<a href="#"> <img src="/images/icon/wmeslogo2.png"
-									alt="CoolAdmin" />
-								</a>
-							</div>
-							
-								
+
+						<div class="logo d-block d-lg-none">
+							<a href="#"> <img src="/images/icon/wmeslogo2.png"
+								alt="CoolAdmin" />
+							</a>
+						</div>
+
+
 					</div>
 				</div>
 			</header>
@@ -134,8 +134,8 @@
 									<div class="au-breadcrumb-left">
 										<span class="au-breadcrumb-span">You are here:</span>
 										<ul class="list-unstyled list-inline au-breadcrumb__list">
-											<li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a>
-											</li>
+											<li class="list-inline-item active"><a
+												href="/Home/homeBO">Dashboard</a></li>
 											<li class="list-inline-item seprate"><span>/</span></li>
 											<li class="list-inline-item">Client Management</li>
 										</ul>
@@ -156,58 +156,61 @@
 							<div class="col-lg-12">
 
 								<!-- CLIENT TABLE -->
-                                <h3 class="title-5 m-b-35">client table</h3>
-                                
-                                    <div class="table-data__tool-right">
-                                        <a href="/Client/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>ADD CLIENT
-                                            </a>
-                                
-                                <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
-                                        <thead>
-                                            <tr>
-                                              
-                                                <th>Client Name</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                           
-                                           
- 										<%										
- 											for (ClientDTO client : allClient) {
-												%> 
-                                                                                      
-                                            <tr class="tr-shadow">
-                                                                                             
-                                                 <td><%=client.getClientName()%></td>
-                                                                                             
-                                                <td>
-                                                 
-                                                    <div class="table-data-feature">
-                                                       
-                                                        <a href="/Client/updateRedirect?id=<%=client.getClientId()%>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </a>
-                                                        <a href="/Client/delete?id=<%=client.getClientId()%>" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </a>
-                                                        
-                                               
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            												<%
+								<h3 class="title-5 m-b-35">client table</h3>
+
+								<div class="table-data__tool-right">
+									<a href="/Client/insertRedirect"
+										class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
+										class="zmdi zmdi-plus"></i>ADD CLIENT
+									</a>
+
+									<div class="table-responsive table-responsive-data2">
+										<table class="table table-data2">
+											<thead>
+												<tr>
+
+													<th>Client Name</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+
+
+												<%
+													for (ClientDTO client : allClient) {
+												%>
+
+												<tr class="tr-shadow">
+
+													<td><%=client.getClientName()%></td>
+
+													<td>
+
+														<div class="table-data-feature">
+
+															<a
+																href="/Client/updateRedirect?id=<%=client.getClientId()%>"
+																class="item" data-toggle="tooltip" data-placement="top"
+																title="Edit"> <i class="zmdi zmdi-edit"></i>
+															</a> <a href="/Client/delete?id=<%=client.getClientId()%>"
+																class="item" data-toggle="tooltip" data-placement="top"
+																title="Delete"> <i class="zmdi zmdi-delete"></i>
+															</a>
+
+
+														</div>
+													</td>
+												</tr>
+												<%
 													}
 												%>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- END USER TABLE -->
-							</div>
+											</tbody>
+										</table>
+									</div>
+									<!-- END USER TABLE -->
+								</div>
 
-							<!--  <div class="col-4">
+								<!--  <div class="col-4">
 
 								<div class="row">
 									<div class="col-md-6 col-lg-12">
@@ -225,10 +228,10 @@
 
 							</div>-->
 
-						</div>
+							</div>
 
+						</div>
 					</div>
-				</div>
 			</section>
 			<!-- END STATISTIC-->
 
@@ -248,9 +251,7 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xl-6"></div>
-							<div class="col-xl-6">
-								
-							</div>
+							<div class="col-xl-6"></div>
 						</div>
 					</div>
 				</div>
@@ -261,7 +262,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="copyright">
-								<p>Copyright © 2019 Wmes. All rights reserved. Template by Wmes Team</p>
+								<p>Copyright © 2019 Wmes. All rights reserved. Template by
+									Wmes Team</p>
 							</div>
 						</div>
 					</div>
@@ -308,4 +310,5 @@
 </body>
 
 </html>
-<!-- end document--><!-- end document-->
+<!-- end document-->
+<!-- end document-->
