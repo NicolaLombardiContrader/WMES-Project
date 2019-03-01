@@ -61,7 +61,7 @@ public class ProjectTemplateService {
 	
 	public List<TaskDTO> findTaskDTOByUser(UserDTO userDTO) {
 		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
-		taskService.findTaskDTOByUser(ConverterUser.toEntity(userDTO));
+		taskList = taskService.findTaskDTOByUser(ConverterUser.toEntity(userDTO));
 		return taskList;
 	}
 
