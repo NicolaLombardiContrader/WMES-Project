@@ -2175,7 +2175,7 @@ section {
     -moz-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    border-bottom: 1px  solid #f2f2f2;
+    border-bottom: 1px  solid #dc3545;
 }
 
 .account2 .name {
@@ -2237,7 +2237,7 @@ section {
 }
 
 .navbar-sidebar2 .navbar__list li:hover > a {
-    color: #4272d7;
+    color: #dc3545;
 }
 
 .navbar-sidebar2 .navbar__list li a {
