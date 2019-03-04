@@ -169,7 +169,7 @@
 														aria-valuemin="0" aria-valuemax="100">25%</div>
 												</div>
 												<div class="au-progress">
-													<span class="au-progress__title">Project Planning</span>
+													<span class="au-progress__title">Project 1</span>
 													<div class="progress mb-2">
 														<div
 															class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
@@ -178,7 +178,7 @@
 													</div>
 												</div>
 												<div class="au-progress">
-													<span class="au-progress__title">Project Execution</span>
+													<span class="au-progress__title">Project 2</span>
 													<div class="progress mb-2">
 														<div
 															class="progress-bar bg-info progress-bar-striped progress-bar-animated"
@@ -187,8 +187,7 @@
 													</div>
 												</div>
 												<div class="au-progress">
-													<span class="au-progress__title">Project Monitoring
-														and Control</span>
+													<span class="au-progress__title">Project 3</span>
 													<div class="progress mb-2">
 														<div
 															class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
@@ -197,7 +196,7 @@
 													</div>
 												</div>
 												<div class="au-progress">
-													<span class="au-progress__title">Project Closure</span>
+													<span class="au-progress__title">Project 4</span>
 													<div class="progress mb-2">
 														<div
 															class="progress-bar bg-success progress-bar-striped progress-bar-animated"
