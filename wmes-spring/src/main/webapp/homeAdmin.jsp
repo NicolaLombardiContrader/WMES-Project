@@ -205,7 +205,7 @@
 							</div>
 
 							<div class="col-4">
-
+                    
 								<div class="row">
 									<div class="col-md-6 col-lg-12">
 										<div class="statistic__item">
