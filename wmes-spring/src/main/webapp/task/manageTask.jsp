@@ -121,13 +121,6 @@
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
 
-						<div class="logo d-block d-lg-none">
-							<a href="#"> <img src="/images/icon/wmeslogo2.png"
-								alt="CoolAdmin" />
-							</a>
-						</div>
-
-
 					</div>
 				</div>
 			</header>
@@ -183,7 +176,7 @@
 													<th>Output</th>
 													<th>Resource</th>
 													<th>Time</th>
-													<th>State</th>
+													<th>Status</th>
 													<th></th>
 												</tr>
 											</thead>

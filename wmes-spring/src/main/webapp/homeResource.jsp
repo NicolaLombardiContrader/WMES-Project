@@ -110,9 +110,7 @@
 					<div class="container-fluid">
 
 						<div class="logo d-block d-lg-none">
-							<a href="#"> <img src="/images/icon/wmeslogo2.png"
-								alt="CoolAdmin" />
-							</a>
+							
 						</div>
 
 

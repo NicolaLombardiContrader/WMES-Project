@@ -99,11 +99,6 @@
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
 
-						<div class="logo d-block d-lg-none">
-							<a href="#"> <img src="/images/icon/wmeslogo2.png" alt="Wmes" />
-							</a>
-						</div>
-
 					</div>
 				</div>
 			</header>

@@ -107,12 +107,6 @@
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
 
-						<div class="logo d-block d-lg-none">
-							<a href="#"> <img src="/images/icon/wmeslogo2.png" alt="Wmes" />
-							</a>
-						</div>
-
-
 					</div>
 				</div>
 			</header>
@@ -216,6 +210,7 @@
 													<div class="progress mb-2">
 														<div
 															class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+										
 															role="progressbar" style="width: 100%"
 															aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
 													</div>
