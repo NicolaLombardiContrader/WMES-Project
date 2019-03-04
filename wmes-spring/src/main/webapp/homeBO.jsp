@@ -1,5 +1,7 @@
 <%@ include file="header.jsp"%>
-
+<%
+	List<ProjectDTO> allProject = (List<ProjectDTO>) request.getAttribute("allProjectDTO");
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -166,14 +168,22 @@
 												</select>
 												<div class="dropDownSelect2"></div>
 											</div>
+											
+											<%
+											for (ProjectDTO project : allProject) {
+											%>
+										    
 											<div class="au-progress">
-												<span class="au-progress__title">Project 1</span>
+												<span class="au-progress__title"><%=project.getProjectName()%></span>
 												<div class="progress mb-2">
 													<div
 														class="progress-bar bg-secondary progress-bar-striped progress-bar-animated"
 														role="progressbar" style="width: 25%" aria-valuenow="25"
 														aria-valuemin="0" aria-valuemax="100">25%</div>
 												</div>
+												<%
+											}
+											    %>
 												<div class="au-progress">
 													<span class="au-progress__title">Project 2</span>
 													<div class="progress mb-2">
