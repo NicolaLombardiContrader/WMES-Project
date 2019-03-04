@@ -157,6 +157,12 @@
 													<option selected="selected">Projects</option>
 													<option value="">Project 1</option>
 													<option value="">Project 2</option>
+													<option value="">Project 3</option>
+													<option value="">Project 4</option>
+													<option value="">Project 5</option>
+													<option value="">Project 6</option>
+													<option value="">Project 7</option>
+													<option value="">Project 8</option>
 												</select>
 												<div class="dropDownSelect2"></div>
 											</div>
