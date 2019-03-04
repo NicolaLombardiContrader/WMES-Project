@@ -1,5 +1,13 @@
 <%@ include file="header.jsp"%>
-
+<%
+	List<UserDTO> allUser = (List<UserDTO>) request.getAttribute("allUserDTO");
+%>
+<%!private String convertUserType(String userType) {
+		if (userType.equals("admin"))
+			return "<span class=\"role admin\">Admin</span>";
+		else
+			return "<span class=\"role user\">Business Owner</span>";
+	}%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -168,15 +176,15 @@
 												</tr>
 											</thead>
 											<tbody>
+											<%for (UserDTO userDTO: allUser) { %>
 												<tr>
-
 													<td>
 														<div class="table-data__info">
-															<h6>Nicola</h6>
+															<h6><%=userDTO.getUserUser() %></h6>
 
 														</div>
 													</td>
-													<td><span class="role admin">admin</span></td>
+													<td><%=convertUserType(userDTO.getUserType()) %></td>
 													<td>
 														<div class="rs-select2--trans rs-select2--sm">
 															<select class="js-select2" name="property">
@@ -189,111 +197,8 @@
 													</td>
 
 												</tr>
-												<tr>
-
-													<td>
-														<div class="table-data__info">
-															<h6>Antonio</h6>
-
-														</div>
-													</td>
-													<td><span class="role admin">admin</span></td>
-													<td>
-														<div class="rs-select2--trans rs-select2--sm">
-															<select class="js-select2" name="property">
-																<option selected="selected">Full Control</option>
-																<option value="">Post</option>
-																<option value="">Watch</option>
-															</select>
-															<div class="dropDownSelect2"></div>
-														</div>
-													</td>
-
-												</tr>
-												<tr>
-
-													<td>
-														<div class="table-data__info">
-															<h6>Emilia</h6>
-
-														</div>
-													</td>
-													<td><span class="role admin">admin</span></td>
-													<td>
-														<div class="rs-select2--trans rs-select2--sm">
-															<select class="js-select2" name="property">
-																<option selected="selected">Full Control</option>
-																<option value="">Post</option>
-																<option value="">Watch</option>
-															</select>
-															<div class="dropDownSelect2"></div>
-														</div>
-													</td>
-
-												</tr>
-												<tr>
-
-													<td>
-														<div class="table-data__info">
-															<h6>Teresa</h6>
-
-														</div>
-													</td>
-													<td><span class="role user">Business Owner</span></td>
-													<td>
-														<div class="rs-select2--trans rs-select2--sm">
-															<select class="js-select2" name="property">
-																<option value="">Full Control</option>
-																<option value="" selected="selected">Post</option>
-																<option value="">Watch</option>
-															</select>
-															<div class="dropDownSelect2"></div>
-														</div>
-													</td>
-
-												</tr>
-												<tr>
-
-													<td>
-														<div class="table-data__info">
-															<h6>Francesco</h6>
-
-														</div>
-													</td>
-													<td><span class="role user">Business Owner</span></td>
-													<td>
-														<div class="rs-select2--trans rs-select2--sm">
-															<select class="js-select2" name="property">
-																<option value="">Full Control</option>
-																<option value="" selected="selected">Post</option>
-																<option value="">Watch</option>
-															</select>
-															<div class="dropDownSelect2"></div>
-														</div>
-													</td>
-
-												</tr>
-												<tr>
-
-													<td>
-														<div class="table-data__info">
-															<h6>Artem</h6>
-
-														</div>
-													</td>
-													<td><span class="role user">Business Owner</span></td>
-													<td>
-														<div class="rs-select2--trans rs-select2--sm">
-															<select class="js-select2" name="property">
-																<option value="">Full Control</option>
-																<option value="" selected="selected">Post</option>
-																<option value="">Watch</option>
-															</select>
-															<div class="dropDownSelect2"></div>
-														</div>
-													</td>
-
-												</tr>
+												
+												<% } %>
 											</tbody>
 										</table>
 									</div>
@@ -309,7 +214,7 @@
 								<div class="row">
 									<div class="col-md-6 col-lg-12">
 										<div class="statistic__item">
-											<h2 class="number">6</h2>
+											<h2 class="number"><%=allUser.size() %></h2>
 											<span class="desc">Users</span>
 											<div class="icon">
 												<i class="zmdi zmdi-account-o"></i>

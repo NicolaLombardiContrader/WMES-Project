@@ -29,6 +29,9 @@ public class HomeController {
 	private final TaskService taskService;
 	private final ResourceService resourceService;
 	
+	@Autowired
+	private ProjectService projectService;
+	
 	/*
 	private final ClientService clientService;
 	private final OrderService orderService;
@@ -60,19 +63,19 @@ public class HomeController {
 
 	
 	@RequestMapping(value = "/homeAdmin", method = RequestMethod.GET)
-	public String userManagement(HttpServletRequest request) {
+	public String homeAdmin(HttpServletRequest request) {
 		List<UserDTO> allUser = this.userService.getListaUserDTO();
 		request.setAttribute("allUserDTO", allUser);
-		request.setAttribute("usersDTOCount", allUser.size());
 		return "homeAdmin";
 		//return "homeAdmin";
 	}
 
 	
 	@RequestMapping(value = "/homeBO", method = RequestMethod.GET)
-	public String homeBO(HttpServletRequest request) {
-		//List<ClientDTO> allClient = this.clientService.getListaClientDTO();
-		//request.setAttribute("allClientDTO", allClient);
+	public String homeBO(HttpServletRequest request, HttpSession session) {
+		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		List<ProjectDTO> allProject = this.projectService.findProjectDTOByUser(userLogged);
+		request.setAttribute("allProjectDTO", allProject);
 		//request.setAttribute("clientDTOCount", allClient.size());
 		return "homeBO";
 	}
