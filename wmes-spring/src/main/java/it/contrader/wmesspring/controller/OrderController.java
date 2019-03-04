@@ -23,6 +23,7 @@ public class OrderController {
 
 		private final OrderService orderService;
 		private final ClientService clientService;
+		@Autowired
 		private HttpSession session;
 
 
@@ -34,7 +35,8 @@ public class OrderController {
 		}
 	
 		private void visualOrder(HttpServletRequest request) {
-			List<OrderDTO> allOrder = this.orderService.getListOrderDTO();
+			UserDTO userDTO = (UserDTO) session.getAttribute("utente");
+			List<OrderDTO> allOrder = this.orderService.findOrderDTOByUser(userDTO);
 			request.setAttribute("allOrderDTO", allOrder);
 		}
 

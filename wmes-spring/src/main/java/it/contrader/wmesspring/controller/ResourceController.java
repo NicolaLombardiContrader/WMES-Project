@@ -23,6 +23,7 @@ import java.util.List;
 public class ResourceController {
 
 	private final ResourceService resourceService;
+	@Autowired
 	private HttpSession session;
 
 	@Autowired
@@ -37,7 +38,8 @@ public class ResourceController {
 	}
 
 	private void visualResource(HttpServletRequest request) {
-		List<ResourceDTO> allResource = this.resourceService.getListaResourceDTO();
+		UserDTO userDTO = (UserDTO) session.getAttribute("utente");
+		List<ResourceDTO> allResource = this.resourceService.findResourceDTOByUser(userDTO);
 		request.setAttribute("allResourceDTO", allResource);
 	}
 

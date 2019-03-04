@@ -23,6 +23,8 @@ public class TaskController {
 
 	private final TaskService taskService;
 	private final ResourceService resourceService;
+	
+	@Autowired
 	private HttpSession session;
 
 	@Autowired
@@ -32,7 +34,8 @@ public class TaskController {
 	}
 
 	private void visualTask(HttpServletRequest request) {
-		List<TaskDTO> allTask = this.taskService.getListaTaskDTO();
+		UserDTO userDTO = (UserDTO) session.getAttribute("utente");
+		List<TaskDTO> allTask = this.taskService.getListaTaskDTOByUser(userDTO);
 		request.setAttribute("allTaskDTO", allTask);
 	}
 

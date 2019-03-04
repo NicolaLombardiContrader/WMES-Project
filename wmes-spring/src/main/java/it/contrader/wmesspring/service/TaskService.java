@@ -32,7 +32,11 @@ public class TaskService {
 	public TaskDTO getTaskDTOById(Integer id) {
 		return ConverterTask.toDTO(taskRepository.findById(id).get());
 	}
-
+	
+	public List<TaskDTO> getListaTaskDTOByUser(UserDTO user) {
+		return ConverterTask.toListDTO((List<Task>) taskRepository.findAllByUser(ConverterUser.toEntity(user)));
+	}
+	
 	//public UserDTO getByUsernameAndPassword(String username, String password) {
 
 		//final User user = userRepository.findUserByUserUserAndUserPass(username, password);

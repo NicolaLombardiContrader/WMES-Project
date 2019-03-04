@@ -20,6 +20,7 @@ import it.contrader.wmesspring.service.ProjectService;
 public class ProjectController {
 
 	private final ProjectService projectService;
+	@Autowired
 	private HttpSession session;
 
 	@Autowired
@@ -28,7 +29,8 @@ public class ProjectController {
 	}
 
 	private void visualProject(HttpServletRequest request) {
-		List<ProjectDTO> allProject = this.projectService.getListProjectDTO();
+		UserDTO userDTO = (UserDTO) session.getAttribute("utente");
+		List<ProjectDTO> allProject = this.projectService.findProjectDTOByUser(userDTO);
 		request.setAttribute("allProjectDTO", allProject);
 	}
 

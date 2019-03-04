@@ -27,6 +27,8 @@ import it.contrader.wmesspring.service.TaskService;
 public class ProjectTemplateController {
 
 	private final ProjectTemplateService projectTemplateService;
+	
+	@Autowired
 	private HttpSession session;
 
 	@Autowired
@@ -41,7 +43,8 @@ public class ProjectTemplateController {
 	}
 
 	private void visualProjectTemplate(HttpServletRequest request) {
-		List<ProjectTemplateDTO> allProjectTemplate = this.projectTemplateService.getListaProjectTemplateDTO();
+		UserDTO userDTO = (UserDTO) session.getAttribute("utente");
+		List<ProjectTemplateDTO> allProjectTemplate = this.projectTemplateService.findProjectTemplateDTOByUser(userDTO);
 		request.setAttribute("allProjectTemplateDTO", allProjectTemplate);
 	}
 

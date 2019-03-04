@@ -21,6 +21,8 @@ import java.util.List;
 public class ClientController {
 
 	private final ClientService clientService;
+	
+	@Autowired
 	private HttpSession session;
 	
 	@Autowired
@@ -29,7 +31,8 @@ public class ClientController {
 	}
 
 	private void visualClient(HttpServletRequest request) {
-		List<ClientDTO> allClient = this.clientService.getListaClientDTO();
+		UserDTO userDTO = (UserDTO) this.session.getAttribute("utente");
+		List<ClientDTO> allClient = this.clientService.findClientDTOByUser(userDTO);
 		request.setAttribute("allClientDTO", allClient);
 	}
 
