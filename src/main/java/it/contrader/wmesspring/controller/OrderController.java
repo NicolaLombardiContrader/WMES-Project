@@ -114,7 +114,7 @@ public class OrderController {
 			order.setClientDTO(clientId);
 			orderService.updateOrder(order);
 //			visualOrder(request);
-			
+			 
 			
 			return  this.orderService.getListOrderDTO();
 		}
