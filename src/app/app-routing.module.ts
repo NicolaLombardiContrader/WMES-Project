@@ -40,7 +40,7 @@ const routes: Routes = [
 
 @NgModule({
     exports: [RouterModule],
-    imports: [RouterModule.forRoot(routes, { useHash: true, onSameUrlNavigation: 'reload', enableTracing: true })],
+    imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', enableTracing: true })],
     declarations: []
 })
 export class AppRoutingModule {
