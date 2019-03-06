@@ -11,7 +11,7 @@ import it.contrader.wmesspring.dto.ProjectDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ProjectService;
 
-@RestController
+@RestController 
 @RequestMapping("/Project")
 public class ProjectController {
 
