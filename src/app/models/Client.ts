@@ -13,6 +13,6 @@ export class Client {
         this.user = user;
         this.orders = orders;
 
-    }
+    } 
 
 }
