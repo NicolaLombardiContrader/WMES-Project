@@ -1,19 +1,13 @@
 package it.contrader.wmesspring.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.wmesspring.dto.ProjectDTO;
-import it.contrader.wmesspring.dto.ProjectTemplateDTO;
-import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ProjectService;
 
@@ -22,9 +16,6 @@ import it.contrader.wmesspring.service.ProjectService;
 public class ProjectController {
 
 	private final ProjectService projectService;
-	@Autowired
-	private HttpSession session;
-
 	@Autowired
 	public ProjectController(ProjectService projectService) {
 		this.projectService = projectService;
