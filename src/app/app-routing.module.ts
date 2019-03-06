@@ -16,6 +16,19 @@ import { ClientUpdateComponent } from './components/client/client-update/client-
 import { OrderManagementComponent } from './components/order/order-management/order-management.component';
 import { OrderInsertComponent } from './components/order/order-insert/order-insert.component';
 import { OrderUpdateComponent } from './components/order/order-update/order-update.component';
+import { ProjectManagementComponent } from './components/project/project-management/project-management.component';
+import { ProjectInsertComponent } from './components/project/project-insert/project-insert.component';
+import { ProjectUpdateComponent } from './components/project/project-update/project-update.component';
+// tslint:disable-next-line:max-line-length
+import { ProjectTemplateManagementComponent } from './components/project-template/project-template-management/project-template-management.component';
+import { ProjectTemplateInsertComponent } from './components/project-template/project-template-insert/project-template-insert.component';
+import { ProjectTemplateUpdateComponent } from './components/project-template/project-template-update/project-template-update.component';
+import { ResourceManagementComponent } from './components/resource/resource-management/resource-management.component';
+import { ResourceInsertComponent } from './components/resource/resource-insert/resource-insert.component';
+import { ResourceUpdateComponent } from './components/resource/resource-update/resource-update.component';
+import { TaskManagementComponent } from './components/task/task-management/task-management.component';
+import { TaskInsertComponent } from './components/task/task-insert/task-insert.component';
+import { TaskUpdateComponent } from './components/task/task-update/task-update.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -35,6 +48,22 @@ const routes: Routes = [
     { path: 'Order/orderManagement', component: OrderManagementComponent },
     { path: 'Order/insert', component: OrderInsertComponent },
     { path: 'Order/update', component: OrderUpdateComponent },
+    /** Project */
+    { path: 'Project/projectManagement', component: ProjectManagementComponent },
+    { path: 'Project/insert', component: ProjectInsertComponent },
+    { path: 'Project/update', component: ProjectUpdateComponent },
+    /** ProjectTemplate */
+    { path: 'ProjectTemplate/projectTemplateManagement', component: ProjectTemplateManagementComponent },
+    { path: 'ProjectTemplate/insert', component: ProjectTemplateInsertComponent },
+    { path: 'ProjectTemplate/update', component: ProjectTemplateUpdateComponent },
+      /** Resource */
+    { path: 'Resource/resourceTemplateManagement', component: ResourceManagementComponent },
+    { path: 'Resource/insert', component: ResourceInsertComponent },
+    { path: 'Resource/update', component: ResourceUpdateComponent },
+      /** Task */
+    { path: 'Task/taskTemplateManagement', component: TaskManagementComponent },
+    { path: 'Task/insert', component: TaskInsertComponent },
+    { path: 'Task/update', component: TaskUpdateComponent }
 ];
 
 
