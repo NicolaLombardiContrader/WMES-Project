@@ -62,6 +62,7 @@ import { TaskUpdateComponent } from './components/task/task-update/task-update.c
 import { ItemManagementComponent } from './components/item/item-management/item-management.component';
 import { ItemUpdateComponent } from './components/item/item-update/item-update.component';
 import { ItemInsertComponent } from './components/item/item-insert/item-insert.component';
+import { TaskUpdateResourceComponent } from './components/task/task-update-resource/task-update-resource.component';
 
 
 
@@ -100,7 +101,8 @@ import { ItemInsertComponent } from './components/item/item-insert/item-insert.c
     TaskUpdateComponent,
     ItemManagementComponent,
     ItemUpdateComponent,
-    ItemInsertComponent
+    ItemInsertComponent,
+    TaskUpdateResourceComponent
   ],
   imports: [
     BrowserModule,
