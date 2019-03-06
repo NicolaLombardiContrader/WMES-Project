@@ -37,6 +37,32 @@ import { OrderManagementComponent } from './components/order/order-management/or
 import { OrderInsertComponent } from './components/order/order-insert/order-insert.component';
 import { OrderUpdateComponent } from './components/order/order-update/order-update.component';
 
+/** Project */
+import { ProjectManagementComponent } from './components/project/project-management/project-management.component';
+import { ProjectInsertComponent } from './components/project/project-insert/project-insert.component';
+import { ProjectUpdateComponent } from './components/project/project-update/project-update.component';
+
+/** ProjectTemplate */
+// tslint:disable-next-line:max-line-length
+import { ProjectTemplateManagementComponent } from './components/project-template/project-template-management/project-template-management.component';
+import { ProjectTemplateInsertComponent } from './components/project-template/project-template-insert/project-template-insert.component';
+import { ProjectTemplateUpdateComponent } from './components/project-template/project-template-update/project-template-update.component';
+
+/** Resource */
+import { ResourceManagementComponent } from './components/resource/resource-management/resource-management.component';
+import { ResourceInsertComponent } from './components/resource/resource-insert/resource-insert.component';
+import { ResourceUpdateComponent } from './components/resource/resource-update/resource-update.component';
+
+/** Task */
+import { TaskManagementComponent } from './components/task/task-management/task-management.component';
+import { TaskInsertComponent } from './components/task/task-insert/task-insert.component';
+import { TaskUpdateComponent } from './components/task/task-update/task-update.component';
+
+/** Item */
+import { ItemManagementComponent } from './components/item/item-management/item-management.component';
+import { ItemUpdateComponent } from './components/item/item-update/item-update.component';
+import { ItemInsertComponent } from './components/item/item-insert/item-insert.component';
+
 
 
 @NgModule({
@@ -59,7 +85,22 @@ import { OrderUpdateComponent } from './components/order/order-update/order-upda
     ClientUpdateComponent,
     OrderManagementComponent,
     OrderInsertComponent,
-    OrderUpdateComponent
+    OrderUpdateComponent,
+    ProjectManagementComponent,
+    ProjectInsertComponent,
+    ProjectUpdateComponent,
+    ProjectTemplateManagementComponent,
+    ProjectTemplateInsertComponent,
+    ProjectTemplateUpdateComponent,
+    ResourceManagementComponent,
+    ResourceInsertComponent,
+    ResourceUpdateComponent,
+    TaskManagementComponent,
+    TaskInsertComponent,
+    TaskUpdateComponent,
+    ItemManagementComponent,
+    ItemUpdateComponent,
+    ItemInsertComponent
   ],
   imports: [
     BrowserModule,
