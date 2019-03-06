@@ -1,8 +1,6 @@
 package it.contrader.wmesspring.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -105,7 +103,8 @@ public class UserController {
 	// TODO da modificare nella view ruolo con usertype
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public List<UserDTO> insert(@RequestParam(value = "user_user") String username,
-			@RequestParam(value = "user_pass") String password, @RequestParam(value = "user_type") String userType) {
+			@RequestParam(value = "user_pass") String password,
+			@RequestParam(value = "user_type") String userType) {
 		// String username = request.getParameter("user_user").toString();
 		// String password = request.getParameter("user_pass").toString();
 		// String userType = request.getParameter("user_type").toString();
