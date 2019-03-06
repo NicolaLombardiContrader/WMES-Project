@@ -114,7 +114,7 @@ public class ProjectTemplateController {
 		
 		ProjectTemplateDTO projectTemplate = projectTemplateService.getProjectTemplateDTOById(projectTemplateId);
 		 
-		
+	
 		ProjectDTO projectDTO = new ProjectDTO();
 		projectDTO.setProjectName(projectTemplate.getProjectName() + "_fromTP");
 		projectDTO.setProjectStatus(0);
