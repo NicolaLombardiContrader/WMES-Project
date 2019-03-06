@@ -1,3 +1,98 @@
-<p>
-  order-insert works!
-</p>
+<app-sidebar-bo></app-sidebar-bo>
+
+<!-- PAGE CONTAINER-->
+<div class="page-container2">
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop2">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+
+                <div class="logo d-block d-lg-none">
+                    <a href="#"> <img src="/images/icon/wmeslogo2.png" alt="CoolAdmin" />
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </header>
+
+    <!-- END HEADER DESKTOP-->
+
+    <!-- BREADCRUMB-->
+    <section class="au-breadcrumb m-t-75">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="au-breadcrumb-content">
+                            <div class="au-breadcrumb-left">
+                                <span class="au-breadcrumb-span">You are here:</span>
+                                <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                    <li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Insert Order</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END BREADCRUMB-->
+    <section>
+        <div class="col-lg-6 center-block">
+            <div class="card">
+                <div class="card-header">NEW ORDER</div>
+                <div class="card-body card-block">
+                    <form action="/Order/insert" method="post" class="">
+                        <div class="form-group">
+                            <label>Description</label> <input class="au-input au-input--full" type="text" name="order_description"
+                                placeholder="Description">
+                        </div>
+                        <div class="form-group">
+                            <label>Client Name</label> <select class="form-control" name="client_id">
+                                <!--<%
+											for (ClientDTO clientDTO : clientList) {
+										%>-->
+                                <option value="<%=clientDTO.getClientId()%>">
+                                    <!--<%=clientDTO.getClientName()%>-->
+                                </option>
+                                <!--<%
+											}
+										%>-->
+                            </select>
+                        </div>
+                        <div class="form-actions form-group">
+                            <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-8"></div>
+                    <div class="col-xl-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6"></div>
+                    <div class="col-xl-6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <app-footer></app-footer>
+    <!-- END PAGE CONTAINER-->
+</div>

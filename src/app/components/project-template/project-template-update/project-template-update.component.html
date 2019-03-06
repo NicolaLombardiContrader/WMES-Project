@@ -1,3 +1,109 @@
-<p>
-  project-template-update works!
-</p>
+<app-sidebar-bo></app-sidebar-bo>
+<!-- PAGE CONTAINER-->
+<div class="page-container2">
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop2">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+
+            </div>
+        </div>
+    </header>
+
+    <!-- END HEADER DESKTOP-->
+
+    <!-- BREADCRUMB-->
+    <section class="au-breadcrumb m-t-75">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="au-breadcrumb-content">
+                            <div class="au-breadcrumb-left">
+                                <span class="au-breadcrumb-span">You are here:</span>
+                                <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                    <li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Edit Template</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END BREADCRUMB-->
+
+    <section>
+        <div class="col-lg-6 center-block">
+            <div class="card">
+                <div class="card-header">EDIT TEMPLATE</div>
+                <div class="card-body card-block">
+                    <form action="/ProjectTemplate/update" method="post">
+                        <input type="hidden" name="project_id" value="<%=updateProjectTemplate.getProjectId()%>" />
+                        <div class="form-group">
+                            <label>Name</label> <input class="au-input au-input--full" type="text" name="project_name"
+                                placeholder="Name" value="<%=updateProjectTemplate.getProjectName()%>">
+                        </div>
+                        <div class="form-group">
+                            <label>Task list</label> <br /> <select class="custom-select" name="taskList" multiple="multiple">
+                                <!--	<%
+											boolean selected = false;
+											for (TaskDTO taskDTO : taskList) {
+												selected = false;
+												for (TaskDTO TaskDTOProjectTemplate : updateProjectTemplate.getTasksDTO()) {
+
+													if (taskDTO.getTaskId() == TaskDTOProjectTemplate.getTaskId()) {
+														selected = true;
+										%>-->
+                                <option selected="selected" value="<%=taskDTO.getTaskId()%>" <!-->
+                                    <%=taskDTO.getTaskDescription()%>--></option>
+                                <!--	<%
+											}
+												}
+
+												if (!selected) {
+										%>-->
+
+                                <option value="<%=taskDTO.getTaskId()%>">
+                                    <!--<%=taskDTO.getTaskDescription()%>-->
+                                </option>
+                                <!--	<%
+											}
+											}
+										%>-->
+                            </select>
+                        </div>
+                        <div class="login-checkbox"></div>
+                        <button type="submit" class="btn btn-secondary btn-sm">Update</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-8"></div>
+                    <div class="col-xl-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6"></div>
+                    <div class="col-xl-6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <app-footer></app-footer>
+    <!-- END PAGE CONTAINER-->
+</div>
