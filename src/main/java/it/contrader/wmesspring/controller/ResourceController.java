@@ -4,31 +4,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.wmesspring.dto.ResourceDTO;
 import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ResourceService;
 import it.contrader.wmesspring.service.TaskService;
-import it.contrader.wmesspring.service.UserService;
-
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/Resource")
 public class ResourceController {
 
 	private final ResourceService resourceService;
-	
-	@Autowired
-	private HttpSession session;
 
 	@Autowired
-	private UserService userService;
+	private HttpSession session;
 
 	@Autowired
 	private TaskService taskService;
@@ -38,40 +34,54 @@ public class ResourceController {
 		this.resourceService = resourceService;
 	}
 
-	private void visualResource(HttpServletRequest request) {
-		UserDTO userDTO = (UserDTO) session.getAttribute("utente");
-		List<ResourceDTO> allResource = this.resourceService.findResourceDTOByUser(userDTO);
-		request.setAttribute("allResourceDTO", allResource);
-	}
+	/*
+	 * private void visualResource(HttpServletRequest request) { UserDTO userDTO =
+	 * (UserDTO) session.getAttribute("utente"); List<ResourceDTO> allResource =
+	 * this.resourceService.findResourceDTOByUser(userDTO);
+	 * request.setAttribute("allResourceDTO", allResource); }
+	 */
 
 	@RequestMapping(value = "/resourceManagement", method = RequestMethod.GET)
-	public String resourceManagement(HttpServletRequest request) {
-		visualResource(request);
-		return "resource/manageResource";
+	public List<ResourceDTO> resourceManagement() {
+		return this.resourceService.getListaResourceDTO();
+		// public String resourceManagement(HttpServletRequest request) {
+		// visualResource(request);
+		// return "resource/manageResource";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String delete(HttpServletRequest request) {
-		int deleteResourceId = Integer.parseInt(request.getParameter("id"));
+	public void delete(@RequestParam(value = "id") int id) {
+		this.resourceService.deleteResourceById(id);
+		// public String delete(HttpServletRequest request) {
+		// int deleteResourceId = Integer.parseInt(request.getParameter("id"));
 		// request.setAttribute("id", Id);
-		this.resourceService.deleteResourceById(deleteResourceId);
-		visualResource(request);
-		return "resource/manageResource";
+		// this.resourceService.deleteResourceById(deleteResourceId);
+		// visualResource(request);
+		// return "resource/manageResource";
 
 	}
 
 	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insert(HttpServletRequest request) {
-		return "resource/insertResource";
+	public String insertRedirect() {
+		return " ";
+		// public String insert(HttpServletRequest request) {
+		// return "resource/insertResource";
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insert(HttpServletRequest request, HttpSession session) {
-		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+	public List<ResourceDTO> insert(@RequestParam(value = " utente") UserDTO userLogged,
+			@RequestParam(value = "resource_name") String resourceName,
+			@RequestParam(value = "resource_username") String resourceUsername,
+			@RequestParam(value = "resource_pass") String resourcePass,
+			@RequestParam(value = "resource_id") ResourceDTO resourceId) {
+		// public String insert(HttpServletRequest request, HttpSession session) {
+		// UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 
-		String resourceName = request.getParameter("resource_name");
-		String resourceUsername = request.getParameter("resource_username");
-		String resourcePass = request.getParameter("resource_pass");
+		/*
+		 * String resourceName = request.getParameter("resource_name"); String
+		 * resourceUsername = request.getParameter("resource_username"); String
+		 * resourcePass = request.getParameter("resource_pass");
+		 */
 
 		ResourceDTO resourceDTO = new ResourceDTO();
 		resourceDTO.setUserDTO(userLogged);
@@ -79,81 +89,117 @@ public class ResourceController {
 		resourceDTO.setResourceUsername(resourceUsername);
 		resourceDTO.setResourcePass(resourcePass);
 		resourceService.insertResource(resourceDTO);
-		visualResource(request);
+		return this.resourceService.getListaResourceDTO();
+		// visualResource(request);
 
-		return "resource/manageResource";
+		// return "resource/manageResource";
 	}
 
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
-	public String updateRedirect(HttpServletRequest request) {
-		int resourceUpdateId = Integer.parseInt(request.getParameter("id"));
+	public ResourceDTO updateRedirect(@RequestParam(value = "id") int id) {
 		ResourceDTO resourceUpdate = new ResourceDTO();
-
-		resourceUpdate = this.resourceService.getResourceDTOById(resourceUpdateId);
-		request.setAttribute("resourceUpdate", resourceUpdate);
-		return "resource/updateResource";
+		resourceUpdate = this.resourceService.getResourceDTOById(id);
+		return resourceUpdate;
 	}
+	/*
+	 * public String updateRedirect(HttpServletRequest request) { int
+	 * resourceUpdateId = Integer.parseInt(request.getParameter("id")); ResourceDTO
+	 * resourceUpdate = new ResourceDTO();
+	 * 
+	 * resourceUpdate = this.resourceService.getResourceDTOById(resourceUpdateId);
+	 * request.setAttribute("resourceUpdate", resourceUpdate); return
+	 * "resource/updateResource";
+	 */
+	// }
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(HttpServletRequest request, HttpSession session) {
+	public List<ResourceDTO> update(@RequestParam(value = "resource_id") int idUpdate,
+			@RequestParam(value = "utente") UserDTO userLogged,
+			@RequestParam(value = "resource_name") String nameUpdate,
+			@RequestParam(value = "resource_username") String usernameUpdate,
+			@RequestParam(value = "resource_pass") String passUpdate,
+			@RequestParam(value = "resource_id") ResourceDTO UpdateId) {
+		// public String update(HttpServletRequest request, HttpSession session) {
 
-		Integer resourceIdUpdate = Integer.parseInt(request.getParameter("resource_id"));
+		/*
+		 * Integer resourceIdUpdate =
+		 * Integer.parseInt(request.getParameter("resource_id"));
+		 * 
+		 * UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		 * 
+		 * String resourceName = request.getParameter("resource_name"); String
+		 * resourceUsername = request.getParameter("resource_username"); String
+		 * resourcePass = request.getParameter("resource_pass");
+		 */
 
-		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
+		ResourceDTO resource = new ResourceDTO();
+		resource.setResourceId(idUpdate);
+		resource.setUserDTO(userLogged);
+		resource.setResourceName(nameUpdate);
+		resource.setResourceUsername(usernameUpdate);
+		resource.setResourcePass(passUpdate);
+		// resource.setResourceDTO(resourceUpdateDTO);
 
-		String resourceName = request.getParameter("resource_name");
-		String resourceUsername = request.getParameter("resource_username");
-		String resourcePass = request.getParameter("resource_pass");
+		resourceService.updateResource(resource);
+		return this.resourceService.getListaResourceDTO();
+		/*
+		 * ResourceDTO resourceUpdateDTO = new ResourceDTO();
+		 * resourceUpdateDTO.setUserDTO(userLogged);
+		 * resourceUpdateDTO.setResourceName(resourceName);
+		 * resourceUpdateDTO.setResourceUsername(resourceUsername);
+		 * resourceUpdateDTO.setResourcePass(resourcePass);
+		 * resourceUpdateDTO.setResourceId(resourceIdUpdate);
+		 * resourceService.updateResource(resourceUpdateDTO); visualResource(request);
+		 */
 
-		ResourceDTO resourceUpdateDTO = new ResourceDTO();
-		resourceUpdateDTO.setUserDTO(userLogged);
-		resourceUpdateDTO.setResourceName(resourceName);
-		resourceUpdateDTO.setResourceUsername(resourceUsername);
-		resourceUpdateDTO.setResourcePass(resourcePass);
-		resourceUpdateDTO.setResourceId(resourceIdUpdate);
-		resourceService.updateResource(resourceUpdateDTO);
-		visualResource(request);
-
-		return "resource/manageResource";
+		// return "resource/manageResource";
 	}
 
 	// Resource Login
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(HttpServletRequest request) {
-
-		session = request.getSession();
-		final String resourceName = request.getParameter("resource_username");
-		final String resourcePass = request.getParameter("resource_pass");
-		final ResourceDTO resourceDTO = resourceService.findResourceByResourceUsernameAndResourcePass(resourceName,
-				resourcePass);
-
+	public ResourceDTO loginControl(@RequestParam(value = "resource_username") String username,
+			@RequestParam(value = " resource_pass") String pass) {
+		/*
+		 * //public String login(HttpServletRequest request) { //session =
+		 * request.getSession(); //final String resourceName =
+		 * request.getParameter("resource_username"); final String resourcePass =
+		 * request.getParameter("resource_pass"); final ResourceDTO resourceDTO =
+		 * resourceService.findResourceByResourceUsernameAndResourcePass(resourceName,
+		 * resourcePass);
+		 */
+		final ResourceDTO resourceDTO = resourceService.findResourceByResourceUsernameAndResourcePass(username, pass);
 		if (!StringUtils.isEmpty(resourceDTO)) {
-			final UserDTO userDTO = userService.getUserDTOById(resourceDTO.getUserDTO().getUserId());
-			session.setAttribute("resourceLogged", resourceDTO);
-			session.setAttribute("userLogged", userDTO);
-
-			/*
-			 * if (userType.equals("admin")) { return "home"; } else if
-			 * (userType.equals("bo")) { return "home"; }
-			 */
-			return "redirect:/Home/homeResource";
+			return resourceDTO;
 		}
+		return null;
+	}
 
-		return "indexResource";
+	/*
+	 * session.setAttribute("resourceLogged", resourceDTO);
+	 * session.setAttribute("userLogged", userDTO);
+	 * 
+	 * 
+	 * if (userType.equals("admin")) { return "home"; } else if
+	 * (userType.equals("bo")) { return "home"; }
+	 * 
+	 * // return "redirect:/Home/homeResource"; // }
+	 * 
+	 * // return "indexResource"; // }
+	 */
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public void logOut() {
+		/*
+		 * public String logOut(HttpServletRequest request) {
+		 * request.getSession().invalidate(); return "indexResource";
+		 */
 	}
 	
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logOut(HttpServletRequest request) {
-		request.getSession().invalidate();
-		return "indexResource";
-	}
-
 	@RequestMapping(value = "/updateTaskRedirect", method = RequestMethod.GET)
 	public String updateTaskRedirect(HttpServletRequest request) {
 		int taskUpdateId = Integer.parseInt(request.getParameter("id"));
 
 		ResourceDTO resourceDTO = (ResourceDTO) session.getAttribute("resourceLogged");
-		//UserDTO userLogged = (UserDTO) session.getAttribute("userLogged");
+		// UserDTO userLogged = (UserDTO) session.getAttribute("userLogged");
 
 		TaskDTO taskUpdate = new TaskDTO();
 		taskUpdate = taskService.getTaskDTOById(taskUpdateId);
