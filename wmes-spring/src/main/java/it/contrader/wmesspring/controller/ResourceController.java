@@ -23,6 +23,7 @@ import java.util.List;
 public class ResourceController {
 
 	private final ResourceService resourceService;
+	
 	@Autowired
 	private HttpSession session;
 
@@ -148,11 +149,11 @@ public class ResourceController {
 	}
 
 	@RequestMapping(value = "/updateTaskRedirect", method = RequestMethod.GET)
-	public String updateTaskRedirect(HttpServletRequest request, HttpSession session) {
+	public String updateTaskRedirect(HttpServletRequest request) {
 		int taskUpdateId = Integer.parseInt(request.getParameter("id"));
 
 		ResourceDTO resourceDTO = (ResourceDTO) session.getAttribute("resourceLogged");
-		UserDTO userLogged = (UserDTO) session.getAttribute("userLogged");
+		//UserDTO userLogged = (UserDTO) session.getAttribute("userLogged");
 
 		TaskDTO taskUpdate = new TaskDTO();
 		taskUpdate = taskService.getTaskDTOById(taskUpdateId);
