@@ -37,6 +37,7 @@ const routes: Routes = [
     { path: 'Order/update', component: OrderUpdateComponent },
 ];
 
+
 @NgModule({
     exports: [RouterModule],
     imports: [RouterModule.forRoot(routes, { useHash: true, onSameUrlNavigation: 'reload', enableTracing: true })],
