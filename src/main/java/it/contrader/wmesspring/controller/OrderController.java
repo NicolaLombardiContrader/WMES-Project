@@ -2,11 +2,7 @@ package it.contrader.wmesspring.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,16 +22,10 @@ public class OrderController {
 		private final OrderService orderService;
 		private final ClientService clientService;
 		@Autowired
-		private HttpSession session;
-
-
-		
-		@Autowired
 		public OrderController(OrderService orderService, ClientService clientService) {
 			this.orderService = orderService;
 			this.clientService = clientService;
 		}
-	
 
 		@RequestMapping(value = "orderManagement", method = RequestMethod.GET)
 		public List<OrderDTO> orderManagement() {
@@ -43,9 +33,6 @@ public class OrderController {
 	//		visualOrder(request);
 	//		return "order/manageOrder";
 		}		
-		
-
-	
 		
 		@RequestMapping(value = "/delete", method = RequestMethod.GET)
 		public void delete(@RequestParam(value ="id") int id) {
