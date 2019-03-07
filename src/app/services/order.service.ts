@@ -12,7 +12,7 @@ import { Observable, of, BehaviorSubject } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class OrderService {
     feedback: string;
 
     constructor(private http: HttpClient) { }

@@ -7,22 +7,21 @@ export class User {
     userUser: string;
     userPass: string;
     userType: string;
-    tasks: Task [];
-    clients: Client [];
-    projects: Project [];
-    projectTemplates: ProjectTemplate [];
+    tasksDTO: Task [];
+    clientsDTO: Client [];
+    projectsDTO: Project [];
+    projectTemplatesDTO: ProjectTemplate [];
 
 
     // tslint:disable-next-line:max-line-length
-    constructor(userUser: string, userPass: string, userType: string, tasks: Task [], clients: Client [], projects: Project [], projectTemplates: ProjectTemplate []) {
+    constructor(userUser: string, userPass: string, userType: string, tasksDTO: Task [], clientsDTO: Client [], projectsDTO: Project [], projectTemplatesDTO: ProjectTemplate []) {
         this.userUser = userUser;
         this.userPass = userPass;
         this.userType = userType;
-        this.tasks = tasks;
-        this.clients = clients;
-        this.projects = projects;
-        this.projectTemplates = projectTemplates;
-
+        this.tasksDTO = tasksDTO;
+        this.clientsDTO = clientsDTO;
+        this.projectsDTO = projectsDTO;
+        this.projectTemplatesDTO = projectTemplatesDTO;
     }
 
 }

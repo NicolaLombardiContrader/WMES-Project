@@ -3,15 +3,14 @@ import { Order } from './Order';
 export class Client {
     clientId: number;
     clientName: string;
-    user: User;
-    orders: Order [];
+    userDTO: User;
+    ordersDTO: Order [];
 
 
-    constructor(clientId: number, clientName: string, user: User,  orders: Order [] ) {
+    constructor(clientId: number, clientName: string, userDTO: User,  ordersDTO: Order [] ) {
         this.clientId = clientId;
         this.clientName = clientName;
-        this.user = user;
-        this.orders = orders;
-
+        this.userDTO = userDTO;
+        this.ordersDTO = ordersDTO;
 }
 }
