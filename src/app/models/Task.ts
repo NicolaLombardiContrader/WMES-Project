@@ -16,6 +16,7 @@ export class Task {
     projectTemplatesDTO: ProjectTemplate [];
 
 
+    
 // tslint:disable-next-line:max-line-length
 constructor(taskId: number, taskAction: string, taskDescription: string, taskInput: string, taskOutput: string, taskState: number, taskTime: number, userDTO: User, resourceDTO: Resource, projectsDTO: Project [], projectTemplatesDTO: ProjectTemplate [] ) {
 
