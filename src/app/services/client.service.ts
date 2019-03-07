@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { logging } from 'protractor';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../models/environment.models';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Client } from '../models/Client';
