@@ -46,9 +46,9 @@
                         <h3 class="title-5 m-b-35">task table</h3>
 
                         <div class="table-data__tool-right">
-                            <a href="/Task/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
+                            <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
                                     class="zmdi zmdi-plus"></i>ADD TASK
-                            </a>
+                            </button>
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
                                     <thead>
@@ -80,13 +80,13 @@
                                             <td>
                                                 <div class="table-data-feature">
 
-                                                    <a href="#" (click)="updateLink(task.taskId)" class="item"
-                                                        data-toggle="tooltip" data-placement="top" title="Edit"> <i
-                                                            class="zmdi zmdi-edit"></i>
-                                                    </a> <a href="/Task/taskManagement" (click)="removeLink(task.taskId)" class="item"
+                                                    <button (click)="updateLink(task.taskId)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
+                                                    </button> 
+                                                    <button (click)="removeLink(task.taskId)" class="item"
                                                         data-toggle="tooltip" data-placement="top" title="Delete"> <i
                                                             class="zmdi zmdi-delete"></i>
-                                                    </a>
+                                                    </button>
 
                                                 </div>
                                             </td>

@@ -23,11 +23,15 @@ export class TaskManagementComponent implements OnInit {
     removeLink(taskId: number) {
         /** this.router.navigateByUrl('/delete?taskId=' + taskId); */
         this.taskService.deleteTask(taskId);
-        /** this.router.navigateByUrl('/Task/taskManagement'); */
+        this.router.navigateByUrl('/Task/taskManagement');
     }
 
     updateLink(taskId: string) {
-        this.router.navigateByUrl('/update?taskId=' + taskId);
+        this.router.navigateByUrl('/Task/update?taskId=' + taskId);
+    }
+
+    insertLink() {
+        this.router.navigateByUrl('/Task/insert');
     }
 }
 

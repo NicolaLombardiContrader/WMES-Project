@@ -42,19 +42,19 @@
             <div class="card">
                 <div class="card-header">NEW USER</div>
                 <div class="card-body card-block">
-                    <form action="/User/insert" method="post">
+                    <form #f="ngForm">
                         <div class="form-group">
-                            <label>Username</label> <input class="au-input au-input--full" type="text" name="user_user"
-                                placeholder="Username">
+                            <label>Username</label> <input class="au-input au-input--full" type="text" name="username"
+                                placeholder="Username" ngModel>
                         </div>
 
                         <div class="form-group">
-                            <label>Password</label> <input class="au-input au-input--full" type="password" name="user_pass"
-                                placeholder="Password">
+                            <label>Password</label> <input class="au-input au-input--full" type="password" name="password"
+                                placeholder="Password" ngModel>
                         </div>
 
                         <div class="form-group">
-                            <label>UserType</label> <select class="form-control" name="user_type">
+                            <label>UserType</label> <select class="form-control" name="usertype" ngModel>
                                 <option value="admin">Admin</option>
                                 <option value="bo">Business Owner</option>
                             </select>
@@ -62,7 +62,7 @@
  -->
                         </div>
                         <div class="login-checkbox"></div>
-                        <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+                        <button type="submit" class="btn btn-secondary btn-sm" (click)="userInsert(f)">Submit</button>
                     </form>
                 </div>
 
