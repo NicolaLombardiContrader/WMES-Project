@@ -22,7 +22,7 @@ export class TaskManagementComponent implements OnInit {
 
     removeLink(taskId: number) {
         /** this.router.navigateByUrl('/delete?taskId=' + taskId); */
-         this.taskService.deleteTask(taskId);
+        this.taskService.deleteTask(taskId);
         /** this.router.navigateByUrl('/Task/taskManagement'); */
     }
 

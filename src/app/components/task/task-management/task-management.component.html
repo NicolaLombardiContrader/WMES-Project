@@ -68,22 +68,22 @@
 													for (TaskDTO task : allTask) {
 												%>-->
 
-                                        <tr class="tr-shadow" *ngFor = "let task of tasks">
-                                                    <td>{{task.taskDescription}}</td>
-													<td>{{task.taskAction}}</td>
-													<td>{{task.taskInput}}</td>
-													<td>{{task.taskOutput}}</td>
-													<td>{{task.resourceDTO.resourceName}}</td>
-													<td>{{task.taskTime}}</td>
-													<td>{{task.taskState}}</td>
-                                          
+                                        <tr class="tr-shadow" *ngFor="let task of tasks">
+                                            <td>{{task.taskDescription}}</td>
+                                            <td>{{task.taskAction}}</td>
+                                            <td>{{task.taskInput}}</td>
+                                            <td>{{task.taskOutput}}</td>
+                                            <td>{{task.resourceDTO.resourceName}}</td>
+                                            <td>{{task.taskTime}}</td>
+                                            <td>{{task.taskState}}</td>
+
                                             <td>
                                                 <div class="table-data-feature">
 
-                                                    <a (click) = "updateLink(task.taskId)" class="item"
+                                                    <a href="#" (click)="updateLink(task.taskId)" class="item"
                                                         data-toggle="tooltip" data-placement="top" title="Edit"> <i
                                                             class="zmdi zmdi-edit"></i>
-                                                    </a> <a (click)="removeLink(task.taskId)" class="item"
+                                                    </a> <a href="/Task/taskManagement" (click)="removeLink(task.taskId)" class="item"
                                                         data-toggle="tooltip" data-placement="top" title="Delete"> <i
                                                             class="zmdi zmdi-delete"></i>
                                                     </a>
