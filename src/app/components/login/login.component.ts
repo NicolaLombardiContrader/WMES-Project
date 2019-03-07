@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
-import { UserService } from '../../services/user.service';
+/** import { UserService } from '../../services/user.service'; */
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { LoginService } from '../../services/login.service';
 
 @Component({
     selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
     user: User;
 
-    constructor(private userService: UserService, private router: Router) {
+    constructor(private loginService: LoginService, private router: Router) {
 
     }
     ngOnInit() {
@@ -21,8 +22,8 @@ export class LoginComponent implements OnInit {
     }
 
     login(f: NgForm): void {
-        console.log('mi arrivano username=' + f.value.username + ' password= ' + f.value.password);
-        this.userService.login(f.value.username, f.value.password).subscribe((response) => {
+        console.log('mi arrivano username=' + f.value.user_user + ' password= ' + f.value.user_pass);
+        this.loginService.login(f.value.user_user, f.value.user_pass).subscribe((response) => {
             if (response != null) {
                 this.user = response;
                 sessionStorage.setItem('user', JSON.stringify(this.user));

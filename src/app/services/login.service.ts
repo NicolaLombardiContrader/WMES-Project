@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
-import { logging } from 'protractor';
-import { environment } from '../models/environment.models';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/User';
-import { Observable, of, BehaviorSubject } from 'rxjs';
-
+import { Observable, of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
-    private urlBase = environment.url;
+export class LoginService {
 
     constructor(private http: HttpClient) { }
 
@@ -23,18 +19,15 @@ export class UserService {
         };
     }
 
-    isLogged(): boolean {
-        if (typeof (Storage) !== 'undefined') {
-            if (sessionStorage.getItem('user') != null) {
-                return true;
-            }
-            // tslint:disable-next-line:align
-        } return false;
+    login(username: string, password: string): Observable<User> {
+        return this.http.get<User>('http://localhost:8080/User/login?user_user=' + username + '&user_pass=' + password)
+            .pipe(tap((response) => console.log('User'), catchError(this.handleError('login error', {})))
+            );
     }
 
-
+    logOut() {
+        if (typeof (Storage) !== 'undefined') {
+            sessionStorage.removeItem('user');
+        }
+    }
 }
-
-
-
-

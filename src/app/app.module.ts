@@ -64,53 +64,56 @@ import { ItemUpdateComponent } from './components/item/item-update/item-update.c
 import { ItemInsertComponent } from './components/item/item-insert/item-insert.component';
 import { TaskUpdateResourceComponent } from './components/task/task-update-resource/task-update-resource.component';
 
+/** Services */
+import { LoginService } from './services/login.service';
+
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    SidebarAdminComponent,
-    SidebarBoComponent,
-    SidebarResourceComponent,
-    HomeAdminComponent,
-    HomeBoComponent,
-    UserManagementComponent,
-    UserUpdateComponent,
-    UserInsertComponent,
-    HomeResourceComponent,
-    ClientManagementComponent,
-    ClientInsertComponent,
-    ClientUpdateComponent,
-    OrderManagementComponent,
-    OrderInsertComponent,
-    OrderUpdateComponent,
-    ProjectManagementComponent,
-    ProjectInsertComponent,
-    ProjectUpdateComponent,
-    ProjectTemplateManagementComponent,
-    ProjectTemplateInsertComponent,
-    ProjectTemplateUpdateComponent,
-    ResourceManagementComponent,
-    ResourceInsertComponent,
-    ResourceUpdateComponent,
-    TaskManagementComponent,
-    TaskInsertComponent,
-    TaskUpdateComponent,
-    ItemManagementComponent,
-    ItemUpdateComponent,
-    ItemInsertComponent,
-    TaskUpdateResourceComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        LoginComponent,
+        SidebarAdminComponent,
+        SidebarBoComponent,
+        SidebarResourceComponent,
+        HomeAdminComponent,
+        HomeBoComponent,
+        UserManagementComponent,
+        UserUpdateComponent,
+        UserInsertComponent,
+        HomeResourceComponent,
+        ClientManagementComponent,
+        ClientInsertComponent,
+        ClientUpdateComponent,
+        OrderManagementComponent,
+        OrderInsertComponent,
+        OrderUpdateComponent,
+        ProjectManagementComponent,
+        ProjectInsertComponent,
+        ProjectUpdateComponent,
+        ProjectTemplateManagementComponent,
+        ProjectTemplateInsertComponent,
+        ProjectTemplateUpdateComponent,
+        ResourceManagementComponent,
+        ResourceInsertComponent,
+        ResourceUpdateComponent,
+        TaskManagementComponent,
+        TaskInsertComponent,
+        TaskUpdateComponent,
+        ItemManagementComponent,
+        ItemUpdateComponent,
+        ItemInsertComponent,
+        TaskUpdateResourceComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

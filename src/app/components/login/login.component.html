@@ -7,22 +7,24 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action="/User/login" method="post">
+                    <form  #f="ngForm">
                         <div class="form-group">
-                            <label>Username</label> <input class="au-input au-input--full" type="username" name="username"
-                                placeholder="Username">
+                            <label>Username</label> <input class="au-input au-input--full" type="username" name="user_user"
+                                placeholder="Username" ngModel>
                         </div>
                         <div class="form-group">
-                            <label>Password</label> <input class="au-input au-input--full" type="password" name="password"
-                                placeholder="Password">
+                            <label>Password</label> <input class="au-input au-input--full" type="password" name="user_pass"
+                                placeholder="Password" ngModel>
                         </div>
+                        <!--
                         <div class="login-checkbox">
                             <label> <input type="checkbox" name="remember">Remember
                                 Me
                             </label>
-
                         </div>
-                        <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                        -->
+                        <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" (click)="login(f)">sign
+                            in</button>
                     </form>
                 </div>
             </div>
