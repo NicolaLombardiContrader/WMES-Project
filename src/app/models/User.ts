@@ -22,7 +22,6 @@ export class User {
         this.clientsDTO = clientsDTO;
         this.projectsDTO = projectsDTO;
         this.projectTemplatesDTO = projectTemplatesDTO;
-
     }
 
 }
