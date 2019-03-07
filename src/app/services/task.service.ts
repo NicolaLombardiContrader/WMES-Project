@@ -11,12 +11,10 @@ import { ProjectTemplate } from '../models/ProjectTemplate';
 import { User } from '../models/User';
 
 
-
-
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class TaskService {
     feedback: string;
 
     constructor(private http: HttpClient) { }
@@ -28,8 +26,9 @@ export class UserService {
             return of(result as T);
         };
     }
-    taskList(): Observable<any> {
-        return this.http.get<any>('http://localhost:8080/Task/taskManagement')
+    taskList(): Observable<Array<Task>> {
+        const user: User = JSON.parse(sessionStorage.getItem('user'));
+        return this.http.get<any>('http://localhost:8080/Task/taskManagement?userId=' + user.userId)
             .pipe(tap((response) => console.log('Task'), catchError(this.handleError('error', {})))
             );
     }
@@ -39,16 +38,18 @@ export class UserService {
     insertTask(taskId: number, taskAction: string, taskDescription: string, taskInput: string, taskOutput: string, taskTime: number, taskState: number, user: User, resource: Resource, project: Project[], projectTemplate: ProjectTemplate[]): Observable<Task> {
         // tslint:disable-next-line:prefer-const
         // tslint:disable-next-line:max-line-length
+        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
+        // tslint:disable-next-line:max-line-length
         const newTask = new Task(0, taskAction, taskDescription, taskInput, taskOutput, taskTime, taskState, user, resource, project, projectTemplate);
         return this.http.post<Task>('http://localhost:8080/Task/insert', newTask)
             .pipe(tap((response) => console.log('insertTask'), catchError(this.handleError('insertTask error', {})))
             );
     }
 
-    deleteTask(idDelete: number): Observable<any> {
-        return this.http.get<any>('http://localhost:8080/Task/delete?id=' + idDelete)
-            .pipe(tap((response) => console.log('deleteTask'), catchError(this.handleError('deleteTask error', {})))
-            );
+    deleteTask(taskId: number) {
+        // this.http.get<any>('http://localhost:8080/Task/delete?taskId=' + taskId)
+        //    .pipe(tap((response) => console.log('Task'), catchError(this.handleError('delete Task error', {}))));
+       this.http.get('http://localhost:8080/Task/delete?taskId=' + taskId);
     }
 
 }

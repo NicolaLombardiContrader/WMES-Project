@@ -57,11 +57,11 @@ const routes: Routes = [
     { path: 'ProjectTemplate/insert', component: ProjectTemplateInsertComponent },
     { path: 'ProjectTemplate/update', component: ProjectTemplateUpdateComponent },
       /** Resource */
-    { path: 'Resource/resourceTemplateManagement', component: ResourceManagementComponent },
+    { path: 'Resource/resourceManagement', component: ResourceManagementComponent },
     { path: 'Resource/insert', component: ResourceInsertComponent },
     { path: 'Resource/update', component: ResourceUpdateComponent },
       /** Task */
-    { path: 'Task/taskTemplateManagement', component: TaskManagementComponent },
+    { path: 'Task/taskManagement', component: TaskManagementComponent },
     { path: 'Task/insert', component: TaskInsertComponent },
     { path: 'Task/update', component: TaskUpdateComponent }
 ];

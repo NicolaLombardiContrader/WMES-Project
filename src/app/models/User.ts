@@ -4,6 +4,7 @@ import { Task } from './Task';
 import { Project } from './Project';
 import { ProjectTemplate } from './ProjectTemplate';
 export class User {
+    userId: number;
     userUser: string;
     userPass: string;
     userType: string;

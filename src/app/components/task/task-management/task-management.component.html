@@ -68,22 +68,22 @@
 													for (TaskDTO task : allTask) {
 												%>-->
 
-                                        <tr class="tr-shadow">
-
-                                            <!--	<td><%=task.getTaskDescription()%></td>
-													<td><%=task.getTaskAction()%></td>
-													<td><%=task.getTaskInput()%></td>
-													<td><%=task.getTaskOutput()%></td>
-													<td><%=task.getResourceDTO().getResourceName()%></td>
-													<td><%=task.getTaskTime()%></td>
-													<td><%=convertState(task.getTaskState())%></td>-->
+                                        <tr class="tr-shadow" *ngFor = "let task of tasks">
+                                                    <td>{{task.taskDescription}}</td>
+													<td>{{task.taskAction}}</td>
+													<td>{{task.taskInput}}</td>
+													<td>{{task.taskOutput}}</td>
+													<td>{{task.resourceDTO.resourceName}}</td>
+													<td>{{task.taskTime}}</td>
+													<td>{{task.taskState}}</td>
+                                          
                                             <td>
                                                 <div class="table-data-feature">
 
-                                                    <a href="/Task/updateRedirect?id=<%=task.getTaskId()%>" class="item"
+                                                    <a (click) = "updateLink(task.taskId)" class="item"
                                                         data-toggle="tooltip" data-placement="top" title="Edit"> <i
                                                             class="zmdi zmdi-edit"></i>
-                                                    </a> <a href="/Task/delete?id=<%=task.getTaskId()%>" class="item"
+                                                    </a> <a (click)="removeLink(task.taskId)" class="item"
                                                         data-toggle="tooltip" data-placement="top" title="Delete"> <i
                                                             class="zmdi zmdi-delete"></i>
                                                     </a>
