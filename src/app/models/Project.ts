@@ -5,17 +5,25 @@ export class Project {
     projectId: number;
     projectName: string;
     projectStatus: number;
-    user: User;
-    tasks: Task [];
+    userDTO: User;
+    tasksDTO: Task [];
 
 
 
-    constructor(projectId: number, projectName: string, projectStatus: number, user: User, tasks: Task [] ) {
+    constructor(projectId: number, projectName: string, projectStatus: number, userDTO: User, tasksDTO: Task [] ) {
         this.projectId = projectId;
         this.projectName = projectName;
         this.projectStatus = projectStatus;
-        this.user = user;
-        this.tasks = tasks;
+        this.userDTO = userDTO;
+        this.tasksDTO = tasksDTO;
     }
 
+
+
+
 }
+
+
+
+
+
