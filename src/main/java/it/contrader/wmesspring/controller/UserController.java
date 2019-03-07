@@ -3,6 +3,7 @@ package it.contrader.wmesspring.controller;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +14,7 @@ import it.contrader.wmesspring.service.UserService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/User")
 public class UserController {
@@ -53,7 +55,8 @@ public class UserController {
 		// return "user/insertUser";
 		return "";
 	}
-
+	
+	
 	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 	public UserDTO updateRedirect(@RequestParam(value = "id") int id) {
 		// int id = Integer.parseInt(request.getParameter("id"));
@@ -64,7 +67,7 @@ public class UserController {
 		// return "user/updateUser";
 		return userUpdate;
 	}
-
+	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public List<UserDTO> update(@RequestParam(value = "user_id") int idUpdate,
 			@RequestParam(value = "user_user") String usernameUpdate,
@@ -87,7 +90,7 @@ public class UserController {
 		// visualUser(request);
 		// return "user/manageUser";
 	}
-
+	
 	@RequestMapping(value = "/cercaUser", method = RequestMethod.GET)
 	public String cercaUser(HttpServletRequest request) {
 
@@ -120,10 +123,10 @@ public class UserController {
 		// visualUser(request);
 		// return "user/manageUser";
 	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public UserDTO loginControl(@RequestParam(value = "user_user") String username,
-			@RequestParam(value = "user_pass") String password) {
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public UserDTO loginControl(@RequestParam(value = "username") String username,
+			@RequestParam(value = "password") String password) {
 
 		// session = request.getSession();
 		// final String username = request.getParameter("username");
