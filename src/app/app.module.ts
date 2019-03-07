@@ -113,7 +113,7 @@ import { LoginService } from './services/login.service';
         HttpClientModule,
         AppRoutingModule
     ],
-    providers: [],
+    providers: [LoginService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

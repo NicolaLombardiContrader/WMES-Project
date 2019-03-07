@@ -22,11 +22,13 @@ export class LoginComponent implements OnInit {
     }
 
     login(f: NgForm): void {
-        console.log('mi arrivano username=' + f.value.user_user + ' password= ' + f.value.user_pass);
-        this.loginService.login(f.value.user_user, f.value.user_pass).subscribe((response) => {
+        console.log('mi arrivano username=' + f.value.username + ' password= ' + f.value.password);
+        this.loginService.login(f.value.username, f.value.password).subscribe((response) => {
+            console.log('Risposta ricevuta');
             if (response != null) {
                 this.user = response;
                 sessionStorage.setItem('user', JSON.stringify(this.user));
+                console.log('Username: ' + this.user.useruser);
                 if (response.usertype === 1) {
                     this.router.navigateByUrl('/homeAdmin');
                 } else if (response.usertype === 2) {

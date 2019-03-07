@@ -20,7 +20,7 @@ export class LoginService {
     }
 
     login(username: string, password: string): Observable<User> {
-        return this.http.get<User>('http://localhost:8080/User/login?user_user=' + username + '&user_pass=' + password)
+        return this.http.get<User>('http://localhost:8080/User/login?username=' + username + '&password=' + password)
             .pipe(tap((response) => console.log('User'), catchError(this.handleError('login error', {})))
             );
     }
