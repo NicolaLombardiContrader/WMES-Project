@@ -5,17 +5,17 @@ export class Resource {
     resourceName: string;
     resourceUsername: string;
     resourcePass: string;
-    user: User;
-    tasks: Task [];
+    userDTO: User;
+    tasksDTO: Task[];
 
 
-    constructor(resourceId: number, resourceName: string, resourceUsername: string, resourcePass: string, user: User, tasks: Task [] ) {
+    constructor(resourceId: number, resourceName: string, resourceUsername: string, resourcePass: string, userDTO: User, tasksDTO: Task[]) {
         this.resourceId = resourceId;
         this.resourceName = resourceName;
         this.resourceUsername = resourceUsername;
         this.resourcePass = resourcePass;
-        this.user = user;
-        this.tasks = tasks;
+        this.userDTO = userDTO;
+        this.tasksDTO = tasksDTO;
     }
 
 }
