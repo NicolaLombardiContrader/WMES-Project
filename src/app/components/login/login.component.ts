@@ -28,12 +28,12 @@ export class LoginComponent implements OnInit {
             if (response != null) {
                 this.user = response;
                 sessionStorage.setItem('user', JSON.stringify(this.user));
-                console.log('Username: ' + this.user.useruser);
-                if (response.usertype === 1) {
+                console.log('Username: ' + this.user.userUser);
+                if (response.userType === 'admin') {
                     this.router.navigateByUrl('/homeAdmin');
-                } else if (response.usertype === 2) {
+                } else if (response.userType === 'bo') {
                     this.router.navigateByUrl('/homeBO');
-                } else if (response.usertype === 3) {
+                } else if (response.userType === 'dfsd') {
                     this.router.navigateByUrl('/installer');
                 }
             }
