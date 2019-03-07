@@ -3,7 +3,7 @@ import { logging } from 'protractor';
 import { environment } from '../../environments/environment.prod';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../models/User';
+import { Resource } from '../models/Resource';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 
 
@@ -25,15 +25,15 @@ export class UserService {
         };
     }
 
-    login(username: string, password: string): Observable<User> {
-        return this.http.get<User>('http://localhost:58708/api/login?username=' + username + '&password=' + password)
-            .pipe(tap((response) => console.log('User'), catchError(this.handleError('login error', {})))
+    login(username: string, password: string): Observable<Resource> {
+        return this.http.get<Resource>('http://localhost:58708/api/login?username=' + username + '&password=' + password)
+            .pipe(tap((response) => console.log('Resource'), catchError(this.handleError('login error', {})))
             );
     }
 
-    signup(user: User): Observable<boolean> {
-        return this.http.post<boolean>('http://localhost:58708/api/signupUser', user)
-            .pipe(tap((response) => console.log('User'), catchError(this.handleError('login error', {})))
+    signup(resource: Resource): Observable<boolean> {
+        return this.http.post<boolean>('http://localhost:58708/api/signupUser', resource)
+            .pipe(tap((response) => console.log('Resource'), catchError(this.handleError('login error', {})))
             );
     }
 
