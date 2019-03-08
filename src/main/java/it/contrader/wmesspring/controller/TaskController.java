@@ -36,10 +36,9 @@ public class TaskController {
 		return this.taskService.findTaskDTOByUser(ConverterUser.toEntity(userDTOTaskList));
 	}
 	
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public void delete(@RequestParam(value = "taskId") int id) {
-		this.taskService.deleteTaskById(id);
-
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+	public void delete(@RequestParam(value = "taskId") int taskId) {
+		this.taskService.deleteTaskById(taskId);
 	}
 
 	/*

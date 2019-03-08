@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.contrader.wmesspring.converter.ConverterUser;
 import it.contrader.wmesspring.dto.ClientDTO;
 import it.contrader.wmesspring.dto.OrderDTO;
+import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.OrderService;
 import it.contrader.wmesspring.service.ClientService;
@@ -22,31 +24,35 @@ public class OrderController {
 
 
 		private final OrderService orderService;
-		private final ClientService clientService;
+		//private final ClientService clientService;
+		
 		@Autowired
 		public OrderController(OrderService orderService, ClientService clientService) {
 			this.orderService = orderService;
-			this.clientService = clientService;
+			//this.clientService = clientService;
 		}
 
 		@RequestMapping(value = "orderManagement", method = RequestMethod.GET)
-		public List<OrderDTO> orderManagement() {
-			return this.orderService.getListOrderDTO();
+		public List<OrderDTO> orderManagement(@RequestParam(value = "userId") int userId) {
+			UserDTO userDTOOrderList = new UserDTO();
+			userDTOOrderList.setUserId(userId);
+			//return this.orderService.findOrderDTOByUser(ConverterUser.toEntity(userDTOOrderList));
+			return this.orderService.findOrderDTOByUser(userDTOOrderList);
 	//		visualOrder(request);
 	//		return "order/manageOrder";
 		}		
 		
 		@RequestMapping(value = "/delete", method = RequestMethod.GET)
-		public void delete(@RequestParam(value ="id") int id) {
+		public void delete(@RequestParam(value ="orderId") int id) {
 			this.orderService.deleteOrderById(id);
 		}
 
-		
+	/*	
 		@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
 		public String insertRedirect(){
 			return " ";
 		}
-	/*
+	
 	 * public String insert(HttpServletRequest request, HttpSession session) {
 	 * UserDTO userLogged = (UserDTO) session.getAttribute("utente");
 	 * List<ClientDTO> clientList = orderService.findClientDTOByUser(userLogged);
@@ -55,14 +61,11 @@ public class OrderController {
 		
 		
 		@RequestMapping(value = "/insert", method = RequestMethod.POST)
-		public List<ClientDTO> insert(@RequestParam( value = "utente") UserDTO userLogged,
-				@RequestParam( value = "client_id") ClientDTO clientInsertId,
+		public List<OrderDTO> insert(@RequestParam( value = "userDTO") UserDTO userLogged,
+				@RequestParam( value = "clientDTO") ClientDTO clientInsertId,
 				@RequestParam(value ="order_description") String orderDescription){ 
 			
-			
-//			ClientDTO insertClientDTO = new ClientDTO();
-//			insertClientDTO.setClientId(clientInsertId);
-			
+					
 			OrderDTO orderObj = new OrderDTO();
 			orderObj.setOrderDescription(orderDescription);
 			orderObj.setUserDTO(userLogged);
@@ -71,9 +74,9 @@ public class OrderController {
 //			visualOrder(request);
 			 
 
-			return this.clientService.getListaClientDTO();
+			return this.orderService.getListOrderDTO();
 		}
-		
+	/*	
 		@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
 		public OrderDTO updateRedirect(@RequestParam(value = "id") int id) {
 	//		int id = Integer.parseInt(request.getParameter("id"));
@@ -88,8 +91,16 @@ public class OrderController {
 	//		return "order/updateOrder";
 			return orderUpdate;
 		}		
-		
+	*/	
 
+		@RequestMapping(value = "/read", method = RequestMethod.GET)
+		public OrderDTO read(@RequestParam(value = "orderId") int id) {
+			OrderDTO orderUpdate = new OrderDTO();
+			orderUpdate = this.orderService.getOrderDTOById(id);
+			return orderUpdate;
+
+		}
+		
 		@RequestMapping(value = "/update", method = RequestMethod.POST)
 		public List<OrderDTO> update(@RequestParam(value = "order_id") int idUpdate,
 				@RequestParam( value = "utente") UserDTO userLogged,
