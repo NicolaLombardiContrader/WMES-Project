@@ -69,14 +69,28 @@
 													for (ClientDTO client : allClient) {
 												%>-->
 
-												<tr class="tr-shadow">
+												<tr class="tr-shadow" *ngFor="let client of clients">
 
-													<td>	<!-- <%=client.getClientName()%>--></td>
+													<td>{{client.clientName}}</td>
 
 													<td>
 
 														<div class="table-data-feature">
 
+                                                    <button (click)="updateLink(client.clientId)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
+                                                    </button> 
+                                                    <a href="/Client/clientManagement" (click)="removeLink(client.clientId)" class="item"
+                                                        data-toggle="tooltip" data-placement="top" title="Delete"> <i
+                                                            class="zmdi zmdi-delete"></i>
+                                                    </a>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+
+
+                                                            <!--
 															<a
 																href="/Client/updateRedirect?id=<%=client.getClientId()%>"
 																class="item" data-toggle="tooltip" data-placement="top"
@@ -86,10 +100,8 @@
 																title="Delete"> <i class="zmdi zmdi-delete"></i>
 															</a>
 
-
-														</div>
-													</td>
-												</tr>
+                                                        -->
+										
 											<!-- 	<%
 													}
 												%> -->
