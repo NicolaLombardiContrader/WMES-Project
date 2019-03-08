@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.contrader.wmesspring.converter.ConverterUser;
 import it.contrader.wmesspring.dto.ResourceDTO;
 import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
@@ -37,8 +38,10 @@ public class ResourceController {
 
 
 	@RequestMapping(value = "/resourceManagement", method = RequestMethod.GET)
-	public List<ResourceDTO> resourceManagement() {
-		return this.resourceService.getListaResourceDTO();
+	public List<ResourceDTO> resourceManagement(@RequestParam(value = "userId") int userId) {
+		UserDTO userDTOResourceList = new UserDTO();
+		userDTOResourceList.setUserId(userId);
+		return this.resourceService.findResourceDTOByUser(userDTOResourceList);
 		// public String resourceManagement(HttpServletRequest request) {
 		// visualResource(request);
 		// return "resource/manageResource";
