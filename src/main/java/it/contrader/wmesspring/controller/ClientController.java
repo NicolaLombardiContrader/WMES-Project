@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.contrader.wmesspring.converter.ConverterUser;
 import it.contrader.wmesspring.dto.ClientDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ClientService;
@@ -32,37 +33,28 @@ public class ClientController {
 	 * request.setAttribute("allClientDTO", allClient); }
 	 */
 	@RequestMapping(value = "/clientManagement", method = RequestMethod.GET)
-	public List<ClientDTO> clientManagement() {
-		return this.clientService.getListaClientDTO();
-// public String clientManagement(HttpServletRequest request) {
-//		visualClient(request);
-//		return "client/manageClient";
+	public List<ClientDTO> clientManagement(@RequestParam(value = "userId") int userId) { 
+		UserDTO userDTOClientList = new UserDTO();
+		userDTOClientList.setUserId(userId);
+		return this.clientService.findClientDTOByUser(ConverterUser.toEntity(userDTOClientList));
+
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	
-	public void delete(@RequestParam(value ="id") int id) {
-		this.clientService.deleteClientById(id);
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)	
+	public void delete(@RequestParam(value ="clientId") int clientId) {
+		this.clientService.deleteClientById(clientId);
 	}
 	
+
+
 	/*
-	 * public String delete(HttpServletRequest request) { 
-	 * int id =Integer.parseInt(request.getParameter("id")); 
-	 * request.setAttribute("id", id);
-	 * this.clientService.deleteClientById(id); visualClient(request); 
-	 * return "client/manageClient";
-	 * 
-	 * }
+	 * @RequestMapping(value = "/insertRedirect", method = RequestMethod.GET) public
+	 * String insertRedirect(){ return " "; }
 	 */
 
-	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insertRedirect(){
-		return " ";
-	}
-
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public List<ClientDTO> insert(@RequestParam(value = "client_name") String clientName,
-	@RequestParam( value = "utente") UserDTO userLogged){
+	public List<ClientDTO> insert(@RequestParam( value = "utente") UserDTO userLogged,
+			@RequestParam(value = "client_name") String clientName){
 	
 	//public String insert(HttpServletRequest request,HttpSession session) {
 	//	UserDTO userLogged = (UserDTO) session.getAttribute("utente");
@@ -80,36 +72,24 @@ public class ClientController {
 		return this.clientService.getListaClientDTO();
 	}
 	
-	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
-	public ClientDTO updateRedirect(@RequestParam(value = "id") int id) {
-//		int id = Integer.parseInt(request.getParameter("id"));
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public ClientDTO read(@RequestParam(value = "clientId") int id) {
 		ClientDTO clientUpdate = new ClientDTO();
-
 		clientUpdate = this.clientService.getClientDTOById(id);
-//		request.setAttribute("clientUpdate", clientUpdate);
-//		return "client/updateClient";
-		
 		return clientUpdate;
 	}		
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public List<ClientDTO> update(@RequestParam(value = "client_id") int idUpdate,
 			@RequestParam( value = "utente") UserDTO userLogged,
-			@RequestParam(value = "client_name") String clientName)
-			{
-	
-		
-//		Integer idUpdate = Integer.parseInt(request.getParameter("client_id"));
-//		UserDTO userLogged = (UserDTO) session.getAttribute("utente");
-//		String clientName = request.getParameter("client_name");
-		
+			@RequestParam(value = "client_name") String clientName){
+
 		ClientDTO clientUpdateDTO = new ClientDTO();
 		clientUpdateDTO.setClientName(clientName);
 		clientUpdateDTO.setUserDTO(userLogged);
 		clientUpdateDTO.setClientId(idUpdate);
 		
 		clientService.updateClient(clientUpdateDTO);
-//		visualClient(request);
 		
 		return this.clientService.getListaClientDTO();
 	}

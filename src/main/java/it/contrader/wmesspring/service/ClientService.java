@@ -48,9 +48,9 @@ public class ClientService {
 	}
 
 	
-	public List<ClientDTO> findClientDTOByUser( UserDTO userDTO) {
+	public List<ClientDTO> findClientDTOByUser( User user) {
 		
-		final List<Client> listClient = clientRepository.findAllByUser(ConverterUser.toEntity(userDTO));
+		final List<Client> listClient = clientRepository.findAllByUser((user));
 		final List<ClientDTO> listClientDTO = new ArrayList<>();
 		listClient.forEach(i -> listClientDTO.add(ConverterClient.toDTO(i)));
 		return listClientDTO;
