@@ -37,8 +37,8 @@ public class TaskController {
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public void delete(@RequestParam(value = "taskId") int id) {
-		this.taskService.deleteTaskById(id);
+	public void delete(@RequestParam(value = "taskId") int taskId) {
+		this.taskService.deleteTaskById(taskId);
 
 	}
 
