@@ -42,15 +42,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-
+                        
                         <!-- ORDER TABLE -->
                         <h3 class="title-5 m-b-35">order table</h3>
 
                         <div class="table-data__tool-right">
-                            <a href="/Order/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
+                            <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
                                     class="zmdi zmdi-plus"></i>ADD ORDER
-                            </a>
-
+                            </button>
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
                                     <thead>
@@ -61,41 +60,38 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!--   <%
+                                        <!--	<%
 													for (OrderDTO order : allOrder) {
 												%>-->
 
-                                        <tr class="tr-shadow">
-
-                                            <td>
-                                                <!--  <%=order.getClientDTO().getClientName()%>-->
-                                            </td>
-                                            <td>
-                                                <!--   <%=order.getOrderDescription()%>-->
-                                            </td>
+                                        <tr class="tr-shadow" *ngFor="let order of orders">
+                                            <td>{{order.clientDTO.clientName}}</td>
+                                            <td>{{order.orderDescription}}</td>
                                             <td>
                                                 <div class="table-data-feature">
 
-                                                    <a href="/Order/updateRedirect?id=<%=order.getOrderId()%>" class="item"
-                                                        data-toggle="tooltip" data-placement="top" title="Edit"> <i
-                                                            class="zmdi zmdi-edit"></i>
-                                                    </a> <a href="/Order/delete?id=<%=order.getOrderId()%>" class="item"
+                                                    <button (click)="updateLink(order.orderId)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
+                                                    </button> 
+                                                    <button (click)="removeLink(order.orderId)" class="item"
                                                         data-toggle="tooltip" data-placement="top" title="Delete"> <i
                                                             class="zmdi zmdi-delete"></i>
-                                                    </a>
+                                                    </button>
 
                                                 </div>
                                             </td>
                                         </tr>
 
-                                        <!--  <%
+                                        <!--<%
 													}
 												%>-->
 
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- END USER TABLE -->
+                            <!-- END ORDER TABLE -->
+
+                       
                         </div>
 
                     </div>

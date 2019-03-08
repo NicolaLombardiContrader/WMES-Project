@@ -68,6 +68,7 @@ import { TaskUpdateResourceComponent } from './components/task/task-update-resou
 import { LoginService } from './services/login.service';
 import { TaskService } from './services/task.service';
 import { ClientService } from './services/client.service';
+import { OrderService } from './services/order.service';
 
 
 
@@ -115,7 +116,7 @@ import { ClientService } from './services/client.service';
         HttpClientModule,
         AppRoutingModule
     ],
-    providers: [LoginService, TaskService, ClientService],
+    providers: [LoginService, TaskService, ClientService, OrderService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

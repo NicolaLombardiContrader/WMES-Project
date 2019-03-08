@@ -5,8 +5,8 @@ import { Order } from '../../../models/Order';
 
 @Component({
     selector: 'app-order-management',
-    templateUrl: './task-order.component.html',
-    styleUrls: ['./task-order.component.css']
+    templateUrl: './order-management.component.html',
+    styleUrls: ['./order-management.component.css']
 })
 export class OrderManagementComponent implements OnInit {
     public orders: Array<Order>;
@@ -21,9 +21,9 @@ export class OrderManagementComponent implements OnInit {
     }
 
     removeLink(orderId: number) {
-        /** this.router.navigateByUrl('/delete?taskId=' + taskId); */
+        /** this.router.navigateByUrl('/delete?orderId=' + orderId); */
         this.orderService.deleteOrder(orderId);
-        /** this.router.navigateByUrl('/Task/taskManagement'); */
+        /** this.router.navigateByUrl('/Order/orderManagement'); */
     }
 
     updateLink(orderId: string) {
