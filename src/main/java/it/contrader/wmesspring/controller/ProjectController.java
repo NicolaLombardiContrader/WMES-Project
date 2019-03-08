@@ -2,6 +2,7 @@ package it.contrader.wmesspring.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +12,7 @@ import it.contrader.wmesspring.dto.ProjectDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ProjectService;
 
+@CrossOrigin
 @RestController 
 @RequestMapping("/Project")
 public class ProjectController {
