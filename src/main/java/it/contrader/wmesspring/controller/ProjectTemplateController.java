@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ProjectService;
 import it.contrader.wmesspring.service.ProjectTemplateService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/ProjectTemplate")
 public class ProjectTemplateController {
