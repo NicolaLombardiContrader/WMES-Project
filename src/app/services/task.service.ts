@@ -49,7 +49,7 @@ export class TaskService {
     deleteTask(taskId: number) {
         // this.http.get<any>('http://localhost:8080/Task/delete?taskId=' + taskId)
         //    .pipe(tap((response) => console.log('Task'), catchError(this.handleError('delete Task error', {}))));
-       this.http.get('http://localhost:8080/Task/delete?taskId=' + taskId);
+        this.http.delete('http://localhost:8080/Task/delete?taskId=' + taskId).subscribe(() => console.log('Task deleted'));
     }
 
 }

@@ -82,11 +82,11 @@
 
                                                     <button (click)="updateLink(task.taskId)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
-                                                    </button> 
-                                                    <button (click)="removeLink(task.taskId)" class="item"
-                                                        data-toggle="tooltip" data-placement="top" title="Delete"> <i
-                                                            class="zmdi zmdi-delete"></i>
                                                     </button>
+
+                                                    <a href="/Task/taskManagement" (click)="removeLink(task.taskId)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Delete"> <i class="zmdi zmdi-delete"></i>
+                                                </a>
 
                                                 </div>
                                             </td>
