@@ -64,27 +64,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Resource</label> <select class="form-control" name="resource_id" *ngFor="let resource of resources">
-                                <!--<%
-											for (ResourceDTO resourceDTO : resourceList) {
-
-												if (resourceDTO.getResourceId() == updateTask.getResourceDTO().getResourceId()) {
-										%>
-                                <option>
-                                     </option><%=selected%> 
-                                     <%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%>
-                                </option>  -->
-                                <!--	<%
-											} else {
-										%>-->
-                                <option value="{{resource.resourceId}}">
+                            <label>Resource</label>
+                            <select class="form-control" name="resource_id">
+                                
+                                <option value="{{resource.resourceId}}" *ngFor="let resource of resources" [selected]="(resource.resourceId == task.resourceDTO.resourceId) ? true : false">
                                     {{resource.resourceName}}
-                                    <!--<%=resourceDTO.getResourceName()%>-->
                                 </option>
-                                <!--<%
-											}
-											}
-										%>-->
+
                             </select>
 
                         </div>

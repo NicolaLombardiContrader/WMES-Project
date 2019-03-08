@@ -69,6 +69,7 @@ import { LoginService } from './services/login.service';
 import { TaskService } from './services/task.service';
 import { ClientService } from './services/client.service';
 import { OrderService } from './services/order.service';
+import { ResourceService } from './services/resource.service';
 
 
 
@@ -116,7 +117,11 @@ import { OrderService } from './services/order.service';
         HttpClientModule,
         AppRoutingModule
     ],
-    providers: [LoginService, TaskService, ClientService, OrderService],
+    providers: [
+        LoginService, TaskService,
+        ClientService, OrderService,
+        ResourceService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
