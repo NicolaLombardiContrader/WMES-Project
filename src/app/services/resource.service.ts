@@ -5,6 +5,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Resource } from '../models/Resource';
 import { Observable, of, BehaviorSubject } from 'rxjs';
+import { User } from '../models/User';
 
 
 
@@ -25,24 +26,11 @@ export class ResourceService {
         };
     }
 
-    login(username: string, password: string): Observable<Resource> {
-        return this.http.get<Resource>('http://localhost:58708/api/login?username=' + username + '&password=' + password)
-            .pipe(tap((response) => console.log('Resource'), catchError(this.handleError('login error', {})))
+    resourceList(): Observable<Array<Resource>> {
+        const user: User = JSON.parse(sessionStorage.getItem('user'));
+        return this.http.get<any>('http://localhost:8080/Resource/resourceManagement?userId=' + user.userId)
+            .pipe(tap((response) => console.log('Resource'), catchError(this.handleError('error', {})))
             );
-    }
-
-    signup(resource: Resource): Observable<boolean> {
-        return this.http.post<boolean>('http://localhost:58708/api/signupUser', resource)
-            .pipe(tap((response) => console.log('Resource'), catchError(this.handleError('login error', {})))
-            );
-    }
-
-    changeFeedback(message: string) {
-        this.feedback = message;
-    }
-
-    deleteFeedback() {
-        this.feedback = '';
     }
 
 }

@@ -46,10 +46,20 @@ export class TaskService {
             );
     }
 
+    readTask(taskId: number): Observable<Task> {
+        return this.http.get<any>('http://localhost:8080/Task/read?taskId=' + taskId)
+            .pipe(tap((response) => console.log('Task'), catchError(this.handleError('error', {})))
+            );
+    }
+
     deleteTask(taskId: number) {
         // this.http.get<any>('http://localhost:8080/Task/delete?taskId=' + taskId)
         //    .pipe(tap((response) => console.log('Task'), catchError(this.handleError('delete Task error', {}))));
         this.http.delete('http://localhost:8080/Task/delete?taskId=' + taskId).subscribe(() => console.log('Task deleted'));
+    }
+
+    updateTask(task: Task) {
+        this.http.put('http://localhost:8080/Task/update', task).subscribe(() => console.log('Task deleted'));
     }
 
 }

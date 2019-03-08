@@ -63,7 +63,7 @@ const routes: Routes = [
       /** Task */
     { path: 'Task/taskManagement', component: TaskManagementComponent },
     { path: 'Task/insert', component: TaskInsertComponent },
-    { path: 'Task/update', component: TaskUpdateComponent }
+    { path: 'Task/update/:taskId', component: TaskUpdateComponent }
 ];
 
 

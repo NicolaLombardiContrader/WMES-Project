@@ -27,7 +27,7 @@ export class TaskManagementComponent implements OnInit {
     }
 
     updateLink(taskId: number) {
-        this.router.navigateByUrl('/Task/update?taskId=' + taskId);
+        this.router.navigateByUrl('/Task/update/' + taskId);
     }
 
     insertLink() {

@@ -41,43 +41,44 @@
             <div class="card">
                 <div class="card-header">EDIT TASK</div>
                 <div class="card-body card-block">
-                    <form action="/Task/update" method="post">
-                        <input type="hidden" name="task_id" value="<%=updateTask.getTaskId()%>" />
+                    <form #f="ngForm">
+                        <input type="hidden" name="task_id" value="{{task.taskId}}" />
                         <div class="form-group">
                             <label>Description</label> <input class="au-input au-input--full" type="text" name="task_description"
-                                placeholder="Description" value="<%=updateTask.getTaskDescription()%>">
+                                placeholder="Description" value="{{task.taskDescription}}" ngModel>
                         </div>
 
                         <div class="form-group">
                             <label>Action</label> <input class="au-input au-input--full" type="text" name="task_action"
-                                placeholder="Action" value="<%=updateTask.getTaskAction()%>">
+                                placeholder="Action" value="{{task.taskAction}}" ngModel>
                         </div>
 
                         <div class="form-group">
                             <label>Input</label> <input class="au-input au-input--full" type="text" name="task_input"
-                                placeholder="Input" value="<%=updateTask.getTaskInput()%>">
+                                placeholder="Input" value="{{task.taskInput}}" ngModel>
                         </div>
 
                         <div class="form-group">
                             <label>Output</label> <input class="au-input au-input--full" type="text" name="task_output"
-                                placeholder="Output" value="<%=updateTask.getTaskOutput()%>">
+                                placeholder="Output" value="{{task.taskOutput}}" ngModel>
                         </div>
 
                         <div class="form-group">
-                            <label>Resource</label> <select class="form-control" name="resource_id">
+                            <label>Resource</label> <select class="form-control" name="resource_id" *ngFor="let resource of resources">
                                 <!--<%
 											for (ResourceDTO resourceDTO : resourceList) {
 
 												if (resourceDTO.getResourceId() == updateTask.getResourceDTO().getResourceId()) {
-										%>-->
+										%>
                                 <option>
-                                    <!--</option><%=selected%>-->value="
-                                    <!--<%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%>-->
-                                </option>
+                                     </option><%=selected%> 
+                                     <%=resourceDTO.getResourceId()%>"><%=resourceDTO.getResourceName()%>
+                                </option>  -->
                                 <!--	<%
 											} else {
 										%>-->
-                                <option value="<%=resourceDTO.getResourceId()%>">
+                                <option value="{{resource.resourceId}}">
+                                    {{resource.resourceName}}
                                     <!--<%=resourceDTO.getResourceName()%>-->
                                 </option>
                                 <!--<%
@@ -90,17 +91,17 @@
 
                         <div class="form-group">
                             <label>Time</label> <input class="au-input au-input--full" type="number" name="task_time"
-                                placeholder="Time" value="<%=updateTask.getTaskTime()%>">
+                                placeholder="Time" value="{{task.taskTime}}" ngModel>
                         </div>
 
                         <div class="form-group">
                             <label>State</label> <input class="au-input au-input--full" type="number" name="task_state"
-                                placeholder="State" value="<%=updateTask.getTaskState()%>">
+                                placeholder="State" value="{{task.taskState}}" ngModel>
                         </div>
 
 
                         <div class="login-checkbox"></div>
-                        <button type="submit" class="btn btn-secondary btn-sm">Update</button>
+                        <button type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</button>
                     </form>
                 </div>
 
