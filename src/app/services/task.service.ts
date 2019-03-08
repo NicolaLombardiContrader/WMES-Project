@@ -40,7 +40,7 @@ export class TaskService {
         // tslint:disable-next-line:max-line-length
         const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
         // tslint:disable-next-line:max-line-length
-        const newTask = new Task(0, taskAction, taskDescription, taskInput, taskOutput, taskTime, taskState, user, resource, project, projectTemplate);
+        const newTask = new Task(0, taskAction, taskDescription, taskInput, taskOutput, taskTime, taskState, user, resource);
         return this.http.post<Task>('http://localhost:8080/Task/insert', newTask)
             .pipe(tap((response) => console.log('insertTask'), catchError(this.handleError('insertTask error', {})))
             );
@@ -58,8 +58,8 @@ export class TaskService {
         this.http.delete('http://localhost:8080/Task/delete?taskId=' + taskId).subscribe(() => console.log('Task deleted'));
     }
 
-    updateTask(task: Task) {
-        this.http.put('http://localhost:8080/Task/update', task).subscribe(() => console.log('Task deleted'));
+    updateTask(task: Task): void {
+        this.http.put('http://localhost:8080/Task/update', task).subscribe(() => console.log('Task updated'));
     }
 
 }

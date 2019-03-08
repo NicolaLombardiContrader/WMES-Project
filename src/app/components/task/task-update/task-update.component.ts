@@ -5,6 +5,7 @@ import { Task } from '../../../models/Task';
 import { NgForm } from '@angular/forms';
 import { Resource } from '../../../models/Resource';
 import { ResourceService } from '../../../services/resource.service';
+import { User } from '../../../models/User';
 
 @Component({
     selector: 'app-task-update',
@@ -36,18 +37,13 @@ export class TaskUpdateComponent implements OnInit {
 
     update(f: NgForm) {
 
-        console.log(f.value.id + ' ' + f.value.nomeRoom + ' ' + f.value.descrizione);
+        console.log(f.value.taskId + ' ' + f.value.taskAction + ' ' + f.value.taskDescription);
+        const userUpdate: User = JSON.parse(sessionStorage.getItem('user'));
+        const updateTask: Task = new Task(f.value.taskId, f.value.taskAction, f.value.taskDescription,
+            f.value.taskInput, f.value.taskOutput, f.value.taskState, f.value.taskTime, userUpdate,
+            f.value.resourceDTO);
+        this.taskService.updateTask(updateTask);
 
-        /*
-        this.taskService.updateTask(f.value.id, f.value.nomeRoom, f.value.descrizione).subscribe((Response) => {
-
-            if (Response != null) {
-                this.router.navigateByUrl('/Task/taskManagement');
-            } else {
-                console.log('Update task');
-            }
-        });
-        */
     }
 
 }
