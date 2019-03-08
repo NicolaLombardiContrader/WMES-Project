@@ -46,7 +46,6 @@ public class ClientController {
 	}
 	
 
-
 	/*
 	 * @RequestMapping(value = "/insertRedirect", method = RequestMethod.GET) public
 	 * String insertRedirect(){ return " "; }
