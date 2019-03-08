@@ -65,11 +65,12 @@
 													for (ResourceDTO resource : allResource) {
 												%>-->
 
-                                        <tr class="tr-shadow">
+                                        <tr class="tr-shadow" *ngFor="let resource of resource">
+                                            <td>{{resource.resourceName}}</td>
+                                            <td>{{resource.resourceUsername}}</td>
 
-                                            <td>
-                                                <!--<%=resource.getResourceName()%>-->
-                                            </td>
+
+
                                             <td>
                                                 <!--<%=resource.getResourceUsername()%>-->
                                             </td>
