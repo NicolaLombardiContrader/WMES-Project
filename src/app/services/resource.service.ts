@@ -47,19 +47,19 @@ export class ResourceService {
             );
     }
 
-  readResource(resourceId: number): Observable<Resource> {
+    readResource(resourceId: number): Observable<Resource> {
         return this.http.get<any>('http://localhost:8080/Resource/read?resourceId=' + resourceId)
             .pipe(tap((response) => console.log('Resource'), catchError(this.handleError('error', {})))
             );
     }
 
- deleteResource(resourceId: number) {
+    deleteResource(resourceId: number) {
         // this.http.get<any>('http://localhost:8080/Resource/delete?resourceId=' + resourceId)
         //    .pipe(tap((response) => console.log('Resource'), catchError(this.handleError('delete Resource error', {}))));
         this.http.delete('http://localhost:8080/Resource/delete?resourceId=' + resourceId).subscribe(() => console.log('Resource deleted'));
     }
 
-updateResource(resource: Resource): void {
+    updateResource(resource: Resource): void {
         this.http.put('http://localhost:8080/Resource/update', resource).subscribe(() => console.log('Resource updated'));
     }
 

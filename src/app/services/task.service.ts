@@ -59,7 +59,7 @@ export class TaskService {
     }
 
     updateTask(task: Task): void {
-        this.http.put('http://localhost:8080/Task/update', task).subscribe(() => console.log('Task updated'));
+        this.http.post('http://localhost:8080/Task/update', task).subscribe(() => console.log('Task updated'));
     }
 
 }

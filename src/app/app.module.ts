@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 /** Import modules */
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 /** ========= Import component ============ */
@@ -115,7 +115,8 @@ import { ResourceService } from './services/resource.service';
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ReactiveFormsModule
     ],
     providers: [
         LoginService, TaskService,

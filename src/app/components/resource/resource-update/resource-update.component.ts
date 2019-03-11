@@ -7,13 +7,14 @@ import { NgForm } from '@angular/forms';
 import { User } from '../../../models/User';
 
 @Component({
-  selector: 'app-resource-update',
-  templateUrl: './resource-update.component.html',
-  styleUrls: ['./resource-update.component.css']
+    selector: 'app-resource-update',
+    templateUrl: './resource-update.component.html',
+    styleUrls: ['./resource-update.component.css']
 })
 export class ResourceUpdateComponent implements OnInit {
 
-  resourceId: number;
+    resourceId: number;
+    resourceName: string;
     public resource: Resource;
 
     // tslint:disable-next-line:max-line-length
@@ -30,12 +31,12 @@ export class ResourceUpdateComponent implements OnInit {
     }
 
     update(f: NgForm) {
-
-        console.log(f.value.resourceId + f.value.resourceName);
+        console.log(f.value);
+        console.log('Resource id: ' + f.value.resourceId + ' ' + f.value.resourceName);
         const userUpdate: User = JSON.parse(sessionStorage.getItem('user'));
         const taskArray: Task[] = [];
         // tslint:disable-next-line:max-line-length
-        const updateResource: Resource = new Resource(f.value.resourceId, f.value.resourceName, f.value.resourceUsername, ' ', userUpdate, taskArray);
+        const updateResource: Resource = new Resource(f.value.resourceId, f.value.resourceName, f.value.resourceUsername, f.value.resourcePass, userUpdate, taskArray);
         this.resourceService.updateResource(updateResource);
 
     }
