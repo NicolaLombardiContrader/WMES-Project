@@ -1,6 +1,7 @@
 import { User } from './User';
 import { Task } from './Task';
 export class Resource {
+
     resourceId: number;
     resourceName: string;
     resourceUsername: string;

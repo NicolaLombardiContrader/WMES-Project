@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResourceService } from '../../../services/resource.service';
 
 @Component({
   selector: 'app-resource-insert',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourceInsertComponent implements OnInit {
 
-  constructor() { }
+ constructor(private resourceService: ResourceService) { }
 
   ngOnInit() {
   }

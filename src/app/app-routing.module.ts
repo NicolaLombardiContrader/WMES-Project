@@ -59,7 +59,7 @@ const routes: Routes = [
       /** Resource */
     { path: 'Resource/resourceManagement', component: ResourceManagementComponent },
     { path: 'Resource/insert', component: ResourceInsertComponent },
-    { path: 'Resource/update', component: ResourceUpdateComponent },
+    { path: 'Resource/update/:resourceId', component: ResourceUpdateComponent },
       /** Task */
     { path: 'Task/taskManagement', component: TaskManagementComponent },
     { path: 'Task/insert', component: TaskInsertComponent },
