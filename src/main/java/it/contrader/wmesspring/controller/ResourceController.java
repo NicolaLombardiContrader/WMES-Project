@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import it.contrader.wmesspring.dto.ResourceDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ResourceService;
+import it.contrader.wmesspring.service.TaskService;
 import java.util.List;
 
 @CrossOrigin
@@ -44,7 +45,7 @@ public class ResourceController {
 
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public List<ResourceDTO> insert(@RequestParam(value = " utente") UserDTO userLogged,
+	public List<ResourceDTO> insert(@RequestParam(value = "utente") UserDTO userLogged,
 			@RequestParam(value = "resource_name") String resourceName,
 			@RequestParam(value = "resource_username") String resourceUsername,
 			@RequestParam(value = "resource_pass") String resourcePass) {
