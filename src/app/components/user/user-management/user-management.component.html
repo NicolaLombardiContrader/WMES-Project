@@ -65,12 +65,12 @@
 													for (UserDTO user : allUser) {
 												%>-->
 
-                                        <tr class="tr-shadow">
+                                        <tr class="tr-shadow" *ngFor="let user of users">
 
-                                            <td>
+                                            <td>{{user.userUser}}</td>
                                                 <!--<%=user.getUserUser()%>-->
-                                            </td>
-                                            <td>
+                                            
+                                            <td>{{user.userType}}
                                                 <!--<%=convertUserType(user.getUserType())%>-->
                                             </td>
                                             <td>

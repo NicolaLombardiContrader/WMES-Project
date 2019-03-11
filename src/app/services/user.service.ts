@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { logging } from 'protractor';
 import { environment } from '../models/environment.models';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -30,6 +29,12 @@ export class UserService {
             }
             // tslint:disable-next-line:align
         } return false;
+    }
+
+    userList(): Observable<Array<User>> {
+        return this.http.get<any>('http://localhost:8080/User/userManagement')
+            .pipe(tap((response) => console.log('User'), catchError(this.handleError('error', {})))
+            );
     }
 
 
