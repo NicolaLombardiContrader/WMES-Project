@@ -78,13 +78,13 @@
                                             <td>
                                                 <div class="table-data-feature">
 
-                                                    <a href="/Resource/updateRedirect?id=<%=resource.getResourceId()%>"
-                                                        class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="zmdi zmdi-edit"></i>
-                                                    </a> <a href="/Resource/delete?id=<%=resource.getResourceId()%>"
-                                                        class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                        <i class="zmdi zmdi-delete"></i>
-                                                    </a>
+                                                      <button (click)="updateLink(resource.taskId)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
+                                                    </button>
+
+                                                    <a href="/Resource/resourceManagement" (click)="removeLink(resource.taskId)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Delete"> <i class="zmdi zmdi-delete"></i>
+                                                </a>
 
                                                 </div>
                                             </td>
