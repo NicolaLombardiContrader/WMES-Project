@@ -3,12 +3,14 @@ package it.contrader.wmesspring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.wmesspring.dto.ResourceDTO;
+import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ResourceService;
 import it.contrader.wmesspring.service.TaskService;
@@ -69,6 +71,7 @@ public class ResourceController {
 		return resourceUpdate;
 	}
 
+	/*
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public List<ResourceDTO> update(@RequestParam(value = "resource_id") int idUpdate,
 			@RequestParam(value = "utente") UserDTO userLogged,
@@ -86,6 +89,11 @@ public class ResourceController {
 		resourceService.updateResource(resource);
 		return this.resourceService.getListaResourceDTO();
 
+	}
+	*/
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
+	public void update(@RequestBody ResourceDTO resource) {
+		resourceService.updateResource(resource);
 	}
 
 	// Resource Login
