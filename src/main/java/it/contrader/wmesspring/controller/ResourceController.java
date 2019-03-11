@@ -1,8 +1,5 @@
 package it.contrader.wmesspring.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,12 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.contrader.wmesspring.converter.ConverterUser;
 import it.contrader.wmesspring.dto.ResourceDTO;
-import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ResourceService;
-import it.contrader.wmesspring.service.TaskService;
 import java.util.List;
 
 @CrossOrigin
@@ -26,11 +20,6 @@ public class ResourceController {
 
 	private final ResourceService resourceService;
 
-	@Autowired
-	private HttpSession session;
-
-	@Autowired
-	private TaskService taskService;
 
 	@Autowired
 	public ResourceController(ResourceService resourceService) {
@@ -44,23 +33,15 @@ public class ResourceController {
 		UserDTO userDTOResourceList = new UserDTO();
 		userDTOResourceList.setUserId(userId);
 		return this.resourceService.findResourceDTOByUser(userDTOResourceList);
-		// public String resourceManagement(HttpServletRequest request) {
-		// visualResource(request);
-		// return "resource/manageResource";
+
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public void delete(@RequestParam(value = "id") int id) {
+	public void delete(@RequestParam(value = "resourceId") int id) {
 		this.resourceService.deleteResourceById(id);
 		
 	}
 
-	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insertRedirect() {
-		return " ";
-		// public String insert(HttpServletRequest request) {
-		// return "resource/insertResource";
-	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public List<ResourceDTO> insert(@RequestParam(value = " utente") UserDTO userLogged,
@@ -80,15 +61,12 @@ public class ResourceController {
 
 	}
 
-	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
-	public ResourceDTO updateRedirect(@RequestParam(value = "id") int id) {
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public ResourceDTO read(@RequestParam(value = "resourceId") int id) {
 		ResourceDTO resourceUpdate = new ResourceDTO();
-		
 		resourceUpdate = this.resourceService.getResourceDTOById(id);
-		
 		return resourceUpdate;
 	}
-
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public List<ResourceDTO> update(@RequestParam(value = "resource_id") int idUpdate,
@@ -126,55 +104,6 @@ public class ResourceController {
 	
 	}
 	
-	@RequestMapping(value = "/updateTaskRedirect", method = RequestMethod.GET)
-	public String updateTaskRedirect(HttpServletRequest request) {
-		int taskUpdateId = Integer.parseInt(request.getParameter("id"));
-
-		ResourceDTO resourceDTO = (ResourceDTO) session.getAttribute("resourceLogged");
-		// UserDTO userLogged = (UserDTO) session.getAttribute("userLogged");
-
-		TaskDTO taskUpdate = new TaskDTO();
-		taskUpdate = taskService.getTaskDTOById(taskUpdateId);
-
-		request.setAttribute("taskUpdate", taskUpdate);
-		request.setAttribute("resourceDTO", resourceDTO);
-
-		return "resource/updateTaskByResource";
-	}
-
-	@RequestMapping(value = "/updateTask", method = RequestMethod.POST)
 	
-	public List<TaskDTO> update(@RequestParam(value = "task_id") int idUpdate,
-			@RequestParam (value = "utente") UserDTO userLogged,
-			@RequestParam (value = "task_action") String actionUpdate, 
-			@RequestParam (value = "task_description") String descriptionUpdate, 
-			@RequestParam (value = "task_input") String inputUpdate,
-			@RequestParam (value = "task_output") String outputUpdate, 
-			@RequestParam (value = "task_state") int stateUpdate,
-			@RequestParam (value = "task_time") int timeUpdate, 
-			@RequestParam (value = "resurceLogged") ResourceDTO resourceUpdateDTO) {
-	
-		
-		
-		TaskDTO task = new TaskDTO();
-		task.setTaskId(idUpdate);
-		task.setTaskAction(actionUpdate);
-		task.setTaskDescription(descriptionUpdate);
-		task.setTaskInput(inputUpdate);
-		task.setTaskOutput(outputUpdate);
-		task.setTaskState(stateUpdate);
-		task.setTaskTime(timeUpdate);
-		task.setResourceDTO(resourceUpdateDTO);
-		task.setUserDTO(userLogged);
-		   
-		taskService.updateTask(task);
-		
-
-		List<TaskDTO> allTask = this.resourceService.findTaskDTOByResource(resourceUpdateDTO);
-//		task.setAttribute("allTaskDTO", allTask);
-		return this.taskService.getListaTaskDTO();
-	
-
-	}
 
 }

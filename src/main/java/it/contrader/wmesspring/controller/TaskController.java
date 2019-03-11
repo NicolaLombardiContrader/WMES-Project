@@ -41,28 +41,15 @@ public class TaskController {
 		this.taskService.deleteTaskById(taskId);
 	}
 
-	/*
-	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insertRedirect() {
-		return " ";
-	}
-	*/
-	
-	/*
-	 * public String insertRedirect(HttpServletRequest request, HttpSession session)
-	 * { UserDTO userLogged = (UserDTO) session.getAttribute("utente");
-	 * List<ResourceDTO> resourceList =
-	 * resourceService.findResourceDTOByUser(userLogged);
-	 * request.setAttribute("resourceList", resourceList); // visualTask(request);
-	 * // request.setAttribute("option", "insert"); return "task/insertTask"; }
-	 */
+
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public List<TaskDTO> insert(@RequestParam(value = "userDTO") UserDTO userLogged,
 			@RequestParam(value = "task_action") String taskAction,
 			@RequestParam(value = "task_description") String taskDescription,
 			@RequestParam(value = "task_input") String taskInput,
-			@RequestParam(value = "task_output") String taskOutput, @RequestParam(value = "task_time") int taskTime,
+			@RequestParam(value = "task_output") String taskOutput,
+			@RequestParam(value = "task_time") int taskTime,
 			@RequestParam(value = "task_state") int taskState,
 			@RequestParam(value = "resource_id") ResourceDTO resourceId) {
 
