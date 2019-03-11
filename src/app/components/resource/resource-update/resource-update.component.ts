@@ -31,7 +31,7 @@ export class ResourceUpdateComponent implements OnInit {
 
     update(f: NgForm) {
 
-        console.log(f.value.resourceId + ' ' + f.value.resourceName);
+        console.log(f.value.resourceId + f.value.resourceName);
         const userUpdate: User = JSON.parse(sessionStorage.getItem('user'));
         const taskArray: Task[] = [];
         // tslint:disable-next-line:max-line-length
