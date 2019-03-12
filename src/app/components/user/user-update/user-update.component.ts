@@ -12,31 +12,28 @@ import { NgForm } from '@angular/forms';
 export class UserUpdateComponent implements OnInit {
 
     userId: number;
-    public userService: UserService;
-    public user: User;
+    public updateUser: User;
+
+    public userTypes = [];
 
     // tslint:disable-next-line:max-line-length
-    constructor(private resourceService: UserService, private route: ActivatedRoute, private router: Router) { }
+    constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
         /** Convert String to number */
         this.userId = Number(this.route.snapshot.paramMap.get('userId'));
         console.log('User id in update:' + this.userId);
         this.userService.readUser(this.userId).subscribe((response) => {
-            this.user = response;
-            console.log('User caricarito: ' + this.user.userUser);
+            this.updateUser = response;
+            console.log('User caricarito: ' + this.updateUser.userUser);
         });
 
-        this.userService.userList().subscribe((response) => {
-            console.log('Lista caricarita');
-        });
+        this.userTypes = ['admin', 'bo'];
     }
 
     update(f: NgForm) {
-        console.log(f.value);
         console.log('User id: ' + f.value.userId + ' ' + f.value.userName);
-        const updateUser: User = new User(f.value.userId, f.value.userUser, f.value.userPass, f.value.userType, null, null, null, null);
-        this.userService.updateUser(updateUser);
+        this.userService.updateUser(this.updateUser);
 
     }
 }

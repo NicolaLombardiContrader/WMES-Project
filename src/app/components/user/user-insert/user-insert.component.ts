@@ -10,17 +10,17 @@ import { User } from '../../../models/User';
     styleUrls: ['./user-insert.component.css']
 })
 export class UserInsertComponent implements OnInit {
-    public user: User;
+    public insertUser: User;
+
+    public userTypes = [];
     constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit() {
-
-        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        this.user = new User(null, null, null, null, null, null, null, null);
+        this.insertUser = new User(0, null, null, 'admin', null, null, null, null);
+        this.userTypes = ['admin', 'bo'];
     }
     userInsert(f: NgForm) {
-        this.userService.insertUser(this.user);
-
+        this.userService.insertUser(this.insertUser);
     }
 
 }

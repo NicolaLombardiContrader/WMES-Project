@@ -32,7 +32,7 @@ export class TaskInsertComponent implements OnInit {
         });
 
         // Used for presetting menu
-        console.log('The first resource id is: ' + this.resourcesInsert[0]);
+        console.log('The first resource id is: ' + this.resourcesInsert[0].resourceName);
         this.task.resourceDTO.resourceId = this.resourcesInsert[0].resourceId;
         this.firstResourceId = this.resourcesInsert[0].resourceId;
     }

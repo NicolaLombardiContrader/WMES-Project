@@ -46,18 +46,17 @@ export class UserService {
 
 
     updateUser(user: User): void {
-        this.http.post('http://localhost:8080/User/update', user).subscribe(() => console.log('User updated'));
+        this.http.put('http://localhost:8080/User/update', user).subscribe(() => console.log('User updated'));
     }
 
 
 
     deleteUser(userId: number) {
-
         this.http.delete('http://localhost:8080/User/delete?userId=' + userId).subscribe(() => console.log('User deleted'));
     }
 
-insertUser(user: User): void {
-        this.http.post('http://localhost:8080/Resource/insert', user).subscribe(() => console.log('User inserted'));
+    insertUser(user: User): void {
+        this.http.post('http://localhost:8080/User/insert', user).subscribe(() => console.log('User inserted'));
     }
 
 

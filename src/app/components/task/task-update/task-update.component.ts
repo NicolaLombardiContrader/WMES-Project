@@ -36,13 +36,7 @@ export class TaskUpdateComponent implements OnInit {
     }
 
     update(f: NgForm) {
-        console.log(f.value);
-        // console.log('Task id: ' + f.value.taskId + ' ' + f.value.taskAction + ' ' + f.value.taskDescription);
         const userUpdate: User = JSON.parse(sessionStorage.getItem('user'));
-        // tslint:disable-next-line:max-line-length
-       // const updateTask: Task = new Task(f.value.taskId, f.value.taskAction, f.value.taskDescription,
-         //   f.value.taskInput, f.value.taskOutput, f.value.taskState, f.value.taskTime, userUpdate,
-           // f.value.resourceDTO);
         this.task.userDTO = userUpdate;
         this.taskService.updateTask(this.task);
     }
