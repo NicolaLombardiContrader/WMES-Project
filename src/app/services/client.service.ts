@@ -48,11 +48,11 @@ export class ClientService {
     }
 
     deleteClient(clientId: number) {
-       this.http.delete('http://localhost:8080/Client/delete?clientId=' + clientId).subscribe(() =>  console.log('Client delete'));
+       this.http.delete('http://localhost:8080/Client/delete?clientId=' + clientId).subscribe(() =>  console.log('Client deleted'));
     }
 
-        updateClient(client: Client) {
-        this.http.put('http://localhost:8080/Client/update', client).subscribe(() => console.log('Client update'));
+        updateClient(client: Client)  {
+            this.http.put('http://localhost:8080/Client/update', client).subscribe(() => console.log('Client update'));
     }
 }
 
