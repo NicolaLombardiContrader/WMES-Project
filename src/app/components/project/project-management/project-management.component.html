@@ -66,30 +66,28 @@
 											for (ProjectDTO project : allProject) {
 										%>-->
 
-                                <tr class="tr-shadow">
+                                <tr class="tr-shadow" *ngFor="let project of projects"></tr>
 
-                                    <td>
-                                        <!--<%=project.getProjectName()%>-->
-                                    </td>
-                                    <td>
-                                        <!--<%=convertProjectStatus(project.getProjectStatus())%>-->
-                                    </td>
+                                            <td>{{projects.projectName}}</td>
+                                            <td>{{projects.projectStatus}}</td>
+
+                                   
                                     <td>
                                         <div class="table-data-feature">
 
-                                            <a href="/Project/updateRedirect?id=<%=project.getProjectId()%>" class="item"
+                                           <button (click)="updateLink(projects.projectId)" class="item"
                                                 data-toggle="tooltip" data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
-                                            </a> <a href="/Project/delete?id=<%=project.getProjectId()%>" class="item"
+                                           </button>
+
+                                            <a href="/Project/projectManagment" (click)="removeLink(projects.projectId)" class="item"
                                                 data-toggle="tooltip" data-placement="top" title="Delete"> <i class="zmdi zmdi-delete"></i>
                                             </a>
 
                                         </div>
                                     </td>
-                                </tr>
+                            
 
-                                <!--<%
-											}
-										%>-->
+                      
                             </tbody>
                         </table>
                     </div>
