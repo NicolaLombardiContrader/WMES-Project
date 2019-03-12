@@ -13,6 +13,7 @@ import it.contrader.wmesspring.dto.ProjectDTO;
 import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.model.Project;
+import it.contrader.wmesspring.model.User;
 
 @Service
 public class ProjectService {
@@ -46,12 +47,12 @@ public class ProjectService {
 		projectRepository.deleteById(id);
 	}
 
-	public List<ProjectDTO> findProjectDTOByUser(UserDTO userDTO) {
+	public List<ProjectDTO> findProjectDTOByUser(User user) {
 
-		final List<Project> listProject = projectRepository.findAllByUser(ConverterUser.toEntity(userDTO));
-		final List<ProjectDTO> listProjectDTO = new ArrayList<>();
-		listProject.forEach(i -> listProjectDTO.add(ConverterProject.toDTO(i)));
-		return listProjectDTO;
+		final List<Project> list = projectRepository.findAllByUser((user));
+		final List<ProjectDTO> ProjectDTOs = new ArrayList<>();
+		list.forEach(i -> ProjectDTOs.add(ConverterProject.toDTO(i)));
+		return ProjectDTOs;
 	}
 
 	public List<TaskDTO> findTaskDTOByUser(UserDTO userDTO) {
