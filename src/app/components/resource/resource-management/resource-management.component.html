@@ -46,9 +46,9 @@
                         <h3 class="title-5 m-b-35">resource table</h3>
 
                         <div class="table-data__tool-right">
-                            <a href="/Resource/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small">
                                 <i class="zmdi zmdi-plus"></i>ADD RESOURCE
-                            </a>
+                            </button>
 
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
@@ -82,7 +82,7 @@
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                                     </button>
 
-                                                    <a href="/Resource/resourceManagement" (click)="removeLink(resource.resoruceId)" class="item" data-toggle="tooltip"
+                                                    <a href="/Resource/resourceManagement" (click)="removeLink(resource.resourceId)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Delete"> <i class="zmdi zmdi-delete"></i>
                                                 </a>
 

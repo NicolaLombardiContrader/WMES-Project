@@ -36,15 +36,8 @@ export class ResourceService {
 
 
     // tslint:disable-next-line:max-line-length
-    insertResource(resourceId: number, resourceName: string, resourceUsername: string, resourcePass: string, user: User, task: Task[]): Observable<Resource> {
-        // tslint:disable-next-line:prefer-const
-        // tslint:disable-next-line:max-line-length
-        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        // tslint:disable-next-line:max-line-length
-        const newResource = new Resource(0, resourceName, resourceUsername, resourcePass, user, task);
-        return this.http.post<Resource>('http://localhost:8080/Resource/insert', newResource)
-            .pipe(tap((response) => console.log('insertResource'), catchError(this.handleError('insertResource error', {})))
-            );
+    insertResource(resource: Resource): void {
+        this.http.post('http://localhost:8080/Resource/insert', resource).subscribe(() => console.log('Resource inserted'));
     }
 
     readResource(resourceId: number): Observable<Resource> {

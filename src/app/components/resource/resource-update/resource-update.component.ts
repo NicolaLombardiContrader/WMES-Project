@@ -32,13 +32,13 @@ export class ResourceUpdateComponent implements OnInit {
 
     update(f: NgForm) {
         console.log(f.value);
-        console.log('Resource id: ' + f.value.resourceId + ' ' + f.value.resourceName);
         const userUpdate: User = JSON.parse(sessionStorage.getItem('user'));
-        const taskArray: Task[] = [];
+        // const taskArray: Task[] = [];
         // tslint:disable-next-line:max-line-length
-        const updateResource: Resource = new Resource(f.value.resourceId, f.value.resourceName, f.value.resourceUsername, f.value.resourcePass, userUpdate, taskArray);
-        this.resourceService.updateResource(updateResource);
-
+        // const updateResource: Resource = new Resource(f.value.resourceId, f.value.resourceName, f.value.resourceUsername, f.value.resourcePass, userUpdate, taskArray);
+        this.resource.userDTO = userUpdate;
+        this.resourceService.updateResource(this.resource);
+        this.router.navigateByUrl('/Resource/resourceManagement');
     }
 
 }
