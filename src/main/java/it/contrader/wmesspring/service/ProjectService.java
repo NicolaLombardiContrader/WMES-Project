@@ -47,9 +47,9 @@ public class ProjectService {
 		projectRepository.deleteById(id);
 	}
 
-	public List<ProjectDTO> findProjectDTOByUser(User user) {
+	public List<ProjectDTO> findProjectDTOByUser(UserDTO userDTO) {
 
-		final List<Project> list = projectRepository.findAllByUser((user));
+		final List<Project> list = projectRepository.findAllByUser(ConverterUser.toEntity(userDTO));
 		final List<ProjectDTO> ProjectDTOs = new ArrayList<>();
 		list.forEach(i -> ProjectDTOs.add(ConverterProject.toDTO(i)));
 		return ProjectDTOs;

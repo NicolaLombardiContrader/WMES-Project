@@ -35,7 +35,7 @@ public class ProjectController {
 	public List<ProjectDTO> projectManagement(@RequestParam(value = "userId") int userId) {
 		UserDTO userDTOProjectList = new UserDTO();
 		userDTOProjectList.setUserId(userId);
-		return this.projectService.findProjectDTOByUser(ConverterUser.toEntity(userDTOProjectList));
+		return this.projectService.findProjectDTOByUser(userDTOProjectList);
 
 	}
 
