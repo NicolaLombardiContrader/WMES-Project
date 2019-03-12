@@ -35,7 +35,7 @@ public class ResourceController {
 		return this.resourceService.findResourceDTOByUser(userDTOResourceList);
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
 	public void delete(@RequestParam(value = "resourceId") int id) {
 		this.resourceService.deleteResourceById(id);
 	}
