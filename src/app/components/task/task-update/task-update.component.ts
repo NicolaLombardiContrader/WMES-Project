@@ -29,17 +29,11 @@ export class TaskUpdateComponent implements OnInit {
             console.log('Task caricarito: ' + this.task.taskDescription);
         });
 
+        this.resourceService.resourceList().subscribe((response) => {
+            this.resources = response;
+            console.log('Lista caricarita');
+        });
     }
-
-    // update(f: NgForm) {
-    //  console.log(f.value.taskId + ' ' + f.value.taskAction + ' ' + f.value.taskDescription);
-    // const userUpdate: User = JSON.parse(sessionStorage.getItem('user'));
-    // const updateTask: Task = new Task(f.value.taskId, f.value.taskAction, f.value.taskDescription,
-    //    f.value.taskInput, f.value.taskOutput, f.value.taskState, f.value.taskTime, userUpdate,
-    //     f.value.resourceDTO);
-    //  this.taskService.updateTask(updateTask);
-
-    // }
 
     update(f: NgForm) {
         console.log(f.value);
