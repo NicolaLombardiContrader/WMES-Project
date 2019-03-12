@@ -38,7 +38,7 @@ export class ResourceUpdateComponent implements OnInit {
         // const updateResource: Resource = new Resource(f.value.resourceId, f.value.resourceName, f.value.resourceUsername, f.value.resourcePass, userUpdate, taskArray);
         this.resource.userDTO = userUpdate;
         this.resourceService.updateResource(this.resource);
-        this.router.navigateByUrl('/Resource/resourceManagement');
+        // this.router.navigateByUrl('/Resource/resourceManagement');
     }
 
 }

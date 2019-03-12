@@ -28,7 +28,7 @@ export class ResourceInsertComponent implements OnInit {
         // tslint:disable-next-line:max-line-length
         // const insertResource: Resource = new Resource(null, f.value.resourceName, f.value.resourceUsername, f.value.resourcePass, userInsert, taskArray);
         this.resourceService.insertResource(this.resource);
-        this.router.navigateByUrl('/Resource/resourceManagement');
+        // this.router.navigateByUrl('/Resource/resourceManagement');
     }
 
 }
