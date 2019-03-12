@@ -60,13 +60,14 @@
 
                         <div class="form-group">
                             <label>Output</label> <input class="au-input au-input--full" type="text" name="taskOutput"
-                                     placeholder="Output" [(ngModel)]="task.taskOutput">
+                                placeholder="Output" [(ngModel)]="task.taskOutput">
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Resource</label>
                             <select class="form-control" name="resourceId">
-                                <option value="{{resource.resourceId}}" *ngFor="let resource of resources" [selected]="(resource.resourceId == task.resourceDTO.resourceId) ? true : false">
+                                <option [(ngModel)]="task.resourceDTO.resourceId" *ngFor="let resource of resources"
+                                    [selected]="(resource.resourceId == task.resourceDTO.resourceId) ? true : false">
                                     {{resource.resourceName}}
                                 </option>
 
@@ -76,15 +77,15 @@
 
                         <div class="form-group">
                             <label>Time</label> <input class="au-input au-input--full" type="number" name="taskTime"
-                                 placeholder="Time" [(ngModel)]="task.taskTime">
+                                placeholder="Time" [(ngModel)]="task.taskTime">
                         </div>
 
                         <div class="form-group">
                             <label>State</label> <input class="au-input au-input--full" type="number" name="taskState"
-                                 placeholder="State" [(ngModel)]="task.taskState">
+                                placeholder="State" [(ngModel)]="task.taskState">
                         </div>
 
-                           <button type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</button>
+                        <button type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</button>
                     </form>
                 </div>
 
