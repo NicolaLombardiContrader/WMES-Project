@@ -42,30 +42,30 @@
                 <div class="card-header">EDIT TASK</div>
                 <div class="card-body card-block">
                     <form #f="ngForm">
-                        <input type="hidden" name="task_id" value="{{task.taskId}}" />
+                        <input type="hidden" name="taskId" [(ngModel)]="task.taskId" />
                         <div class="form-group">
-                            <label>Description</label> <input class="au-input au-input--full" type="text" name="task_description"
-                                placeholder="Description" value="{{task.taskDescription}}" ngModel>
+                            <label>Description</label> <input class="au-input au-input--full" type="text" name="taskDescription"
+                                placeholder="Description" [(ngModel)]="task.taskDescription">
                         </div>
 
                         <div class="form-group">
-                            <label>Action</label> <input class="au-input au-input--full" type="text" name="task_action"
-                                placeholder="Action" value="{{task.taskAction}}" ngModel>
+                            <label>Action</label> <input class="au-input au-input--full" type="text" name="taskAction"
+                                placeholder="Action" [(ngModel)]="task.taskAction">
                         </div>
 
                         <div class="form-group">
-                            <label>Input</label> <input class="au-input au-input--full" type="text" name="task_input"
-                                placeholder="Input" value="{{task.taskInput}}" ngModel>
+                            <label>Input</label> <input class="au-input au-input--full" type="text" name="taskInput"
+                                placeholder="Input" [(ngModel)]="task.taskInput">
                         </div>
 
                         <div class="form-group">
-                            <label>Output</label> <input class="au-input au-input--full" type="text" name="task_output"
-                                placeholder="Output" value="{{task.taskOutput}}" ngModel>
-                        </div>
-
+                            <label>Output</label> <input class="au-input au-input--full" type="text" name="taskOutput"
+                                     placeholder="Output" [(ngModel)]="task.taskOutput">
+                        </div>ta
+t
                         <div class="form-group">
                             <label>Resource</label>
-                            <select class="form-control" name="resource_id">
+                            <select class="form-control" name="resourceId">
                                 <option value="{{resource.resourceId}}" *ngFor="let resource of resources" [selected]="(resource.resourceId == task.resourceDTO.resourceId) ? true : false">
                                     {{resource.resourceName}}
                                 </option>
@@ -75,18 +75,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Time</label> <input class="au-input au-input--full" type="number" name="task_time"
-                                placeholder="Time" value="{{task.taskTime}}" ngModel>
+                            <label>Time</label> <input class="au-input au-input--full" type="number" name="taskTime"
+                                 placeholder="Time" [(ngModel)]="task.taskTime">
                         </div>
 
                         <div class="form-group">
-                            <label>State</label> <input class="au-input au-input--full" type="number" name="task_state"
-                                placeholder="State" value="{{task.taskState}}" ngModel>
+                            <label>State</label> <input class="au-input au-input--full" type="number" name="taskState"
+                                 placeholder="State" [(ngModel)]="task.taskState">
                         </div>
- 
 
-                        <div class="login-checkbox"></div>
-                        <button type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</button>
+                           <button type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</button>
                     </form>
                 </div>
 
