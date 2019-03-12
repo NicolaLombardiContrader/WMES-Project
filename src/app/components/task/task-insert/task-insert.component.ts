@@ -9,32 +9,35 @@ import { ResourceService } from '../../../services/resource.service';
 
 @Component({
 
-  selector: 'app-task-insert',
-  templateUrl: './task-insert.component.html',
-  styleUrls: ['./task-insert.component.css']
+    selector: 'app-task-insert',
+    templateUrl: './task-insert.component.html',
+    styleUrls: ['./task-insert.component.css']
 })
 export class TaskInsertComponent implements OnInit {
 
     public task: Task;
-    public resources: Array<Resource>;
-  constructor(private taskService: TaskService, private resourceService: ResourceService,  private router: Router) { }
 
-  ngOnInit() {
-       const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-       this.task = new Task(null, null, null, null, null, null, null, userInsert, null);
+    public firstResourceId: number;
+    public resourcesInsert: Array<Resource>;
+    constructor(private taskService: TaskService, private resourceServiceInsert: ResourceService) { }
 
-       this.resourceService.resourceList().subscribe((response) => {
-            this.resources = response;
+    ngOnInit() {
+        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
+        this.task = new Task(0, null, null, null, null, null, null, userInsert, null);
+        // this.task.resourceDTO.resourceId = 0;
+
+        this.resourceServiceInsert.resourceList().subscribe((response) => {
+            this.resourcesInsert = response;
             console.log('Lista caricarita');
         });
-  }
 
-  insertTask(f: NgForm) {
-        // const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        // const taskArray: Task[] = [];
-        // tslint:disable-next-line:max-line-length
-        // const insertResource: Resource = new Resource(null, f.value.resourceName, f.value.resourceUsername, f.value.resourcePass, userInsert, taskArray);
+        // Used for presetting menu
+        console.log('The first resource id is: ' + this.resourcesInsert[0]);
+        this.task.resourceDTO.resourceId = this.resourcesInsert[0].resourceId;
+        this.firstResourceId = this.resourcesInsert[0].resourceId;
+    }
+
+    insertTask(f: NgForm) {
         this.taskService.insertTask(this.task);
-        // this.router.navigateByUrl('/Resource/resourceManagement');
     }
 }
