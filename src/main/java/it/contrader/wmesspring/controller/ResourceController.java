@@ -23,45 +23,21 @@ public class ResourceController {
 
 	private final ResourceService resourceService;
 
-
 	@Autowired
 	public ResourceController(ResourceService resourceService) {
 		this.resourceService = resourceService;
 	}
-
-
 
 	@RequestMapping(value = "/resourceManagement", method = RequestMethod.GET)
 	public List<ResourceDTO> resourceManagement(@RequestParam(value = "userId") int userId) {
 		UserDTO userDTOResourceList = new UserDTO();
 		userDTOResourceList.setUserId(userId);
 		return this.resourceService.findResourceDTOByUser(userDTOResourceList);
-
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public void delete(@RequestParam(value = "resourceId") int id) {
 		this.resourceService.deleteResourceById(id);
-		
-	}
-
-
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public List<ResourceDTO> insert(@RequestParam(value = "utente") UserDTO userLogged,
-			@RequestParam(value = "resource_name") String resourceName,
-			@RequestParam(value = "resource_username") String resourceUsername,
-			@RequestParam(value = "resource_pass") String resourcePass) {
-
-		
-		ResourceDTO resourceDTO = new ResourceDTO();
-		resourceDTO.setUserDTO(userLogged);
-		resourceDTO.setResourceName(resourceName);
-		resourceDTO.setResourceUsername(resourceUsername);
-		resourceDTO.setResourcePass(resourcePass);
-		resourceService.insertResource(resourceDTO);
-		
-		return this.resourceService.getListaResourceDTO();
-
 	}
 
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
@@ -71,26 +47,11 @@ public class ResourceController {
 		return resourceUpdate;
 	}
 
-	/*
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public List<ResourceDTO> update(@RequestParam(value = "resource_id") int idUpdate,
-			@RequestParam(value = "utente") UserDTO userLogged,
-			@RequestParam(value = "resource_name") String nameUpdate,
-			@RequestParam(value = "resource_username") String usernameUpdate,
-			@RequestParam(value = "resource_pass") String passUpdate) {
-
-		ResourceDTO resource = new ResourceDTO();
-		resource.setResourceId(idUpdate);
-		resource.setUserDTO(userLogged);
-		resource.setResourceName(nameUpdate);
-		resource.setResourceUsername(usernameUpdate);
-		resource.setResourcePass(passUpdate);
-
-		resourceService.updateResource(resource);
-		return this.resourceService.getListaResourceDTO();
-
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	public void insert(@RequestBody ResourceDTO resource) {
+		resourceService.insertResource(resource);
 	}
-	*/
+
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public void update(@RequestBody ResourceDTO resource) {
 		resourceService.updateResource(resource);
@@ -100,7 +61,7 @@ public class ResourceController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResourceDTO loginControl(@RequestParam(value = "resource_username") String username,
 			@RequestParam(value = " resource_pass") String pass) {
-	
+
 		final ResourceDTO resourceDTO = resourceService.findResourceByResourceUsernameAndResourcePass(username, pass);
 		if (!StringUtils.isEmpty(resourceDTO)) {
 			return resourceDTO;
@@ -110,9 +71,7 @@ public class ResourceController {
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public void logOut() {
-	
+
 	}
-	
-	
 
 }
