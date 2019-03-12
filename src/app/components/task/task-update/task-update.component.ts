@@ -29,10 +29,6 @@ export class TaskUpdateComponent implements OnInit {
             console.log('Task caricarito: ' + this.task.taskDescription);
         });
 
-        this.resourceService.resourceList().subscribe((response) => {
-            this.resources = response;
-            console.log('Lista caricarita');
-        });
     }
 
     // update(f: NgForm) {
