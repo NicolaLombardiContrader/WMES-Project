@@ -1,6 +1,5 @@
 package it.contrader.wmesspring.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,40 +41,28 @@ public class UserController {
 		return this.userService.findAllUserDTO();
 	}
 
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public UserDTO read(@RequestParam(value = "userId") int id) {
+		UserDTO readUser = new UserDTO();
+		readUser = this.userService.getUserDTOById(id);
+		return readUser;
+	}
+
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
 	public void delete(@RequestParam(value = "userId") int id) {
 		this.userService.deleteUserById(id);
 	}
 
-	
-	
-	
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public void update(@RequestBody UserDTO user) {
 		userService.updateUser(user);
 	}
 
-	// TODO da modificare nella view ruolo con usertype
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public List<UserDTO> insert(@RequestParam(value = "user_user") String username,
-			@RequestParam(value = "user_pass") String password,
-			@RequestParam(value = "user_type") String userType) {
-		// String username = request.getParameter("user_user").toString();
-		// String password = request.getParameter("user_pass").toString();
-		// String userType = request.getParameter("user_type").toString();
-
-		// UserDTO userObj = new UserDTO(0, username, password, ruolo,"");
-		UserDTO userObj = new UserDTO();
-		userObj.setUserUser(username);
-		userObj.setUserPass(password);
-		userObj.setUserType(userType);
-		userService.insertUser(userObj);
-
-		return this.userService.getListaUserDTO();
-		// visualUser(request);
-		// return "user/manageUser";
+	public void insert(@RequestBody UserDTO user) {
+		userService.insertUser(user);
 	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public UserDTO loginControl(@RequestParam(value = "username") String username,
 			@RequestParam(value = "password") String password) {
