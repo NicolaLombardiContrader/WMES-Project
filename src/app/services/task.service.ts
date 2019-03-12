@@ -35,15 +35,8 @@ export class TaskService {
 
 
     // tslint:disable-next-line:max-line-length
-    insertTask(taskId: number, taskAction: string, taskDescription: string, taskInput: string, taskOutput: string, taskTime: number, taskState: number, user: User, resource: Resource, project: Project[], projectTemplate: ProjectTemplate[]): Observable<Task> {
-        // tslint:disable-next-line:prefer-const
-        // tslint:disable-next-line:max-line-length
-        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        // tslint:disable-next-line:max-line-length
-        const newTask = new Task(0, taskAction, taskDescription, taskInput, taskOutput, taskTime, taskState, user, resource);
-        return this.http.post<Task>('http://localhost:8080/Task/insert', newTask)
-            .pipe(tap((response) => console.log('insertTask'), catchError(this.handleError('insertTask error', {})))
-            );
+   insertTask(task: Task): void {
+        this.http.post('http://localhost:8080/Resource/insert', task).subscribe(() => console.log('Task inserted'));
     }
 
     readTask(taskId: number): Observable<Task> {
@@ -53,8 +46,7 @@ export class TaskService {
     }
 
     deleteTask(taskId: number) {
-        // this.http.get<any>('http://localhost:8080/Task/delete?taskId=' + taskId)
-        //    .pipe(tap((response) => console.log('Task'), catchError(this.handleError('delete Task error', {}))));
+
         this.http.delete('http://localhost:8080/Task/delete?taskId=' + taskId).subscribe(() => console.log('Task deleted'));
     }
 
