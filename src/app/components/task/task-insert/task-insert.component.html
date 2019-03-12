@@ -39,52 +39,48 @@
             <div class="card">
                 <div class="card-header">NEW TASK</div>
                 <div class="card-body card-block">
-                    <form action="/Task/insert" method="post" class="">
+                    <form #f="ngForm">
                         <div class="form-group">
                             <label>Description</label> <input class="au-input au-input--full" type="text" name="task_description"
-                                placeholder="Description">
+                                placeholder="Description" [(ngModel)]="task.taskDescription">
                         </div>
                         <div class="form-group">
                             <label>Action</label> <input class="au-input au-input--full" type="text" name="task_action"
-                                placeholder="Action">
+                                placeholder="Action" [(ngModel)]="task.taskAction">
                         </div>
                         <div class="form-group">
                             <label>Input</label> <input class="au-input au-input--full" type="text" name="task_input"
-                                placeholder="Input">
+                                placeholder="Input" [(ngModel)]="task.taskInput">
                         </div>
                         <div class="form-group">
                             <label>Output</label> <input class="au-input au-input--full" type="text" name="task_output"
-                                placeholder="Output">
+                                placeholder="Output" [(ngModel)]="task.taskOutput">
                         </div>
                         <div class="form-group">
-                            <label>Resource</label> <select class="form-control" name="resource_id">
-                                <!--<%
-											for (ResourceDTO resourceDTO : resourceList) {
-										%>-->
-                                <option value="<%=resourceDTO.getResourceId()%>">
-                                    <!--<%=resourceDTO.getResourceName()%>-->
+                            <label>Resource</label>
+                            <select class="form-control" name="resource_id">
+                                <option [(ngModel)]="task.resourceDTO.resourceId" *ngFor="let resource of resources">
+                                    
+                                    {{resource.resourceName}}
                                 </option>
-                                <!--	<%
-											}
-										%>-->
+
                             </select>
+
                         </div>
                         <div class="form-group">
                             <label>Time</label> <input class="au-input au-input--full" type="number" name="task_time"
-                                placeholder="Time">
+                                placeholder="Time" [(ngModel)]="task.taskTime">
                         </div>
                         <div class="form-group">
                             <label>State</label> <select class="au-input au-input--full" type="radio" name="task_state"
-                                placeholder="State">
+                                placeholder="State" [(ngModel)]="task.taskState">
                                 <option value="0">Pending</option>
                                 <option value="1">In progress</option>
                                 <option value="2">Completed</option>
                             </select>
 
                         </div>
-                        <div class="form-actions form-group">
-                            <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
-                        </div>
+                        <a href="/Task/taskManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertTask(f)">Insert</a>
                     </form>
                 </div>
             </div>
