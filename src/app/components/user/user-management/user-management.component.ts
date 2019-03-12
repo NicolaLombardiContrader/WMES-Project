@@ -19,6 +19,7 @@ export class UserManagementComponent implements OnInit {
             console.log('La grandezza e\'' + this.users.length);
         });
     }
+    
 
     removeLink(userId: number) {
         this.userService.deleteUser(userId);
