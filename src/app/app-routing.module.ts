@@ -39,23 +39,23 @@ const routes: Routes = [
     /** User */
     { path: 'User/userManagement', component: UserManagementComponent },
     { path: 'User/insert', component: UserInsertComponent },
-    { path: 'User/update', component: UserUpdateComponent },
+    { path: 'User/update/:userId', component: UserUpdateComponent },
     /** Client */
     { path: 'Client/clientManagement', component: ClientManagementComponent },
     { path: 'Client/insert', component: ClientInsertComponent },
-    { path: 'Client/update', component: ClientUpdateComponent },
+    { path: 'Client/update/:clientId', component: ClientUpdateComponent },
     /** Order */
     { path: 'Order/orderManagement', component: OrderManagementComponent },
     { path: 'Order/insert', component: OrderInsertComponent },
-    { path: 'Order/update', component: OrderUpdateComponent },
+    { path: 'Order/update/:orderId', component: OrderUpdateComponent },
     /** Project */
     { path: 'Project/projectManagement', component: ProjectManagementComponent },
     { path: 'Project/insert', component: ProjectInsertComponent },
-    { path: 'Project/update', component: ProjectUpdateComponent },
+    { path: 'Project/update/:projectId', component: ProjectUpdateComponent },
     /** ProjectTemplate */
     { path: 'ProjectTemplate/projectTemplateManagement', component: ProjectTemplateManagementComponent },
     { path: 'ProjectTemplate/insert', component: ProjectTemplateInsertComponent },
-    { path: 'ProjectTemplate/update', component: ProjectTemplateUpdateComponent },
+    { path: 'ProjectTemplate/update/:projectTemplateId', component: ProjectTemplateUpdateComponent },
       /** Resource */
     { path: 'Resource/resourceManagement', component: ResourceManagementComponent },
     { path: 'Resource/insert', component: ResourceInsertComponent },
