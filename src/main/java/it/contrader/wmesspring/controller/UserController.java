@@ -36,10 +36,10 @@ public class UserController {
 	 */
 
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
-	public List<UserDTO> userManagement(@RequestParam(value = "userId") int userId) {
-		UserDTO userDTOUserList = new UserDTO();
-		userDTOUserList.setUserId(userId);
-		return this.userService.findUserDTOByUser(userDTOUserList);
+	public List<UserDTO> userManagement() {
+		// UserDTO userDTOUserList = new UserDTO();
+		// userDTOUserList.setUserId(userId);
+		return this.userService.findAllUserDTO();
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
@@ -53,18 +53,6 @@ public class UserController {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public void update(@RequestBody UserDTO user) {
 		userService.updateUser(user);
-	}
-	
-	@RequestMapping(value = "/cercaUser", method = RequestMethod.GET)
-	public String cercaUser(HttpServletRequest request) {
-
-		final String content = request.getParameter("search");
-
-		List<UserDTO> allUser = this.userService.findUserDTOByUserUser(content);
-		request.setAttribute("allUserDTO", allUser);
-
-		return "user/manageUser";
-
 	}
 
 	// TODO da modificare nella view ruolo con usertype

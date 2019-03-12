@@ -8,8 +8,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
 	public User findUserByUserUserAndUserPass(String username,String password);
 	
-	public List<User> findAllByUserUser(String username);
-	
-	public List<User> findAllByUser(User user);
+	public List<User> findAll();
 	
 }

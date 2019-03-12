@@ -48,20 +48,13 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 
-	public List<UserDTO> findUserDTOByUserUser(String username) {
+	public List<UserDTO> findAllUserDTO() {
 
-		List<User> list = userRepository.findAllByUserUser(username);
+		List<User> list = userRepository.findAll();
 		List<UserDTO> userDTOs = new ArrayList<>();
 		list.forEach(i -> userDTOs.add(ConverterUser.toDTO(i)));
 		return userDTOs;
 
 	}
-
-	public List<UserDTO> findUserDTOByUser(UserDTO userDTO) {
-		List<User> list = userRepository.findAllByUser(ConverterUser.toEntity(userDTO));
-		List<UserDTO> userDTOs = new ArrayList<>();
-		list.forEach(i -> userDTOs.add(ConverterUser.toDTO(i)));
-		return userDTOs;
-
-	}
+	
 }
