@@ -43,6 +43,7 @@ export class TaskUpdateComponent implements OnInit {
         const updateTask: Task = new Task(f.value.taskId, f.value.taskAction, f.value.taskDescription,
             f.value.taskInput, f.value.taskOutput, f.value.taskState, f.value.taskTime, userUpdate,
             f.value.resourceDTO);
+        this.taskService.updateTask(updateTask);
     }
 
 }
