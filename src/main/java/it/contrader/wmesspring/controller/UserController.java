@@ -4,11 +4,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.contrader.wmesspring.dto.ResourceDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.UserService;
 
@@ -34,61 +36,23 @@ public class UserController {
 	 */
 
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
-	public List<UserDTO> userManagement() {
-		return this.userService.getListaUserDTO();
-		// visualUser(request);
-		// return "user/manageUser";
+	public List<UserDTO> userManagement(@RequestParam(value = "userId") int userId) {
+		UserDTO userDTOUserList = new UserDTO();
+		userDTOUserList.setUserId(userId);
+		return this.userService.findUserDTOByUser(userDTOUserList);
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public void delete(@RequestParam(value = "id") int id) {
-		// int id = Integer.parseInt(request.getParameter("id"));
-		// request.setAttribute("id", id);
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+	public void delete(@RequestParam(value = "userId") int id) {
 		this.userService.deleteUserById(id);
-
-		// visualUser(request);
-		// return "user/manageUser";
 	}
 
-	@RequestMapping(value = "/insertRedirect", method = RequestMethod.GET)
-	public String insertRedirect() {
-		// return "user/insertUser";
-		return "";
-	}
 	
 	
-	@RequestMapping(value = "/updateRedirect", method = RequestMethod.GET)
-	public UserDTO updateRedirect(@RequestParam(value = "id") int id) {
-		// int id = Integer.parseInt(request.getParameter("id"));
-		UserDTO userUpdate = new UserDTO();
-
-		userUpdate = this.userService.getUserDTOById(id);
-		// request.setAttribute("userUpdate", userUpdate);
-		// return "user/updateUser";
-		return userUpdate;
-	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public List<UserDTO> update(@RequestParam(value = "user_id") int idUpdate,
-			@RequestParam(value = "user_user") String usernameUpdate,
-			@RequestParam(value = "user_pass") String passwordUpdate,
-			@RequestParam(value = "user_type") String usertypeUpdate) {
-		// Integer idUpdate = Integer.parseInt(request.getParameter("user_id"));
-		// String usernameUpdate = request.getParameter("user_user");
-		// String passwordUpdate = request.getParameter("user_pass");
-		// String usertypeUpdate = request.getParameter("user_type");
-
-		UserDTO user = new UserDTO();
-		user.setUserUser(usernameUpdate);
-		user.setUserPass(passwordUpdate);
-		user.setUserType(usertypeUpdate);
-		user.setUserId(idUpdate);
-
+	public void update(@RequestBody UserDTO user) {
 		userService.updateUser(user);
-
-		return this.userService.getListaUserDTO();
-		// visualUser(request);
-		// return "user/manageUser";
 	}
 	
 	@RequestMapping(value = "/cercaUser", method = RequestMethod.GET)

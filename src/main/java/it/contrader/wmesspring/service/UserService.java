@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import it.contrader.wmesspring.converter.ConverterUser;
 import it.contrader.wmesspring.dao.UserRepository;
 import it.contrader.wmesspring.dto.UserDTO;
@@ -27,7 +26,7 @@ public class UserService {
 	}
 
 	public UserDTO getUserDTOById(Integer id) {
-		return ConverterUser.toDTO(userRepository.findById(id).get()); 
+		return ConverterUser.toDTO(userRepository.findById(id).get());
 	}
 
 	public UserDTO getUserByUserUserAndUserPass(String username, String password) {
@@ -44,18 +43,25 @@ public class UserService {
 	public boolean updateUser(UserDTO userDTO) {
 		return userRepository.save(ConverterUser.toEntity(userDTO)) != null;
 	}
-	
+
 	public void deleteUserById(Integer id) {
 		userRepository.deleteById(id);
 	}
-	
+
 	public List<UserDTO> findUserDTOByUserUser(String username) {
-		
-		final List<User> list = userRepository.findAllByUserUser(username);
-		final List<UserDTO> userDTOs = new ArrayList<>();
+
+		List<User> list = userRepository.findAllByUserUser(username);
+		List<UserDTO> userDTOs = new ArrayList<>();
 		list.forEach(i -> userDTOs.add(ConverterUser.toDTO(i)));
 		return userDTOs;
-		
-	
+
+	}
+
+	public List<UserDTO> findUserDTOByUser(UserDTO userDTO) {
+		List<User> list = userRepository.findAllByUser(ConverterUser.toEntity(userDTO));
+		List<UserDTO> userDTOs = new ArrayList<>();
+		list.forEach(i -> userDTOs.add(ConverterUser.toDTO(i)));
+		return userDTOs;
+
 	}
 }
