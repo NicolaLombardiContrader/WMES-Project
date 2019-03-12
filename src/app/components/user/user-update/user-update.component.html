@@ -41,28 +41,32 @@
             <div class="card">
                 <div class="card-header">EDIT USER</div>
                 <div class="card-body card-block">
-                    <form action="/User/update" method="post">
-                        <input type="hidden" name="user_id" value="<%=updateUser.getUserId()%>" />
+                    
+                     <form #f="ngForm">
+                        <input type="hidden" name="userId" [(ngModel)]="user.userId" />
                         <div class="form-group">
-                            <label>Username</label> <input class="au-input au-input--full" type="text" name="user_user"
-                                placeholder="Username" value="<%=updateUser.getUserUser()%>">
+                            <label>Username</label> <input class="au-input au-input--full" type="text" name="userUser"
+                                placeholder="Username" [(ngModel)]="user.userUser">
                         </div>
 
                         <div class="form-group">
-                            <label>Password</label> <input class="au-input au-input--full" type="password" name="user_pass"
-                                placeholder="Password" value="<%=updateUser.getUserPass()%>">
+                            <label>Password</label> <input class="au-input au-input--full" type="password" name="userPass"
+                                placeholder="Action" [(ngModel)]="user.userPass">
                         </div>
 
-                        <div class="form-group">
-                            <label>UserType</label> <select class="form-control" name="user_type">
-                                <option <%=adminSelected%> value="admin">Admin</option>
-                                <option <%=boSelected%> value="bo">Business Owner</option>
+                     <div class="form-group">
+                            <label>UserType</label>
+                            <select class="form-control" name="useType">
+                                <option [(ngModel)]="user.userId" *ngFor="let tipoUtente of ['admin', 'bo']"
+                                    [selected]="(user.userType == tipoUtente) ? true : false">
+                                    {{user.userType}}
+                                </option>
                             </select>
-                            <!-- <input class="au-input au-input--full" type="text" name="usertype" placeholder="UserType">
- -->
-                        </div>
+                            <!-- <input class="au-input au-input--full" type="text" name="usertype" placeholder="UserType">-->
+ 
+                        </div> 
                         <div class="login-checkbox"></div>
-                        <button type="submit" class="btn btn-secondary btn-sm">Update</button>
+                        <button type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</button>
                     </form>
                 </div>
 

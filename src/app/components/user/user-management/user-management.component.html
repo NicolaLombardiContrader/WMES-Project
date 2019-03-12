@@ -46,10 +46,9 @@
                         <!-- USER TABLE -->
                         <h3 class="title-5 m-b-35">User Table</h3>
 
-                        <div class="table-data__tool-right">
-                            <a href="/User/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
+                        <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
                                     class="zmdi zmdi-plus"></i>ADD USER
-                            </a>
+                            </button>
 
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
@@ -68,23 +67,32 @@
                                         <tr class="tr-shadow" *ngFor="let user of users">
 
                                             <td>{{user.userUser}}</td>
-                                                <!--<%=user.getUserUser()%>-->
-                                            
+                                            <!--<%=user.getUserUser()%>-->
+
                                             <td>{{user.userType}}
                                                 <!--<%=convertUserType(user.getUserType())%>-->
                                             </td>
                                             <td>
+
+
+
                                                 <div class="table-data-feature">
 
-                                                    <a href="/User/updateRedirect?id=<%=user.getUserId()%>" class="item"
-                                                        data-toggle="tooltip" data-placement="top" title="Edit"> <i
-                                                            class="zmdi zmdi-edit"></i>
-                                                    </a> <a href="/User/delete?id=<%=user.getUserId()%>" class="item"
-                                                        data-toggle="tooltip" data-placement="top" title="Delete"> <i
-                                                            class="zmdi zmdi-delete"></i>
+                                                    <button (click)="updateLink(user.userId)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
+                                                    </button>
+
+                                                    <a href="/User/userManagement" (click)="removeLink(user.userId)"
+                                                        class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        <i class="zmdi zmdi-delete"></i>
                                                     </a>
 
                                                 </div>
+
+
+
+
+
                                             </td>
                                         </tr>
 
@@ -101,7 +109,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+     
     </section>
     <!-- END STATISTIC-->
 
