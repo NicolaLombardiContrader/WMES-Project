@@ -48,8 +48,8 @@
                             <label>Name</label> <input class="au-input au-input--full" type="text" name="projectName"
                                 placeholder="Name" [(ngModel)]="project.projectName">
                         </div>
-                        
-                        <div class="form-group">
+
+                          <div class="form-group">
                             <label>Task List</label>
                             <select class="form-control" name="taskId" [(ngModel)]="project.taskDTO.taskId">
                                 <option *ngFor="let task of tasks" [value]="task.taskId"
