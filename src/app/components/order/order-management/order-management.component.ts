@@ -27,7 +27,11 @@ export class OrderManagementComponent implements OnInit {
     }
 
     updateLink(orderId: string) {
-        this.router.navigateByUrl('/update?orderId=' + orderId);
+        this.router.navigateByUrl('/Order/update/' + orderId);
+    }
+
+    insertLink() {
+        this.router.navigateByUrl('/Order/insert');
     }
 }
 
