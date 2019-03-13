@@ -41,20 +41,17 @@
 					<div class="card">
 						<div class="card-header">EDIT CLIENT</div>
 						<div class="card-body card-block">
-							<form action="/Client/update" method="post">
-								<input type="hidden" name="client_id"
-									value="<%=updateClient.getClientId()%>" />
+                             <form #f="ngForm">
+             			        <input type="hidden" name="clientId" [(ngModel)]="client.clientId" />
 								<div class="form-group">
-									<label>Client Name</label> <input
-										class="au-input au-input--full" type="text" name="client_name"
-										placeholder="ClientName"
-										value="<%=updateClient.getClientName()%>">
+									<label>ClientName</label> <input class="au-input au-input--full" type="text" name="clientName"
+										placeholder="ClientName" [(ngModel)]="client.clientName">
 								</div>
+                         <a href="/Client/clientManagement" type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</a>
+   
+                    </form>
 
-								<div class="login-checkbox"></div>
-								<button type="submit" class="btn btn-secondary btn-sm">Update</button>
-							</form>
-						</div>
+                    </div>
 
 					</div>
 				</div>
