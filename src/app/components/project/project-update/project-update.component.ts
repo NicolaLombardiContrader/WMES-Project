@@ -28,7 +28,6 @@ export class ProjectUpdateComponent implements OnInit {
             this.project = response;
 
         });
-
     }
 
     update(f: NgForm) {
