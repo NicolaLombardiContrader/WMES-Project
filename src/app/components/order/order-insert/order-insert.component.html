@@ -46,14 +46,16 @@
             <div class="card">
                 <div class="card-header">NEW ORDER</div>
                 <div class="card-body card-block">
-                    <form #f="ngForm">                        
+                    <form #f="ngForm">
                         <div class="form-group">
                             <label>Description</label> <input class="au-input au-input--full" type="text" name="order_description"
                                 placeholder="Description" [(ngModel)]="order.orderDescription">
                         </div>
                         <div class="form-group">
-                            <label>Client</label> <input class="au-input au-input--full" type="text"name="client_name"
-                            placeholder="Client"  [(ngModel)]="order.clientDTO.clientName" >  
+                            <label>Client Name</label>
+                            <select class="form-control" name="clientId" [(ngModel)]="order.clientDTO.clientId">
+                                <option *ngFor="let clientInsert of clientsInsert" [value]="clientInsert.clientId" [selected]="clientInsert.clientId == clientInsert.clientDTO.clientId">{{clientInsert.clientName}}</option>
+                            </select>
                         </div>
 
                         <a href="/Order/orderManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertOrder(f)">Insert</a>

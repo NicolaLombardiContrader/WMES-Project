@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../../services/order.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../models/User';
 import { Order } from '../../../models/Order';
 import { Client } from '../../../models/Client';
 import { NgForm } from '@angular/forms';
+import { ClientService } from '../../../services/client.service';
 
 @Component({
     selector: 'app-order-insert',
@@ -14,13 +14,22 @@ import { NgForm } from '@angular/forms';
 export class OrderInsertComponent implements OnInit {
 
     public order: Order;
-    constructor(private orderService: OrderService, private router: Router) { }
+
+    public clientsInsert: Array<Client>;
+    constructor(private orderService: OrderService, private clientService: ClientService) { }
 
     ngOnInit() {
         const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        
+
         /*COVERTER ENTITY->DTO ?? (UserDTO)*/
-        this.order = new Order(null, null, userInsert, null);
+        this.order = new Order(0, null, userInsert, null);
+
+        this.clientService.clientList().subscribe((response) => {
+            this.clientsInsert = response;
+            console.log('Lista clienti caricarita');
+        });
+
+        this.order.clientDTO = this.clientsInsert[0];
     }
 
     insertOrder(f: NgForm) {
