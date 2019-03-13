@@ -43,27 +43,10 @@ public class TaskController {
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public List<TaskDTO> insert(@RequestParam(value = "userDTO") UserDTO userLogged,
-			@RequestParam(value = "task_action") String taskAction,
-			@RequestParam(value = "task_description") String taskDescription,
-			@RequestParam(value = "task_input") String taskInput,
-			@RequestParam(value = "task_output") String taskOutput, @RequestParam(value = "task_time") int taskTime,
-			@RequestParam(value = "task_state") int taskState,
-			@RequestParam(value = "resource_id") ResourceDTO resourceId) {
-
-		TaskDTO taskObj = new TaskDTO();
-		taskObj.setUserDTO(userLogged);
-		taskObj.setTaskAction(taskAction);
-		taskObj.setTaskDescription(taskDescription);
-		taskObj.setTaskInput(taskInput);
-		taskObj.setTaskOutput(taskOutput);
-		taskObj.setTaskTime(taskTime);
-		taskObj.setTaskState(taskState);
-		taskObj.setResourceDTO(resourceId);
-		taskService.insertTask(taskObj);
-		return this.taskService.getListaTaskDTO();
-
+	public void insert(@RequestBody TaskDTO task) {
+		taskService.insertTask(task);
 	}
+
 
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public TaskDTO read(@RequestParam(value = "taskId") int id) {
@@ -73,36 +56,6 @@ public class TaskController {
 
 	}
 
-	/*
-	 * @RequestMapping(value = "/update", method = RequestMethod.POST) public
-	 * List<TaskDTO> update(@RequestParam(value = "task_id") int idUpdate,
-	 * 
-	 * @RequestParam(value = "utente") UserDTO userLogged,
-	 * 
-	 * @RequestParam(value = "task_action") String actionUpdate,
-	 * 
-	 * @RequestParam(value = "task_description") String descriptionUpdate,
-	 * 
-	 * @RequestParam(value = "task_input") String inputUpdate,
-	 * 
-	 * @RequestParam(value = "task_output") String outputUpdate,
-	 * 
-	 * @RequestParam(value = "task_state") int stateUpdate, @RequestParam(value =
-	 * "task_time") int timeUpdate,
-	 * 
-	 * @RequestParam(value = "resource_id") ResourceDTO resourceUpdateId) {
-	 * 
-	 * TaskDTO task = new TaskDTO(); task.setTaskId(idUpdate);
-	 * task.setTaskAction(actionUpdate); task.setTaskDescription(descriptionUpdate);
-	 * task.setTaskInput(inputUpdate); task.setTaskOutput(outputUpdate);
-	 * task.setTaskState(stateUpdate); task.setTaskTime(timeUpdate);
-	 * task.setResourceDTO(resourceUpdateId); task.setUserDTO(userLogged);
-	 * 
-	 * taskService.updateTask(task); return this.taskService.getListaTaskDTO();
-	 * 
-	 * }
-	 */
- 
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public void update(@RequestBody TaskDTO task) {
 		taskService.updateTask(task);
