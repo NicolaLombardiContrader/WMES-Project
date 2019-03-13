@@ -21,7 +21,7 @@ export class ClientInsertComponent implements OnInit {
         this.client = new Client(null, null, userInsert, null);
     }
     insertClient(f: NgForm) {
-        console.log('Client Id: ' + f.value.clientId + ' ' + f.value.clientName);
+        console.log('Client Id: ' + f.value.clientName);
         this.clientService.insertClient(this.client);
     }
 }
