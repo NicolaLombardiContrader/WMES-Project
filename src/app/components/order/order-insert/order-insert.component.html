@@ -46,27 +46,18 @@
             <div class="card">
                 <div class="card-header">NEW ORDER</div>
                 <div class="card-body card-block">
-                    <form action="/Order/insert" method="post" class="">
+                    <form #f="ngForm">                        
                         <div class="form-group">
                             <label>Description</label> <input class="au-input au-input--full" type="text" name="order_description"
-                                placeholder="Description">
+                                placeholder="Description" [(ngModel)]="order.orderDescription">
                         </div>
                         <div class="form-group">
-                            <label>Client Name</label> <select class="form-control" name="client_id">
-                                <!--<%
-											for (ClientDTO clientDTO : clientList) {
-										%>-->
-                                <option value="<%=clientDTO.getClientId()%>">
-                                    <!--<%=clientDTO.getClientName()%>-->
-                                </option>
-                                <!--<%
-											}
-										%>-->
-                            </select>
+                            <label>Client</label> <input class="au-input au-input--full" type="text"name="client_name"
+                            placeholder="Client"  [(ngModel)]="order.clientDTO.clientName" >  
                         </div>
-                        <div class="form-actions form-group">
-                            <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
-                        </div>
+
+                        <a href="/Order/orderManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertOrder(f)">Insert</a>
+
                     </form>
                 </div>
             </div>

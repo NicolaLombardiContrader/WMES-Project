@@ -41,39 +41,17 @@
             <div class="card">
                 <div class="card-header">EDIT ORDER</div>
                 <div class="card-body card-block">
-                    <form action="/Order/update" method="post">
-                        <input type="hidden" name="order_id" value="<%=updateOrder.getOrderId()%>" />
-
+                    <form #f="ngForm">
+                        <input type="hidden" name="orderId" [(ngModel)]="order.orderId" />
                         <div class="form-group">
-                            <label>Description</label> <input class="au-input au-input--full" type="text" name="order_description"
-                                placeholder="Description" value="<%=updateOrder.getOrderDescription()%>">
+                            <label>Client</label> <input class="au-input au-input--full" type="text" name="clientName"
+                                placeholder="Client" [(ngModel)]="order.clientDTO.clientName">
                         </div>
-
                         <div class="form-group">
-                            <label>Client</label> <select class="form-control" name="client_id">
-                                <!--<%
-											for (ClientDTO clientDTO : clientList) {
-												if (clientDTO.getClientId() == updateOrder.getClientDTO().getClientId()) {
-										%>-->
-                                <option selected="selected" value="<%=clientDTO.getClientId()%>">
-                                    <!--<%=clientDTO.getClientName()%>-->
-                                </option>
-                                <!--<%
-											} else {
-										%>-->
-                                <option value="<%=clientDTO.getClientId()%>">
-                                    <!--<%=clientDTO.getClientName()%>-->
-                                </option>
-                                <!--<%
-											}
-											}
-										%>-->
-                            </select>
+                            <label>Description</label> <input class="au-input au-input--full" type="text" name="orderDescription"
+                                placeholder="Description" [(ngModel)]="order.orderDescription">
                         </div>
-
-
-                        <div class="login-checkbox"></div>
-                        <button type="submit" class="btn btn-secondary btn-sm">Update</button>
+                        <a  href="/Order/orderManagement" type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</a>
                     </form>
                 </div>
 

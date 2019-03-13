@@ -47,8 +47,8 @@
                         <h3 class="title-5 m-b-35">order table</h3>
 
                         <div class="table-data__tool-right">
-                            <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
-                                    class="zmdi zmdi-plus"></i>ADD ORDER
+                            <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                <i class="zmdi zmdi-plus"></i>ADD ORDER
                             </button>
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
@@ -73,11 +73,9 @@
                                                     <button (click)="updateLink(order.orderId)" class="item" data-toggle="tooltip"
                                                         data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                                     </button> 
-                                                    <button (click)="removeLink(order.orderId)" class="item"
-                                                        data-toggle="tooltip" data-placement="top" title="Delete"> <i
-                                                            class="zmdi zmdi-delete"></i>
-                                                    </button>
-
+                                                    <a href="/Order/orderManagement" (click)="removeLink(order.orderId)" class="item" data-toggle="tooltip"
+                                                        data-placement="top" title="Delete"> <i class="zmdi zmdi-delete"></i>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
