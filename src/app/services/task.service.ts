@@ -36,7 +36,7 @@ export class TaskService {
 
     // tslint:disable-next-line:max-line-length
    insertTask(task: Task): void {
-        this.http.post('http://localhost:8080/Resource/insert', task).subscribe(() => console.log('Task inserted'));
+        this.http.post('http://localhost:8080/Task/insert', task).subscribe(() => console.log('Task inserted'));
     }
 
     readTask(taskId: number): Observable<Task> {

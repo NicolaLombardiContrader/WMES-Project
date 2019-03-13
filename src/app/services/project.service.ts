@@ -32,21 +32,18 @@ export class ProjectService {
             );
     }
 
-    insertProject(projectId: number, projectName: string, projectStatus: number,  user: User, task: Task[]): Observable<Project> {
-
-        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        const newProject = new Project(0, projectName, projectStatus, user, task);
-        return this.http.post<Project>('http://localhost:8080/Project/insert', newProject)
-        .pipe(tap((response) => console.log('insertProject'), catchError(this.handleError('insertProject error', {})))
-        );
+    insertProject(project: Project): void {
+        this.http.post('http://localhost:8080/Project/insert', project).subscribe(() => console.log('Project inserted'));
     }
-  readProject(projectId: number): Observable<Project> {
+
+    readProject(projectId: number): Observable<Project> {
         return this.http.get<any>('http://localhost:8080/Project/read?projectId=' + projectId)
             .pipe(tap((response) => console.log('Project'), catchError(this.handleError('error', {})))
             );
     }
 
     deleteProject(projectId: number) {
+
         this.http.delete('http://localhost:8080/Project/delete?projectId=' + projectId).subscribe(() => console.log('Project deleted'));
     }
 

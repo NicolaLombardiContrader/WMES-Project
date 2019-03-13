@@ -39,13 +39,13 @@
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
-                <div class="card-header">EDIT TEMPLATE</div>
+                <div class="card-header">EDIT PROJECT</div>
                 <div class="card-body card-block">
-                    <form action="/Project/update" method="post">
-                        <input type="hidden" name="project_id" value="<%=updateProject.getProjectId()%>" />
-                        <div class="form-group">
-                            <label>Name</label> <input class="au-input au-input--full" type="text" name="project_name"
-                                placeholder="Name" value="<%=updateProject.getProjectName()%>">
+                     <form #f="ngForm">
+                         <input type="hidden" name="projectId" [(ngModel)]="project.projectId" />
+                       <div class="form-group">
+                            <label>Name</label> <input class="au-input au-input--full" type="text" name="projectName"
+                                placeholder="Name" [(ngModel)]="project.projectName">
                         </div>
 
                         <div class="form-group">
@@ -71,38 +71,17 @@
                             </select>
 
                         </div>
-                        <div class="form-group">
-                            <label>Task list</label> <br /> <select class="custom-select" name="taskList" multiple="multiple">
-                                <!--	<%
-											boolean selected = false;
-											for (TaskDTO taskDTO : taskList) {
-												selected = false;
-												for (TaskDTO TaskDTOProjectTemplate : updateProject.getTasksDTO()) {
-
-													if (taskDTO.getTaskId() == TaskDTOProjectTemplate.getTaskId()) {
-														selected = true;
-										%>-->
-                                <option selected="selected" value="<%=taskDTO.getTaskId()%>">
-                                    <!--<%=taskDTO.getTaskDescription()%>-->
+                       <div class="form-group">
+                            <label>Task List</label>
+                            <select class="form-control" name="taskId" [(ngModel)]="project.tasksDTO.taskId">
+                                <option *ngFor="let task of tasks" [value]="task.taskId"
+                                    [selected]="task.taskId == project.tasksDTO.taskId">
+                                    {{task.taskDescription}}
                                 </option>
-                                <!--<%
-											}
-												}
 
-												if (!selected) {
-										%>-->
-
-                                <option value="<%=taskDTO.getTaskId()%>">
-                                    <!--<%=taskDTO.getTaskDescription()%>-->
-                                </option>
-                                <!--<%
-											}
-											}
-										%>-->
                             </select>
                         </div>
-                        <div class="login-checkbox"></div>
-                        <button type="submit" class="btn btn-secondary btn-sm">Update</button>
+                        <a href="/Project/projectManagement" type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</a>
                     </form>
                 </div>
 
