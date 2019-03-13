@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from '../../../models/Project';
+import { ProjectService } from '../../../services/project.service';
+import { User } from '../../../models/User';
 
 @Component({
   selector: 'app-project-insert',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectInsertComponent implements OnInit {
 
-  constructor() { }
+  public project: Project;
+
+    constructor(private projectService: ProjectService) { }
+
 
   ngOnInit() {
+
+    }
   }
 
-}
+
