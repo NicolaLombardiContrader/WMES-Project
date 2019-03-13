@@ -24,6 +24,7 @@ public class ProjectController {
 		this.projectService = projectService;
 	}
 
+	
 	/*
 	 * private void visualProject(HttpServletRequest request) { UserDTO userDTO =
 	 * (UserDTO) session.getAttribute("utente"); List<ProjectDTO> allProject =
