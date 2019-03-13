@@ -15,6 +15,7 @@ import { Order } from '../models/Order';
 })
 export class ClientService {
     feedback: string;
+    private urlBase = environment.url;
 
     constructor(private http: HttpClient) { }
 
@@ -33,13 +34,10 @@ export class ClientService {
             );
     }
 
- //   insertClient(clientId: number, user: User, clientName: string, order: Order[]): Observable<Client> {
- //       const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-//        const newClient = new Client(0, user, clientName, order);
- //       return this.http.post<Client>('http://localhost:8080/Client/insert', newClient)
- //           .pipe(tap((response) => console.log('insertClient'), catchError(this.handleError('insertClient error', {})))
- //
- //   }
+    insertClient(client: Client): void {
+        this.http.post('http://localhost:8080/Client/insert', client).subscribe(() => console.log('Client inserted'));
+    }
+
 
     readClient(clientId: number): Observable<Client> {
         return this.http.get<any>('http://localhost:8080/Client/read?clientId=' + clientId)
@@ -48,11 +46,11 @@ export class ClientService {
     }
 
     deleteClient(clientId: number) {
-       this.http.delete('http://localhost:8080/Client/delete?clientId=' + clientId).subscribe(() =>  console.log('Client deleted'));
+        this.http.delete('http://localhost:8080/Client/delete?clientId=' + clientId).subscribe(() => console.log('Client deleted'));
     }
 
-        updateClient(client: Client)  {
-            this.http.put('http://localhost:8080/Client/update', client).subscribe(() => console.log('Client update'));
+    updateClient(client: Client) {
+        this.http.put('http://localhost:8080/Client/update', client).subscribe(() => console.log('Client update'));
     }
 }
 
