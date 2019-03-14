@@ -16,29 +16,28 @@ import { ResourceService } from '../../../services/resource.service';
 export class TaskInsertComponent implements OnInit {
 
     public taskInsert: Task;
-
-    public firstResourceId: number;
+    public task: Task;
+    resourceSelected: number;
     public resourcesInsert: Array<Resource>;
-    constructor(private taskService: TaskService, private resourceServiceInsert: ResourceService) { }
+    constructor(private taskService: TaskService, private resourceService: ResourceService) { }
 
     ngOnInit() {
-        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        this.taskInsert = new Task(0, null, null, null, null, null, null, userInsert, null);
+
+
         // this.task.resourceDTO.resourceId = 0;
 
-        this.resourceServiceInsert.resourceList().subscribe((response) => {
+        this.resourceService.resourceList().subscribe((response) => {
             this.resourcesInsert = response;
-            console.log('Lista caricata ' + this.resourcesInsert[0].resourceId);
+            console.log('Lista clienti caricarita');
         });
 
-        // Used for presetting menu
-        console.log('test prova');
-        console.log('The first resource id is: ' + this.resourcesInsert[0].resourceName);
-        this.taskInsert.resourceDTO.resourceId = this.resourcesInsert[0].resourceId;
-        this.firstResourceId = this.resourcesInsert[0].resourceId;
     }
 
-    insertTask(f: NgForm) {
-        this.taskService.insertTask(this.taskInsert);
+    insertTask(taskInsertForm) {
+
+        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
+        const resourceInsert: Resource = new Resource(Number(taskInsertForm.value.resourceSelected), null, null, null);
+        this.task = new Task(0, taskInsertForm.value.orderDescription, userInsert, resourceInsert);
+        this.taskService.insertTask(this.task);
     }
 }
