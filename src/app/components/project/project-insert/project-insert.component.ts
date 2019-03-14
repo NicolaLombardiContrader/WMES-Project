@@ -24,7 +24,6 @@ export class ProjectInsertComponent implements OnInit {
             this.tasksInsert = response;
             console.log('Lista caricarita');
         });
-
     }
 
     insertProject(projectInsertForm: NgForm) {

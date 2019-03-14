@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <label>Task list</label> <br />
                             <select class="custom-select" multiple="multiple" name="tasksSelected" ngModel="tasksSelected">
-                                <option *ngFor="let taskInsert of tasksInsert" [attr.value]="taskInsert.clientId">{{taskInsert.taskDescription}}</option>
+                                <option *ngFor="let taskInsert of tasksInsert" [attr.value]="taskInsert.taskId">{{taskInsert.taskDescription}}</option>
                             </select>
                         </div>
 
