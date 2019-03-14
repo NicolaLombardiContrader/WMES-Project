@@ -43,10 +43,12 @@ public class OrderController {
 		// return "order/manageOrder";
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
 	public void delete(@RequestParam(value = "orderId") int id) {
 		this.orderService.deleteOrderById(id);
 	}
+	
+	
 
 	/*
 	 * @RequestMapping(value = "/insertRedirect", method = RequestMethod.GET) public
