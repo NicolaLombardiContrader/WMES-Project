@@ -14,7 +14,7 @@ import { ResourceService } from '../../../services/resource.service';
     styleUrls: ['./task-insert.component.css']
 })
 export class TaskInsertComponent implements OnInit {
-
+ 
     public taskInsert: Task;
     public task: Task;
     resourceSelected: number;
