@@ -4,8 +4,6 @@ import { ProjectTemplateService } from '../../../services/projectTemplate.servic
 import { Router } from '@angular/router';
 import { subscribeOn } from 'rxjs/operators';
 
-
-
 @Component({
     selector: 'app-project-template-management',
     templateUrl: './project-template-management.component.html',
