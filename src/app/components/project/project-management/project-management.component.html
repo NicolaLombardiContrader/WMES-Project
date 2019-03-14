@@ -62,24 +62,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!--<%
-											for (ProjectDTO project : allProject) {
-										%>-->
+                              
+                                <tr class="tr-shadow" *ngFor="let project of projects">
 
-                                <tr class="tr-shadow" *ngFor="let project of projects"></tr>
-
-                                            <td>{{projects.projectName}}</td>
-                                            <td>{{projects.projectStatus}}</td>
+                                            <td>{{project.projectName}}</td>
+                                            <td>{{project.projectStatus}}</td>
 
                                    
                                     <td>
                                         <div class="table-data-feature">
 
-                                           <button (click)="updateLink(projects.projectId)" class="item"
+                                           <button (click)="updateLink(project.projectId)" class="item"
                                                 data-toggle="tooltip" data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
                                            </button>
 
-                                            <a href="/Project/projectManagment" (click)="removeLink(projects.projectId)" class="item"
+                                            <a href="/Project/projectManagment" (click)="removeLink(project.projectId)" class="item"
                                                 data-toggle="tooltip" data-placement="top" title="Delete"> <i class="zmdi zmdi-delete"></i>
                                             </a>
 
