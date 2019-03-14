@@ -21,9 +21,7 @@ export class OrderManagementComponent implements OnInit {
     }
 
     removeLink(orderId: number) {
-        /** this.router.navigateByUrl('/delete?orderId=' + orderId); */
         this.orderService.deleteOrder(orderId);
-        /** this.router.navigateByUrl('/Order/orderManagement'); */
     }
 
     updateLink(orderId: string) {
