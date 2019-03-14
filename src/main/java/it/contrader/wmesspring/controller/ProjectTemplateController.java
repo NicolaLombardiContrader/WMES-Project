@@ -51,7 +51,7 @@ public class ProjectTemplateController {
 		projectTemplateService.insertProjectTemplate (projectTemplate);
 	}
 	
-	@RequestMapping(value = "/read" , method = RequestMethod.POST)
+	@RequestMapping(value = "/read" , method = RequestMethod.GET)
 	public ProjectTemplateDTO read(@RequestParam(value = "projectTemplateId") int id) {
 		ProjectTemplateDTO projectTemplate = new ProjectTemplateDTO();
 		projectTemplate = this.projectTemplateService.getProjectTemplateDTOById(id);

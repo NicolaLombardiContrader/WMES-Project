@@ -20,6 +20,9 @@ import it.contrader.wmesspring.model.User;
 public class ProjectTemplateService {
 	
 	private final ProjectTemplateRepository projectTemplateRepository;
+
+	@Autowired
+	private TaskService taskService;	
 	
 	@Autowired
 	public ProjectTemplateService(ProjectTemplateRepository projectTemplateRepository) {
@@ -62,10 +65,11 @@ public class ProjectTemplateService {
 		return ProjectTemplateDTOs;
 	} 
 	
-	/*public List<TaskDTO> findTaskDTOByUser(UserDTO userDTO) {
-		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
-		taskList = taskService.findTaskDTOByUser(ConverterUser.toEntity(userDTO));
-		return taskList;*/
 	
 
+	public List<TaskDTO> findTaskDTOByUser(UserDTO userDTO) {
+		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
+		taskList = taskService.findTaskDTOByUser(ConverterUser.toEntity(userDTO));
+		return taskList;	
+	}
 }
