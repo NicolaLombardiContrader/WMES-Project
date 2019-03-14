@@ -46,7 +46,7 @@
                         <h3 class="title-5 m-b-35">Project Template Table</h3>
 
                         <div class="table-data__tool-right">
-                            <a href="/ProjectTemplate/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <a href="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small">
                                 <i class="zmdi zmdi-plus"></i>ADD TEMPLATE
                             </a>
 
@@ -63,8 +63,8 @@
 													for (ProjectTemplateDTO ProjectTemplate : allProjectTemplate) {
 												%>-->
 
-                                        <tr class="tr-shadow">
-
+                                        <tr class="tr-shadow" *ngFor="let projectTemplate of projectTemplate">
+                                            <td>{{projectTemplate.projectName}}</td>
                                             <td>
                                                 <!--<%=ProjectTemplate.getProjectName()%>-->
                                             </td>
@@ -72,16 +72,21 @@
                                             <td>
                                                 <div class="table-data-feature">
 
-                                                    <a href="/ProjectTemplate/updateRedirect?id=<%=ProjectTemplate.getProjectId()%>"
-                                                        class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <button (click)="updateLink(projectTemplate.projectTemplateId)"
+                                                        class="ietm" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="zmdi zmdi-edit"></i>
-                                                    </a> <a href="/ProjectTemplate/delete?id=<%=ProjectTemplate.getProjectId()%>"
+                                                    </button>
+
+                                                    <a href="/ProjectTemplate/projectTemplateManagement" (click)="removeLink(projectTemplate.projectTemplateId)"
                                                         class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
-                                                    </a> <a href="/ProjectTemplate/clone?id=<%=ProjectTemplate.getProjectId()%>"
-                                                        class="item" data-toggle="tooltip" data-placement="top" title="Clone in Projects">
-                                                        <i class="far fa-clone"></i>
                                                     </a>
+
+                                                    <a href="/ProjectTemplate/projectTemplateManagement" (click)="cloneLink(projectTemplate.projectTemplateId)"
+                                                        class="item" data-toggle="tooltip" data-placement="top" title="Clone">
+                                                        <i class="zmdi zmdi-clone"></i>
+                                                    </a>
+
                                                 </div>
                                             </td>
                                         </tr>
