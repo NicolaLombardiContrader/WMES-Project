@@ -14,14 +14,12 @@ import it.contrader.wmesspring.dto.ProjectTemplateDTO;
 import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.model.ProjectTemplate;
+import it.contrader.wmesspring.model.User;
 
 @Service
 public class ProjectTemplateService {
 	
 	private final ProjectTemplateRepository projectTemplateRepository;
-	
-	@Autowired
-	private TaskService taskService;
 	
 	@Autowired
 	public ProjectTemplateService(ProjectTemplateRepository projectTemplateRepository) {
@@ -37,6 +35,11 @@ public class ProjectTemplateService {
 		return ConverterProjectTemplate.toDTO(projectTemplateRepository.findById(id).get());
 	}
 
+	/*
+	 * public List<ProjectTemplateDTO> getListaProjectTemplateDTOByUser(UserDTO
+	 * user) { return ConverterProjectTemplate.toListDTO((List<ProjectTemplate>)
+	 * projectTemplateRepository.findAllByUser(ConverterUser.toEntity(user)));}
+	 */	
 	public boolean insertProjectTemplate(ProjectTemplateDTO projectTemplateDTO) {
 
 		return projectTemplateRepository.save(ConverterProjectTemplate.toEntity(projectTemplateDTO)) != null;
@@ -51,18 +54,18 @@ public class ProjectTemplateService {
 	}
 
 
-	public List<ProjectTemplateDTO> findProjectTemplateDTOByUser(UserDTO userDTO) {
+	public List<ProjectTemplateDTO> findProjectTemplateDTOByUser(User user) {
 
-		final List<ProjectTemplate> listProjectTemplate = projectTemplateRepository.findAllByUser(ConverterUser.toEntity(userDTO));
-		final List<ProjectTemplateDTO> listProjectTemplateDTO = new ArrayList<>();
-		listProjectTemplate.forEach(i -> listProjectTemplateDTO.add(ConverterProjectTemplate.toDTO(i)));
-		return listProjectTemplateDTO;
-	}
+		final List<ProjectTemplate> listProjectTemplate = projectTemplateRepository.findAllByUser(user);
+		final List<ProjectTemplateDTO> ProjectTemplateDTOs = new ArrayList<>();
+		listProjectTemplate.forEach(i -> ProjectTemplateDTOs.add(ConverterProjectTemplate.toDTO(i)));
+		return ProjectTemplateDTOs;
+	} 
 	
-	public List<TaskDTO> findTaskDTOByUser(UserDTO userDTO) {
+	/*public List<TaskDTO> findTaskDTOByUser(UserDTO userDTO) {
 		List<TaskDTO> taskList = new ArrayList<TaskDTO>();
 		taskList = taskService.findTaskDTOByUser(ConverterUser.toEntity(userDTO));
-		return taskList;
-	}
+		return taskList;*/
+	
 
 }

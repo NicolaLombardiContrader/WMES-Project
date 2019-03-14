@@ -68,7 +68,7 @@ public class ProjectTemplateController {
 			@RequestParam(value ="id") int projectTemplateId) {
 		
 		ProjectTemplateDTO projectTemplate = projectTemplateService.getProjectTemplateDTOById(projectTemplateId);
-		 
+		  
 //		UserDTO userDTO = new UserDTO();
 		
 		ProjectDTO projectDTO = new ProjectDTO();
