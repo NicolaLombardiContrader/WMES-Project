@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { subscribeOn } from 'rxjs/operators';
 
 
+
 @Component({
     selector: 'app-project-template-management',
     templateUrl: './project-template-management.component.html',
@@ -14,7 +15,7 @@ export class ProjectTemplateManagementComponent implements OnInit {
 
         public projectsTemplate: Array<ProjectTemplate>;
 
-    constructor(private projectTemplateService: ProjectTemplate, private router: Router) { }
+    constructor(private projectTemplateService: ProjectTemplateService, private router: Router) { }
 
     ngOnInit() {
         this.projectTemplateService.projectTemplateList().subscribe((response) => {
