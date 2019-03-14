@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { User } from '../../../models/User';
 import { NgForm } from '@angular/forms';
 import { Task } from '../../../models/Task';
+import { TaskService } from '../../../services/task.service';
+
 
 @Component({
   selector: 'app-project-template-insert',
@@ -16,12 +18,16 @@ export class ProjectTemplateInsertComponent implements OnInit {
     public projectTemplateInsert: ProjectTemplate;
     public tasksInsert: Array<Task>;
 
-  constructor(private projectTemplateService: ProjectTemplateService, private router: Router) { }
+        public firstTaskId: number;
+
+  constructor(private projectTemplateService: ProjectTemplateService, private taskServiceInsert: TaskService) { }
 
   ngOnInit() {
-       const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-       this.projectTemplateInsert = new ProjectTemplate(null, null, userInsert, null);
-  }
+        this.taskServiceInsert.taskList().subscribe((response) => {
+            this.tasksInsert = response;
+            console.log('Lista caricarita');
+        });
+    }
   insertProjectTemplate(projectTemplateInsertForm: NgForm) {
       console.log(projectTemplateInsertForm.value.tasksSelected);
       const userInsertProjectTemplate: User = JSON.parse(sessionStorage.getItem('user'));

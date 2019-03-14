@@ -34,7 +34,8 @@ export class ProjectTemplateService {
     }
 
     insertProjectTemplate(projectTemplate: ProjectTemplate): void {
-        this.http.post('http://localhost:8080/ProjectTemplate/insert', projectTemplate).subscribe(() => console.log('ProjectTemplate'));
+        this.http.post('http://localhost:8080/ProjectTemplate/insert', projectTemplate).subscribe(() =>
+        console.log('ProjectTemplate inserted'));
     }
 
     readProjectTemplate(projectTemplateId: number): Observable<ProjectTemplate> {

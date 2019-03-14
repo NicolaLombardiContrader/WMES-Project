@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectTemplate } from '../../../models/ProjectTemplate';
 import { ProjectTemplateService } from '../../../services/projectTemplate.service';
 import { Router } from '@angular/router';
-import { subscribeOn } from 'rxjs/operators';
 
 @Component({
     selector: 'app-project-template-management',
