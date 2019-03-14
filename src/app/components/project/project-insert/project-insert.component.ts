@@ -13,29 +13,30 @@ import { NgForm } from '@angular/forms';
 })
 export class ProjectInsertComponent implements OnInit {
 
-    public project: Project;
+    public projectInsert: Project;
 
     public firstTaskId: number;
-    public taskInsert: Array<Task>;
+    public tasksInsert: Array<Task>;
     constructor(private projectService: ProjectService, private taskServiceInsert: TaskService) { }
 
     ngOnInit() {
-        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        this.project = new Project(0, null, null, userInsert, null);
-
         this.taskServiceInsert.taskList().subscribe((response) => {
-            this.taskInsert = response;
+            this.tasksInsert = response;
             console.log('Lista caricarita');
         });
 
-        // Used for presetting menu
-        console.log('The first task id is: ' + this.taskInsert[0].taskDescription);
-        this.project.tasksDTO[0].taskId = this.taskInsert[0].taskId;
-        this.firstTaskId = this.taskInsert[0].taskId;
     }
 
-    insertProject(f: NgForm) {
-        this.projectService.insertProject(this.project);
+    insertProject(projectInsertForm: NgForm) {
+        console.log(projectInsertForm.value.tasksSelected);
+        const userInsertProject: User = JSON.parse(sessionStorage.getItem('user'));
+        const tasksSelectedArray: Array<Task> = new Array<Task>();
+        for (const taskIdSelected of projectInsertForm.value.tasksSelected) {
+            tasksSelectedArray.push(new Task(taskIdSelected, null, null, null, null, null, null, userInsertProject, null));
+        }
+        this.projectInsert = new Project(0, projectInsertForm.value.projectName, 0, userInsertProject, tasksSelectedArray);
+        // this.projectInsert = new Project(0, projectInsertForm.value.projectName, userInsert);
+        this.projectService.insertProject(this.projectInsert);
     }
   }
 

@@ -14,7 +14,7 @@ import { ResourceService } from '../../../services/resource.service';
     styleUrls: ['./task-insert.component.css']
 })
 export class TaskInsertComponent implements OnInit {
- 
+
     public taskInsert: Task;
     public task: Task;
     resourceSelected: number;
@@ -34,10 +34,15 @@ export class TaskInsertComponent implements OnInit {
     }
 
     insertTask(taskInsertForm) {
-
+        const taskAction = taskInsertForm.value.taskAction;
+        const taskDescription = taskInsertForm.value.taskDescription;
+        const taskInput = taskInsertForm.value.taskInput;
+        const taskOutput = taskInsertForm.value.taskOutput;
+        const taskState = taskInsertForm.value.taskState;
+        const taskTime = taskInsertForm.value.taskTime;
         const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        const resourceInsert: Resource = new Resource(Number(taskInsertForm.value.resourceSelected), null, null, null);
-        this.task = new Task(0, taskInsertForm.value.orderDescription, userInsert, resourceInsert);
+        const resourceInsert: Resource = new Resource(Number(taskInsertForm.value.resourceSelected), null, null, null, userInsert, null);
+        this.task = new Task(0, taskAction, taskDescription, taskInput, taskOutput, taskState, taskTime, userInsert, resourceInsert);
         this.taskService.insertTask(this.task);
     }
 }

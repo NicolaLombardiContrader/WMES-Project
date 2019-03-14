@@ -46,9 +46,9 @@
                         <h3 class="title-5 m-b-35">Project Table</h3>
 
                         <div class="table-data__tool-right">
-                            <a href="/Project/insertRedirect" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small">
                                 <i class="zmdi zmdi-plus"></i>ADD PROJECT
-                            </a>
+                            </button>
 
                             <div class="table-responsive table-responsive-data2"></div>
                             <!-- END USER TABLE -->
@@ -62,29 +62,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              
+
                                 <tr class="tr-shadow" *ngFor="let project of projects">
-
-                                            <td>{{project.projectName}}</td>
-                                            <td>{{project.projectStatus}}</td>
-
-                                   
+                                    <td>{{project.projectName}}</td>
+                                    <td>{{project.projectStatus}}</td>
                                     <td>
                                         <div class="table-data-feature">
 
-                                           <button (click)="updateLink(project.projectId)" class="item"
-                                                data-toggle="tooltip" data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
-                                           </button>
+                                            <button (click)="updateLink(project.projectId)" class="item" data-toggle="tooltip"
+                                                data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i>
+                                            </button>
 
-                                            <a href="/Project/projectManagment" (click)="removeLink(project.projectId)" class="item"
-                                                data-toggle="tooltip" data-placement="top" title="Delete"> <i class="zmdi zmdi-delete"></i>
+                                            <a href="/Project/projectManagment" (click)="removeLink(project.projectId)"
+                                                class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
                                             </a>
 
                                         </div>
                                     </td>
-                            
 
-                      
+
+
                             </tbody>
                         </table>
                     </div>

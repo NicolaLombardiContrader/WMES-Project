@@ -41,28 +41,21 @@
             <div class="card">
                 <div class="card-header">NEW PROJECT</div>
                 <div class="card-body card-block">
-                    <form action="/Project/insert" method="post">
+                    <form #projectInsertForm="ngForm">
                         <div class="form-group">
-                            <label>Nome</label> <input class="au-input au-input--full" type="text" name="project_name"
-                                placeholder="Name">
+                            <label>Nome</label> <input class="au-input au-input--full" type="text" name="projectName"
+                                placeholder="Name" ngModel>
                         </div>
 
                         <div class="form-group">
-                            <label>Task list</label> <br /> <select class="custom-select" name="taskList" multiple="multiple">
-                                <!--	<%
-											for (TaskDTO taskDTO : taskList) {
-										%>-->
-                                <option value="<%=taskDTO.getTaskId()%>">
-                                    <!--<%=taskDTO.getTaskDescription()%>-->
-                                </option>
-                                <!--<%
-											}
-										%>-->
+                            <label>Task list</label> <br />
+                            <select class="custom-select" multiple="multiple" name="tasksSelected" ngModel="tasksSelected">
+                                <option *ngFor="let taskInsert of tasksInsert" [attr.value]="taskInsert.clientId">{{taskInsert.taskDescription}}</option>
                             </select>
                         </div>
 
                         <div class="login-checkbox"></div>
-                        <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+                        <button type="submit" class="btn btn-secondary btn-sm" (click)="insertProject(projectInsertForm)">Submit</button>
                     </form>
                 </div>
 
