@@ -41,27 +41,24 @@
             <div class="card">
                 <div class="card-header">NEW TEMPLATE</div>
                 <div class="card-body card-block">
-                    <form action="/ProjectTemplate/insert" method="post">
+                    <form #projectTemplateInsertForm="ngForm">
+           <!--      <form action="/ProjectTemplate/insert" method="post">-->
                         <div class="form-group">
                             <label>Nome</label> <input class="au-input au-input--full" type="text" name="project_name"
-                                placeholder="Name" [(ngModel)]="projectTemplate.projectName">
+                                placeholder="Name" ngModel>
                         </div>
                         <div class="form-group">
-                            <label>Task list</label> <br /> <select class="custom-select" name="taskList" multiple="multiple">
-                                <!--	<%
-											for (TaskDTO taskDTO : taskList) {
-										%>-->
-                                <option value="<%=taskDTO.getTaskId()%>">
-                                    <!--<%=taskDTO.getTaskDescription()%>-->
-                                </option>
-                                <!--<%
-											}
-										%>-->
+                            <label>Task list</label> <br />
+                            <select class="custom-select" multiple="multiple" name="tasksSelected" ngModel="tasksSelected">
+                                <option *ngFor="let taskInsert of tasksInsert" [attr.value]="taskInsert.taskId">{{taskInsert.taskDescription}}</option>
                             </select>
                         </div>
 
-                        <a href="/ProjectTemplate/projectTemplateManagement" type="submit" class="btn btn-secondary btn-sm"
-                         (click)="insertProjectTemplate(f)">Insert</a>
+                        <div class="login-checkbox"></div>
+                        <a href="/Project/projectManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertProjectTemplate(projectTemplateInsertForm)">Submit</a>
+
+    <!--                    <a href="/ProjectTemplate/projectTemplateManagement" type="submit" class="btn btn-secondary btn-sm"
+                         (click)="insertProjectTemplate(f)">Insert</a> -->
 
                     </form>
                 </div>
