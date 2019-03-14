@@ -1,14 +1,14 @@
 import { User } from './User';
 import { Task } from './Task';
 export class ProjectTemplate {
-   projectId: number;
+   projectTemplateId: number;
    projectName: string;
    userDTO: User;
    tasksDTO: Task [];
 
 
-    constructor(projectId: number, projectName: string, userDTO: User, tasksDTO: Task []) {
-        this.projectId = projectId;
+    constructor(projectTemplateId: number, projectName: string, userDTO: User, tasksDTO: Task []) {
+        this.projectTemplateId = projectTemplateId;
         this.projectName = projectName;
         this.userDTO = userDTO;
         this.tasksDTO = tasksDTO;
