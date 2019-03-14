@@ -7,7 +7,7 @@ export class Client {
     ordersDTO: Order [];
 
 
-    constructor(clientId: number, clientName: string, userDTO: User,  ordersDTO: Order [] ) {
+    constructor(clientId: number, clientName: string, userDTO: User,  ordersDTO: Order []) {
         this.clientId = clientId;
         this.clientName = clientName;
         this.userDTO = userDTO;

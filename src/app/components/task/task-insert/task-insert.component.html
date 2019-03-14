@@ -6,6 +6,7 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
 
+
             </div>
         </div>
     </header>
@@ -24,7 +25,7 @@
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
                                     <li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
-                                    <li class="list-inline-item">Insert Task</li>
+                                    <li class="list-inline-item">Edit Task</li>
                                 </ul>
                             </div>
                         </div>
@@ -34,6 +35,7 @@
         </div>
     </section>
     <!-- END BREADCRUMB-->
+
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
@@ -41,46 +43,50 @@
                 <div class="card-body card-block">
                     <form #f="ngForm">
                         <div class="form-group">
-                            <label>Description</label> <input class="au-input au-input--full" type="text" name="task_description"
-                                placeholder="Description" [(ngModel)]="task.taskDescription">
+                            <label>Description</label> <input class="au-input au-input--full" type="text" name="taskDescription"
+                                placeholder="Description" [(ngModel)]="taskInsert.taskDescription">
                         </div>
+
                         <div class="form-group">
-                            <label>Action</label> <input class="au-input au-input--full" type="text" name="task_action"
-                                placeholder="Action" [(ngModel)]="task.taskAction">
+                            <label>Action</label> <input class="au-input au-input--full" type="text" name="taskAction"
+                                placeholder="Action" [(ngModel)]="taskInsert.taskAction">
                         </div>
+
                         <div class="form-group">
-                            <label>Input</label> <input class="au-input au-input--full" type="text" name="task_input"
-                                placeholder="Input" [(ngModel)]="task.taskInput">
+                            <label>Input</label> <input class="au-input au-input--full" type="text" name="taskInput"
+                                placeholder="Input" [(ngModel)]="taskInsert.taskInput">
                         </div>
+
                         <div class="form-group">
-                            <label>Output</label> <input class="au-input au-input--full" type="text" name="task_output"
-                                placeholder="Output" [(ngModel)]="task.taskOutput">
+                            <label>Output</label> <input class="au-input au-input--full" type="text" name="taskOutput"
+                                placeholder="Output" [(ngModel)]="taskInsert.taskOutput">
                         </div>
+
                         <div class="form-group">
                             <label>Resource</label>
-                            <select class="form-control" name="resourceId" [(ngModel)]="task.resourceDTO.resourceId">
+                            <select class="form-control" name="resourceId" [(ngModel)]="taskInsert.resourceDTO.resourceId">
                                 <option *ngFor="let resource of resourcesInsert" [value]="resource.resourceId"
-                                    [selected]="resource.resourceId == task.resourceDTO.resourceId">
+                                    [selected]="resource.resourceId == taskInsert.resourceDTO.resourceId">
                                     {{resource.resourceName}}
                                 </option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Time</label> <input class="au-input au-input--full" type="number" name="task_time"
-                                placeholder="Time" [(ngModel)]="task.taskTime">
-                        </div>
-                        <div class="form-group">
-                            <label>State</label> <select class="au-input au-input--full" type="radio" name="task_state"
-                                placeholder="State" [(ngModel)]="task.taskState">
-                                <option value="0">Pending</option>
-                                <option value="1">In progress</option>
-                                <option value="2">Completed</option>
-                            </select>
 
+                            </select>
                         </div>
-                        <a href="/Task/taskManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertTask(f)">Insert</a>
+
+                        <div class="form-group">
+                            <label>Time</label> <input class="au-input au-input--full" type="number" name="taskTime"
+                                placeholder="Time" [(ngModel)]="taskInsert.taskTime">
+                        </div>
+
+                        <div class="form-group">
+                            <label>State</label> <input class="au-input au-input--full" type="number" name="taskState"
+                                placeholder="State" [(ngModel)]="taskInsert.taskState">
+                        </div>
+
+                        <a href="/Task/taskManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertTask(f)">Update</a>
                     </form>
                 </div>
+
             </div>
         </div>
     </section>

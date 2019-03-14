@@ -70,6 +70,8 @@ import { TaskService } from './services/task.service';
 import { ClientService } from './services/client.service';
 import { OrderService } from './services/order.service';
 import { ResourceService } from './services/resource.service';
+import { ProjectTemplateService } from './services/projectTemplate.service';
+import { ProjectService } from './services/project.service';
 
 
 
@@ -121,7 +123,8 @@ import { ResourceService } from './services/resource.service';
     providers: [
         LoginService, TaskService,
         ClientService, OrderService,
-        ResourceService
+        ResourceService, ProjectTemplateService,
+        ProjectService
     ],
     bootstrap: [AppComponent]
 })
