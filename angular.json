@@ -1,0 +1,163 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "wmes-angular": {
+            "root": "",
+            "sourceRoot": "src",
+            "projectType": "application",
+            "prefix": "app",
+            "schematics": {},
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/wmes-angular",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.app.json",
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
+                        "styles": [
+                            "src/assets/css/font-face.css",
+                            "src/assets/vendor/font-awesome-4.7/css/font-awesome.min.css",
+                            "src/assets/vendor/font-awesome-5/css/fontawesome-all.min.css",
+                            "src/assets/vendor/mdi-font/css/material-design-iconic-font.min.css",
+                            "src/assets/vendor/bootstrap-4.1/bootstrap.min.css",
+                            "src/assets/vendor/animsition/animsition.min.css",
+                            "src/assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css",
+                            "src/assets/vendor/wow/animate.css",
+                            "src/assets/vendor/css-hamburgers/hamburgers.min.css",
+                            "src/assets/vendor/slick/slick.css",
+                            "src/assets/vendor/select2/select2.min.css",
+                            "src/assets/vendor/perfect-scrollbar/perfect-scrollbar.css",
+                            "src/assets/css/theme.css"
+                        ],
+                        "scripts": [
+                            "src/assets/vendor/jquery-3.2.1.min.js",
+                            "src/assets/vendor/bootstrap-4.1/popper.min.js",
+                            "src/assets/vendor/bootstrap-4.1/bootstrap.min.js",
+                            "src/assets/vendor/slick/slick.min.js",
+                            "src/assets/vendor/wow/wow.min.js",
+                            "src/assets/vendor/animsition/animsition.min.js",
+                            "src/assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js",
+                            "src/assets/vendor/counter-up/jquery.waypoints.min.js",
+                            "src/assets/vendor/counter-up/jquery.counterup.min.js",
+                            "src/assets/vendor/circle-progress/circle-progress.min.js",
+                            "src/assets/vendor/perfect-scrollbar/perfect-scrollbar.js",
+                            "src/assets/vendor/chartjs/Chart.bundle.min.js",
+                            "src/assets/vendor/select2/select2.min.js",
+                            "src/assets/js/main.js"
+                        ],
+                        "es5BrowserSupport": true
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "wmes-angular:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "wmes-angular:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "wmes-angular:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.spec.json",
+                        "karmaConfig": "src/karma.conf.js",
+                        "styles": [
+                            "src/styles.css"
+                        ],
+                        "scripts": [],
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "src/tsconfig.app.json",
+                            "src/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                }
+            }
+        },
+        "wmes-angular-e2e": {
+            "root": "e2e/",
+            "projectType": "application",
+            "prefix": "",
+            "architect": {
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "e2e/protractor.conf.js",
+                        "devServerTarget": "wmes-angular:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "wmes-angular:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": "e2e/tsconfig.e2e.json",
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "wmes-angular"
+}

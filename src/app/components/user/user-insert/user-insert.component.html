@@ -1,0 +1,97 @@
+<app-sidebar-admin></app-sidebar-admin>
+
+<!-- PAGE CONTAINER-->
+<div class="page-container2">
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop2">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+
+            </div>
+        </div>
+    </header>
+
+    <!-- END HEADER DESKTOP-->
+
+    <!-- BREADCRUMB-->
+    <section class="au-breadcrumb m-t-75">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="au-breadcrumb-content">
+                            <div class="au-breadcrumb-left">
+                                <span class="au-breadcrumb-span">You are here:</span>
+                                <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                    <li class="list-inline-item active"><a href="/Home/homeAdmin">Dashboard</a></li>
+                                    <li class="list-inline-item seprate"><span>/</span></li>
+                                    <li class="list-inline-item">Insert User</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END BREADCRUMB-->
+
+    <!-- START statistic -->
+    <section>
+        <div class="col-lg-6 center-block">
+            <div class="card">
+                <div class="card-header">NEW USER</div>
+                <div class="card-body card-block">
+                    <form #f="ngForm">
+                        <div class="form-group">
+                            <label>Username</label> <input class="au-input au-input--full" type="text" name="userUser"
+                                placeholder="Username" [(ngModel)]="insertUser.userUser">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label> <input class="au-input au-input--full" type="text" name="userPass"
+                                placeholder="Password" [(ngModel)]="insertUser.userPass">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Usertype</label>
+                            <select class="form-control" name="userType" [(ngModel)]="insertUser.userType">
+                                <option *ngFor="let tipoUtente of userTypes" [value]="tipoUtente" [selected]="insertUser.userType == 'admin'">
+                                    {{tipoUtente}}
+                                </option>
+                            </select>
+                            <!-- <input class="au-input au-input--full" type="text" name="usertype" placeholder="UserType">-->
+                        </div>
+                        <div class="login-checkbox"></div>
+                        <a href="/User/userManagement" type="submit" class="btn btn-secondary btn-sm" (click)="userInsert(f)">Submit</a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- END Statistic -->
+    <section>
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-8"></div>
+                    <div class="col-xl-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6"></div>
+                    <div class="col-xl-6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <app-footer></app-footer>
+    <!-- END PAGE CONTAINER-->
+</div>
