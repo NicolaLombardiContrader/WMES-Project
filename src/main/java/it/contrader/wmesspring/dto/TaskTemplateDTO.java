@@ -35,6 +35,12 @@ public class TaskTemplateDTO {
 	private ResourceDTO resourceDTO;
 
 	private UserDTO userDTO;
+	
+	private List<ItemDTO> itemsDTO;
+	
+	private List<TaskDTO> taskDTO;
+
+	
 
 
 }
