@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ItemDTO {
 
-	
 	private int itemId;
 
 	private String itemCode;
