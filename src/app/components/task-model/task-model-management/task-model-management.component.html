@@ -24,7 +24,7 @@
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
                                     <li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
-                                    <li class="list-inline-item">Project Template Management</li>
+                                    <li class="list-inline-item">Task Management</li>
                                 </ul>
                             </div>
                         </div>
@@ -42,49 +42,45 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <!-- TEMPLATE TABLE -->
-                        <h3 class="title-5 m-b-35">Project Template Table</h3>
+                        <!-- TASK TABLE -->
+                        <h3 class="title-5 m-b-35">task table</h3>
 
                         <div class="table-data__tool-right">
-                            <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                <i class="zmdi zmdi-plus"></i>ADD TEMPLATE
+                            <button (click)="insertLink()" class="au-btn au-btn-icon au-btn--green au-btn--small"> <i
+                                    class="zmdi zmdi-plus"></i>ADD TASK MODEL
                             </button>
-
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
+                                            <th>Resource</th>
+                                            <th>Time</th>
+                                            <th>Status</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!--<%
-													for (ProjectTemplateDTO ProjectTemplate : allProjectTemplate) {
-												%>-->
-
-                                        <tr class="tr-shadow" *ngFor="let projectTemplate of projectTemplate">
-                                            <td>{{projectTemplate.projectName}}</td>
-                                            <td>
-                                                <!--<%=ProjectTemplate.getProjectName()%>-->
-                                            </td>
+                                   
+                                        <tr class="tr-shadow" *ngFor="let taskModel of tasksModel">
+                                            <td>{{taskModel.taskModelDescription}}</td>
+                                            <td>{{taskModel.taskModelAction}}</td>
+                                            <td>{{taskModel.resourceDTO.resourceName}}</td>
+                                            <td>{{taskModel.taskModelTime}}</td>
+                                            <td>{{taskModel.taskModelState}}</td>
 
                                             <td>
                                                 <div class="table-data-feature">
 
-                                                    <button (click)="updateLink(projectTemplate.projectTemplateId)"
-                                                        class="ietm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="zmdi zmdi-edit"></i>
+                                                    <button (click)="updateLink(taskModel.taskId)" class="item"
+                                                        data-toggle="tooltip" data-placement="top" title="Edit"> <i
+                                                            class="zmdi zmdi-edit"></i>
                                                     </button>
 
-                                                    <a href="/ProjectTemplate/projectTemplateManagement" (click)="removeLink(projectTemplate.projectTemplateId)"
+                                                    <a href="/TaskModel/taskModelManagement" (click)="removeLink(taskModel.taskModelId)"
                                                         class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
-                                                    </a>
-
-                                                    <a href="/ProjectTemplate/projectTemplateManagement" (click)="cloneLink(projectTemplate.projectTemplateId)"
-                                                        class="item" data-toggle="tooltip" data-placement="top" title="Clone">
-                                                        <i class="zmdi zmdi-clone"></i>
                                                     </a>
 
                                                 </div>
@@ -94,6 +90,7 @@
                                         <!--<%
 													}
 												%>-->
+
                                     </tbody>
                                 </table>
                             </div>
@@ -102,7 +99,6 @@
 
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

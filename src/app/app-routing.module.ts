@@ -32,6 +32,9 @@ import { TaskUpdateComponent } from './components/task/task-update/task-update.c
 import { ItemManagementComponent } from './components/item/item-management/item-management.component';
 import { ItemInsertComponent } from './components/item/item-insert/item-insert.component';
 import { ItemUpdateComponent } from './components/item/item-update/item-update.component';
+import { TaskModelManagementComponent } from './components/task-model/task-model-management/task-model-management.component';
+import { TaskModelInsertComponent } from './components/task-model/task-model-insert/task-model-insert.component';
+import { TaskModelUpdateComponent } from './components/task-model/task-model-update/task-model-update.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -70,7 +73,11 @@ const routes: Routes = [
     /** Item */
     { path: 'Item/itemManagement', component: ItemManagementComponent },
     { path: 'Item/insert', component: ItemInsertComponent },
-    { path: 'Item/update/:itemId', component: ItemUpdateComponent }
+    { path: 'Item/update/:itemId', component: ItemUpdateComponent },
+    /** TaskModel */
+    { path: 'TaskModel/taskModelManagement', component: TaskModelManagementComponent },
+    { path: 'TaskModel/insert', component: TaskModelInsertComponent },
+    { path: 'TaskModel/update/:taskModelId', component: TaskModelUpdateComponent },
 ];
 
 

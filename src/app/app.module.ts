@@ -57,12 +57,17 @@ import { ResourceUpdateComponent } from './components/resource/resource-update/r
 import { TaskManagementComponent } from './components/task/task-management/task-management.component';
 import { TaskInsertComponent } from './components/task/task-insert/task-insert.component';
 import { TaskUpdateComponent } from './components/task/task-update/task-update.component';
+import { TaskUpdateResourceComponent } from './components/task/task-update-resource/task-update-resource.component';
 
 /** Item */
 import { ItemManagementComponent } from './components/item/item-management/item-management.component';
 import { ItemUpdateComponent } from './components/item/item-update/item-update.component';
 import { ItemInsertComponent } from './components/item/item-insert/item-insert.component';
-import { TaskUpdateResourceComponent } from './components/task/task-update-resource/task-update-resource.component';
+
+/** TaskModel  */
+import { TaskModelManagementComponent } from './components/task-model/task-model-management/task-model-management.component';
+import { TaskModelUpdateComponent } from './components/task-model/task-model-update/task-model-update.component';
+import { TaskModelInsertComponent } from './components/task-model/task-model-insert/task-model-insert.component';
 
 /** Services */
 import { LoginService } from './services/login.service';
@@ -73,6 +78,7 @@ import { ResourceService } from './services/resource.service';
 import { ProjectTemplateService } from './services/projectTemplate.service';
 import { ProjectService } from './services/project.service';
 import { ItemService } from './services/item.service';
+import { TaskModelService } from './services/taskModel.service';
 
 
 @NgModule({
@@ -111,7 +117,10 @@ import { ItemService } from './services/item.service';
         ItemManagementComponent,
         ItemUpdateComponent,
         ItemInsertComponent,
-        TaskUpdateResourceComponent
+        TaskUpdateResourceComponent,
+        TaskModelManagementComponent,
+        TaskModelInsertComponent,
+        TaskModelUpdateComponent
     ],
     imports: [
         BrowserModule,
@@ -124,7 +133,7 @@ import { ItemService } from './services/item.service';
         LoginService, TaskService,
         ClientService, OrderService,
         ResourceService, ProjectTemplateService,
-        ProjectService, ItemService
+        ProjectService, ItemService, TaskModelService
     ],
     bootstrap: [AppComponent]
 })

@@ -55,14 +55,17 @@ export class TaskInsertComponent implements OnInit {
 
         // Fill items
         const itemSelectedArray: Array<Item> = new Array<Item>();
-        for (const itemInputIdSelected of taskInsertForm.value.itemInputSelected) {
+        const itemInputReceived: [] = taskInsertForm.value.itemInputSelected;
+        for (const itemInputIdSelected of itemInputReceived) {
             itemSelectedArray.push(new Item(itemInputIdSelected, null, null, null, userTaskInsert));
         }
 
-        for (const itemOutputIdSelected of taskInsertForm.value.itemOutputSelected) {
+        const itemOutputReceived: [] = taskInsertForm.value.itemOutputSelected;
+        for (const itemOutputIdSelected of itemOutputReceived) {
             itemSelectedArray.push(new Item(itemOutputIdSelected, null, null, null, userTaskInsert));
         }
 
+        console.log(taskInsertForm.value);
         this.task = new Task(0, taskAction, taskDescription, taskState, taskTime, userTaskInsert, resourceInsert, itemSelectedArray);
         this.taskService.insertTask(this.task);
     }

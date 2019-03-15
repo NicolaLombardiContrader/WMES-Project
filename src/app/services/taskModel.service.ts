@@ -6,9 +6,6 @@ import { User } from '../models/User';
 import { tap, catchError } from 'rxjs/operators';
 
 
-
-
-
 @Injectable({
     providedIn: 'root'
 })
@@ -31,7 +28,6 @@ export class TaskModelService {
             );
     }
 
-
     // tslint:disable-next-line:max-line-length
    insertTaskModel(taskModel: TaskModel): void {
         this.http.post('http://localhost:8080/TaskModel/insert', taskModel).subscribe(() => console.log('Task Model inserted'));
@@ -44,7 +40,6 @@ export class TaskModelService {
     }
 
     deleteTaskModel(taskModelId: number) {
-
         this.http.delete('http://localhost:8080/TaskModel/delete?taskModelId=' + taskModelId).subscribe(() =>
         console.log('Task Model deleted'));
     }

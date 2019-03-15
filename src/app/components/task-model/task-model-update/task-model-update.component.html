@@ -25,7 +25,7 @@
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
                                     <li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
-                                    <li class="list-inline-item">Edit Task</li>
+                                    <li class="list-inline-item">New Task Model</li>
                                 </ul>
                             </div>
                         </div>
@@ -39,51 +39,52 @@
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
-                <div class="card-header">NEW TASK</div>
+                <div class="card-header">NEW TASK MODEL</div>
                 <div class="card-body card-block">
-                    <form #taskInsertForm="ngForm">
+                    <form #taskModelUpdateForm="ngForm">
                         <div class="form-group">
-                            <label>Description</label> <input class="au-input au-input--full" type="text" name="taskDescription"
-                                placeholder="Description" ngModel>
+                            <input type="hidden" name="taskId" [(ngModel)]="taskModelUpdate.taskModelId" />
+                            <label>Description</label> <input class="au-input au-input--full" type="text" name="taskModelDescription"
+                                placeholder="Description" [(ngModel)]="taskModelUpdate.taskModelDescription">
                         </div>
 
                         <div class="form-group">
-                            <label>Action</label> <input class="au-input au-input--full" type="text" name="taskAction"
-                                placeholder="Action" ngModel>
+                            <label>Action</label> <input class="au-input au-input--full" type="text" name="taskModelAction"
+                                placeholder="Action" [(ngModel)]="taskModelUpdate.taskModelDescription">
                         </div>
 
                         <div class="form-group">
                             <label>Inputs</label> <br />
-                            <select class="custom-select" multiple="multiple" name="itemInputSelected" ngModel="itemInputSelected">
-                                <option *ngFor="let itemInput of itemsInputInsert" [attr.value]="itemInput.itemId">{{itemInput.itemName}}</option>
+                            <select class="custom-select" multiple="multiple" name="itemInputSelected" [(ngModel)]="taskModelUpdate.itemsDTO">
+                                <option *ngFor="let itemInput of itemsInputUpdate" [attr.value]="itemInput.itemId">{{itemInput.itemName}}</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label>Outputs</label> <br />
-                            <select class="custom-select" multiple="multiple" name="itemOutputSelected" ngModel="itemOutputSelected">
-                                <option *ngFor="let itemOutput of itemsOutputInsert" [attr.value]="itemOutput.itemId">{{itemOutput.itemName}}</option>
+                            <select class="custom-select" multiple="multiple" name="itemOutputSelected" [(ngModel)]="taskModelUpdate.itemsDTO">
+                                <option *ngFor="let itemOutput of itemsOutputUpdate" [attr.value]="itemOutput.itemId">{{itemOutput.itemName}}</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label>Resource</label> <br />
-                            <select class="custom-select" name="resourceSelected" ngModel="resourceSelected">
-                                <option *ngFor="let resource of resourcesInsert" [attr.value]="resource.resourceId">{{resource.resourceName}}</option>
+                            <select class="custom-select" name="resourceSelected" [(ngModel)]="taskModelUpdate.resourceDTO.resourceId">
+                                <option *ngFor="let resource of resourcesUpdate" [attr.value]="resource.resourceId">{{resource.resourceName}}</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label>Time</label> <input class="au-input au-input--full" type="number" name="taskTime"
-                                placeholder="Time" ngModel>
+                            <label>Time</label> <input class="au-input au-input--full" type="number" name="taskModelTime"
+                                placeholder="Time" [(ngModel)]="taskModelUpdate.taskModelTime">
                         </div>
 
                         <div class="form-group">
-                            <label>State</label> <input class="au-input au-input--full" type="number" name="taskState"
-                                placeholder="State" ngModel>
+                            <label>State</label> <input class="au-input au-input--full" type="number" name="taskModelState"
+                                placeholder="State" [(ngModel)]="taskModelUpdate.taskModelState">
                         </div>
 
-                        <button type="submit" class="btn btn-secondary btn-sm" (click)="insertTask(taskInsertForm)">Insert</button>
+                        <a href="/TaskModel/taskModelManagement" type="submit" class="btn btn-secondary btn-sm" (click)="updateTaskModel(taskModelUpdateForm)">Update</a>
                     </form>
                 </div>
 
