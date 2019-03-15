@@ -47,7 +47,6 @@ public class TaskController {
 		taskService.insertTask(task);
 	}
 
-
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public TaskDTO read(@RequestParam(value = "taskId") int id) {
 		TaskDTO taskUpdate = new TaskDTO();

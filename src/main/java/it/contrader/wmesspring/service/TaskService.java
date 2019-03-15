@@ -45,7 +45,8 @@ public class TaskService {
 	//}
 
 	public boolean insertTask(TaskDTO taskDTO) {
-		return taskRepository.save(ConverterTask.toEntity(taskDTO)) != null;
+		
+		return taskRepository.saveAndFlush(ConverterTask.toEntity(taskDTO)) != null;
 	}
 
 	public boolean updateTask(TaskDTO taskDTO) {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import it.contrader.wmesspring.converter.ConverterTaskTemplate;
 import it.contrader.wmesspring.converter.ConverterUser;
@@ -13,6 +14,7 @@ import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.model.TaskTemplate;
 import it.contrader.wmesspring.model.User;
 
+@Service
 public class TaskTemplateService {
 
 	private final TaskTemplateRepository taskTemplateRepository;

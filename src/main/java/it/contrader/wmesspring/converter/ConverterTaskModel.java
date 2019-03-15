@@ -23,6 +23,8 @@ public class ConverterTaskModel {
 			taskModelDTO.setTaskModelTime(taskModel.getTaskModelTime());
 			taskModelDTO.setTaskModelState(taskModel.getTaskModelState());
 
+			taskModelDTO.setItemsDTO(ConverterItem.toListDTO(taskModel.getItems()));	
+
 		}
 		return taskModelDTO;
 	}
@@ -40,6 +42,7 @@ public class ConverterTaskModel {
 			// taskModel.setTaskOutput(taskModelDTO.getTaskOutput());
 			taskModel.setTaskModelTime(taskModelDTO.getTaskModelTime());
 			taskModel.setTaskModelState(taskModelDTO.getTaskModelState());
+			taskModel.setItems(ConverterItem.toListEntity(taskModelDTO.getItemsDTO()));	
 		}
 		return taskModel;
 	}
