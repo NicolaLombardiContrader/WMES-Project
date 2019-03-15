@@ -61,6 +61,10 @@ public class User implements Serializable {
 	@OneToMany(mappedBy="user")
 	private List<Task> tasks;
 
+	//bi-directional many-to-one association to Task
+	@OneToMany(mappedBy="user")
+	private List<TaskModel> tasksModel;
+	
 	//bi-directional many-to-one association to ProjectsTemplate
 	@OneToMany(mappedBy="user")
 	private List<ProjectTemplate> projectsTemplates;
