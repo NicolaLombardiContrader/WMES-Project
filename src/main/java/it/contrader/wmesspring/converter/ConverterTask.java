@@ -21,7 +21,7 @@ public class ConverterTask {
 			taskDTO.setTaskDescription(task.getTaskDescription());
 			taskDTO.setTaskTime(task.getTaskTime());
 			taskDTO.setTaskState(task.getTaskState());
-						
+			taskDTO.setItemsDTO(ConverterItem.toListDTO(task.getItems()));			
 		}
 		return taskDTO;
 	}
@@ -37,6 +37,7 @@ public class ConverterTask {
 			task.setTaskDescription(taskDTO.getTaskDescription());
 			task.setTaskTime(taskDTO.getTaskTime());
 			task.setTaskState(taskDTO.getTaskState());
+			task.setItems(ConverterItem.toListEntity(taskDTO.getItemsDTO()));	
 		}
 		return task;
 	}

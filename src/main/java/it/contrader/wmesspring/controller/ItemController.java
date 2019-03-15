@@ -8,18 +8,23 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.wmesspring.dto.ItemDTO;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.service.ItemService;
 
 @CrossOrigin
-@Controller
+@RestController
 @RequestMapping("/Item")
 public class ItemController {
 	
-	@Autowired
 	private ItemService itemService;
+	
+	@Autowired
+	public ItemController(ItemService itemService) {
+		this.itemService = itemService;
+	}
 	
 	@RequestMapping(value = "/listItem", method = RequestMethod.GET)
 	public List<ItemDTO> listItem(@RequestParam(value = "userId") int userId) {
@@ -28,7 +33,7 @@ public class ItemController {
 		return this.itemService.getListaItemDTOByUser(userDTOResourceList);
 	}
 	
-	@RequestMapping(value = "/listItemByItemType", method = RequestMethod.GET)
+	@RequestMapping(value = "listItemByItemType", method = RequestMethod.GET)
 	public List<ItemDTO> listItemByItemType(@RequestParam(value = "userId") int userId,
 			@RequestParam(value = "itemType") String itemType) {
 		UserDTO userDTOResourceList = new UserDTO();
