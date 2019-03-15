@@ -30,16 +30,16 @@ public class TaskTemplate implements Serializable {
 	@Column(name="task_template_id")
 	private int taskTemplateId;
 
-	@Column(name="task_action")
+	@Column(name="task_template_action")
 	private String taskTemplateAction;
 
-	@Column(name="task_description")
+	@Column(name="task_template_description")
 	private String taskTemplateDescription;
 
-	@Column(name="task_state")
+	@Column(name="task_template_state")
 	private int taskTemplateState;
 
-	@Column(name="task_time")
+	@Column(name="task_template_time")
 	private int taskTemplateTime;
 	
 	@ManyToMany
