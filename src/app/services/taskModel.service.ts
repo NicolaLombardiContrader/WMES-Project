@@ -33,7 +33,7 @@ export class TaskModelService {
         this.http.post('http://localhost:8080/TaskModel/insert', taskModel).subscribe(() => console.log('Task Model inserted'));
     }
 
-    readTask(taskModelId: number): Observable<TaskModel> {
+    readTaskModel(taskModelId: number): Observable<TaskModel> {
         return this.http.get<any>('http://localhost:8080/TaskModel/read?taskModelId=' + taskModelId)
             .pipe(tap((response) => console.log('TaskModel'), catchError(this.handleError('error', {})))
             );

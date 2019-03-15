@@ -16,7 +16,6 @@ import { NgForm } from '@angular/forms';
 })
 export class TaskModelUpdateComponent implements OnInit {
     public taskModelUpdate: TaskModel;
-    public taskModel: TaskModel;
     resourceSelected: number;
     public resourcesUpdate: Array<Resource>;
     public itemsInputUpdate: Array<Item>;
@@ -30,9 +29,9 @@ export class TaskModelUpdateComponent implements OnInit {
 
         this.taskModelId = Number(this.route.snapshot.paramMap.get('taskModelId'));
         console.log('Task Model id in update:' + this.taskModelId);
-        this.taskModelService.readTask(this.taskModelId).subscribe((response) => {
-            this.taskModel = response;
-            console.log('Task Model caricarito: ' + this.taskModel.taskModelDescription);
+        this.taskModelService.readTaskModel(this.taskModelId).subscribe((response) => {
+            this.taskModelUpdate = response;
+            console.log('Task Model Update caricarito: ' + this.taskModelUpdate.taskModelDescription);
         });
 
         this.resourceService.resourceList().subscribe((response) => {
