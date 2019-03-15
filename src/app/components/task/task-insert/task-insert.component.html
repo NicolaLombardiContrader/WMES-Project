@@ -41,49 +41,49 @@
             <div class="card">
                 <div class="card-header">NEW TASK</div>
                 <div class="card-body card-block">
-                    <form #f="ngForm">
+                    <form #taskInsertForm="ngForm">
                         <div class="form-group">
                             <label>Description</label> <input class="au-input au-input--full" type="text" name="taskDescription"
-                                placeholder="Description" [(ngModel)]="taskInsert.taskDescription">
+                                placeholder="Description" ngModel>
                         </div>
 
                         <div class="form-group">
                             <label>Action</label> <input class="au-input au-input--full" type="text" name="taskAction"
-                                placeholder="Action" [(ngModel)]="taskInsert.taskAction">
+                                placeholder="Action" ngModel>
                         </div>
 
                         <div class="form-group">
-                            <label>Input</label> <input class="au-input au-input--full" type="text" name="taskInput"
-                                placeholder="Input" [(ngModel)]="taskInsert.taskInput">
+                            <label>Inputs</label> <br />
+                            <select class="custom-select" multiple="multiple" name="itemInputSelected" ngModel="itemInputSelected">
+                                <option *ngFor="let itemInput of itemsInputInsert" [attr.value]="itemInput.itemId">{{itemInput.itemName}}</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label>Output</label> <input class="au-input au-input--full" type="text" name="taskOutput"
-                                placeholder="Output" [(ngModel)]="taskInsert.taskOutput">
+                            <label>Outputs</label> <br />
+                            <select class="custom-select" multiple="multiple" name="itemOutputSelected" ngModel="itemOutputSelected">
+                                <option *ngFor="let itemOutput of itemsOutputInsert" [attr.value]="itemOutput.itemId">{{itemOutput.itemName}}</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label>Resource</label>
-                            <select class="form-control" name="resourceId" [(ngModel)]="taskInsert.resourceDTO.resourceId">
-                                <option *ngFor="let resource of resourcesInsert" [value]="resource.resourceId"
-                                    [selected]="resource.resourceId == taskInsert.resourceDTO.resourceId">
-                                    {{resource.resourceName}}
-                                </option>
-
+                            <label>Resource</label> <br />
+                            <select class="custom-select" name="resourceSelected" ngModel="resourceSelected">
+                                <option *ngFor="let resource of resourcesInsert" [attr.value]="resource.resourceId">{{resource.resourceName}}</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label>Time</label> <input class="au-input au-input--full" type="number" name="taskTime"
-                                placeholder="Time" [(ngModel)]="taskInsert.taskTime">
+                                placeholder="Time" ngModel>
                         </div>
 
                         <div class="form-group">
                             <label>State</label> <input class="au-input au-input--full" type="number" name="taskState"
-                                placeholder="State" [(ngModel)]="taskInsert.taskState">
+                                placeholder="State" ngModel>
                         </div>
 
-                        <a href="/Task/taskManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertTask(f)">Update</a>
+                        <a href="/Task/taskManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertTask(taskInsertForm)">Update</a>
                     </form>
                 </div>
 

@@ -31,7 +31,7 @@ export class ProjectInsertComponent implements OnInit {
         const userInsertProject: User = JSON.parse(sessionStorage.getItem('user'));
         const tasksSelectedArray: Array<Task> = new Array<Task>();
         for (const taskIdSelected of projectInsertForm.value.tasksSelected) {
-            tasksSelectedArray.push(new Task(taskIdSelected, null, null, null, null, null, null, userInsertProject, null));
+            tasksSelectedArray.push(new Task(taskIdSelected, null, null, null, null, userInsertProject, null, null));
         }
         this.projectInsert = new Project(0, projectInsertForm.value.projectName, 0, userInsertProject, tasksSelectedArray);
         // this.projectInsert = new Project(0, projectInsertForm.value.projectName, userInsert);

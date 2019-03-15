@@ -6,6 +6,8 @@ import { User } from '../../../models/User';
 import { NgForm } from '@angular/forms';
 import { Resource } from '../../../models/Resource';
 import { ResourceService } from '../../../services/resource.service';
+import { Item } from '../../../models/Item';
+import { ItemService } from '../../../services/item.service';
 
 @Component({
 
@@ -19,16 +21,25 @@ export class TaskInsertComponent implements OnInit {
     public task: Task;
     resourceSelected: number;
     public resourcesInsert: Array<Resource>;
-    constructor(private taskService: TaskService, private resourceService: ResourceService) { }
+    public itemsInputInsert: Array<Item>;
+    public itemsOutputInsert: Array<Item>;
+    constructor(private taskService: TaskService, private itemService: ItemService, private resourceService: ResourceService) { }
 
     ngOnInit() {
-
-
-        // this.task.resourceDTO.resourceId = 0;
 
         this.resourceService.resourceList().subscribe((response) => {
             this.resourcesInsert = response;
             console.log('Lista clienti caricarita');
+        });
+
+        this.itemService.itemListByItemType('input').subscribe((response) => {
+            this.itemsInputInsert = response;
+            console.log('Lista item input caricarita');
+        });
+
+        this.itemService.itemListByItemType('output').subscribe((response) => {
+            this.itemsOutputInsert = response;
+            console.log('Lista item output caricarita');
         });
 
     }
@@ -36,13 +47,23 @@ export class TaskInsertComponent implements OnInit {
     insertTask(taskInsertForm) {
         const taskAction = taskInsertForm.value.taskAction;
         const taskDescription = taskInsertForm.value.taskDescription;
-        const taskInput = taskInsertForm.value.taskInput;
-        const taskOutput = taskInsertForm.value.taskOutput;
         const taskState = taskInsertForm.value.taskState;
         const taskTime = taskInsertForm.value.taskTime;
-        const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
-        const resourceInsert: Resource = new Resource(Number(taskInsertForm.value.resourceSelected), null, null, null, userInsert, null);
-        this.task = new Task(0, taskAction, taskDescription, taskInput, taskOutput, taskState, taskTime, userInsert, resourceInsert);
+        const userTaskInsert: User = JSON.parse(sessionStorage.getItem('user'));
+        // tslint:disable-next-line:max-line-length
+        const resourceInsert: Resource = new Resource(Number(taskInsertForm.value.resourceSelected), null, null, null, userTaskInsert, null);
+
+        // Fill items
+        const itemSelectedArray: Array<Item> = new Array<Item>();
+        for (const itemInputIdSelected of taskInsertForm.value.itemInputSelected) {
+            itemSelectedArray.push(new Item(itemInputIdSelected, null, null, null, userTaskInsert));
+        }
+
+        for (const itemOutputIdSelected of taskInsertForm.value.itemOutputSelected) {
+            itemSelectedArray.push(new Item(itemOutputIdSelected, null, null, null, userTaskInsert));
+        }
+
+        this.task = new Task(0, taskAction, taskDescription, taskState, taskTime, userTaskInsert, resourceInsert, itemSelectedArray);
         this.taskService.insertTask(this.task);
     }
 }
