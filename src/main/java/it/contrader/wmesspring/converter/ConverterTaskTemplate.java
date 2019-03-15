@@ -42,20 +42,20 @@ public class ConverterTaskTemplate {
 	}
 
 	public static List<TaskTemplateDTO> toListDTO(List<TaskTemplate> list) {
-		List<TaskTemplateDTO> listTaskDTO = new ArrayList<>();
+		List<TaskTemplateDTO> listTaskTemplateDTO = new ArrayList<>();
 		if (!list.isEmpty()) {
-			for (TaskTemplate task : list) {
-				listTaskDTO.add(ConverterTaskTemplate.toDTO(task));
+			for (TaskTemplate taskTemplate : list) {
+				listTaskTemplateDTO.add(ConverterTaskTemplate.toDTO(taskTemplate));
 			}
 		}
-		return listTaskDTO;
+		return listTaskTemplateDTO;
 	}
 
-	public static List<TaskTemplate> toListEntity(List<TaskTemplateDTO> listTaskDTO) {
+	public static List<TaskTemplate> toListEntity(List<TaskTemplateDTO> listTaskTemplateDTO) {
 		List<TaskTemplate> list = new ArrayList<>();
-		if (!listTaskDTO.isEmpty()) {
-			for (TaskTemplateDTO taskDTO : listTaskDTO) {
-				list.add(ConverterTaskTemplate.toEntity(taskDTO));
+		if (!listTaskTemplateDTO.isEmpty()) {
+			for (TaskTemplateDTO taskTemplateDTO : listTaskTemplateDTO) {
+				list.add(ConverterTaskTemplate.toEntity(taskTemplateDTO));
 			}
 		}
 		return list;
