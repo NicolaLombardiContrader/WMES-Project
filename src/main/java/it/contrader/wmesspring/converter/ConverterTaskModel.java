@@ -12,17 +12,17 @@ public class ConverterTaskModel {
 		TaskModelDTO taskModelDTO = null;
 		if (taskModel != null) {
 			taskModelDTO = new TaskModelDTO();
-			
+
 			taskModelDTO.setTaskModelId(taskModel.getTaskModelId());
 			taskModelDTO.setUserDTO(ConverterUser.toDTO(taskModel.getUser()));
 			taskModelDTO.setResourceDTO(ConverterResource.toDTO(taskModel.getResource()));
 			taskModelDTO.setTaskModelAction(taskModel.getTaskModelAction());
 			taskModelDTO.setTaskModelDescription(taskModel.getTaskModelDescription());
-		// 	taskModelDTO.setTaskModelInput(taskModel.getTaskModelInput());
-		//	taskModelDTO.setTaskModelOutput(taskModel.getTaskModelOutput());
+			// taskModelDTO.setTaskModelInput(taskModel.getTaskModelInput());
+			// taskModelDTO.setTaskModelOutput(taskModel.getTaskModelOutput());
 			taskModelDTO.setTaskModelTime(taskModel.getTaskModelTime());
 			taskModelDTO.setTaskModelState(taskModel.getTaskModelState());
-						
+
 		}
 		return taskModelDTO;
 	}
@@ -36,8 +36,8 @@ public class ConverterTaskModel {
 			taskModel.setResource(ConverterResource.toEntity(taskModelDTO.getResourceDTO()));
 			taskModel.setTaskModelAction(taskModelDTO.getTaskModelAction());
 			taskModel.setTaskModelDescription(taskModelDTO.getTaskModelDescription());
-	//		taskModel.setTaskInput(taskModelDTO.getTaskInput());
-		//	taskModel.setTaskOutput(taskModelDTO.getTaskOutput());
+			// taskModel.setTaskInput(taskModelDTO.getTaskInput());
+			// taskModel.setTaskOutput(taskModelDTO.getTaskOutput());
 			taskModel.setTaskModelTime(taskModelDTO.getTaskModelTime());
 			taskModel.setTaskModelState(taskModelDTO.getTaskModelState());
 		}
