@@ -79,11 +79,11 @@ public class ProjectTemplateController {
 		for (TaskTemplateDTO taskTemplateDTO : projectTemplate.getTasksTemplateDTO()) {
 			TaskDTO task = new TaskDTO();
 			task.setUserDTO(userId);
-			task.setTaskAction(taskTemplateDTO.getTaskAction());
-			task.setTaskDescription(taskTemplateDTO.getTaskDescription());
-			task.setTaskAction(taskTemplateDTO.getTaskAction());
-			task.setTaskAction(taskTemplateDTO.getTaskAction());
-			task.setTaskAction(taskTemplateDTO.getTaskAction());
+			task.setTaskAction(taskTemplateDTO.getTaskTemplateAction());
+			task.setTaskDescription(taskTemplateDTO.getTaskTemplateDescription());
+			task.setTaskAction(taskTemplateDTO.getTaskTemplateAction());
+			task.setTaskAction(taskTemplateDTO.getTaskTemplateAction());
+			task.setTaskAction(taskTemplateDTO.getTaskTemplateAction());
 			taskList.add(task);
 		}
 		

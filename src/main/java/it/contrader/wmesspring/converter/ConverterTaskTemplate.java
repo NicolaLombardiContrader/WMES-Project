@@ -14,13 +14,13 @@ public class ConverterTaskTemplate {
 		if (taskTemplate != null) {
 			taskTemplateDTO = new TaskTemplateDTO();
 			
-			taskTemplateDTO.setTaskId(taskTemplate.getTaskTemplateId());
+			taskTemplateDTO.setTaskTemplateId(taskTemplate.getTaskTemplateId());
 			taskTemplateDTO.setUserDTO(ConverterUser.toDTO(taskTemplate.getUser()));
 			taskTemplateDTO.setResourceDTO(ConverterResource.toDTO(taskTemplate.getResource()));
-			taskTemplateDTO.setTaskAction(taskTemplate.getTaskTemplateAction());
-			taskTemplateDTO.setTaskDescription(taskTemplate.getTaskTemplateDescription());
-			taskTemplateDTO.setTaskTime(taskTemplate.getTaskTemplateTime());
-			taskTemplateDTO.setTaskState(taskTemplate.getTaskTemplateState());
+			taskTemplateDTO.setTaskTemplateAction(taskTemplate.getTaskTemplateAction());
+			taskTemplateDTO.setTaskTemplateDescription(taskTemplate.getTaskTemplateDescription());
+			taskTemplateDTO.setTaskTemplateTime(taskTemplate.getTaskTemplateTime());
+			taskTemplateDTO.setTaskTemplateState(taskTemplate.getTaskTemplateState());
 					
 		}
 		return taskTemplateDTO;
@@ -30,13 +30,13 @@ public class ConverterTaskTemplate {
 		TaskTemplate taskTemplate = null;
 		if (taskTemplateDTO != null) {
 			taskTemplate = new TaskTemplate();
-			taskTemplate.setTaskTemplateId(taskTemplateDTO.getTaskId());
+			taskTemplate.setTaskTemplateId(taskTemplateDTO.getTaskTemplateId());
 			taskTemplate.setUser(ConverterUser.toEntity(taskTemplateDTO.getUserDTO()));
 			taskTemplate.setResource(ConverterResource.toEntity(taskTemplateDTO.getResourceDTO()));
-			taskTemplate.setTaskTemplateAction(taskTemplateDTO.getTaskAction());
-			taskTemplate.setTaskTemplateDescription(taskTemplateDTO.getTaskDescription());
-			taskTemplate.setTaskTemplateTime(taskTemplateDTO.getTaskTime());
-			taskTemplate.setTaskTemplateState(taskTemplateDTO.getTaskState());
+			taskTemplate.setTaskTemplateAction(taskTemplateDTO.getTaskTemplateAction());
+			taskTemplate.setTaskTemplateDescription(taskTemplateDTO.getTaskTemplateDescription());
+			taskTemplate.setTaskTemplateTime(taskTemplateDTO.getTaskTemplateTime());
+			taskTemplate.setTaskTemplateState(taskTemplateDTO.getTaskTemplateState());
 		}
 		return taskTemplate;
 	}

@@ -14,19 +14,19 @@ import java.util.List;
 public class TaskTemplateDTO {
 
 	
-	private int taskId;
+	private int taskTemplateId;
 
-	private String taskAction;
+	private String taskTemplateAction;
 
-	private String taskDescription;
+	private String taskTemplateDescription;
 
-	private String taskInput;
+//	private String taskInput;
 
-	private String taskOutput;
+//	private String taskOutput;
 
-	private int taskState;
+	private int taskTemplateState;
 
-	private int taskTime;
+	private int taskTemplateTime;
 
 	private List<ProjectTemplateDTO> projectTemplatesDTO;
 
