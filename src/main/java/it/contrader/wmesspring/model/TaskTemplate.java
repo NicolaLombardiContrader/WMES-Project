@@ -27,20 +27,20 @@ public class TaskTemplate implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="task_id")
-	private int taskId;
+	@Column(name="task_template_id")
+	private int taskTemplateId;
 
 	@Column(name="task_action")
-	private String taskAction;
+	private String taskTemplateAction;
 
 	@Column(name="task_description")
-	private String taskDescription;
+	private String taskTemplateDescription;
 
 	@Column(name="task_state")
-	private int taskState;
+	private int taskTemplateState;
 
 	@Column(name="task_time")
-	private int taskTime;
+	private int taskTemplateTime;
 	
 	@ManyToMany
 	@JoinTable(name = "projects_templates_wbs",

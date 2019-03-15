@@ -9,36 +9,36 @@ import it.contrader.wmesspring.model.TaskTemplate;
 
 public class ConverterTaskTemplate {
 
-	public static TaskTemplateDTO toDTO(TaskTemplate task) {
+	public static TaskTemplateDTO toDTO(TaskTemplate taskTemplate) {
 		TaskTemplateDTO taskTemplateDTO = null;
-		if (task != null) {
+		if (taskTemplate != null) {
 			taskTemplateDTO = new TaskTemplateDTO();
 			
-			taskTemplateDTO.setTaskId(task.getTaskId());
-			taskTemplateDTO.setUserDTO(ConverterUser.toDTO(task.getUser()));
-			taskTemplateDTO.setResourceDTO(ConverterResource.toDTO(task.getResource()));
-			taskTemplateDTO.setTaskAction(task.getTaskAction());
-			taskTemplateDTO.setTaskDescription(task.getTaskDescription());
-			taskTemplateDTO.setTaskTime(task.getTaskTime());
-			taskTemplateDTO.setTaskState(task.getTaskState());
-						
+			taskTemplateDTO.setTaskId(taskTemplate.getTaskTemplateId());
+			taskTemplateDTO.setUserDTO(ConverterUser.toDTO(taskTemplate.getUser()));
+			taskTemplateDTO.setResourceDTO(ConverterResource.toDTO(taskTemplate.getResource()));
+			taskTemplateDTO.setTaskAction(taskTemplate.getTaskTemplateAction());
+			taskTemplateDTO.setTaskDescription(taskTemplate.getTaskTemplateDescription());
+			taskTemplateDTO.setTaskTime(taskTemplate.getTaskTemplateTime());
+			taskTemplateDTO.setTaskState(taskTemplate.getTaskTemplateState());
+					
 		}
 		return taskTemplateDTO;
 	}
 
-	public static TaskTemplate toEntity(TaskTemplateDTO taskDTO) {
-		TaskTemplate task = null;
-		if (taskDTO != null) {
-			task = new TaskTemplate();
-			task.setTaskId(taskDTO.getTaskId());
-			task.setUser(ConverterUser.toEntity(taskDTO.getUserDTO()));
-			task.setResource(ConverterResource.toEntity(taskDTO.getResourceDTO()));
-			task.setTaskAction(taskDTO.getTaskAction());
-			task.setTaskDescription(taskDTO.getTaskDescription());
-			task.setTaskTime(taskDTO.getTaskTime());
-			task.setTaskState(taskDTO.getTaskState());
+	public static TaskTemplate toEntity(TaskTemplateDTO taskTemplateDTO) {
+		TaskTemplate taskTemplate = null;
+		if (taskTemplateDTO != null) {
+			taskTemplate = new TaskTemplate();
+			taskTemplate.setTaskTemplateId(taskTemplateDTO.getTaskId());
+			taskTemplate.setUser(ConverterUser.toEntity(taskTemplateDTO.getUserDTO()));
+			taskTemplate.setResource(ConverterResource.toEntity(taskTemplateDTO.getResourceDTO()));
+			taskTemplate.setTaskTemplateAction(taskTemplateDTO.getTaskAction());
+			taskTemplate.setTaskTemplateDescription(taskTemplateDTO.getTaskDescription());
+			taskTemplate.setTaskTemplateTime(taskTemplateDTO.getTaskTime());
+			taskTemplate.setTaskTemplateState(taskTemplateDTO.getTaskState());
 		}
-		return task;
+		return taskTemplate;
 	}
 
 	public static List<TaskTemplateDTO> toListDTO(List<TaskTemplate> list) {
