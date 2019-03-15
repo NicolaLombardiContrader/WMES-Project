@@ -8,8 +8,6 @@ export class Project {
     userDTO: User;
     tasksDTO: Task [];
 
-
-
     constructor(projectId: number, projectName: string, projectStatus: number, userDTO: User, tasksDTO: Task [] ) {
         this.projectId = projectId;
         this.projectName = projectName;

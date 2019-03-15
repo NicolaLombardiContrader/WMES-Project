@@ -72,7 +72,7 @@ import { OrderService } from './services/order.service';
 import { ResourceService } from './services/resource.service';
 import { ProjectTemplateService } from './services/projectTemplate.service';
 import { ProjectService } from './services/project.service';
-
+import { ItemService } from './services/item.service';
 
 
 @NgModule({
@@ -124,7 +124,7 @@ import { ProjectService } from './services/project.service';
         LoginService, TaskService,
         ClientService, OrderService,
         ResourceService, ProjectTemplateService,
-        ProjectService
+        ProjectService, ItemService
     ],
     bootstrap: [AppComponent]
 })
