@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskModelDTO {
+public class TaskModelDTO { 
 	
 	private int taskModelId;
 	
