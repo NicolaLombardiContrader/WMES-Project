@@ -61,4 +61,9 @@ public class ProjectService {
 		taskList = taskService.findTaskDTOByUser(ConverterUser.toEntity(userDTO));
 		return taskList;
 	}
+	
+	// Tree management
+	public TaskDTO findTaskRoot(Project project) {
+		return taskService.findProjectTaskRoot(project);
+	}
 }

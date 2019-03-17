@@ -28,14 +28,14 @@ public class User implements Serializable {
 	@Column(name="user_id")
 	private int userId;
 
+	@Column(name="user_user")
+	private String userUser;
+	
 	@Column(name="user_pass")
 	private String userPass;
 
 	@Column(name="user_type")
 	private String userType;
-
-	@Column(name="user_user")
-	private String userUser;
 
 	//bi-directional many-to-one association to Client
 	@OneToMany(mappedBy="user")

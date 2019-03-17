@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -62,13 +63,18 @@ public class Task implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-
-	@ManyToMany
-	@JoinTable(name = "projects_wbs", joinColumns = @JoinColumn(name = "task_id_father"), inverseJoinColumns = @JoinColumn(name = "task_id_child"))
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	
+	// Tree implementation
+	
+	@Nullable
+	@ManyToOne(cascade= {CascadeType.ALL})
+	@JoinColumn(name="father_id")
+	private Task taskFather;
+	
+	/*@JoinTable(name = "projects_wbs", joinColumns = @JoinColumn(name = "task_id_father"), 
+	inverseJoinColumns = @JoinColumn(name = "task_id_child"))
+	@OnDelete(action = OnDeleteAction.CASCADE)*/
+	@OneToMany(mappedBy = "taskFather")
 	private List<Task> childsList;
-
-	@ManyToMany
-	@JoinTable(name = "projects_wbs", joinColumns = @JoinColumn(name = "task_id_child"), inverseJoinColumns = @JoinColumn(name = "task_id_father"))
-	private List<Task> fatherList;
+	
 }

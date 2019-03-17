@@ -3,6 +3,7 @@ package it.contrader.wmesspring.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
+import it.contrader.wmesspring.model.Project;
 import it.contrader.wmesspring.model.Resource;
 import it.contrader.wmesspring.model.Task;
 import it.contrader.wmesspring.model.User;
@@ -15,5 +16,8 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
 	public List<Task> findAllByUser(User user);
 	
 	public List<Task> findAllByResource(Resource resource);
+	
+	//Tree methods
+	public Task findAllByProjectAndTaskFatherIsNull(Project project);
 	
 }

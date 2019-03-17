@@ -13,6 +13,7 @@ import it.contrader.wmesspring.model.User;
 import it.contrader.wmesspring.converter.ConverterTask;
 import it.contrader.wmesspring.dao.TaskRepository;
 import it.contrader.wmesspring.dto.TaskDTO;
+import it.contrader.wmesspring.model.Project;
 import it.contrader.wmesspring.model.Task;
 
 @Service
@@ -63,8 +64,11 @@ public class TaskService {
 		final List<TaskDTO> taskDTOs = new ArrayList<>();
 		list.forEach(i -> taskDTOs.add(ConverterTask.toDTO(i)));
 		return taskDTOs;
-		
+	}
 	
+	// Tree methods
+	public TaskDTO findProjectTaskRoot(Project project) {
+		return ConverterTask.toDTO(taskRepository.findAllByProjectAndTaskFatherIsNull(project));
 	}
 }
 
