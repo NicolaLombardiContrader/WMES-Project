@@ -66,7 +66,8 @@ export class TaskInsertComponent implements OnInit {
         }
 
         console.log(taskInsertForm.value);
-        this.task = new Task(0, taskAction, taskDescription, taskState, taskTime, userTaskInsert, resourceInsert, itemSelectedArray);
+        // tslint:disable-next-line:max-line-length
+        this.task = new Task(0, taskAction, taskDescription, taskState, taskTime, userTaskInsert, resourceInsert, itemSelectedArray, null, null);
         this.taskService.insertTask(this.task);
     }
 }

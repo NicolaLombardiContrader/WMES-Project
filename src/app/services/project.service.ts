@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { logging } from 'protractor';
 import { environment } from '../../environments/environment.prod';
 import { tap, catchError } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Project } from '../models/Project';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { User } from '../models/User';
@@ -32,8 +32,11 @@ export class ProjectService {
             );
     }
 
-    insertProject(project: Project): void {
-        this.http.post('http://localhost:8080/Project/insert', project).subscribe(() => console.log('Project inserted'));
+    insertProject(projectName: string, userId: string, taskModelId: string): void {
+        const params = new HttpParams().set('projectName', projectName)
+        .set('userId', userId)
+        .set('taskModelId', taskModelId);
+        this.http.post('http://localhost:8080/Project/insert', params).subscribe(() => console.log('Project inserted'));
     }
 
     readProject(projectId: number): Observable<Project> {
