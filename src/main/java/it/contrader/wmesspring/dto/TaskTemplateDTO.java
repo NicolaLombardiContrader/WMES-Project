@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import it.contrader.wmesspring.model.Task;
+
 
 @Data
 @AllArgsConstructor
@@ -19,10 +21,6 @@ public class TaskTemplateDTO {
 	private String taskTemplateAction;
 
 	private String taskTemplateDescription;
-
-//	private String taskInput;
-
-//	private String taskOutput;
 
 	private int taskTemplateState;
 
@@ -38,9 +36,8 @@ public class TaskTemplateDTO {
 	
 	private List<ItemDTO> itemsDTO;
 	
-	private List<TaskDTO> taskDTO;
-
+	private List<TaskDTO> childsList;
 	
-
+	private TaskDTO taskFather;
 
 }

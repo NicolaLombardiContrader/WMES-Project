@@ -21,7 +21,8 @@ public class ConverterTask {
 			taskDTO.setTaskDescription(task.getTaskDescription());
 			taskDTO.setTaskTime(task.getTaskTime());
 			taskDTO.setTaskState(task.getTaskState());
-			taskDTO.setItemsDTO(ConverterItem.toListDTO(task.getItems()));			
+			taskDTO.setItemsDTO(ConverterItem.toListDTO(task.getItems()));	
+			taskDTO.setTaskFather(ConverterTask.toDTO(task.getTaskFather()));
 		}
 		return taskDTO;
 	}
@@ -38,6 +39,7 @@ public class ConverterTask {
 			task.setTaskTime(taskDTO.getTaskTime());
 			task.setTaskState(taskDTO.getTaskState());
 			task.setItems(ConverterItem.toListEntity(taskDTO.getItemsDTO()));	
+			task.setTaskFather(ConverterTask.toEntity(taskDTO.getTaskFather()));
 		}
 		return task;
 	}

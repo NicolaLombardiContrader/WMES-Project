@@ -45,6 +45,8 @@ public class TaskDTO {
 	private ProjectDTO projectDTO;
 
 	private UserDTO userDTO;
+	
+	private TaskDTO taskFather;
 
 	private List<TaskDTO> childsListDTO;
 
