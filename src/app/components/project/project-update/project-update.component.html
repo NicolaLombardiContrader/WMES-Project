@@ -57,14 +57,19 @@
                         </div>
 
                         <div class="form-group">
-                            <button (click)="insertTaskNode(0)">Crea root</button>
+                            <button button class="btn btn-primary" (click)="insertTaskNode(0)">Crea root</button>
                         </div>
 
                         <div class="form-group">
-                            <label>{{taskRoot.taskDescription}}</label>
-                            <button button class="btn btn-primary" (click)="insertTaskNode(taskRoot.taskId)">Aggiungi
-                                Figlio</button>
+                            <label>{{taskRoot.taskDescription}}&nbsp;</label>
+                            <button button class="btn btn-primary" (click)="insertTaskNode(taskRoot.taskId)">Add task
+                                child</button>
+                            <!--
+                                <button button class="btn btn-primary" (click)="deleteTaskNode(taskRoot.taskId)">Delete
+                                Task Node</button>
+                            -->
                             <ul>
+
                                 <ng-template #recursiveList let-list>
                                     <li class="list" *ngFor="let task of list">
                                         {{task.taskDescription}}<button class="btn btn-primary" (click)="insertTaskNode(task.taskId)">Aggiungi
