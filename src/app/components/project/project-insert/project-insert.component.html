@@ -45,7 +45,7 @@
                     <form #projectInsertForm="ngForm">
                         <div class="form-group">
                             <label>Name</label> <input class="au-input au-input--full" type="text" name="projectName"
-                                placeholder="Name" [(ngModel)]="project.projectName">
+                                placeholder="Name" ngModel>
                         </div>
  
                         <a href="/Project/projectManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertProject(projectInsertForm)">Insert</a>
