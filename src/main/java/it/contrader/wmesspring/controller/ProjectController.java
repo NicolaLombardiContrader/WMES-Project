@@ -103,6 +103,9 @@ public class ProjectController {
 		taskNodeDTO.setItemsDTO(taskModelDTO.getItemsDTO());
 		taskNodeDTO.setProjectDTO(projectDTO);
 		
+		List<TaskDTO> listTaskChild = new ArrayList<TaskDTO>();
+		taskNodeDTO.setChildsListDTO(listTaskChild);
+		
 		if (Integer.parseInt(taskFatherId) != 0) {
 			TaskDTO taskFather = new TaskDTO();
 			taskFather.setTaskId(Integer.parseInt(taskFatherId));
