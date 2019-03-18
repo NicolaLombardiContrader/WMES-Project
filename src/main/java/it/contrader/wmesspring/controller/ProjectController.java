@@ -22,20 +22,25 @@ import it.contrader.wmesspring.model.Project;
 import it.contrader.wmesspring.model.Task;
 import it.contrader.wmesspring.service.ProjectService;
 import it.contrader.wmesspring.service.TaskModelService;
+import it.contrader.wmesspring.service.TaskService;
 import it.contrader.wmesspring.service.UserService;
 
 @CrossOrigin
-@RestController 
+@RestController
 @RequestMapping("/Project")
 public class ProjectController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private TaskModelService taskModelService;
 	
+	@Autowired
+	private TaskService taskService;
+	
 	private final ProjectService projectService;
+
 	@Autowired
 	public ProjectController(ProjectService projectService) {
 		this.projectService = projectService;
@@ -52,57 +57,65 @@ public class ProjectController {
 	// Delete
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
 
-	public void delete(@RequestParam(value ="projectId") int projectId) {
+	public void delete(@RequestParam(value = "projectId") int projectId) {
 		this.projectService.deleteProjectById(projectId);
 	}
 
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public ProjectDTO read(@RequestParam(value = "ProjectId") int id) {
+	public ProjectDTO read(@RequestParam(value = "projectId") int id) {
 		ProjectDTO projectUpdate = new ProjectDTO();
-	
+
 		projectUpdate = this.projectService.getProjectDTOById(id);
 
 		return projectUpdate;
 	}
 
-	
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public void update(@RequestBody ProjectDTO project) {
 		projectService.updateProject(project);
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public void insert(@RequestParam(value ="projectName") String projectName,
-			@RequestParam(value ="userId") int userId,
-			@RequestParam(value ="taskModelId") int taskModelId) {
-		
-		UserDTO userDTO = new UserDTO();
-		userDTO = userService.getUserDTOById(userId);
-		
-		TaskModelDTO taskModelDTO = taskModelService.getTaskModelDTOById(taskModelId);
-		
-		//Create a task from taskModel
-		TaskDTO taskRootDTO = new TaskDTO();
-		//taskRootDTO.setTaskId(task.getTaskId());
-		taskRootDTO.setUserDTO(userDTO);
-		taskRootDTO.setResourceDTO(taskModelDTO.getResourceDTO());
-		taskRootDTO.setTaskAction(taskModelDTO.getTaskModelAction());
-		taskRootDTO.setTaskDescription(taskModelDTO.getTaskModelDescription());
-		taskRootDTO.setTaskTime(taskModelDTO.getTaskModelTime());
-		taskRootDTO.setTaskState(taskModelDTO.getTaskModelState());
-		taskRootDTO.setItemsDTO(taskModelDTO.getItemsDTO());	
-		//taskRootDTO.setTaskFather(ConverterTask.toDTO(task.getTaskFather()));
-		
-		List<TaskDTO> tasksDTO= new ArrayList<TaskDTO>();
-		tasksDTO.add(taskRootDTO);
-		
-		ProjectDTO projectDTO= new ProjectDTO();
-		projectDTO.setProjectName(projectName);
-		projectDTO.setTasksDTO(tasksDTO);
-		projectDTO.setUserDTO(userDTO);
-		
+	public void insert(@RequestBody ProjectDTO projectDTO) {
 		projectService.insertProject(projectDTO);
 	}
 
-}
+	// Tree management methods
+	@RequestMapping(value = "/insertTaskNode", method = RequestMethod.POST)
+	public void insertTaskNode(@RequestParam(value = "projectId") String projectId,
+			@RequestParam(value = "userId") String userId, @RequestParam(value = "taskModelId") String taskModelId, 
+			@RequestParam(value = "taskFatherId") String taskFatherId) {
 
+		UserDTO userDTO = new UserDTO();
+		userDTO = userService.getUserDTOById(Integer.parseInt(userId));
+
+		TaskModelDTO taskModelDTO = taskModelService.getTaskModelDTOById(Integer.parseInt(taskModelId));
+
+		ProjectDTO projectDTO = projectService.getProjectDTOById(Integer.parseInt(projectId));
+
+		// Create a task from taskModel
+		TaskDTO taskNodeDTO = new TaskDTO();
+		// taskRootDTO.setTaskId(task.getTaskId());
+		taskNodeDTO.setUserDTO(userDTO);
+		taskNodeDTO.setResourceDTO(taskModelDTO.getResourceDTO());
+		taskNodeDTO.setTaskAction(taskModelDTO.getTaskModelAction());
+		taskNodeDTO.setTaskDescription(taskModelDTO.getTaskModelDescription());
+		taskNodeDTO.setTaskTime(taskModelDTO.getTaskModelTime());
+		taskNodeDTO.setTaskState(taskModelDTO.getTaskModelState());
+		taskNodeDTO.setItemsDTO(taskModelDTO.getItemsDTO());
+		taskNodeDTO.setProjectDTO(projectDTO);
+		
+		if (Integer.parseInt(taskFatherId) != 0) {
+			TaskDTO taskFather = new TaskDTO();
+			taskFather.setTaskId(Integer.parseInt(taskFatherId));
+			taskNodeDTO.setTaskFather(taskFather);
+		}
+		
+		
+			
+		// taskRootDTO.setTaskFather(ConverterTask.toDTO(task.getTaskFather()));
+		taskService.insertTask(taskNodeDTO);
+
+	}
+
+}

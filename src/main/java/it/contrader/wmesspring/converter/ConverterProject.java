@@ -15,51 +15,56 @@ public class ConverterProject {
 	public static ProjectDTO toDTO(Project project) {
 
 		ProjectDTO projectDTO = null;
-		
+
 		if (project != null) {
 			projectDTO = new ProjectDTO();
 			projectDTO.setProjectId(project.getProjectId());
 			projectDTO.setProjectName(project.getProjectName());
 			projectDTO.setProjectStatus(project.getProjectStatus());
 			projectDTO.setUserDTO(ConverterUser.toDTO(project.getUser()));
-			List<Task> taskList= project.getProjectsTasks();
-			List<TaskDTO> taskListDTO= new ArrayList<TaskDTO>();
-			
-			for (Task task: taskList) {
-				taskListDTO.add(ConverterTask.toDTO(task));
+			List<Task> taskList = project.getProjectsTasks();
+			List<TaskDTO> taskListDTO = new ArrayList<TaskDTO>();
+
+			if (taskList.size() != 0) {
+				for (Task task : taskList) {
+					taskListDTO.add(ConverterTask.toDTO(task));
+				}
 			}
-			
-			projectDTO.setTasksDTO(taskListDTO); 
+
+			projectDTO.setTasksDTO(taskListDTO);
 		}
-	
-	return projectDTO;
-}
+
+		return projectDTO;
+	}
+
 	public static Project toEntity(ProjectDTO projectDTO) {
-		
+
 		Project project = null;
-		
+
 		if (projectDTO != null) {
 			project = new Project();
-			
+
 			project.setProjectId(projectDTO.getProjectId());
 			project.setProjectName(projectDTO.getProjectName());
-			project.setProjectStatus(projectDTO.getProjectStatus()); 
+			project.setProjectStatus(projectDTO.getProjectStatus());
 			project.setUser(ConverterUser.toEntity(projectDTO.getUserDTO()));
-			
-			List<TaskDTO> taskListDTO= projectDTO.getTasksDTO();
-			List<Task> taskList= new ArrayList<Task>();
-			
-			for (TaskDTO taskDTO: taskListDTO) {
-				taskList.add(ConverterTask.toEntity(taskDTO));
+
+			List<TaskDTO> taskListDTO = projectDTO.getTasksDTO();
+			List<Task> taskList = new ArrayList<Task>();
+
+			if (taskListDTO.size() != 0) {
+				for (TaskDTO taskDTO : taskListDTO) {
+					taskList.add(ConverterTask.toEntity(taskDTO));
+				}
 			}
-			
-			project.setProjectsTasks(taskList); 
+
+			project.setProjectsTasks(taskList);
 		}
-		
-		return project;	
-		}
-	
-	
+
+		return project;
+
+	}
+
 	public static List<ProjectDTO> toListDTO(List<Project> list) {
 		List<ProjectDTO> listProjectDTO = new ArrayList<>();
 		if (!list.isEmpty()) {
@@ -79,6 +84,4 @@ public class ConverterProject {
 		}
 		return list;
 	}
-	}
-	
-	
+}

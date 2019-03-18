@@ -4,7 +4,9 @@ package it.contrader.wmesspring.converter;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.contrader.wmesspring.dto.ProjectDTO;
 import it.contrader.wmesspring.dto.TaskDTO;
+import it.contrader.wmesspring.model.Project;
 import it.contrader.wmesspring.model.Task;
 
 public class ConverterTask {
@@ -23,6 +25,12 @@ public class ConverterTask {
 			taskDTO.setTaskState(task.getTaskState());
 			taskDTO.setItemsDTO(ConverterItem.toListDTO(task.getItems()));	
 			taskDTO.setTaskFather(ConverterTask.toDTO(task.getTaskFather()));
+			
+			if (task.getProject()!=null) {
+				ProjectDTO projectDTO = new ProjectDTO();
+				projectDTO.setProjectId(task.getProject().getProjectId());
+				taskDTO.setProjectDTO(projectDTO);
+			}
 		}
 		return taskDTO;
 	}
@@ -38,8 +46,15 @@ public class ConverterTask {
 			task.setTaskDescription(taskDTO.getTaskDescription());
 			task.setTaskTime(taskDTO.getTaskTime());
 			task.setTaskState(taskDTO.getTaskState());
-			task.setItems(ConverterItem.toListEntity(taskDTO.getItemsDTO()));	
+			task.setItems(ConverterItem.toListEntity(taskDTO.getItemsDTO()));
 			task.setTaskFather(ConverterTask.toEntity(taskDTO.getTaskFather()));
+
+			if (taskDTO.getProjectDTO()!=null) {
+				Project project = new Project();
+				project.setProjectId(taskDTO.getProjectDTO().getProjectId());
+				task.setProject(project);
+			}
+			
 		}
 		return task;
 	}
