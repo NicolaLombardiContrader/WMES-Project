@@ -63,7 +63,7 @@ public class ProjectService {
 	}
 	
 	// Tree management
-	public TaskDTO findTaskRoot(Project project) {
-		return taskService.findProjectTaskRoot(project);
+	public TaskDTO findTaskRoot(ProjectDTO projectDTO) {
+		return taskService.findProjectTaskRoot(projectDTO);
 	}
 }

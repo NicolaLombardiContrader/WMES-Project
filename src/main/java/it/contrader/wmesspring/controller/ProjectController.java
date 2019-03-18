@@ -108,7 +108,8 @@ public class ProjectController {
 		
 		if (Integer.parseInt(taskFatherId) != 0) {
 			TaskDTO taskFather = new TaskDTO();
-			taskFather.setTaskId(Integer.parseInt(taskFatherId));
+			taskFather = taskService.getTaskDTOById(Integer.parseInt(taskFatherId));
+			//taskFather.setTaskId(Integer.parseInt(taskFatherId));
 			taskNodeDTO.setTaskFather(taskFather);
 		}
 		

@@ -47,8 +47,16 @@ public class TaskService {
 	//}
 
 	public boolean insertTask(TaskDTO taskDTO) {
+		int taskFatherId = 0;
+		if(taskDTO.getTaskFather()!= null && taskDTO.getTaskFather().getTaskId()!=0)
+			taskFatherId = taskDTO.getTaskFather().getTaskId();
 		
-		return taskRepository.saveAndFlush(ConverterTask.toEntity(taskDTO)) != null;
+		taskRepository.insertTask(taskDTO.getTaskAction(), taskDTO.getTaskDescription(), taskDTO.getTaskState(),
+				taskDTO.getTaskTime(), taskDTO.getProjectDTO().getProjectId(), 
+				taskDTO.getResourceDTO().getResourceId(), 
+				taskFatherId, taskDTO.getUserDTO().getUserId());
+		return true;
+		//return taskRepository.saveAndFlush(ConverterTask.toEntity(taskDTO)) != null;
 	}
 
 	public boolean updateTask(TaskDTO taskDTO) {

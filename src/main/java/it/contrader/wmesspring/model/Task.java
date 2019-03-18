@@ -75,6 +75,7 @@ public class Task implements Serializable {
 	inverseJoinColumns = @JoinColumn(name = "task_id_child"))
 	@OnDelete(action = OnDeleteAction.CASCADE)*/
 	@OneToMany(mappedBy = "taskFather")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Task> childsList;
 	
 }
