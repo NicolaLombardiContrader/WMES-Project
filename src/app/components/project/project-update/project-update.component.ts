@@ -8,15 +8,18 @@ import { Task } from '../../../models/Task';
 import { TaskService } from '../../../services/task.service';
 
 @Component({
-  selector: 'app-project-update',
-  templateUrl: './project-update.component.html',
-  styleUrls: ['./project-update.component.css']
+    selector: 'app-project-update',
+    templateUrl: './project-update.component.html',
+    styleUrls: ['./project-update.component.css']
 })
 export class ProjectUpdateComponent implements OnInit {
 
-  projectId: number;
+    projectId: number;
     public projectUpdate: Project;
-    public tasks: Array<Task>;
+
+    public taskRoot: Task;
+    public list: Array<Task>;
+
     // tslint:disable-next-line:max-line-length
     constructor(private projectService: ProjectService, private taskService: TaskService, private route: ActivatedRoute, private router: Router) { }
 
@@ -28,6 +31,15 @@ export class ProjectUpdateComponent implements OnInit {
             this.projectUpdate = response;
             console.log('Project caricarito: ' + this.projectUpdate.projectName);
         });
+
+        // Find the task root
+        this.projectService.findRootNode(String(this.projectId)).subscribe((data: any) => {
+            if (data != null) {
+                this.taskRoot = data;
+                this.list = this.taskRoot.childsList;
+            }
+        });
+
 
         /*
         this.taskService.taskList().subscribe((response) => {
@@ -55,6 +67,10 @@ export class ProjectUpdateComponent implements OnInit {
         this.router.navigateByUrl('/ProjectTree/insert/' + this.projectId + '/' + taskFatherId + '/');
     }
 
-  }
+    deleteTaskNode(taskId: number) {
+        this.projectService.deleteTaskNode(taskId);
+    }
+
+}
 
 

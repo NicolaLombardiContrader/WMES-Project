@@ -12,16 +12,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProjectTreeInsertNodeComponent implements OnInit {
     public taskModelList: Array<TaskModel>;
-    public taskFatherId: string = null;
+    public taskFatherId = '0';
     public projectId: string;
     constructor(private taskModelService: TaskModelService, private projectService: ProjectService, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.projectId = this.route.snapshot.paramMap.get('projectId');
+        this.taskFatherId = this.route.snapshot.paramMap.get('taskFatherId');
 
-        if (this.route.snapshot.paramMap.get('taskFatherId') !== '0') {
-            this.taskFatherId = this.route.snapshot.paramMap.get('taskFatherId');
-        }
 
         console.log('Id project: ' + this.projectId);
         console.log('taskFatherId: ' + this.taskFatherId);
@@ -32,9 +30,6 @@ export class ProjectTreeInsertNodeComponent implements OnInit {
     }
 
     insertNodeTask(projectTreeInsertTask: NgForm) {
-        if (projectTreeInsertTask.value.taskFatherId !== 0) {
-            this.taskFatherId = projectTreeInsertTask.value.taskFatherId;
-        }
 
         this.projectService.insertTaskNode(this.projectId,
             projectTreeInsertTask.value.taskModelIdSelected,

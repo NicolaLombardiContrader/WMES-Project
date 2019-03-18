@@ -8,6 +8,7 @@ import { Observable, of, BehaviorSubject } from 'rxjs';
 import { User } from '../models/User';
 import { Task } from '../models/Task';
 import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { TaskService } from './task.service';
 
 
 
@@ -55,12 +56,27 @@ export class ProjectService {
     // Tree methods
     insertTaskNode(projectId: string, taskModelId: string, taskFatherId: string) {
         const user: User = JSON.parse(sessionStorage.getItem('user'));
-        const params: HttpParams = new HttpParams();
-        params.set('userId', String(user.userId));
-        params.set('projectId', projectId);
-        params.set('taskModelId', taskModelId);
-        params.set('taskFatherId', taskFatherId);
+        console.log('Project Id: ' + projectId);
+        console.log('userId: ' + String(user.userId));
+        console.log('taskModelId: ' + taskModelId);
+        console.log('taskFatherId: ' + taskFatherId);
+        const params: HttpParams = new HttpParams()
+            .set('userId', String(user.userId))
+            .set('projectId', projectId)
+            .set('taskModelId', taskModelId)
+            .set('taskFatherId', taskFatherId);
+        console.log('Params: ' + params);
         this.http.post('http://localhost:8080/Project/insertTaskNode', params).subscribe(() => console.log('Task Node inserted'));
+    }
+
+    findRootNode(projectId: string): Observable<Task> {
+            return  this.http.get<any>('http://localhost:8080/Project/findRootNode?projectId=' + projectId)
+            .pipe(tap((response) => console.log('Project'), catchError(this.handleError('error', {})))
+            );
+    }
+
+    deleteTaskNode(taskId: number): void {
+        this.http.delete('http://localhost:8080/Task/delete?taskId=' + taskId).subscribe(() => console.log('Task deleted'));
     }
 
 }

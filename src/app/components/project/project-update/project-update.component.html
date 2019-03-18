@@ -61,26 +61,24 @@
                             <button (click)="insertTaskNode(0)">Crea root</button>
                         </div>
 
-                        <!--
                         <div class="form-group">
-                            <label>Task List</label>
-                            <select class="form-control" name="taskId" [(ngModel)]="project.taskDTO.taskId">
-                                <option *ngFor="let task of tasks" [value]="task.taskId" [selected]="task.taskId == project.taskDTO.taskId">
-                                    {{task.taskDescription}}
-                                </option>
-
-                            </select>
+                            <label>{{taskRoot.taskDescription}}</label>
+                            <button button class="btn btn-primary" (click)="insertTaskNode(taskRoot.taskId)">Aggiungi
+                                Figlio</button>
+                            <ul class="list">
+                                <ng-template #recursiveList let-list>
+                                    <li class="list" *ngFor="let task of list">
+                                        {{task.taskDescription}}<button class="btn btn-primary" (click)="insertTaskNode(task.taskId)">Aggiungi
+                                            Figlio</button><button button class="btn btn-primary" (click)="deleteTaskNode(task.taskId)">Elimina
+                                            Nodo</button>
+                                        <ul class="list" *ngIf="task.childsList.length > 0">
+                                            <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: task.childsList }"></ng-container>
+                                        </ul>
+                                    </li>
+                                </ng-template>
+                                <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: list }"></ng-container>
+                            </ul>
                         </div>
-                    -->
-
-                        <!--
-                        <div class="form-group">
-                            <label>Choose WBS root</label> <br />
-                            <select class="custom-select" name="taskModelIdSelected" ngModel="taskModelIdSelected">
-                                <option *ngFor="let taskModelInsert of taskModelList" [attr.value]="taskModelInsert.taskModelId">{{taskModelInsert.taskModelDescription}}</option>
-                            </select>
-                        </div>
--->
 
                         <button type="submit" class="btn btn-secondary btn-sm" (click)="update(projectUpdateForm)">Update</button>
                     </form>
