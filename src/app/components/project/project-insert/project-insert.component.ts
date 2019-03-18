@@ -20,7 +20,7 @@ export class ProjectInsertComponent implements OnInit {
     public firstTaskId: number;
     public project: Project;
     public taskRootSelected: string;
-    constructor(private projectService: ProjectService, private taskModelServiceInsert: TaskModelService) { }
+    constructor(private projectService: ProjectService, private taskModelService: TaskModelService) { }
 
     ngOnInit() {
         const userInsert: User = JSON.parse(sessionStorage.getItem('user'));
