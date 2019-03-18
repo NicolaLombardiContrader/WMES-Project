@@ -32,7 +32,7 @@ export class ProjectInsertComponent implements OnInit {
         const userInsertProject: User = JSON.parse(sessionStorage.getItem('user'));
         const project: Project = new Project(0, projectInsertForm.value.projectName, null, userInsertProject, null);
         // tslint:disable-next-line:max-line-length
-        this.projectService.insertProject(project);
+        this.projectService.insertProject(this.project);
     }
 }
 
