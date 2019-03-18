@@ -36,4 +36,3 @@ export class ProjectInsertComponent implements OnInit {
     }
 }
 
-
