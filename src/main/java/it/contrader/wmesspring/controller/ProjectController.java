@@ -76,8 +76,8 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public void insert(@RequestBody ProjectDTO projectDTO) {
-		projectService.insertProject(projectDTO);
+	public void insert(@RequestBody ProjectDTO project) {
+		projectService.insertProject(project);
 	}
 
 	// Tree management methods
