@@ -15,7 +15,7 @@ public class ConverterTask {
 		TaskDTO taskDTO = null;
 		if (task != null) {
 			taskDTO = new TaskDTO();
-			
+
 			taskDTO.setTaskId(task.getTaskId());
 			taskDTO.setUserDTO(ConverterUser.toDTO(task.getUser()));
 			taskDTO.setResourceDTO(ConverterResource.toDTO(task.getResource()));
@@ -23,10 +23,15 @@ public class ConverterTask {
 			taskDTO.setTaskDescription(task.getTaskDescription());
 			taskDTO.setTaskTime(task.getTaskTime());
 			taskDTO.setTaskState(task.getTaskState());
-			taskDTO.setItemsDTO(ConverterItem.toListDTO(task.getItems()));	
+			taskDTO.setItemsDTO(ConverterItem.toListDTO(task.getItems()));
 			taskDTO.setTaskFather(ConverterTask.toDTO(task.getTaskFather()));
 			
-			if (task.getProject()!=null) {
+			/*
+			if (task.getChildsList() != null && task.getChildsList().size() != 0)
+				taskDTO.setChildsListDTO(ConverterTask.toListDTO(task.getChildsList()));
+			*/
+		
+			if (task.getProject() != null) {
 				ProjectDTO projectDTO = new ProjectDTO();
 				projectDTO.setProjectId(task.getProject().getProjectId());
 				taskDTO.setProjectDTO(projectDTO);
@@ -48,13 +53,20 @@ public class ConverterTask {
 			task.setTaskState(taskDTO.getTaskState());
 			task.setItems(ConverterItem.toListEntity(taskDTO.getItemsDTO()));
 			task.setTaskFather(ConverterTask.toEntity(taskDTO.getTaskFather()));
-
-			if (taskDTO.getProjectDTO()!=null) {
+			
+			/*
+			if (taskDTO.getChildsListDTO() != null && taskDTO.getChildsListDTO().size() != 0)
+				task.setChildsList(ConverterTask.toListEntity(taskDTO.getChildsListDTO()));
+			*/
+			
+			
+			
+			if (taskDTO.getProjectDTO() != null) {
 				Project project = new Project();
 				project.setProjectId(taskDTO.getProjectDTO().getProjectId());
 				task.setProject(project);
 			}
-			
+
 		}
 		return task;
 	}
