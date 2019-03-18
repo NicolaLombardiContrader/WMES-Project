@@ -45,11 +45,11 @@ export class ProjectUpdateComponent implements OnInit {
         this.projectService.findRootNode(String(this.projectId)).subscribe((data: any) => {
             if (data != null) {
                 this.taskRoot = data;
-                this.list = this.taskRoot.childsList;
+                this.list = this.taskRoot.childsListDTO;
             }
         });
 
-        console.log('lunghezza lista: ' + this.taskRoot.childsList.length);
+        console.log('lunghezza lista: ' + this.taskRoot.childsListDTO.length);
 
         /*
         this.taskService.taskList().subscribe((response) => {

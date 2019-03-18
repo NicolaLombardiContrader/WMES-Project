@@ -12,7 +12,7 @@ export class Task {
     userDTO: User;
     resourceDTO: Resource;
     itemsDTO: Item[];
-    childsList: Task[];
+    childsListDTO: Task[];
     taskFatherDTO: Task;
     projectsDTO: Project[];
     projectTemplatesDTO: ProjectTemplate[];
@@ -20,7 +20,7 @@ export class Task {
 
 
     // tslint:disable-next-line:max-line-length
-    constructor(taskId: number, taskAction: string, taskDescription: string, taskState: number, taskTime: number, userDTO: User, resourceDTO: Resource, itemsDTO: Item[], taskFatherDTO: Task, childsList: Task[]) {
+    constructor(taskId: number, taskAction: string, taskDescription: string, taskState: number, taskTime: number, userDTO: User, resourceDTO: Resource, itemsDTO: Item[], taskFatherDTO: Task, childsListDTO: Task[]) {
 
         this.taskId = taskId;
         this.taskAction = taskAction;
@@ -30,7 +30,7 @@ export class Task {
         this.userDTO = userDTO;
         this.resourceDTO = resourceDTO;
         this.itemsDTO = itemsDTO;
-        this.childsList = childsList;
+        this.childsListDTO = childsListDTO;
         this.taskFatherDTO = taskFatherDTO;
         /*
         this.projectsDTO = projectsDTO;

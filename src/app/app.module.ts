@@ -81,6 +81,7 @@ import { ItemService } from './services/item.service';
 import { TaskModelService } from './services/taskModel.service';
 import { ProjectTreeInsertRootComponent } from './components/project-tree/project-tree-insert-root/project-tree-insert-root.component';
 import { ProjectTreeInsertNodeComponent } from './components/project-tree/project-tree-insert-node/project-tree-insert-node.component';
+import { ProjectTreeViewComponent } from './components/project-tree/project-tree-view/project-tree-view.component';
 
 
 @NgModule({
@@ -124,7 +125,8 @@ import { ProjectTreeInsertNodeComponent } from './components/project-tree/projec
         TaskModelInsertComponent,
         TaskModelUpdateComponent,
         ProjectTreeInsertRootComponent,
-        ProjectTreeInsertNodeComponent
+        ProjectTreeInsertNodeComponent,
+        ProjectTreeViewComponent
     ],
     imports: [
         BrowserModule,

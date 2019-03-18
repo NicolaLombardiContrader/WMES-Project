@@ -36,6 +36,7 @@ import { TaskModelManagementComponent } from './components/task-model/task-model
 import { TaskModelInsertComponent } from './components/task-model/task-model-insert/task-model-insert.component';
 import { TaskModelUpdateComponent } from './components/task-model/task-model-update/task-model-update.component';
 import { ProjectTreeInsertNodeComponent } from './components/project-tree/project-tree-insert-node/project-tree-insert-node.component';
+import { ProjectTreeViewComponent } from './components/project-tree/project-tree-view/project-tree-view.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -80,7 +81,8 @@ const routes: Routes = [
     { path: 'TaskModel/insert', component: TaskModelInsertComponent },
     { path: 'TaskModel/update/:taskModelId', component: TaskModelUpdateComponent },
     /** Project Tree */
-    { path: 'ProjectTree/insert/:projectId/:taskFatherId/', component: ProjectTreeInsertNodeComponent }
+    { path: 'ProjectTree/insert/:projectId/:taskFatherId/', component: ProjectTreeInsertNodeComponent },
+    { path: 'ProjectTree/treeView/:projectId', component: ProjectTreeViewComponent }
 ];
 
 
