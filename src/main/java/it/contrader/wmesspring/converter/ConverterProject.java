@@ -25,7 +25,7 @@ public class ConverterProject {
 			List<Task> taskList = project.getProjectsTasks();
 			List<TaskDTO> taskListDTO = new ArrayList<TaskDTO>();
 
-			if (taskList.size() != 0) {
+			if (taskList!= null && taskList.size() != 0) {
 				for (Task task : taskList) {
 					taskListDTO.add(ConverterTask.toDTO(task));
 				}
@@ -52,7 +52,7 @@ public class ConverterProject {
 			List<TaskDTO> taskListDTO = projectDTO.getTasksDTO();
 			List<Task> taskList = new ArrayList<Task>();
 
-			if (taskListDTO.size() != 0) {
+			if (taskListDTO!= null && taskListDTO.size() != 0) {
 				for (TaskDTO taskDTO : taskListDTO) {
 					taskList.add(ConverterTask.toEntity(taskDTO));
 				}

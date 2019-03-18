@@ -9,9 +9,10 @@ import it.contrader.wmesspring.converter.ConverterUser;
 import it.contrader.wmesspring.dao.UserRepository;
 import it.contrader.wmesspring.dto.UserDTO;
 import it.contrader.wmesspring.model.User;
-
+import it.contrader.wmesspring.converter.ConverterProject;
 import it.contrader.wmesspring.converter.ConverterTask;
 import it.contrader.wmesspring.dao.TaskRepository;
+import it.contrader.wmesspring.dto.ProjectDTO;
 import it.contrader.wmesspring.dto.TaskDTO;
 import it.contrader.wmesspring.model.Project;
 import it.contrader.wmesspring.model.Task;
@@ -58,17 +59,18 @@ public class TaskService {
 		taskRepository.deleteById(id);
 	}
 	
-	public List<TaskDTO> findTaskDTOByUser(User user) {
+	public List<TaskDTO> findTaskDTOByUser(UserDTO userDTO) {
 		
-		final List<Task> list = taskRepository.findAllByUser(user);
+		final List<Task> list = taskRepository.findAllByUser(ConverterUser.toEntity(userDTO));
 		final List<TaskDTO> taskDTOs = new ArrayList<>();
 		list.forEach(i -> taskDTOs.add(ConverterTask.toDTO(i)));
 		return taskDTOs;
 	}
 	
 	// Tree methods
-	public TaskDTO findProjectTaskRoot(Project project) {
-		return ConverterTask.toDTO(taskRepository.findAllByProjectAndTaskFatherIsNull(project));
+	public TaskDTO findProjectTaskRoot(ProjectDTO projectDTO) {
+		Task taskRoot = taskRepository.findAllByProjectAndTaskFatherIsNull(ConverterProject.toEntity(projectDTO));
+		return ConverterTask.toDTO(taskRoot);
 	}
 }
 

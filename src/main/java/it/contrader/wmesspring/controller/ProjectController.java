@@ -51,12 +51,10 @@ public class ProjectController {
 		UserDTO userDTOProjectList = new UserDTO();
 		userDTOProjectList.setUserId(userId);
 		return this.projectService.findProjectDTOByUser(userDTOProjectList);
-
 	}
 
 	// Delete
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-
 	public void delete(@RequestParam(value = "projectId") int projectId) {
 		this.projectService.deleteProjectById(projectId);
 	}
@@ -64,9 +62,7 @@ public class ProjectController {
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public ProjectDTO read(@RequestParam(value = "projectId") int id) {
 		ProjectDTO projectUpdate = new ProjectDTO();
-
 		projectUpdate = this.projectService.getProjectDTOById(id);
-
 		return projectUpdate;
 	}
 
@@ -82,8 +78,9 @@ public class ProjectController {
 
 	// Tree management methods
 	@RequestMapping(value = "/insertTaskNode", method = RequestMethod.POST)
-	public void insertTaskNode(@RequestParam(value = "projectId") String projectId,
-			@RequestParam(value = "userId") String userId, @RequestParam(value = "taskModelId") String taskModelId, 
+	public void insertTaskNode(@RequestParam(value = "userId") String userId,
+			@RequestParam(value = "projectId") String projectId,
+			@RequestParam(value = "taskModelId") String taskModelId, 
 			@RequestParam(value = "taskFatherId") String taskFatherId) {
 
 		UserDTO userDTO = new UserDTO();
@@ -111,11 +108,16 @@ public class ProjectController {
 			taskNodeDTO.setTaskFather(taskFather);
 		}
 		
-		
-			
 		// taskRootDTO.setTaskFather(ConverterTask.toDTO(task.getTaskFather()));
 		taskService.insertTask(taskNodeDTO);
-
 	}
+	
+	@RequestMapping(value = "/findRootNode", method = RequestMethod.GET)
+	public TaskDTO findRootNode(@RequestParam(value = "projectId") String projectId) {
+		ProjectDTO projectDTO = new ProjectDTO();
+		projectDTO.setProjectId(Integer.parseInt(projectId));
+		return taskService.findProjectTaskRoot(projectDTO);
+	}
+	
 
 }

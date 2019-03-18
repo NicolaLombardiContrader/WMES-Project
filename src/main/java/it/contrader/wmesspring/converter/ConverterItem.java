@@ -36,7 +36,7 @@ public class ConverterItem {
 	
 	public static List<ItemDTO> toListDTO(List<Item> list) {
 		List<ItemDTO> listItemDTO = new ArrayList<>();
-		if (!list.isEmpty()) {
+		if (list!=null && !list.isEmpty()) {
 			for (Item resource : list) {
 				listItemDTO.add(ConverterItem.toDTO(resource));
 			}
@@ -46,7 +46,7 @@ public class ConverterItem {
 
 	public static List<Item> toListEntity(List<ItemDTO> listItemDTO) {
 		List<Item> list = new ArrayList<>();
-		if (!listItemDTO.isEmpty()) {
+		if (listItemDTO!=null && !listItemDTO.isEmpty()) {
 			for (ItemDTO resourceDTO : listItemDTO) {
 				list.add(ConverterItem.toEntity(resourceDTO));
 			}
