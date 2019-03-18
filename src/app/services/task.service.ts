@@ -33,6 +33,13 @@ export class TaskService {
             );
     }
 
+    taskListByProject(projectId: string): Observable<Array<Task>> {
+        const user: User = JSON.parse(sessionStorage.getItem('user'));
+        return this.http.get<any>('http://localhost:8080/Task/taskListByProject?userId=' + user.userId + 'projectId=' + projectId)
+            .pipe(tap((response) => console.log('Task'), catchError(this.handleError('error', {})))
+            );
+    }
+
 
     // tslint:disable-next-line:max-line-length
    insertTask(task: Task): void {

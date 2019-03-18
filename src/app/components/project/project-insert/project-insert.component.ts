@@ -18,28 +18,19 @@ export class ProjectInsertComponent implements OnInit {
     public projectInsert: Project;
 
     public firstTaskId: number;
-    public taskModelList: Array<TaskModel>;
 
     public taskRootSelected: string;
     constructor(private projectService: ProjectService, private taskModelServiceInsert: TaskModelService) { }
 
     ngOnInit() {
 
-        this.taskModelServiceInsert.taskModelList().subscribe((response) => {
-            this.taskModelList = response;
-            console.log('Lista model caricarita');
-        });
-
     }
 
     insertProject(projectInsertForm: NgForm) {
         const userInsertProject: User = JSON.parse(sessionStorage.getItem('user'));
-        console.log('Nome progetto selezionato: ' + projectInsertForm.value.tasksSelected);
-        console.log('Id Utente' + String(userInsertProject.userId));
-        console.log('TaskModel id: ' + projectInsertForm.value.taskModelIdSelected);
-
+        const project: Project = new Project(0, projectInsertForm.value.projectName, null, userInsertProject, null);
         // tslint:disable-next-line:max-line-length
-        this.projectService.insertProject(projectInsertForm.value.projectName, String(userInsertProject.userId) , projectInsertForm.value.taskModelIdSelected);
+        this.projectService.insertProject(project);
     }
 }
 

@@ -15,7 +15,7 @@ import { TaskService } from '../../../services/task.service';
 export class ProjectUpdateComponent implements OnInit {
 
   projectId: number;
-    public project: Project;
+    public projectUpdate: Project;
     public tasks: Array<Task>;
     // tslint:disable-next-line:max-line-length
     constructor(private projectService: ProjectService, private taskService: TaskService, private route: ActivatedRoute, private router: Router) { }
@@ -25,22 +25,35 @@ export class ProjectUpdateComponent implements OnInit {
         this.projectId = Number(this.route.snapshot.paramMap.get('projectId'));
         console.log('Project id in update:' + this.projectId);
         this.projectService.readProject(this.projectId).subscribe((response) => {
-            this.project = response;
-            console.log('Project caricarito: ' + this.project.projectName);
+            this.projectUpdate = response;
+            console.log('Project caricarito: ' + this.projectUpdate.projectName);
         });
 
+        /*
         this.taskService.taskList().subscribe((response) => {
             this.tasks = response;
-            console.log('Lista caricarita');
+            console.log('Lista task caricarita');
         });
+        */
     }
 
-    update(f: NgForm) {
-        const userUpdate: User = JSON.parse(sessionStorage.getItem('user'));
-        this.project.userDTO = userUpdate;
-        this.projectService.updateProject(this.project);
+    update(projectUpdateForm: NgForm) {
+
+        const userUpdateProject: User = JSON.parse(sessionStorage.getItem('user'));
+
+        console.log('Nome progetto selezionato: ' + projectUpdateForm.value.tasksSelected);
+        console.log('Id Utente' + String(userUpdateProject.userId));
+        console.log('TaskModel id: ' + projectUpdateForm.value.taskModelIdSelected);
+
+
+        this.projectUpdate.userDTO = userUpdateProject;
+        this.projectService.updateProject(this.projectUpdate);
     }
 
+    insertTaskNode(taskFatherId: string) {
+        // this.projectId = Number(this.route.snapshot.paramMap.get('projectId'));
+        this.router.navigateByUrl('/ProjectTree/insert/' + this.projectId + '/' + taskFatherId + '/');
+    }
 
   }
 

@@ -1,4 +1,3 @@
-
 <app-sidebar-bo></app-sidebar-bo>
 
 <!-- PAGE CONTAINER-->
@@ -42,49 +41,48 @@
             <div class="card">
                 <div class="card-header">EDIT PROJECT</div>
                 <div class="card-body card-block">
-                     <form #f="ngForm">
-                         <input type="hidden" name="projectId" [(ngModel)]="project.projectId" />
-                       <div class="form-group">
+                    <form #projectUpdateForm="ngForm">
+                        <input type="hidden" name="projectId" ngModel />
+                        <div class="form-group">
                             <label>Name</label> <input class="au-input au-input--full" type="text" name="projectName"
-                                placeholder="Name" [(ngModel)]="project.projectName">
+                                placeholder="Name" ngModel>
                         </div>
 
-                          <div class="form-group">
+                        <div class="form-group">
+                            <label>Status</label> <select class="form-control" name="projectStatus" ngModel="projectStatus">
+                                <option selected="selected" value="0">Pending</option>
+                                <option value="1">In Progress</option>
+                                <option value="2">Completed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+
+                            <button (click)="insertTaskNode(0)">Crea root</button>
+                        </div>
+
+                        <!--
+                        <div class="form-group">
                             <label>Task List</label>
                             <select class="form-control" name="taskId" [(ngModel)]="project.taskDTO.taskId">
-                                <option *ngFor="let task of tasks" [value]="task.taskId"
-                                    [selected]="task.taskId == project.taskDTO.taskId">
+                                <option *ngFor="let task of tasks" [value]="task.taskId" [selected]="task.taskId == project.taskDTO.taskId">
                                     {{task.taskDescription}}
                                 </option>
 
                             </select>
                         </div>
+                    -->
 
+                        <!--
                         <div class="form-group">
-                            <label>Status</label> <select class="form-control" name="project_status">
-                                <!--	<%
-											for (int i = 0; i <= 2; i++) {
-
-												if (updateProject.getProjectStatus() == i) {
-										%>-->
-                                <option selected="selected" value="<%=i%>">
-                                    <!--<%=convertProjectStatus(i)%>-->
-                                </option>
-                                <!--	<%
-											} else {
-										%>-->
-                                <option value="<%=i%>">
-                                    <!--<%=convertProjectStatus(i)%>-->
-                                </option>
-                                <!--<%
-											}
-											}
-										%>-->
+                            <label>Choose WBS root</label> <br />
+                            <select class="custom-select" name="taskModelIdSelected" ngModel="taskModelIdSelected">
+                                <option *ngFor="let taskModelInsert of taskModelList" [attr.value]="taskModelInsert.taskModelId">{{taskModelInsert.taskModelDescription}}</option>
                             </select>
-
                         </div>
-                   
-                        <a href="/Project/projectManagement" type="submit" class="btn btn-secondary btn-sm" (click)="update(f)">Update</a>
+-->
+
+                        <button type="submit" class="btn btn-secondary btn-sm" (click)="update(projectUpdateForm)">Update</button>
                     </form>
                 </div>
 

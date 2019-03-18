@@ -7,6 +7,7 @@ import { Project } from '../models/Project';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { User } from '../models/User';
 import { Task } from '../models/Task';
+import { PARAMETERS } from '@angular/core/src/util/decorators';
 
 
 
@@ -32,11 +33,8 @@ export class ProjectService {
             );
     }
 
-    insertProject(projectName: string, userId: string, taskModelId: string): void {
-        const params = new HttpParams().set('projectName', projectName)
-        .set('userId', userId)
-        .set('taskModelId', taskModelId);
-        this.http.post('http://localhost:8080/Project/insert', params).subscribe(() => console.log('Project inserted'));
+    insertProject(project: Project): void {
+        this.http.post('http://localhost:8080/Project/insert', project).subscribe(() => console.log('Project inserted'));
     }
 
     readProject(projectId: number): Observable<Project> {
@@ -52,6 +50,17 @@ export class ProjectService {
 
     updateProject(project: Project): void {
         this.http.put('http://localhost:8080/Project/update', project).subscribe(() => console.log('Project updated'));
+    }
+
+    // Tree methods
+    insertTaskNode(projectId: string, taskModelId: string, taskFatherId: string) {
+        const user: User = JSON.parse(sessionStorage.getItem('user'));
+        const params: HttpParams = new HttpParams();
+        params.set('userId', String(user.userId));
+        params.set('projectId', projectId);
+        params.set('taskModelId', taskModelId);
+        params.set('taskFatherId', taskFatherId);
+        this.http.post('http://localhost:8080/Project/insertTaskNode', params).subscribe(() => console.log('Task Node inserted'));
     }
 
 }

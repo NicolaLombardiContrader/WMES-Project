@@ -1,4 +1,5 @@
 <app-sidebar-bo></app-sidebar-bo>
+
 <!-- PAGE CONTAINER-->
 <div class="page-container2">
     <!-- HEADER DESKTOP-->
@@ -24,7 +25,7 @@
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
                                     <li class="list-inline-item active"><a href="/Home/homeBO">Dashboard</a></li>
                                     <li class="list-inline-item seprate"><span>/</span></li>
-                                    <li class="list-inline-item">Insert Project</li>
+                                    <li class="list-inline-item">Edit Template</li>
                                 </ul>
                             </div>
                         </div>
@@ -35,26 +36,26 @@
     </section>
     <!-- END BREADCRUMB-->
 
-    <!-- START statistic -->
     <section>
         <div class="col-lg-6 center-block">
             <div class="card">
-                <div class="card-header">NEW PROJECT</div>
+                <div class="card-header">EDIT PROJECT</div>
                 <div class="card-body card-block">
-                    <form #projectInsertForm="ngForm">
-                        <div class="form-group">
-                            <label>Nome</label> <input class="au-input au-input--full" type="text" name="projectName"
-                                placeholder="Name" ngModel>
-                        </div>
+                    <form #projectTreeInsertTask="ngForm">
 
-                        <a href="/Project/projectManagement" type="submit" class="btn btn-secondary btn-sm" (click)="insertProject(projectInsertForm)">Submit</a>
+                        <div class="form-group">
+                            <label>Choose WBS root</label> <br />
+                            <select class="custom-select" name="taskModelIdSelected" ngModel="taskModelIdSelected">
+                                <option *ngFor="let taskModelInsert of taskModelList" [attr.value]="taskModelInsert.taskModelId">{{taskModelInsert.taskModelDescription}}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-sm" (click)="insertRootTask(projectTreeInsertTask)">Update</button>
                     </form>
                 </div>
 
             </div>
         </div>
     </section>
-    <!-- END Statistic -->
     <section>
         <div class="section__content section__content--p30">
             <div class="container-fluid">
