@@ -34,6 +34,6 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
 			@Param("taskTime") int taskTime,
 			@Param("projectId") int projectId,
 			@Param("resourceId") int resourceId,
-			@Param("fatherId") int fatherId,
+			@Param("fatherId") Integer fatherId,
 			@Param("userId") int userId);
 }

@@ -34,51 +34,55 @@ public class TaskService {
 	public TaskDTO getTaskDTOById(Integer id) {
 		return ConverterTask.toDTO(taskRepository.findById(id).get());
 	}
-	
+
 	public List<TaskDTO> getListaTaskDTOByUser(UserDTO user) {
 		return ConverterTask.toListDTO((List<Task>) taskRepository.findAllByUser(ConverterUser.toEntity(user)));
 	}
-	
-	//public UserDTO getByUsernameAndPassword(String username, String password) {
 
-		//final User user = userRepository.findUserByUserUserAndUserPass(username, password);
+	// public UserDTO getByUsernameAndPassword(String username, String password) {
 
-		//return ConverterUser.toDTO(user);
-	//}
+	// final User user = userRepository.findUserByUserUserAndUserPass(username,
+	// password);
+
+	// return ConverterUser.toDTO(user);
+	// }
 
 	public boolean insertTask(TaskDTO taskDTO) {
 		int taskFatherId = 0;
-		if(taskDTO.getTaskFather()!= null && taskDTO.getTaskFather().getTaskId()!=0)
+
+		if (taskDTO.getTaskFather() != null && taskDTO.getTaskFather().getTaskId() != 0) {
 			taskFatherId = taskDTO.getTaskFather().getTaskId();
-		
-		taskRepository.insertTask(taskDTO.getTaskAction(), taskDTO.getTaskDescription(), taskDTO.getTaskState(),
-				taskDTO.getTaskTime(), taskDTO.getProjectDTO().getProjectId(), 
-				taskDTO.getResourceDTO().getResourceId(), 
-				taskFatherId, taskDTO.getUserDTO().getUserId());
+			taskRepository.insertTask(taskDTO.getTaskAction(), taskDTO.getTaskDescription(), taskDTO.getTaskState(),
+					taskDTO.getTaskTime(), taskDTO.getProjectDTO().getProjectId(),
+					taskDTO.getResourceDTO().getResourceId(), taskFatherId, taskDTO.getUserDTO().getUserId());
+		} else {
+			taskRepository.insertTask(taskDTO.getTaskAction(), taskDTO.getTaskDescription(), taskDTO.getTaskState(),
+					taskDTO.getTaskTime(), taskDTO.getProjectDTO().getProjectId(),
+					taskDTO.getResourceDTO().getResourceId(), null, taskDTO.getUserDTO().getUserId());
+		}
 		return true;
-		//return taskRepository.saveAndFlush(ConverterTask.toEntity(taskDTO)) != null;
+		// return taskRepository.saveAndFlush(ConverterTask.toEntity(taskDTO)) != null;
 	}
 
 	public boolean updateTask(TaskDTO taskDTO) {
 		return taskRepository.save(ConverterTask.toEntity(taskDTO)) != null;
 	}
-	
+
 	public void deleteTaskById(Integer id) {
 		taskRepository.deleteById(id);
 	}
-	
+
 	public List<TaskDTO> findTaskDTOByUser(UserDTO userDTO) {
-		
+
 		final List<Task> list = taskRepository.findAllByUser(ConverterUser.toEntity(userDTO));
 		final List<TaskDTO> taskDTOs = new ArrayList<>();
 		list.forEach(i -> taskDTOs.add(ConverterTask.toDTO(i)));
 		return taskDTOs;
 	}
-	
+
 	// Tree methods
 	public TaskDTO findProjectTaskRoot(ProjectDTO projectDTO) {
 		Task taskRoot = taskRepository.findAllByProjectAndTaskFatherIsNull(ConverterProject.toEntity(projectDTO));
 		return ConverterTask.toDTO(taskRoot);
 	}
 }
-
