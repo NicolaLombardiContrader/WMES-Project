@@ -30,7 +30,6 @@ export class ProjectTreeInsertNodeComponent implements OnInit {
     }
 
     insertNodeTask(projectTreeInsertTask: NgForm) {
-
         this.projectService.insertTaskNode(this.projectId,
             projectTreeInsertTask.value.taskModelIdSelected,
             this.taskFatherId);

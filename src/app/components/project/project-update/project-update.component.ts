@@ -27,9 +27,18 @@ export class ProjectUpdateComponent implements OnInit {
         /** Convert String to number */
         this.projectId = Number(this.route.snapshot.paramMap.get('projectId'));
         console.log('Project id in update:' + this.projectId);
-        this.projectService.readProject(this.projectId).subscribe((response) => {
-            this.projectUpdate = response;
-            console.log('Project caricarito: ' + this.projectUpdate.projectName);
+        /*
+         this.projectService.readProject(this.projectId).subscribe((response) => {
+             this.projectUpdate = response;
+             console.log('Project caricarito: ' + this.projectUpdate.projectName);
+         });
+ */
+
+        this.projectService.readProject(this.projectId).subscribe((data: any) => {
+            if (data != null) {
+                this.projectUpdate = data;
+                console.log('Project caricarito: ' + this.projectUpdate.projectName);
+            }
         });
 
         // Find the task root
@@ -40,6 +49,7 @@ export class ProjectUpdateComponent implements OnInit {
             }
         });
 
+        console.log('lunghezza lista: ' + this.taskRoot.childsList.length);
 
         /*
         this.taskService.taskList().subscribe((response) => {
