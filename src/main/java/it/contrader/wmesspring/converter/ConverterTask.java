@@ -59,8 +59,6 @@ public class ConverterTask {
 				task.setChildsList(ConverterTask.toListEntity(taskDTO.getChildsListDTO()));
 			*/
 			
-			
-			
 			if (taskDTO.getProjectDTO() != null) {
 				Project project = new Project();
 				project.setProjectId(taskDTO.getProjectDTO().getProjectId());
