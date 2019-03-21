@@ -235,12 +235,12 @@ public class Project implements Serializable {
         return currentTask;
     }
 
-    public Project currentTask(CurrentTask currentTask) {
+    public Project currentTask(Task currentTask) {
         this.currentTask = currentTask;
         return this;
     }
 
-    public void setCurrentTask(CurrentTask currentTask) {
+    public void setCurrentTask(Task currentTask) {
         this.currentTask = currentTask;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
