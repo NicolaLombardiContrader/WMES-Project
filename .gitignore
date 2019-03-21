@@ -1,13 +1,31 @@
-#*target*
+######################
+# Project Specific
+######################
+/target/www/**
+/src/test/javascript/coverage/
 
-*/target/*
+######################
+# Node
+######################
+/node/
+node_tmp/
+node_modules/
+npm-debug.log.*
+/.awcache/*
+/.cache-loader/*
 
-# eclipse specific git ignore
+######################
+# SASS
+######################
+.sass-cache/
+
+######################
+# Eclipse
+######################
 *.pydevproject
 .project
 .metadata
-bin/**
-tmp/**
+tmp/
 tmp/**/*
 *.tmp
 *.bak
@@ -17,34 +35,110 @@ local.properties
 .classpath
 .settings/
 .loadpath
+.factorypath
+/src/main/resources/rebel.xml
 
 # External tool builders
-.externalToolBuilders/
+.externalToolBuilders/**
 
 # Locally stored "Eclipse launch configurations"
 *.launch
 
-# Compiled class file
-*.class
+# CDT-specific
+.cproject
 
-# Log file
-*.log
+# PDT-specific
+.buildpath
 
-# BlueJ files
-*.ctxt
+######################
+# Intellij
+######################
+.idea/
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+classes/
+out/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+######################
+# Visual Studio Code
+######################
+.vscode/
 
-# Package Files #
+######################
+# Maven
+######################
+/log/
+/target/
+
+######################
+# Gradle
+######################
+.gradle/
+/build/
+
+######################
+# Package Files
+######################
 *.jar
 *.war
-*.nar
 *.ear
-*.zip
-*.tar.gz
-*.rar
+*.db
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-/target/
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.svn
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+######################
+# Directories
+######################
+/bin/
+/deploy/
+
+######################
+# Logs
+######################
+*.log*
+
+######################
+# Others
+######################
+*.class
+*.*~
+*~
+.merge_file*
+
+######################
+# Gradle Wrapper
+######################
+!gradle/wrapper/gradle-wrapper.jar
+
+######################
+# Maven Wrapper
+######################
+!.mvn/wrapper/maven-wrapper.jar
+
+######################
+# ESLint
+######################
+.eslintcache
