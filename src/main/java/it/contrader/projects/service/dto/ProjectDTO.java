@@ -34,6 +34,8 @@ public class ProjectDTO implements Serializable {
 
     private Long personId;
 
+    private Long currentTaskId;
+
     public Long getId() {
         return id;
     }
@@ -122,6 +124,14 @@ public class ProjectDTO implements Serializable {
         this.personId = personId;
     }
 
+    public Long getCurrentTaskId() {
+        return currentTaskId;
+    }
+
+    public void setCurrentTaskId(Long taskId) {
+        this.currentTaskId = taskId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -157,6 +167,7 @@ public class ProjectDTO implements Serializable {
             ", file=" + getFileId() +
             ", program=" + getProgramId() +
             ", person=" + getPersonId() +
+            ", currentTask=" + getCurrentTaskId() +
             "}";
     }
 }

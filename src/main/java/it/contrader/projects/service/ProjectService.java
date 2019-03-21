@@ -5,7 +5,6 @@ import it.contrader.projects.service.dto.ProjectDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -28,12 +27,6 @@ public interface ProjectService {
      * @return the list of entities
      */
     Page<ProjectDTO> findAll(Pageable pageable);
-    /**
-     * Get all the ProjectDTO where CurrentTask is null.
-     *
-     * @return the list of entities
-     */
-    List<ProjectDTO> findAllWhereCurrentTaskIsNull();
 
 
     /**

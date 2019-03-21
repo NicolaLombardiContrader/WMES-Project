@@ -61,7 +61,9 @@
             <column name="person_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-
+            <column name="current_task_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_project_current_task_id" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="project" columnName="end_date" columnDataType="datetime"/>

@@ -22,7 +22,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing Project.
@@ -87,17 +86,11 @@ public class ProjectResource {
      * GET  /projects : get all the projects.
      *
      * @param pageable the pagination information
-     * @param filter the filter of the request
      * @return the ResponseEntity with status 200 (OK) and the list of projects in body
      */
     @GetMapping("/projects")
     @Timed
-    public ResponseEntity<List<ProjectDTO>> getAllProjects(Pageable pageable, @RequestParam(required = false) String filter) {
-        if ("currenttask-is-null".equals(filter)) {
-            log.debug("REST request to get all Projects where currentTask is null");
-            return new ResponseEntity<>(projectService.findAllWhereCurrentTaskIsNull(),
-                    HttpStatus.OK);
-        }
+    public ResponseEntity<List<ProjectDTO>> getAllProjects(Pageable pageable) {
         log.debug("REST request to get a page of Projects");
         Page<ProjectDTO> page = projectService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/projects");

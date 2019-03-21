@@ -26,5 +26,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="person"/>
 
+        <addForeignKeyConstraint baseColumnNames="current_task_id"
+                                 baseTableName="project"
+                                 constraintName="fk_project_current_task_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task"/>
+
     </changeSet>
 </databaseChangeLog>

@@ -63,8 +63,8 @@ public class Project implements Serializable {
     @OneToMany(mappedBy = "project")
     private Set<Task> tasks = new HashSet<>();
 
-    @OneToOne(mappedBy = "project")
-    @JsonIgnore
+    @OneToOne
+    @JoinColumn(unique = true)
     private Task currentTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -235,13 +235,13 @@ public class Project implements Serializable {
         return currentTask;
     }
 
-    public Project currentTask(Task currentTask) {
-        this.currentTask = currentTask;
+    public Project currentTask(Task task) {
+        this.currentTask = task;
         return this;
     }
 
-    public void setCurrentTask(Task currentTask) {
-        this.currentTask = currentTask;
+    public void setCurrentTask(Task task) {
+        this.currentTask = task;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -263,7 +263,6 @@ public class Project implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(getId());
-        
     }
 
     @Override

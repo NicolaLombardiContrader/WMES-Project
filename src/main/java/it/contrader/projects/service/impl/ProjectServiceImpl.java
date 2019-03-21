@@ -13,11 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.LinkedList;
-import java.util.List;
+
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 /**
  * Service Implementation for managing Project.
  */
@@ -64,21 +61,6 @@ public class ProjectServiceImpl implements ProjectService {
             .map(projectMapper::toDto);
     }
 
-
-
-    /**
-     *  get all the projects where CurrentTask is null.
-     *  @return the list of entities
-     */
-    @Transactional(readOnly = true) 
-    public List<ProjectDTO> findAllWhereCurrentTaskIsNull() {
-        log.debug("Request to get all projects where CurrentTask is null");
-        return StreamSupport
-            .stream(projectRepository.findAll().spliterator(), false)
-            .filter(project -> project.getCurrentTask() == null)
-            .map(projectMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
 
     /**
      * Get one project by id.
