@@ -1,0 +1,37 @@
+entity Commessa {
+	nome String required,
+    dataApertura String required,
+    idUtenteApertura Integer required,
+    descrizione String,
+    stato Stati required
+}
+
+entity Distinta {
+   idUtente Integer required,
+   importoTotale Double required,
+   causale String required,
+   segno Segni required
+}
+
+entity Riga {
+  nome String required,
+  descrizione String,
+  link String required
+}
+
+relationship OneToMany {
+	Commessa{distinta} to Distinta
+}
+
+relationship OneToMany {
+    Distinta{riga} to Riga
+}
+
+enum Stati {
+    NUOVO, APERTO, CHIUSO
+}
+
+enum Segni {
+   ATTIVA, PASSIVA
+}
+

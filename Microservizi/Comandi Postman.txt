@@ -1,0 +1,4 @@
+http://localhost:8083/api/riga-allocaziones/findAllByRifEntita/get?rifEntita=Commesse-Riga-1
+
+http://localhost:8083/api/riga-allocaziones/findAllRiga/get?id=1
+

@@ -1,0 +1,96 @@
+COMANDI:
+new metronic (sarebbe il frontEnd): [npm install] SOLO LA PRIMA VOLTA e ng serve
+su frontEnd (sarebbe il gateway): [yarn install e poi yarn start (oppure npm install e poi npm start)] SOLO LA PRIMA VOLTA. Dopo mvnw.cmd
+
+Ora su localhost:9000 avrai il front end CONTRADER
+Ora su localhost:4200 avrai il front end MANAGEMENTOOL
+
+
+TEORIA:
+frontEnd è l'api gateway
+new-metronic è il frontend (buono)
+
+
+
+STS:
+Apri d:workspaceJHipster e poi importa (come Existing maven project) pagamenti.
+
+SU VISUAL STUDIO CODE:
+Apri con vsCode new-metronic
+su new-metronic/src/app/content/pages/payment
+su new-metronic/src/app/core/modals/payment/update-payment
+
+node_modules/ag-grid-angular/src
+
+
+
+
+
+Per inserire una nuova colonna:
+In STS inseriscila nell'entity, frontend ecc. Poi vai in src/main/resource/config/liquibase/changelog/add_entity_Pagamento e aggiungi la colonna. 
+Poi Run as Maven Clean/Run as Maven Install e Maven Update Project/Force Update.
+
+
+Per inserire un nuovo microservizio:
+Scrivi jhipster sul prompt dei comandi, poi seleziona la creazione di un microservizio ecc...
+
+
+Per inserire una nuova entity:
+Entri nella cartella del microservizio e scrivi jhipster entity <nomeEntity> oppure usando jdl studio crei il modello concettuale e poi scrivi jhipster import-jdl <pathFile>
+
+Per modificare un'entity:
+yo jhipster:entity prenotazione
+
+
+UTILE SE IL GATEWAY E' STATO FATTO CON UNA VERSIONE DI JHIPSTER ANTECEDENTE RISPETTO A QUELLA DEL/DEI MICROSERVIZIO/I
+Per installare una versione diversa di jhipster non c'è bisogno di disinstallare la precedente (lo fa da solo questa istruzione):
+npm install generator-jhipster@5.2.1
+
+
+Per controllare/prendere il token di autorizzazione (che serve per le chiamate dal frontend al backend):
+Vai sull'indirizzo del gateway (o del backend se si tratta di un'applicazione monolitica), nel nostro caso è http://localhost:8080. Se hai creato il backend con jhipster dovresti avere
+davanti un frontend di default. Apri l'ispeziona elemento, poi vai su rete e effettua l'accesso tramite admin admin da questo frontend. Clicca quindi sulla chiamata autenticate dentro
+l'ispeziona elemento e sulla destra dovresti avere vari parametri. Uno di questi è il token di autenticazione.
+
+
+Risoluzione errore con infinite scritte (your environment has changed since running `npm install`) rosse durante l'ng serve --o:
+npm rebuild node-sass da scrivere dentro la cartella in cui si voleva lanciare ng serve --o.
+
+
+Se hai il problema di una pagina completamento bianca sul gateway (quando lanci http://localhost:8080) oppure un errore tipo "An error as occurred":
+Entra nel gateway (nel mio caso la cartella frontend) e scrivi yarn install poi yarn webpack:build e poi fallo ripartire con mvnw.cmd
+
+
+Questo comando serve per fare un clean e un install (risolve il problema di non poter mettere più di un elemento nel costruttore) (dentro il microservizio devi scriverlo)
+ATTENZIONE il microservizio non deve essere avviato (ne in STS ne nel prompt) e NON devi aver fatto prima la procedura Run as maven clean, Run as maven install, Maven forceUpdate:
+mvn clean install -DskipTests oppure mvnw clean install -DskipTests
+
+
+DISABILITARE AGGIORNAMENTO JAVA:
+Su Start scrivi regedit eseguilo e poi vai nella cartella Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\JavaSoft\Java Update\Policy
+Clicca quindi sulla cartella Policy e fai doppio click su EnabledJavaUpdate a dati valore inserisci 0 al posto di 1
+
+
+
+
+
+NOTA:
+1) Avviare un microservizio con mvnw.cmd dal prompt oppure da STS è la stessa cosa (quindi avvialo in uno solo dei due modi altrimenti darà errore).
+2) Quando fai una modifica sul backend potrebbe capitare che in seguito al suo riavvio non venga più eseguita la richiesta (il frontend dice che il server è fuori uso). In questo
+caso riavvia il gateway.
+
+
+
+Se npm da errore usa (io l'ho fatto nella cartella del progetto, ma dovrebbe essere globale):
+npm cache clean --force
+e poi:
+npm install
+
+
+
+
+
+-----------------6.4.1 (Versione npm)-------------------
+
+
+
