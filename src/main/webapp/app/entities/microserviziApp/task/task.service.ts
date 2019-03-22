@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<ITask[]>;
 
 @Injectable({ providedIn: 'root' })
 export class TaskService {
-    private resourceUrl = SERVER_API_URL + 'microserviziapp/api/tasks';
+    private resourceUrl = SERVER_API_URL + 'microserviziApp/api/tasks';
 
     constructor(private http: HttpClient) {}
 

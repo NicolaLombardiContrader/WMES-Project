@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IFile[]>;
 
 @Injectable({ providedIn: 'root' })
 export class FileService {
-    private resourceUrl = SERVER_API_URL + 'microserviziapp/api/files';
+    private resourceUrl = SERVER_API_URL + 'microserviziApp/api/files';
 
     constructor(private http: HttpClient) {}
 

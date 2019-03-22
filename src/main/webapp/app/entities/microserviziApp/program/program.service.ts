@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IProgram[]>;
 
 @Injectable({ providedIn: 'root' })
 export class ProgramService {
-    private resourceUrl = SERVER_API_URL + 'microserviziapp/api/programs';
+    private resourceUrl = SERVER_API_URL + 'microserviziApp/api/programs';
 
     constructor(private http: HttpClient) {}
 

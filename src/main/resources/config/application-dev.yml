@@ -102,7 +102,7 @@ jhipster:
         rate-limiting:
             enabled: false
             limit: 100000
-            duration-in-seconds: 3600
+            duration-in-seconds: 6000
         authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
             app1: /api,/v2/api-docs # recommended dev configuration
     http:

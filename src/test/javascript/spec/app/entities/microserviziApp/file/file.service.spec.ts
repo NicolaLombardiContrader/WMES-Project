@@ -26,7 +26,7 @@ describe('Service Tests', () => {
 
                 const req = httpMock.expectOne({ method: 'GET' });
 
-                const resourceUrl = SERVER_API_URL + 'microserviziapp/api/files';
+                const resourceUrl = SERVER_API_URL + 'microserviziApp/api/files';
                 expect(req.request.url).toEqual(resourceUrl + '/' + 123);
             });
 
