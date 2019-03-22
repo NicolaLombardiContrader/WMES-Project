@@ -1,0 +1,37 @@
+
+{
+    "projectsFrontEndApp": {
+        "microserviziAppProject" : {
+            "home": {
+                "title": "Projects",
+                "createLabel": "Genera un nuovo Project",
+                "createOrEditLabel": "Genera o modifica un Project"
+            },
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Project {{ id }}?"
+            },
+            "detail": {
+                "title": "Project"
+            },
+            "name": "Name",
+            "link": "Link",
+            "description": "Description",
+            "addedValue": "Added Value",
+            "endDate": "End Date",
+            "nextCriticalDate": "Next Critical Date",
+            "status": "Status",
+            "file": "File",
+            "program": "Program",
+            "person": "Person",
+            "task": "Task",
+            "currentTask": "Current Task"
+        }
+    },
+    "microserviziApp": {
+        "microserviziAppProject" : {
+            "created": "&Egrave; stato generato un nuovo Project con identificatore { param }}",
+            "updated": "&Egrave; stato aggiornato Project identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Project con identificatore {{ param }}"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+
+{
+    "projectsFrontEndApp": {
+        "microserviziAppProgram" : {
+            "home": {
+                "title": "Programs",
+                "createLabel": "Genera un nuovo Program",
+                "createOrEditLabel": "Genera o modifica un Program"
+            },
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Program {{ id }}?"
+            },
+            "detail": {
+                "title": "Program"
+            },
+            "name": "Name"
+        }
+    },
+    "microserviziApp": {
+        "microserviziAppProgram" : {
+            "created": "&Egrave; stato generato un nuovo Program con identificatore { param }}",
+            "updated": "&Egrave; stato aggiornato Program identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Program con identificatore {{ param }}"
+        }
+    }
+}

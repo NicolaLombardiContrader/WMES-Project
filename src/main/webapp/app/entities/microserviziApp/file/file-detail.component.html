@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="file">
+            <h2><span jhiTranslate="projectsFrontEndApp.microserviziAppFile.detail.title">File</span> {{file.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppFile.name">Name</span></dt>
+                <dd>
+                    <span>{{file.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppFile.url">Url</span></dt>
+                <dd>
+                    <span>{{file.url}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppFile.jhi_size">Jhi Size</span></dt>
+                <dd>
+                    <span>{{file.jhi_size}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppFile.mime">Mime</span></dt>
+                <dd>
+                    <span>{{file.mime}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/file', file.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

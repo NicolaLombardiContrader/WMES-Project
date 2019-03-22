@@ -1,0 +1,26 @@
+
+{
+    "projectsFrontEndApp": {
+        "microserviziAppProgram" : {
+            "home": {
+                "title": "Programs",
+                "createLabel": "Create a new Program",
+                "createOrEditLabel": "Create or edit a Program"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Program {{ id }}?"
+            },
+            "detail": {
+                "title": "Program"
+            },
+            "name": "Name"
+        }
+    },
+    "microserviziApp": {
+        "microserviziAppProgram" : {
+            "created": "A new Program is created with identifier {{ param }}",
+            "updated": "A Program is updated with identifier {{ param }}",
+            "deleted": "A Program is deleted with identifier {{ param }}"
+        }
+    }
+}

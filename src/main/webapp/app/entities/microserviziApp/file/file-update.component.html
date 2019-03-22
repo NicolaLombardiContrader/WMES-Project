@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-file-heading" jhiTranslate="projectsFrontEndApp.microserviziAppFile.home.createOrEditLabel">Create or edit a File</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!file.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="file.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projectsFrontEndApp.microserviziAppFile.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="file.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projectsFrontEndApp.microserviziAppFile.url" for="field_url">Url</label>
+                    <input type="text" class="form-control" name="url" id="field_url"
+                        [(ngModel)]="file.url" required/>
+                    <div [hidden]="!(editForm.controls.url?.dirty && editForm.controls.url?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.url?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projectsFrontEndApp.microserviziAppFile.jhi_size" for="field_jhi_size">Jhi Size</label>
+                    <input type="number" class="form-control" name="jhi_size" id="field_jhi_size"
+                        [(ngModel)]="file.jhi_size" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projectsFrontEndApp.microserviziAppFile.mime" for="field_mime">Mime</label>
+                    <input type="text" class="form-control" name="mime" id="field_mime"
+                        [(ngModel)]="file.mime" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+
+{
+    "projectsFrontEndApp": {
+        "microserviziAppFile" : {
+            "home": {
+                "title": "Files",
+                "createLabel": "Create a new File",
+                "createOrEditLabel": "Create or edit a File"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete File {{ id }}?"
+            },
+            "detail": {
+                "title": "File"
+            },
+            "name": "Name",
+            "url": "Url",
+            "jhi_size": "Jhi Size",
+            "mime": "Mime"
+        }
+    },
+    "microserviziApp": {
+        "microserviziAppFile" : {
+            "created": "A new File is created with identifier {{ param }}",
+            "updated": "A File is updated with identifier {{ param }}",
+            "deleted": "A File is deleted with identifier {{ param }}"
+        }
+    }
+}

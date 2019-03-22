@@ -1,0 +1,27 @@
+
+{
+    "projectsFrontEndApp": {
+        "microserviziAppPerson" : {
+            "home": {
+                "title": "People",
+                "createLabel": "Genera un nuovo Person",
+                "createOrEditLabel": "Genera o modifica un Person"
+            },
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Person {{ id }}?"
+            },
+            "detail": {
+                "title": "Person"
+            },
+            "name": "Name",
+            "lastName": "Last Name"
+        }
+    },
+    "microserviziApp": {
+        "microserviziAppPerson" : {
+            "created": "&Egrave; stato generato un nuovo Person con identificatore { param }}",
+            "updated": "&Egrave; stato aggiornato Person identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Person con identificatore {{ param }}"
+        }
+    }
+}

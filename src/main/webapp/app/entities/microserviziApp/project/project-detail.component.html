@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="project">
+            <h2><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.detail.title">Project</span> {{project.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.name">Name</span></dt>
+                <dd>
+                    <span>{{project.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.link">Link</span></dt>
+                <dd>
+                    <span>{{project.link}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.description">Description</span></dt>
+                <dd>
+                    <span>{{project.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.addedValue">Added Value</span></dt>
+                <dd>
+                    <span>{{project.addedValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{project.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.nextCriticalDate">Next Critical Date</span></dt>
+                <dd>
+                    <span>{{project.nextCriticalDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.status">Status</span></dt>
+                <dd>
+                    <span>{{project.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.file">File</span></dt>
+                <dd>
+                    <div *ngIf="project.fileId">
+                        <a [routerLink]="['/file', project.fileId, 'view']">{{project.fileId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.program">Program</span></dt>
+                <dd>
+                    <div *ngIf="project.programId">
+                        <a [routerLink]="['/program', project.programId, 'view']">{{project.programId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.person">Person</span></dt>
+                <dd>
+                    <div *ngIf="project.personId">
+                        <a [routerLink]="['/person', project.personId, 'view']">{{project.personId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="projectsFrontEndApp.microserviziAppProject.currentTask">Current Task</span></dt>
+                <dd>
+                    <div *ngIf="project.currentTaskId">
+                        <a [routerLink]="['/task', project.currentTaskId, 'view']">{{project.currentTaskId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/project', project.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
