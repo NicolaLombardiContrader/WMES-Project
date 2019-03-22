@@ -1,0 +1,3 @@
+Per avviare il microservizio avviare con il comando mvnw
+JHipster fa partire i microservizi a partire dalla parta 8081
+Per verificare il microservizio andare sul servizio http://localhost:8081
